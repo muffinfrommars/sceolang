@@ -1,0 +1,66 @@
+- Fix TrueArcher Class mounting
+
+- Comission new portraits
+	- Aida
+	- Alface (No Reference)
+	- Alfiona (No Reference)
+	- Baby Altena
+	- Baby Ares
+	- Baby Diarmuid
+	- Baby Leif
+	- Baby Nanna
+	- Crusader Dainn (Perhaps just an outline?)
+	- Crusader Njorun (Perhaps just an outline?)
+	- Carl (No Reference)
+	- Dancer/Wedding Ethlyn
+	- Dancer/Wedding Quan
+	- Depressed Tailtiu
+	- Dio (No Reference)
+	- Grahnye
+	- Leonster Castle Maids
+	- Lance (No Reference)
+	- Lurvin (No Reference)
+	- Kalf
+	- Karlel (No Reference)
+	- Ranz (No Reference)
+	- Reinhardt (?)
+	- Romul (No Reference)
+	- Sage Lord Leif
+	- Younger Dryas
+	- Young Finn
+	- Young Glade
+	- Younger Hannibal
+	- Young/Baby Ishtar (?)
+	- Young/Baby Julia
+	- Young/Baby Julius
+	- Younger Raydrik
+	- Young/Baby Saias
+	- Young Selfina
+	- Voltz
+
+Create New Sprites:
+	- Map, Riderless Horse Sprite - White.
+	- Map, Kalf Map Sprite - White Horse
+	- Map, Queen Class Map Sprite
+	- Map, TrueArcher Ballista movement sprites (?)
+	- Various sprites for custom items, weapons
+
+- Create Sacrifice Tiles
+- Create Light Source Tiles
+- Create Highlight Tiles
+- Create Fire Tiles
+- Create AOE Seige Tomes
+- Create Accessories
+- Create Siurian Thaumite 
+- Create Custom Weapons
+	- Sceólang
+
+- Modify Stat Boosting Items
+- Modify Crusader Scrolls
+
+- Implement Again Staff
+
+Investigate Custom Music
+Investigate Image Calling
+Investigate Intro Crawl
+

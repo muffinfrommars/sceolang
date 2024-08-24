@@ -1,0 +1,5 @@
+Several components are needed for a unit:
+-Name
+-Class
+-Personal Stats (Including gender, alliegance)
+-Portrait

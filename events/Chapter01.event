@@ -1,0 +1,567 @@
+
+.weak
+  WARNINGS :?= "None"
+.endweak
+
+GUARD_FE5_CHAPTER01 :?= false
+.if (!GUARD_FE5_CHAPTER01)
+  GUARD_FE5_CHAPTER01 := true
+
+  ; Definitions
+
+    .weak
+
+       dialogueChapter01UnusedHouseElder         :?= address($95B74B)
+
+    .endweak
+
+  ; Freespace inclusions
+
+    .section Chapter01EventsSection
+
+      eventChapter01Events ; FD/8000
+
+        ; Flag definitions
+
+          _FlagEyvelDagdarTalk     = enum.enum($05)
+          _FlagOsianTanyaTalk      = enum.enum()
+          _FlagWeissmanBattleQuote = enum.enum()
+
+          ; TODO: map installer definitions
+
+          _FlagOsianHouse         = enum.enum($21)
+          _FlagHalvanHouse        = enum.enum()
+          _FlagVulneraryHouse     = enum.enum()
+          _FlagIronSwordHouse     = enum.enum()
+          _FlagLifeRingHouse      = enum.enum()
+
+        _OpeningEventDefinitions ; FD/8000
+          EVENT FlagAlwaysZero, _OpeningEvent
+            CMP_WORD wCurrentTurn, 0
+          END_DEFINITION
+        END_DEFINITION_ARRAY
+
+        _TurnEventDefinitions ; FD/800D
+          EVENT FlagAlliedDeath, eventMapDeathQuoteDummyEvent
+            TEST_FLAG_SET FlagPlayerDeath
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _DagdarAndCo
+            CMP_WORD wCurrentTurn, 3
+            CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
+        END_DEFINITION_ARRAY
+
+        _TalkEventDefinitions ; FD/8027
+          EVENT _FlagEyvelDagdarTalk, _EyvelDagdarTalk
+            CHECK_CHARS2 Eyvel, Dagdar
+          END_DEFINITION
+          EVENT _FlagOsianTanyaTalk, _OsianTanyaTalk
+            CHECK_CHARS2 Osian, Tanya
+          END_DEFINITION
+        END_DEFINITION_ARRAY
+
+        _LocationEventDefinitions ; FD/803D
+          EVENT _FlagOsianHouse, _OsianHouseOsian
+            macroECCheckCoordinates [13, 16]
+            CMP_WORD aSelectedCharacterBuffer.Character, Osian
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _OsianHouseOther
+            TEST_FLAG_UNSET _FlagOsianHouse
+            macroECCheckCoordinates [13, 16]
+          END_DEFINITION
+          EVENT _FlagLifeRingHouse, _LifeRingHouse
+            macroECCheckCoordinates [8, 5]
+            CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
+          EVENT _FlagVulneraryHouse, _VulneraryHouse
+            macroECCheckCoordinates [9, 10]
+            CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
+          EVENT _FlagIronSwordHouse, _IronSwordHouse
+            macroECCheckCoordinates [13, 10]
+            CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
+          EVENT _FlagHalvanHouse, _HalvanHouseHalvan
+            macroECCheckCoordinates [18, 10]
+            CMP_WORD aSelectedCharacterBuffer.Character, Halvan
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _HalvanHouseOther
+            TEST_FLAG_UNSET _FlagHalvanHouse
+            macroECCheckCoordinates [18, 10]
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _EndingEvent
+            macroECCheckCoordinates [17, 5]
+            CMP_WORD wCurrentPhase, Player
+            CMP_WORD aSelectedCharacterBuffer.Character, Leif
+          END_DEFINITION
+        END_DEFINITION_ARRAY
+
+        _BeforeActionEventDefinitions ; FD/80E5
+        END_DEFINITION_ARRAY
+
+        _AfterActionEventDefinitions ; FD/80E7
+        END_DEFINITION_ARRAY
+
+        _BattleEventDefinitions ; FD/80E9
+        END_DEFINITION_ARRAY
+
+        _ShopEventDefinitions ; FD/80F3
+        END_DEFINITION_ARRAY
+
+        _OsianHouseOsian ; FD/8108
+        END2
+
+        _OsianHouseOther ; FD/816B
+        END2
+
+        _LifeRingHouse ; FD/8174
+        END2
+
+        _VulneraryHouse ; FD/81D7
+        END2
+
+        _IronSwordHouse ; FD/823A
+        END2
+
+        _Unused1 ; FD/829D
+        END2
+
+        _HalvanHouseHalvan ; FD/82A6
+        END2
+
+        _HalvanHouseOther ; FD/8309
+        END2
+
+        _Unused2 ; FD/8312
+          macroDialogue $95B216
+        END2
+
+        _EyvelDagdarTalk ; FD/831B
+        END2
+
+        _OsianTanyaTalk ; FD/8324
+        END2
+
+        _DagdarAndCo ; FD/832D
+        END2
+
+        _PrepGroups ; FD/8396
+        .word 0
+
+        _OpeningEvent ; FD/8398
+          SET_CAMERA_POSITION [2, 2]
+          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(false, 15)
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          SET_MUSIC $39
+          YIELD
+
+          macroChapterTitlePopup dialogueChapter01Title
+
+          SCROLL_CAMERA_ADDRESS eventChapter01Data._Opening1CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter01Data._RaydrikUnitGroup
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dialogueChapter01Opening1
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter01Data._Opening2CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter01Data._PrisonerGuardsGroup
+          WAIT_MOVE
+          YIELD
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Weissmann, [18, 7], 1
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Raydrik, [17, 6], 1
+          WAIT_MOVE
+          YIELD
+
+          LOAD_GROUP eventChapter01Data._PrisonerGroup
+          WAIT_MOVE
+          YIELD
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dialogueChapter01Opening2
+          YIELD
+
+          MOVE_CHAR Raydrik, [0, 0], 1, _RaydrikMove1
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Nanna
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Raydrik, [0, 0], 1, _RaydrikMove2
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Mareeta
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Raydrik, [21, 12], 1
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Raydrik
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Weissmann, [17, 5], 1
+          WAIT_MOVE
+          YIELD
+
+          LOAD_GROUP eventChapter01Data._EnemyGroup1
+          WAIT_MOVE
+          YIELD
+
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter01Data._Opening3CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter01Data._EnemyGroup2
+          WAIT_MOVE
+          YIELD
+
+          WAIT_MOVE
+          YIELD
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          SET_MUSIC $31
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter01Data._LeifArriveCameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter01Data._LeifUnitGroup
+          WAIT_MOVE
+          YIELD
+
+          CALL_ASM_LOOP rlASMCSetLordIndefatigable
+
+          DIALOGUE dialogueChapter01Opening3
+          YIELD
+
+          MOVE_CHAR Halvan, [4, 16], 1, _HalvanMove1
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 32
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Halvan, [5, 15], 1, _HalvanMove2
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 32
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Halvan, [5, 15], 3, _HalvanMove3
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Halvan, [2, 18], 1, _HalvanMove4
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dialogueChapter01Opening4
+          YIELD
+
+          macroASMCSetCharacterDataByte Eyvel, LeadershipStars, 1
+          macroASMCSetCharacterDataByte Finn, LeadershipStars, 1
+        END3
+
+        _HalvanMove3 ; FD/851A
+          MS_FACE_RIGHT 1
+          MS_SET_SPEED 8
+          MS_MOVE_UP_KEEP_DIRECTION
+          MS_SET_SPEED 16
+          MS_MOVE_DOWN
+        MS_END
+
+        _HalvanMove1 ; FD/8522
+          MS_MOVE_UP
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+        MS_END
+
+        _HalvanMove2 ; FD/8526
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_RIGHT
+        MS_END
+
+        _HalvanMove4 ; FD/852A
+          MS_SET_SPEED 32
+          MS_MOVE_LEFT
+          MS_MOVE_DOWN
+          MS_MOVE_DOWN
+          MS_MOVE_LEFT
+          MS_MOVE_LEFT
+          MS_MOVE_DOWN
+        MS_END
+
+        _RaydrikMove1 ; FD/8532
+          MS_MOVE_DOWN
+        MS_END
+
+        _RaydrikMove2 ; FD/8534
+          MS_MOVE_LEFT
+        MS_END
+
+        _EndingEvent ; FD/8536
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 16
+          YIELD
+
+          CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          SET_MUSIC $41
+          YIELD
+
+          CALL_ASM_LOOP rlASMCSaveChapterTurncount
+
+          macroASMCCheckUnitStateSet Eyvel, UnitStateCaptured
+          JUMP_TRUE +
+
+          macroDialogueWithBG dialogueChapter01Ending, 1
+          JUMP ++
+
+          +
+          macroDialogueWithBG dialogueChapter01EndingNoEyvel, 1
+
+          +
+          YIELD
+          HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+          FADE_OUT $01
+          YIELD
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEndFadeOut
+
+          STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
+
+          PLAY_SOUND_FORCED $00E7
+          FADE_OUT $01
+          YIELD
+
+          CALL_ASM_LOOP rlASMCChapterEnd
+        END1
+
+    .endsection Chapter01EventsSection
+
+    .section Chapter01DataSection
+
+      eventChapter01Data ; B1/FB37
+
+        _LeifArriveCameraCoordinates ; B1/FB37
+          .byte [8, 15]
+
+        _LeifUnitGroup ; B1/FB39
+          UNIT Leif, Player, [1, 20], [3, 19], Leif, [LightBrand, IronSword], 1, false
+          UNIT Finn, Player, [1, 20], [15, 28], Leif, [BraveLance, IronSword], 7, false
+          UNIT Eyvel, Player, [1, 20], [3, 18], Leif, [IronBlade, FlameSword, DoorKey], 12, false
+          UNIT Osian, Player, [1, 20], [4, 18], Leif, [IronAxe], 1, false
+          UNIT Quan, Player, [1, 20], [15, 29], Leif, [IronAxe], 2, false
+          UNIT Ethlyn, Player, [1, 20], [15, 27], Leif, [Heal], 2, false
+        UNIT
+
+        _DagdarArriveCameraCoordinates ; B1/FB9F
+          .byte [10, 9]
+
+        _DagdarUnitGroup ; B1/FBA1
+        UNIT
+
+        _Opening1CameraCoordinates ; B1/FBDF
+          .byte [12, 7]
+
+        _RaydrikUnitGroup ; B1/FBE1
+        UNIT
+
+        _UnusedCoordinates1 ; B1/FC0B
+          .byte [15, 14]
+
+        _EnemyGroup1 ; B1/FC0D
+        UNIT
+
+        _Opening3CameraCoordinates ; B1/FC23
+          .byte [14, 9]
+
+        _EnemyGroup2 ; B1/FC25
+        UNIT
+
+        _Opening2CameraCoordinates ; B1/FD03
+          .byte [12, 7]
+
+        _PrisonerGuardsGroup ; B1/FD05
+        UNIT
+
+        _UnusedCoordinates2 ; B1/FD2F
+          .byte [8, 7]
+
+        _PrisonerGroup ; B1/FD31
+        UNIT
+
+        _Vendor ; B1/FD5B
+          SHOP [12, 6], [Vulnerary]
+
+    .endsection Chapter01DataSection
+
+    .section Chapter01WorldMapEventsSection
+
+      eventChapter01WorldMapEvents ; E7/E010
+
+        SCROLL_CAMERA_COORDS [20, 1], 4
+        SET_CURSOR_POSITION
+        YIELD
+
+        PLAY_SOUND_FORCED $00E0
+        PAUSE_SKIPPABLE 32
+        YIELD
+
+        SET_MUSIC $2A
+        YIELD
+
+        FADE_IN 1
+        YIELD
+
+        SCROLL_CAMERA_COORDS [12, 1], 1
+        SET_CURSOR_POSITION
+        YIELD
+
+        PAUSE_SKIPPABLE 32
+        YIELD
+
+        macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
+
+        macroWMDrawSpecialMarker [128, 72], WMMarkerTable.Crown, 0
+
+        macroASMCWMDialogue dialogueChapter01WorldMap1
+        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+
+        PAUSE_SKIPPABLE 32
+
+        macroASMCWMDialogue dialogueChapter01WorldMap2
+        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+
+        macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
+
+        macroWMClearSpecialMarker 0
+
+        PAUSE_SKIPPABLE 1
+        YIELD
+
+        SCROLL_CAMERA_COORDS [12, 10], 1
+        SET_CURSOR_POSITION
+        YIELD
+
+        PAUSE_SKIPPABLE 32
+
+        macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
+
+        macroWMDrawSpecialMarker [104, 120], WMMarkerTable.Crown, 0
+
+        macroASMCWMDialogue dialogueChapter01WorldMap3
+        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+
+        macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
+
+        macroWMClearSpecialMarker 0
+
+        PAUSE_SKIPPABLE 1
+        YIELD
+
+        PAUSE_SKIPPABLE 32
+        PAUSE_SKIPPABLE 32
+
+        SCROLL_CAMERA_COORDS [8, 10], 1
+        SET_CURSOR_POSITION
+        YIELD
+
+        SCROLL_CAMERA_COORDS [8, 16], 1
+        SET_CURSOR_POSITION
+        YIELD
+
+        PAUSE_SKIPPABLE 32
+
+        macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
+
+        macroWMDrawSpecialMarker [112, 104], WMMarkerTable.Crown, 0
+
+        macroASMCWMDialogue dialogueChapter01WorldMap4
+        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+
+        macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
+
+        macroWMClearSpecialMarker 0
+
+        PAUSE_SKIPPABLE 1
+        YIELD
+
+        PAUSE_SKIPPABLE 32
+
+        SCROLL_CAMERA_COORDS [20, 16], 1
+        SET_CURSOR_POSITION
+        YIELD
+
+        PAUSE_SKIPPABLE 32
+        PAUSE_SKIPPABLE 32
+
+        macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
+
+        macroWMDrawSpecialMarker [144, 112], WMMarkerTable.Circle, 0
+
+        macroASMCWMDialogue dialogueChapter01WorldMap5
+        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+
+        macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
+
+        macroWMClearSpecialMarker 0
+
+        PAUSE_SKIPPABLE 1
+        YIELD
+
+        PAUSE_SKIPPABLE 32
+
+        macroASMCWMDialogue dialogueChapter01WorldMap6
+        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+
+        FADE_OUT 2
+        YIELD
+
+        CALL_ASM_LOOP rlASMCEndWMEvents
+        YIELD
+      END1
+
+    .endsection Chapter01WorldMapEventsSection
+
+.endif ; GUARD_FE5_CHAPTER01

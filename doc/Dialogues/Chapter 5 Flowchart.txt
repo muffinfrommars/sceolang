@@ -1,0 +1,25 @@
+-- Opening:
+ch5op1		→ch5op2
+
+-- Turn1:
+dialogueChapter05RaydrikDialogue
+
+-- Mareeta appears:
+-- The "Mareeta Appears 3" string only triggers if Nanna is still present.
+dialogueChapter05MareetaAppears1	→dialogueChapter05MareetaAppears2	→dialogueChapter05MareetaAppears3	→dialogueChapter05MareetaAppears4
+
+- Mareeta has fought:
+dialogueChapter05MareetaDialogue
+
+-- Combat is interrupted in one of three possible ways.
+-- The "Nanna left alone" string only triggers if Nanna is still present.
+dialogueChapter05MareetaCaptured	→dialogueChapter05RaydrikPanicsA	→dialogueChapter05EyvelPetrify	→dialogueChapter05NannaLeftAlone			
+dialogueChapter05MareetaKilled		→dialogueChapter05RaydrikPanicsA	→dialogueChapter05EyvelPetrify	→dialogueChapter05NannaLeftAlone
+ch5eyvelcaptured														→dialogueChapter05EyvelPetrify	→dialogueChapter05NannaLeftAlone
+
+-- Arena door is opened:
+dialogueChapter05ArenaOpenEyvelNanna	→dialogueChapter05RaydrikPanicsB1		→dialogueChapter05RaydrikPanicsB2		→dialogueChapter05EyvelPetrify		→dialogueChapter05RaydrikTaunt
+dialogueChapter05ArenaOpenNannaCaptured	→dialogueChapter05RaydrikPanicsB1		→dialogueChapter05RaydrikPanicsB2		→dialogueChapter05EyvelPetrify		→dialogueChapter05RaydrikTaunt
+dialogueChapter05ArenaOpenNannaDead		→dialogueChapter05RaydrikPanicsB1		→dialogueChapter05RaydrikPanicsB2		→dialogueChapter05EyvelPetrify		→dialogueChapter05RaydrikTaunt
+dialogueChapter05ArenaOpenNannaAlone	→dialogueChapter05ArenaOpenAfterPetrify
+dialogueChapter05ArenaOpenEmpty			→dialogueChapter05ArenaOpenAfterPetrify

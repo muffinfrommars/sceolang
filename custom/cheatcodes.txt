@@ -1,0 +1,16 @@
+Min's Music Patch On FE5:
+9a84688e
+9a846c5b
+9a846d99
+
+[Usage]
+Select "Suspend"（中断） to enter sound test mode.
+
+A: +1
+B: -1
+X: +16
+Y: -16
+Start: Play Sound 
+
+###
+
