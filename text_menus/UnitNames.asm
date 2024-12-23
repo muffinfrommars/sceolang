@@ -74,7 +74,7 @@
 		.word	<>menutextUnitRomeoName
 		.word	<>menutextUnitLucciaName
 		.word	<>menutextUnitJubelName
-		.word	<>menutextUnitCairpreName
+		.word	<>menutextUnitTailtiuName
 		.word	<>menutextUnitCedName
 		.word	<>menutextUnitIshtarName	; Dialogue-only
 		.word	<>menutextUnitReinhardtName	; Unused
@@ -82,9 +82,9 @@
 		.word	<>menutextUnitLifisCrewName
 	
 		.word	<>menutextUnitEmilyName
-		.word	<>menutextUnitMurphyName
+		.word	<>menutextUnitRanzName
 		.word	<>menutextUnitBellaName
-		.word	<>menutextUnitCliffName
+		.word	<>menutextUnitDryasName
 		.word	<>menutextUnitBowieName
 		.word	<>menutextUnitLeenaName
 		.word	<>menutextUnitHiredSwordName
@@ -160,7 +160,7 @@
 		.word	<>menutextUnitMullerName
 		.word	<>menutextUnitReinkochName
 		.word	<>menutextUnitPalmanName
-		.word	<>menutextUnitKantName		; Unused
+		.word	<>menutextUnitSigurdName		; Unused
 		.word	<>menutextUnitGustavName
 		.word	<>menutextUnitDancerName
 		.word	<>menutextUnitClericName	; Unused
@@ -652,8 +652,8 @@
 		menutextUnitJubelName
 			.text "Jubel \n"
 		
-		menutextUnitCairpreName
-			.text "Cairpre \n"
+		menutextUnitTailtiuName
+			.text "Tailtiu \n"
 		
 		menutextUnitIshtarName
 			.text "Ishtar\n"
@@ -664,14 +664,14 @@
 		menutextUnitEmilyName
 			.text "E[mily\n"
 		
-		menutextUnitMurphyName
-			.text "(Murphy \n"
+		menutextUnitRanzName
+			.text "Ranz\n"
 		
 		menutextUnitBellaName
 			.text "Bella \n"
 		
-		menutextUnitCliffName
-			.text "Cliff \n"
+		menutextUnitDryasName
+			.text "Dryas \n"
 		
 		menutextUnitBowieName
 			.text "Bo]wie\n"
@@ -846,8 +846,8 @@
 		menutextUnitPalmanName
 			.text "Pal[man \n"
 		
-		menutextUnitKantName
-			.text "Kant\n"
+		menutextUnitSigurdName
+			.text "Sigurd\n"
 		
 		menutextUnitGustavName
 			.text "Gustav\n"

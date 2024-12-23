@@ -69,7 +69,7 @@ aEpilogueTitleTable ; 8F/DFB9
 	.long $000000 ; Romeo
 	.long $000000 ; Lucia
 	.long $000000 ; Hubert
-	.long $000000 ; Cairpre
+	.long $000000 ; Tailtiu
 	.long $000000 ; CedChp4x
 	.long $000000 ; Ishtar
 	.long $000000 ; ReinhardtDialogue
@@ -134,7 +134,7 @@ aEpilogueTitleTable ; 8F/DFB9
 	.long $000000 ; Mueller
 	.long $000000 ; Reinkoch
 	.long $000000 ; Parmann
-	.long $000000 ; Kant
+	.long $000000 ; Sigurd
 	.long $000000 ; Gustav
 	.long $000000 ; DancerEnemy
 	.long $000000 ; SisterEnemy

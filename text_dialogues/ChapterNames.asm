@@ -1,5 +1,5 @@
 dialogueChapter01Title
-.text "Chapter 1: The Warrior of Fiana"
+.text "The Lance of Legend"
 .byte $01
 
 dialogueChapter02Title

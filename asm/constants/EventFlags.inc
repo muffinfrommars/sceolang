@@ -103,7 +103,7 @@
 
 ; Permanent Flags
 
-	FlagCairpreSaved		= $81
+	FlagTailtiuSaved		= $81
 	FlagShivaDiedInChp2x	= $82
 	FlagJubelSaved			= $83
 ;							= $84 ; $84 - $88 unused in vanilla

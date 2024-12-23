@@ -1,5 +1,5 @@
 dialogueChapterObjectiveChapter01
-	.text "Seize the manor's gate."
+	.text "Survive."
 .byte EndTextNoPortraitFade
 
 

@@ -115,7 +115,7 @@ VeldDeathQuote,Veld,AnyChapter,None,dialogueVeldDeathQuote
 RomeoChapter3DeathQuote,Romeo,Chapter03,FlagAlliedDeath,None
 LucciaChapter3DeathQuote,Luccia,Chapter03,FlagAlliedDeath,None
 JubelChapter3DeathQuote,Jubel,Chapter03,FlagAlliedDeath,None
-CairpreChapter3DeathQuote,Cairpre,Chapter03,FlagAlliedDeath,None
+TailtiuChapter3DeathQuote,Tailtiu,Chapter03,FlagAlliedDeath,None
 Civilian2Chapter4DeathQuote,Civilian2,Chapter04,FlagAlliedDeath,None
 Civilian3Chapter4DeathQuote,Civilian3,Chapter04,FlagAlliedDeath,None
 Civilian4Chapter4DeathQuote,Civilian4,Chapter04,FlagAlliedDeath,None
@@ -123,9 +123,9 @@ Civilian5Chapter4DeathQuote,Civilian5,Chapter04,FlagAlliedDeath,None
 Civilian6Chapter4DeathQuote,Civilian6,Chapter04,FlagAlliedDeath,None
 Civilian7Chapter4DeathQuote,Civilian7,Chapter04,FlagAlliedDeath,None
 EmilyChapter5DeathQuote,Emily,Chapter05,FlagAlliedDeath,None
-MurphyChapter5DeathQuote,Murphy,Chapter05,FlagAlliedDeath,None
+RanzDeathQuote,Ranz,Chapter05,FlagAlliedDeath,None ;previously MurphyChapter5
 BellaChapter5DeathQuote,Bella,Chapter05,FlagAlliedDeath,None
-CliffChapter5DeathQuote,Cliff,Chapter05,FlagAlliedDeath,None
+CliffChapter5DeathQuote,Dryas,Chapter05,FlagAlliedDeath,None ;previously Cliff
 BowieChapter5DeathQuote,Bowie,Chapter05,FlagAlliedDeath,None
 LeenaChapter5DeathQuote,Leena,Chapter05,FlagAlliedDeath,None
 UlsterCavalier2Chapter16ADeathQuote,UlsterCavalier2,Chapter16A,eventChapter16AEvents._FlagUlsterCavalier2Death,None

@@ -40,7 +40,7 @@ aBattleAnimationsOnMusicTable .block	; 96/846C
 .word	Muller
 .word	Reinkoch
 .word	Palman
-.word	Kant
+.word	Sigurd
 .word	Gustav
 .word	Mannheim
 .word	Fraus

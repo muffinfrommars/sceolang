@@ -145,7 +145,7 @@ GUARD_FE5_CHAPTER04x :?= false
           .autsiz
           .databank ?
 
-          _NPCList := [Emily, Murphy, Bella, Cliff, Bowie, Leena]
+          _NPCList := [Leena]
 
           .for _NPC in _NPCList
 
@@ -466,9 +466,8 @@ GUARD_FE5_CHAPTER04x :?= false
         _RetreatingChildTable ; FD/8F82
 
           _RetreatingChildList  := [(Emily, FlagEmilySaved)]
-          _RetreatingChildList ..= [(Murphy, FlagMurphySaved)]
+          ;_RetreatingChildList ..= [(Murphy, FlagMurphySaved)]
           _RetreatingChildList ..= [(Bella, FlagBellaSaved)]
-          _RetreatingChildList ..= [(Cliff, FlagCliffSaved)]
           _RetreatingChildList ..= [(Bowie, FlagBowieSaved)]
           _RetreatingChildList ..= [(Leena, FlagLeenaSaved)]
 
@@ -491,12 +490,12 @@ GUARD_FE5_CHAPTER04x :?= false
           .byte [8, 7]
 
         _ChildGroup ; B1/EB4A
-          UNIT Emily, NPC, [12, 11], [12, 11], Ishtar, [], 1, false, [$02, $0B, $00, $00]
-          UNIT Cliff, NPC, [13, 12], [13, 12], Ishtar, [], 1, false, [$02, $0B, $00, $00]
-          UNIT Bella, NPC, [12, 12], [12, 12], Ishtar, [], 1, false, [$02, $0B, $00, $00]
-          UNIT Murphy, NPC, [12, 20], [12, 20], Ishtar, [], 1, false, [$02, $0B, $00, $00]
-          UNIT Leena, NPC, [13, 19], [13, 19], Ishtar, [], 1, false, [$02, $0B, $00, $00]
-          UNIT Bowie, NPC, [12, 19], [12, 19], Ishtar, [], 1, false, [$02, $0B, $00, $00]
+          ;UNIT Emily, NPC, [12, 11], [12, 11], Ishtar, [], 1, false, [$02, $0B, $00, $00]
+          ;UNIT Cliff, NPC, [13, 12], [13, 12], Ishtar, [], 1, false, [$02, $0B, $00, $00]
+          ;UNIT Bella, NPC, [12, 12], [12, 12], Ishtar, [], 1, false, [$02, $0B, $00, $00]
+          ;UNIT Murphy, NPC, [12, 20], [12, 20], Ishtar, [], 1, false, [$02, $0B, $00, $00]
+          ;UNIT Leena, NPC, [13, 19], [13, 19], Ishtar, [], 1, false, [$02, $0B, $00, $00]
+          ;UNIT Bowie, NPC, [12, 19], [12, 19], Ishtar, [], 1, false, [$02, $0B, $00, $00]
         UNIT
 
         _Opening1CameraCoordinates ; B1/EBC4

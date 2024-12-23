@@ -4,8 +4,8 @@ aScriptedBattleTable ; 9A/E802
 	.addr MareetaShannamScriptedBattle
 	.addr NannaLoptrianScriptedBattle
 	.addr CedAlphandScriptedBattle
-	.addr OsianHalvanScriptedBattle
-	.addr OsianHalvanScriptedBattle
+	.addr FinnGladeScriptedBattle
+	.addr EthlynDeathScriptedBattle
 	.addr OsianHalvanScriptedBattle
 	.addr OsianHalvanScriptedBattle
 	.addr OsianHalvanScriptedBattle
@@ -70,3 +70,28 @@ CedAlphandScriptedBattle .dstruct structScriptedBattleSetup, $17, [CedChp23, Pla
 					   ; Dmg
 	.byte $80, $01, $00, $38	;First80+Right0;Crit1;0;
 .word $FFFF, $FFFF
+
+* = $9AFE28
+.logical lorom($D7E28, 1)
+
+FinnGladeScriptedBattle .dstruct structScriptedBattleSetup, $00, [Glade, Enemy, Soldier, Javelin, TerrainVillage, [22, 22], 1, 81, 13, 2, 0], [Finn, Player, Soldier, Javelin, TerrainVillage, [24, 24], 1, 89, 15, 3, 0], $0A, Glade, battleGlade1, Glade, battleGlade2, $FFFF, None
+
+	; Rounds
+					   ; Dmg
+	.byte $80, $02, $00, $0C	;Right start, miss
+	.byte $02, $11, $00, $38	;crit + astra + hit
+.word $FFFF, $FFFF
+
+.here
+
+* = $9AFEFF
+.logical lorom($D7EFF, 1)
+
+EthlynDeathScriptedBattle .dstruct structScriptedBattleSetup, $00, [Ethlyn, Player, Troubadour, None, TerrainWasteland, [22, 22], 1, 81, 13, 2, 0], [ThraciaDracoKnight1, Enemy, Dracorider, KillerLance, TerrainWasteland, [24, 24], 1, 89, 15, 3, 0], $0A, EthlynPortrait, EthlynDeathScript1, EthlynPortrait, EthlynDeathScript2, Chapter01, None
+
+	; Rounds
+					   ; Dmg
+	.byte $02, $11, $00, $38	;crit + astra + hit
+.word $FFFF, $FFFF
+
+.here

@@ -169,8 +169,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word ReinhardtPortrait
 	.word ReinhardtDialogue
 
-	.word CairprePortrait
-	.word Cairpre
+	.word TailtiuPortrait
+	.word Tailtiu
 
 	.word RaydrikPortrait
 	.word Raydrik
@@ -259,8 +259,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word PalmanPortrait
 	.word Palman
 
-	.word KantPortrait			;<<
-	.word Kant
+	.word SigurdPortrait			;<<
+	.word Sigurd
 
 	.word GustavPortrait
 	.word Gustav

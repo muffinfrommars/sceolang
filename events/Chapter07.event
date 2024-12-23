@@ -692,7 +692,7 @@ GUARD_FE5_CHAPTER07 :?= false
           STORE_LONG lEventEngineLongParameter, dialogueChapter07Ending7
           CALL_ASM_LOOP rlASMCDialogueContinue
 
-          EVENT_TEST_FLAG_SET FlagCairpreSaved
+          EVENT_TEST_FLAG_SET FlagTailtiuSaved
           JUMP_FALSE +
 
             STORE_LONG lEventEngineLongParameter, dialogueChapter07Ending8

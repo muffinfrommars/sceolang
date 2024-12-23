@@ -271,7 +271,7 @@
 	g4bppcPortraitEB91DE .binary "sprites/PortraitEB91DE.4bpp.comp"
 	g4bppcPortraitEB9717 .binary "sprites/PortraitEB9717.4bpp.comp"
 	g4bppcPortraitLachesis .binary "../../custom/graphics/portraits/PortraitLachesis.4bpp.fe4" ; formerly g4bppcEB9BD9 - Daisy
-	g4bppcPortraitEldigan .binary "../../custom/graphics/portraits/PortraitEldigan.4bpp.fe4" ; formerly g4bppcEBA119 - Asaello
+	g4bppcPortraitEldigan .binary "../../custom/graphics/portraits/PortraitEldigan.4bpp.fe4" ; formerly g4bppcEBA119 - Eldigan
 	g4bppcPortraitEBA613 .binary "sprites/PortraitEBA613.4bpp.comp"
 	g4bppcPortraitEBAB36 .binary "sprites/PortraitEBAB36.4bpp.comp"
 	g4bppcPortraitEBB048 .binary "sprites/PortraitEBB048.4bpp.comp"
@@ -400,14 +400,18 @@
 	g4bppcPortraitEEF712 .binary "sprites/PortraitEEF712.4bpp.comp"
 	g4bppcPortraitEEFC0A .binary "sprites/PortraitEEFC0A.4bpp.comp"
 
-	segmentEnd $EF0019
+.here
+
+* = $378000
+.logical $EF0000
+
+	.crossbank.end
 
 .here
 
+
 * = $378019
 .logical $EF8019
-
-	segmentStart
 
 	g4bppcPortraitEF8019 .binary "sprites/PortraitEF8019.4bpp.comp"
 	g4bppcPortraitEF8470 .binary "sprites/PortraitEF8470.4bpp.comp"
@@ -438,4 +442,4 @@
 	g4bppcPortraitKalf .binary "../../custom/graphics/portraits/PortraitKalf.4bpp.fe4" ; formerly g4bppcEFEBDE - Unused HighPriest from FE4
 	g4bppcPortraitEFEF61 .binary "sprites/PortraitEFEF61.4bpp.comp"
 
-	segmentEnd
+	.here

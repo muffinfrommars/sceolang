@@ -60,11 +60,11 @@ HannibalPortrait,g4bppcPortraitEAEE23,$03
 ReinhardtPortrait,g4bppcPortraitECEB79,$35
 AugustPortrait,g4bppcPortraitEDE4DA,$59
 DoriasPortrait,g4bppcPortraitEDC9FC,$53
-CairprePortrait,g4bppcPortraitEB8851,$08
+TailtiuPortrait,g4bppcPortraitTailtiu,$08
 SeliphPortrait,g4bppcPortraitEB8C84,$09
 Leif2Portrait,g4bppcPortraitEB91DE,$0A
-DaisyPortrait,g4bppcPortraitEB9BD9,$0C
-AsaelloPortrait,g4bppcPortraitEBA119,$0D
+LachesisPortrait,g4bppcPortraitLachesis,$0C
+EldiganPortrait,g4bppcPortraitEldigan,$0D
 LewynPortrait,g4bppcPortraitEBA613,$0E
 JuliaPortrait,g4bppcPortraitEBAB36,$0F
 QuanPortrait,g4bppcPortraitQuan,$40
@@ -98,9 +98,9 @@ LemayPortrait,g4bppcPortraitEDED87,$5B
 MullerPortrait,g4bppcPortraitEDED87,$C4
 SeimetzPortrait,g4bppcPortraitEDED87,$C5
 NicholasPortrait,g4bppcPortraitEDED87,$C6
-OltophPortrait,g4bppcPortraitEDF246,$5C
-KantPortrait,g4bppcPortraitEDF246,$C7
-BossUnknown4Portrait,g4bppcPortraitEDF246,$C8
+OltophPortrait,g4bppcPortraitSigurd,$5C
+SigurdPortrait,g4bppcPortraitSigurd,$C7
+BossUnknown4Portrait,g4bppcPortraitSigurd,$C8
 CodhaPortrait,g4bppcPortraitEDF6BA,$5D
 MoorePortrait,g4bppcPortraitEDF6BA,$CC
 ReinkochPortrait,g4bppcPortraitEDF6BA,$CD
@@ -113,7 +113,7 @@ Leonster7Portrait,g4bppcPortraitEE8071,$5F
 PaulusPortrait,g4bppcPortraitEE8071,$D2
 PalmanPortrait,g4bppcPortraitEE8071,$D3
 FrankPortrait,g4bppcPortraitEE8071,$D4
-JabalPortrait,g4bppcPortraitEE84E4,$60
+JabalPortrait,g4bppcPortraitSigurd,$60 ; g4bppcPortraitEE84E4
 SeilPortrait,g4bppcPortraitEE89F5,$61
 ColhoPortrait,g4bppcPortraitEE8ED4,$62
 GomezPortrait,g4bppcPortraitEE9378,$63
@@ -200,7 +200,7 @@ Brigand3Portrait,g4bppcPortraitEFCFD4,$9A
 Fighter1Portrait,g4bppcPortraitEFC7D1,$9B
 Archer3Portrait,g4bppcPortraitEFB75D,$A3
 Brigand4Portrait,g4bppcPortraitEFCFD4,$A5
-HighPriest1Portrait,g4bppcPortraitEFEBDE,$B7
+HighPriest1Portrait,g4bppcPortraitSigurd,$B7 ; g4bppcPortraitEFEBDE
 Dancer1Portrait,g4bppcPortraitEFEF61,$B9
 Priest1Portrait,g4bppcPortraitEFD772,$AB
 Mage1Portrait,g4bppcPortraitEFDC2E,$A9
@@ -215,7 +215,7 @@ Mage7Portrait,g4bppcPortraitEFDC2E,$AD
 Priest3Portrait,g4bppcPortraitEFD772,$AD
 Thief1Portrait,g4bppcPortraitEFE801,$A6
 Myrmidon4Portrait,g4bppcPortraitEFBB1D,$9E
-Priestess1Portrait,g4bppcPortraitEFE053,$AE
+Priestess1Portrait,g4bppcPortraitSigurd,$AE ; g4bppcPortraitEFE053
 Ballistician1Portrait,g4bppcPortraitEFE47D,$A2
 Ballistician2Portrait,g4bppcPortraitEFE47D,$A0
 Ballistician3Portrait,g4bppcPortraitEFE47D,$B8

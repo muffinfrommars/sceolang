@@ -19,1133 +19,842 @@ PlayMusic = $1300
 MoveXY = $1000
 PauseDialogue = $1D00
 
+EthlynDeathScript1
 
-dialogueChapter01Opening1
+	.text "...!"
+	.byte WaitForA
 
-    .byte Left_slot ; Left slot
-    .word LoadPortrait    ; load portrait
-    .word raydrik_portrait
+	.byte EndText
 
-    .byte Right_Slot ; Right slot
-    .word LoadPortrait
-    .word weissman_portrait
-	
-	.byte Left_slot
-	.byte $09 ; font 9(always use font 9)	
-	.text "Have you found that whelp of a prince yet?"
-	.byte WaitForA	
-	
-	.byte Right_Slot
-	.text "Regretfully not, milord. The men searched the"
-	.byte NewLine
-	.text "village top to bottom, but came up with nothing."
+
+EthlynDeathScript2
+
+	.byte right_slot
+	.byte $09 ; font 9(always use font 9)
+	.word LoadPortrait
+    .word EthlynPortrait
+	.text "Q-Quan... Altena..."
 	.byte WaitForA
-	
-	.byte Left_slot
+
 	.byte ScrollText
-	.text "Why is such a simple task taking you so long?"
-	.byte NewLine
-	.text "There's little doubt that the heir"
-	.byte NewLine
-	.text "to House Leonster is hiding here."
+	.text "I'm so s o r r y..."
 	.byte WaitForA
-	.byte ScrollText
-	.text "You've been too gentle with these villagers—"
-	.byte NewLine
-	.text "give them ample motivation to talk."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "We are of the same mind, milord—"
-	.byte NewLine
-	.text "I've already ordered the men to do as much."
-	.byte NewLine
-	.text "Yet the townsfolk claim the prince isn't here."
-	.byte WaitForA
-	.byte ScrollText
-	.text "According to them, he left with the Freeblades"
-	.byte NewLine
-	.text "to fend off a pirate raid on a nearby village."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Freeblades? What nonsense is that?"
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "They're the local militia, sire. As I understand it,"
-	.byte NewLine
-	.text "this village was once home to a group"
-	.byte NewLine
-	.text "of brigands—rather savage ones, at that."
-	.byte WaitForA
-	.byte NewLine
-	.text "About a decade ago, they were routed by Eyvel,"
-	.byte NewLine
-	.text "a wandering sellsword."
-	.byte WaitForA
-	.byte ScrollText
-	.text "She claimed the village as her own and founded"
-	.byte NewLine
-	.text "the Freeblades to protect the region"
-	.byte NewLine
-	.text "from future attacks."
-	.byte WaitForA
-	.byte ScrollText
-	.text "She's supposedly quite a wonder with a sword..."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Hmm... She may be a problem."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "You have nothing to fear, milord:"
-	.byte NewLine
-	.text "we've taken Eyvel's daughter captive."
-	.byte WaitForA
-	.byte ScrollText
-	.text "What's more, we also captured"
-	.byte NewLine
-	.text "the daughter of Finn, the very knight"
-	.byte NewLine
-	.text "guarding the prince's life."
-	.byte WaitForA
-	.byte ScrollText
-	.text "With the leverage we have over them,"
-	.byte NewLine
-	.text "they'll have no choice but to surrender."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Hmph. I admit, you have your uses, Weismann."
-	.byte WaitForA
-	.byte ScrollText
-	.text "The women will accompany me back to Munster."
-	.byte NewLine
-	.text "You'll remain here and prepare for when"
-	.byte NewLine
-	.text "these upstart rebels return."
-	.byte WaitForA
-	.byte ScrollText
-	.text "See that the young Leonster pup is put in chains"
-	.byte NewLine
-	.text "befitting a stray mutt."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Your trust in me is well placed, sire."
-	
-	.byte Left_slot
-	.word ClearPortrait
-	.word RetractBox
-	
+
+	.byte EndText
+
+dialogueAedTravant1
+
 	.byte Right_slot
+    .word LoadPortrait
+    .word TravantPortrait
+	.byte $09 ; font 9(always use font 9)
+	.text "What's this?"
 	.byte NewLine
-	.text "Men, bring the girls here!"
+	.text "...The woman was foolish enough to have brought"
+	.byte NewLine
+	.text "a child with her?"
 	.byte WaitForA
+
+	.byte ScrollText
+	.text "Hoho, I see..."
+	.byte NewLine
+	.text "Quan's daughter..."
+	.byte WaitForA
+
+	.byte ScrollText
+	.text "You there!"
+
+	.byte Left_slot
+    .word LoadPortrait
+    .word RonanPortrait
+	.text "Yes, milord?"
+	.byte WaitForA
+
+	.byte Right_slot
+	.byte ScrollText
+	.text "Tell Quan this: Forfeit Gae Bolg, or his daughter"
+	.byte NewLine
+	.text "here will meet an untimely end!"
+	.byte WaitForA
+
+	.byte EndText
+
+dialogueAedQuan1
+
+	.byte right_slot
+    .word LoadPortrait
+    .word QuanPortrait
+	.byte $09 ; font 9(always use font 9)
+	.text "N-No! Ethlyn!!"
+	.byte NewLine
+	.text "You craven vultures! Travant!!"
+	.byte WaitForA
+
+	.byte ScrollText
+	.text "You can have Gae Bolg, but don't you DARE"
+	.byte NewLine
+	.text "as much as lay a finger on Altena!"
+	.byte WaitForA
+
+	.byte EndText
+
+dialogueAedQuan2
+
+	.byte right_slot
+    .word LoadPortrait
+    .word QuanPortrait
+	.byte $09 ; font 9(always use font 9)
+	.text "So this..."
+	.byte NewLine
+	.text "This is where it ends..."
+	.byte WaitForA
+
+	.byte ScrollText
+	.text "Finn..."
+	.byte NewLine
+	.text "...I entrust Leif to you."
+	.byte WaitForA
+
+	.byte EndText	
+
+battleGlade1
+
+	.text "...Hyah!"
+	.byte WaitForA
+
+	.byte EndText
+
+
+battleGlade2
+
+	.text "...ugh!"
+	.byte WaitForA
+	.byte ScrollText
+	.text "...Oohhh..."
+	.byte NewLine
+	.text "Stop, stop!"
+	.byte WaitForA
+
+	.byte EndText
+	
+introFinnGlade1
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word FinnPortrait
+	.byte $09 ; font 9(always use font 9)
+	.text "Glade!"
+	.byte NewLine
+	.text "Are you alright?!"
+	.byte WaitForA
+
+	.byte Left_slot
+    .word LoadPortrait
+    .word GladePortrait
+	.text "...Gotcha!"
+
+	.byte Right_slot
+	.byte ScrollText
+	.text "Huh?"
+	.byte WaitForA
+
+	.word PlayMusic
+	.byte $4C
+
+	.byte Left_slot
+	.byte ScrollText
+	.text "The lack of faith hurts!"
+	.byte NewLine
+	.text "Did you really think I'd go down"
+	.byte NewLine
+	.text "so easily? "
+	.byte WaitForA
+
+	.byte Right_slot
+	.byte ScrollText
+	.text "Glade, please..."
+	.byte NewLine
+	.text "There isn't much daylight left. I'd rather not"
+	.byte NewLine
+	.text "waste what remaining time we have left fooling a-"
+
+	.byte Left_slot
+	.byte ScrollText
+	.text "Oh gods, can you relax already? You've"
+	.byte NewLine
+	.text "been at this for weeks. Unless you feel"
+	.byte NewLine
+	.text "like burning out, I'd say a break is in order."
+	.byte WaitForA
+
+	.byte Right_slot
+	.byte ScrollText
+
+	.byte Left_slot
+	.byte ScrollText
+	.text "At any rate, I think you'll be fine."
+	.byte NewLine
+	.text "I haven't seen any of those pampered pretty boys"
+	.byte NewLine
+	.text "training half as hard as you."
+	.byte WaitForA
+
+	.byte Right_slot
+	.text "I suppose you're right..."
+	.byte NewLine
+	.text "But, what about you? Are you sure you're ready?"
+	.byte WaitForA
+	.byte ScrollText
+	.text "I know a lot of the generals have their eyes on "
+	.byte NewLine
+	.text "you, anticipating your performance. You've got"
+	.byte NewLine
+	.text "quite the pair of shoes to fill in."
+	.byte WaitForA
+
+	.byte Left_slot
+	.byte ScrollText
+	.text "*scoff* Finn, I come and hang out with you to"
+	.byte NewLine
+	.text "have a good time. If I wanted a lecture, I'd be"
+	.byte NewLine
+	.text "with my father right now."
+	.byte ScrollText
+	.text "You're sounding more like him every day."
+	.byte WaitForA
+
+	.byte Right_slot
+	.byte ScrollText
+	.text "Sorry... I just... This is important to me."
+	.byte NewLine
+	.text "And, of course, I'd also like to see you do well."
+	.byte WaitForA
+	.byte ScrollText
+
+	.word PlayMusic
+	.byte $4B
+
+	.byte Left_slot
+	.byte ScrollText
+	.text "Hey..."
+	.byte NewLine
+	.text "I know the odds are stacked against you, but"
+	.byte NewLine
+	.text "you're a natural born survivor."
+	.byte ScrollText
+	.text "I'd wager you could survive a week or more in"
+	.byte NewLine
+	.text "those damned Thracian mountains with nothing but"
+	.byte NewLine
+	.text "the clothes on your back."
+	.byte WaitForA
+
+	.byte ScrollText
+	.text "With the higher-ups oogling at recruits born from"
+	.byte NewLine
+	.text "noble houses, they'll be that much more shocked"
+	.byte NewLine
+	.text "when they see you rise to the occasion."
+	.byte WaitForA
+	.byte ScrollText
+
+	.byte Right_slot
+	.text "You think so?"
+	.byte NewLine
+	.text "That really means a lot, coming from you."
+	.byte WaitForA
+
+	.byte EndText
+	
+introFinnGlade2
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word FinnPortrait
+	.text "Ah, I should pack my things..."
+	.byte NewLine
+	.text "I have kitchen duty this week, the children"
+	.byte NewLine
+	.text "will fall behind if I'm not supervising them."
+	.byte WaitForA
+
+	.byte Left_slot
+    .word LoadPortrait
+    .word GladePortrait
+	.text "Seriously?"
+	.byte NewLine
+	.text "Couldn't they have given you this week"
+	.byte NewLine
+	.text "off, given everything?"
+	.byte WaitForA
+
+	.byte Right_Slot
+	.byte ScrollText
+	.text "They did, actually."
+	.byte NewLine
+	.text "But, I turned down the offer."
+	.byte WaitForA
+
+	.byte Left_Slot
+	.byte ScrollText
+	.text "...You turned down a break?"
+	.byte WaitForA
+	.byte ScrollText
+	.text "Alright, I'm getting out of here before"
+	.byte NewLine
+	.text "any more of your craziness rubs off on me."
+	.byte NewLine
+	.text "Until tomorrow!"
+	.byte WaitForA
+	
 	
 	.byte EndText
 	
-dialogueChapter01Opening2
+introFinnGlade3
 
-	.byte Left_slot
+	.byte Right_slot
     .word LoadPortrait
-    .word raydrik_portrait
+    .word FinnPortrait
+	.text "See you tomorrow."
+	.byte NewLine
+	.text "Make sure to wake up on time!"
 
-    .byte Right_Slot
-    .word LoadPortrait
-    .word mareeta_portrait
+	.byte Left_Slot
+	.word LoadPortrait
+    .word GladePortrait
+	.byte ScrollText
+	.text "Yeah, Yeah!"
+	.byte WaitForA
+
+	.byte EndText
 	
-	.byte Left_slot
+introDryas1
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word FinnPortrait
+	.text "..."
+	.byte WaitForA
+
+	.byte Left_Slot
+	.word LoadPortrait
+    .word XavierPortrait
+	.text "Hah."
+	.byte NewLine
+	.text "Not often does a recruit arrive on scene"
+	.byte NewLine
+	.text "earlier than myself."
+	.byte WaitForA
+	.word ClearPortrait
+
+	.byte Right_slot
+	.word ClearPortrait
+
+	.byte Left_Slot
+	.word LoadPortrait
+	.word FinnPortrait
+	.byte ScrollText
+	.text "Ah!"
+
+	.word PlayMusic
+	.byte $29
+
+	.byte Right_slot
+	.word LoadPortrait
+	.word XavierPortrait
+	.text "You ARE here for the trials, yes?"
+	.byte WaitForA
+
+	.byte Left_Slot
+	.byte ScrollText
+	.text "Y-yes, Sir. Pardon me, Sir. I was... just taking"
+	.byte NewLine
+	.text "in a bit of the scenery."
+
+	.byte right_slot
+	.byte ScrollText
+	.text "Aye. It is rather peaceful up here."
+	.byte NewLine
+	.text "Relish it. Moments such as these are scarcely"
+	.byte NewLine
+	.text "available should an individual pass today's tests."
+	.byte ScrollText
+	.text "What's your name, lad?"
+	.byte WaitForA
+	.byte ScrollText
+
+	.byte Left_Slot
+	.byte ScrollText
+	.text "My name is Finn, Sir. Just... Finn."
+	.byte WaitForA
+	.byte ScrollText
+
+	.byte right_slot
+	.text "You're an orphan boy, yes?"
+	.byte NewLine
+	.text "You've got the height of a soldier."
+	.byte NewLine
+	.text "I've seen you around there, hard to miss."
+	.byte WaitForA
+
+	.byte ScrollText
+	.text "As for muscle..."
+	.byte NewLine
+	.text "Ah, no matter. Let's see how today goes."
+	.byte WaitForA
+
+	.byte EndText
+	
+introDryas2
+	
+	.byte right_slot
+	.word LoadPortrait
+	.word XavierPortrait
+	.text "Good."
+	.byte NewLine
+	.text "It looks like the others have arrived."
+	.byte WaitForA
+	.byte ScrollText
+	.text "I expect good things today from you, Finn."
+	.byte WaitForA
+	.word ClearPortrait
+	.word RetractBox
+
+	.byte Left_Slot
+	.word LoadPortrait
+	.word FinnPortrait
+	.text "..."
+	.byte NewLine
+	.byte WaitForA
+	
+	.byte EndText
+
+introDryas3
+
+	.byte right_slot
+	.word LoadPortrait
+	.word XavierPortrait
+	.text "Lieutenant Ranz. General Dryas."
+	.byte NewLine
+	.text "Good morning, gentlemen."
+	.byte WaitForA
+
+	.byte Left_Slot
+	.word LoadPortrait
+	.word RonanPortrait
+	.text "Sergeant Placeholder. Many thanks for"
+	.byte NewLine
+	.text "for your efforts in preparing todays"
+	.byte NewLine
+	.text "trials. Efficient as always."
+	.byte WaitForA
+	.byte ScrollText
+
+	.byte right_slot
+	.byte ScrollText
+	.text "Aye, Sir. If it's for the kingdom,"
+	.byte NewLine
+	.text "it is not only my duty, but absolute pleasure."
+	.byte NewLine
+	.text "General Dryas?"
+	.byte WaitForA
+
+	.byte Left_Slot
+	.word ClearPortrait
+	.word LoadPortrait
+	.word dorias_portrait	
+	.text "Hmmph."
+	.byte NewLine
+	.text "Is that boy over there a recruit?"
+	.byte WaitForA
+
+	.byte right_slot
+	.byte ScrollText
+	.text "Yes, Sir. He's a quiet one, but I can"
+	.byte NewLine
+	.text "see the fire in his eyes. He arrived here"
+	.byte NewLine
+	.text "first, even before myself."
+	.byte WaitForA
+
+	.byte Left_Slot
+	.byte ScrollText
+	.text "Seargant, I don't ever want an official of"
+	.byte NewLine
+	.text "my company to be humiliated by a sickly"
+	.byte NewLine
+	.text "looking runt again. Arrive earlier next time."
+	.byte WaitForA
+
+	.byte right_slot
+	.byte ScrollText
+	.text "My apologies, Sir..."
+	.byte NewLine
+	.text "It won't happen again."
+	.byte WaitForA
+
+	.byte Left_Slot
+	.byte ScrollText
+	.text "Right."
+	.byte NewLine
+	.text "Now, where are the rest of my recruits?"
+	.byte WaitForA
+
+	.byte right_slot
+	.byte ScrollText
+	.word LoadPortrait
+	.word Ronanportrait
+	.text "They're about to summit as we speak, sir."
+	.byte NewLine
+	.text "I see them now."
+	.byte WaitForA
+
+	.byte EndText
+
+introDryas4
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word XavierPortrait
+	.text "Is that everyone?"
+
+	.byte Left_Slot
+	.word LoadPortrait
+    .word RonanPortrait
+	.text "According to this list, we seem"
+	.byte NewLine
+	.text "to be one short."
+	.byte WaitForA
+
+	.byte EndText
+
+
+introDryas5
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word FinnPortrait
+	.text "That would be Glade, Sir."
+	.byte NewLine
+	.text "Lord Lurvin? That's his son."
+	.byte WaitForA
+	.byte ScrollText
+	.text "His manor is quite a distance from here."
+	.byte NewLine
+	.text "He should be on his way as we speak."
+	.byte WaitForA
+
+	.byte EndText
+
+introDryas6
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word dorias_portrait	
+	.text "Lurvin's kid? Why am I not surprised?"
+	.byte NewLine
+	.text "The apple doesn't fall too far from the tree,"
+	.byte NewLine
+	.text "does it?"
+	.byte WaitForA
+	.byte ScrollText
+	.text "Very well. We're starting soon,"
+	.byte NewLine
+	.text "with or without him."
+	.byte NewLine
+	.text "How much he misses is on him."
+	.byte WaitForA
+
+	.byte EndText
+
+introDryas7
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word FinnPortrait
+	.text "(Glade, you fool...)"
+	.byte WaitForA
+
+	.byte EndText
+
+introFinal1
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word dorias_portrait
+	.text "Now then."
+	.byte NewLine
+	.text "Let's cut the nonsense and get to the point."
+	.byte WaitForA
+	.byte ScrollText
+	
+	.text "If you're here today, it means you've demonstrated"
+	.byte NewLine
+	.text "yourself as a promising youth, ready and willing"
+	.byte NewLine
+	.text "to dedicate your lives in honor of House Leonster."
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "In spite of your age, you've already set yourself"
+	.byte NewLine
+	.text "apart from the average recruit, some of which are"
+	.byte NewLine
+	.text "nearly a decade older than you."
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "To my left stands Lieutenant Ranz of the 2nd division"
+	.byte NewLine
+	.text "company of the Lanzenritter. He's had plenty of"
+	.byte NewLine
+	.text "experience, quelling skirmishes at the Thracian border."
+	.byte WaitForA
+
+	.byte EndText
+
+introFinal2
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word Ronan_portrait
+	.text "Good morning, gentlemen."
+	.byte NewLine
+	.text "I'm eager to see your performances today."
+	.byte WaitForA
+
+	.byte EndText
+	
+introFinal3
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word dorias_portrait
+	.text "Now, to my right is Seargant Xavier of the"
+	.byte NewLine
+	.text "18th division of Leonster's Armor Company."
+	.byte NewLine
+	.text "He's a cornerstone of the Queen's Private Guard."
+	.byte WaitForA
+
+	.byte EndText
+
+introFinal4
+	
+	.byte Right_slot
+    .word LoadPortrait
+    .word Xavier_portrait
+	.text "It's a pleasure to meet the faces of those"
+	.byte NewLine
+	.text "the next generation, who will lead our Leonster"
+	.byte NewLine
+	.text "into greatness, far after we old men have faded."
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "May Njorun's Light guide the way."
+	.byte WaitForA
+
+	.byte EndText
+
+introFinal5
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word dorias_portrait
 	.byte $09
-	.text "What's your name, lass?"
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.text "Hmph..."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Hah! A fighting spirit to match a pretty face."
-	
-	.byte Right_slot
-	.byte ScrollText
-	.word ClearPortrait
-	
-	.byte Left_slot
+
+	.text "As you may have noticed, the area in which"
 	.byte NewLine
-	.text "Now, let's have a look at the other one..."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.word LoadPortrait
-	.word nanna_portrait
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Ah, you must be Finn's young ward."
+	.text "we've brought you to today is fairly quiet."
 	.byte NewLine
-	.text "I hear your mother was royalty"
-	.byte NewLine
-	.text "of House Nordion, is that right?"
+	.text "Perfect for a battle or two."
 	.byte WaitForA
 	.byte ScrollText
-	.text "You certainly don't lack for grace, despite living"
+
+	.text "We will be conducting several excersizes,"
 	.byte NewLine
-	.text "in this backwater hovel—holy blood doesn't run"
+	.text "testing your ability to adapt to the ever"
 	.byte NewLine
-	.text "thin even in squalor, I see."
+	.text "changing battlefield. War sits idle for no one."
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "To warm ourselves up, let's begin with a simple"
+	.byte NewLine
+	.text "test of might between yourselves. Expect plenty"
+	.byte NewLine
+	.text "of teamwork and coordination in later drills."
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "We'll begin in pairs. Those not selected,"
+	.byte NewLine
+	.text "clear this plateau, and observe your peers"
+	.byte NewLine
+	.text "tactics, and possible flaws. Help correct them."
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "The winner between the pair will have a chance"
+	.byte NewLine
+	.text "to swing lances with myself. Do not expect this"
+	.byte NewLine
+	.text "old man to hold back!"
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "Should any of you somehow best me..."
+	.byte NewLine
+	.text "Well, we may just have ourselves a new"
+	.byte NewLine
+	.text "Lanzenritter 1st Division contender on our hands."
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "Lieutenant Ranz will now distribute the only"
+	.byte NewLine
+	.text "equipment we shall provide directly. You'll need"
+	.byte NewLine
+	.text "to find more on your own, down the line."
 	.byte WaitForA
 
-	.byte Right_slot
-	.text "......"
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "What a pleasant surprise the two of you"
-	.byte NewLine
-	.text "make for."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.word LoadPortrait
-	.word weissman_portrait
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Weismann, I'll be departing for Munster now."
-	.byte NewLine
-	.text "Don't disappoint me."
-	.byte WaitForA
-
-	.byte Right_Slot
-	.text "All shall be as you wish it, milord."
-	.byte WaitForA
-	
 	.byte EndText
-	
-dialogueChapter01Opening3
+
+introFinal6
 
 	.byte Right_slot
     .word LoadPortrait
-    .word eyvel_portrait
-	.byte $09	
-	.text "What's that commotion in the village?"
+    .word dorias_portrait
+	.byte $09
+
+	.text "You two."
 	.byte NewLine
-	.text "Something's rotten here..."
+	.text "Step there, and there."
+	.byte WaitForA
+	.byte ScrollText
+	.byte NewLine
+	.text "When I blow the whistle, begin your battle."
 	.byte WaitForA
 
-    .byte Left_Slot
-    .word LoadPortrait
-    .word halvan_portrait
-	.text "I'll scout ahead, Commander."
-	.byte NewLine
-	.text "Hold here a moment."
-	.byte WaitForA
-	
 	.byte EndText
 
-dialogueChapter01Opening4
-
-	.byte Left_slot
-    .word LoadPortrait
-    .word eyvel_portrait
-	
-    .byte Right_Slot
-    .word LoadPortrait
-    .word halvan_portrait
-	.byte $09 ; font 9(always use font 9)	
-	.text "Commander, Fiana is packed to the brim"
-	.byte NewLine
-	.text "with Imperial troops!"
-	.byte NewLine
-	.text "They...must have struck while we were away."
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte Left_Slot
-	.word LoadPortrait
-	.word osian_portrait
-	.text "What? No way is the Empire gonna make a mess"
-	.byte NewLine
-	.text "of our home! "
-	
-	.byte Right_Slot
-	.word LoadPortrait
-	.word eyvel_portrait
-	
-	.byte Left_Slot	
-	.text " Commander, let's move in!"
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte Right_Slot
-	.word LoadPortrait
-	.word halvan_portrait
-	.text "Calm down, Osian. We'll get slaughtered"
-	.byte NewLine
-	.text "if we just charge in blindly."
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.byte ScrollText
-	.text "Yeah, Halvan, I'm sure the village will appreciate"
-	.byte NewLine
-	.text "your patient attitude while everyone's being"
-	.byte NewLine
-	.text "rounded up and jailed!"
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.word LoadPortrait
-	.word eyvel_portrait
-	.text "Peace, Osian. Halvan is right."
-	.byte NewLine
-	.text "Seems we've finally been noticed"
-	.byte NewLine
-	.text "by the Empire."
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.byte ScrollText
-	.word LoadPortrait
-	.word leif_portrait
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Looks like this is goodbye, Little Leif. I'm sorry."
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.word ClearPortrait
-	.word LoadPortrait
-	.word finn_portrait
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Finn, take him as far away from here"
-	.byte NewLine
-	.text "as you can. Leave the soldiers to us.";interrupt
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.word LoadPortrait
-	.word leif_portrait2
-	.text "No, Commander!"
-	.byte NewLine
-	.text "Nanna is still in the village!"
-	.byte NewLine
-	.text "I won't leave without her!"
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "I'll get her back. Don't worry."
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.byte ScrollText
-	.text "It's more than that, Commander..."
-	.byte NewLine
-	.text "I won't run anymore."
-	.byte NewLine
-	.text "That's my decision to make."
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "...Finn, you wanna weigh in here?"
-	
-	.byte Left_Slot
-	.byte ScrollText
-	.word LoadPortrait
-	.word finn_portrait
-	
-	.byte Right_Slot
-	.byte NewLine
-	.text "You going to let the Little Lord throw himself"
-	.byte NewLine
-	.text "into harm's way like this?"
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.text "Lord Leif has seen the passing of 15 summers,"
-	.byte NewLine
-	.text "by now. He's old enough to choose for himself—"
-	.byte NewLine
-	.text "and as my liege, I will abide by his judgment."
-	.byte WaitForA
-
-	.byte Right_Slot 
-	.byte ScrollText
-	.text "Has it been that long already?"
-	.byte NewLine
-	.text "Hmph, I suppose I let Little Leif come with us"
-	.byte NewLine 
-	.text "to fight off those pirates, myself..."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Guess I made up my own mind when I did that."
-	.byte NewLine
-	.text "If Finn's all right with it, so am I."
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte Left_Slot
-	.byte ScrollText
-	.word LoadPortrait
-	.word osian_portrait
-	.text "Then what's the hold-up? If we're done arguing,"
-	.byte NewLine
-	.text "there's an invasion happening over that ridge!"
-	.byte WaitForA
-	
-	.word ClearPortrait
-	.word RetractBox
-	.byte ScrollText
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "All right, get ready to move in. But stay sharp:"
-	.byte NewLine
-	.text "most foot-soldiers are just regular folk,"
-	.byte NewLine
-	.text "forced into the Imperial Army against their will."
-	.byte WaitForA
-	.byte ScrollText
-	.text "If they surrender, just take their weapons"
-	.byte NewLine
-	.text "and let them go. Are we clear?"
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.word LoadPortrait
-	.word osian_portrait
-	.text "But we can still bloody them until they surrender,"
-	.byte NewLine
-	.text "right? I mean, if we can't put up a good fight"
-	.byte NewLine
-	.text "ourselves, we'll be the ones surrendering."
-	.byte WaitForA
-	
-	.byte ScrollText
-	.word ClearPortrait
-	.word RetractBox
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Knock 'em around if you have to, sure,"
-	.byte NewLine
-	.text "but don't overdo it.  "
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.word LoadPortrait
-	.word osian_portrait
-
-	.byte Right_Slot
-	.text "That means you, Osian."
-	.byte WaitForA
-	
-	.byte Left_Slot
-	.byte ScrollText
-	.text "Hey, c'mon, gimme some credit, Commander!"
-	.byte WaitForA
-	
-	.byte ScrollText
-	.word ClearPortrait
-	.word RetractBox
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "OK, enough chatter! Let's give the Empire"
-	.byte NewLine
-	.text "a battle worthy of our names as Freeblades!"
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01DagdarArrive
-
-	.byte Right_slot
-	.word LoadPortrait
-	.word dagdar_portrait
-
-	.byte Left_slot
-	.word LoadPortrait
-	.word tanya_portrait
-	.text "Papa, the fighting's started already!"
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.text "Ain't no good way to go about"
-	.byte NewLine
-	.text "this damned battle..."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Don't matter how good Eyvel is, there's only"
-	.byte NewLine
-	.text "one of her an' over a dozen of them."
-	.byte NewLine
-	.text "We need to hurry."
-	.byte WaitForA
-	
-	.byte EndText
-
-dialogueChapter01MartyArrive
+introFinal7
 
 	.byte Right_slot
     .word LoadPortrait
-    .word marty_portrait
-	.byte $09 ; font 9(always use font 9)
-	.text "Oh, fer cryin' out loud!"
+    .word dorias_portrait
+	.byte $09
+
+	.text "And last, you two."
 	.byte NewLine
-	.text "Not again..."
+	.text "Prepare yourselves."
+	.byte ScrollText
+	.text "Ready?"
 	.byte WaitForA
-	
+	.byte ScrollText
+
 	.byte EndText
-	
-dialogueChapter01OsianHouseOsian
+
+introFinal8
 
 	.byte Right_slot
     .word LoadPortrait
-    .word Osian_portrait
-	
-	.byte Left_slot
-    .word LoadPortrait
-    .word oldman_portrait
-	.byte $09 ; font 9(always use font 9)
-	.text "You pullin' your weight in the Freeblades, boy?"
+    .word dorias_portrait
+	.byte $09
+
+	.text "Well done."
 	.byte NewLine
-	.text "Last thing Commander Eyvel needs"
-	.byte NewLine
-	.text "is to babysit you."
+	.text "Now, show me what you've got!"
 	.byte WaitForA
-	
-	.byte Right_slot
-	.text "We're risking life and limb to protect the"
-	.byte NewLine
-	.text "village, and you're giving me a lecture? You've"
-	.byte NewLine
-	.text "got a strange sense of gratitude, old man."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Not even the Empire knockin' down our front"
-	.byte NewLine
-	.text "door can stop that fool mouth of yours, I see."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Well, no point in draggin' this out."
-	.byte NewLine
-	.text "Here. This is what you came for, right?"
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "For once, you read my mind."
-	.byte NewLine
-	.text "When a fight breaks out, I just feel off"
-	.byte NewLine
-	.text "without this axe at my side."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Which don't explain why you forget it at home"
-	.byte NewLine
-	.text "half the damn time!"
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "Hey, I came here for the axe,"
-	.byte NewLine
-	.text "not to get chewed out!"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "If that's all you wanted, then get going!"
-	.byte NewLine
-	.text "Go on, now!"
-	.byte NewLine
-	.text "Don't keep the Commander waitin' on you!"
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "You don't need to tell me twice!"
-	.byte WaitForA
-	
+
 	.byte EndText
-	
-dialogueChapter01OsianHouseOther
+
+introEnding1
 
 	.byte Right_slot
     .word LoadPortrait
-    .word oldman_portrait
-	.byte $09 ; font 9(always use font 9)	
-	.text "Where has that fool boy of mine gone off to"
+    .word dorias_portrait
+	.byte $09
+
+	.text "Ugh... "
 	.byte NewLine
-	.text "in this fracas? I swear, my Osian's gonna get"
-	.byte NewLine
-	.text "himself killed one of these days..."
+	.text "Hah, just a s-scratch..."
 	.byte WaitForA
-	
+	.byte ScrollText
+
+	.text "You've got more arm than you let on, boy."
+	.byte NewLine
+	.text "But, can you keep up in the long run?"
+	.byte WaitForA
+	.byte ScrollText
+
+	.text "Fuff..."
+	.byte NewLine
+	.text "Alright, everyone. Off the summit, and"
+	.byte NewLine
+	.text "down into the forts!"
+	.byte WaitForA
+
 	.byte EndText
-	
-dialogueChapter01LifeRingHouse
+
+introEnding2
 
 	.byte Right_slot
     .word LoadPortrait
-    .word oldlady_portrait
-	.byte $09 ; font 9(always use font 9)
-	.text "Those Imperial dogs took Dame Mareeta"
-	.byte NewLine
-	.text "and Lady Nanna—just snatched 'em right up"
-	.byte NewLine
-	.text "like they was cattle!"
-	.byte WaitForA
-	.byte ScrollText
-	.text "You're not gonna let 'em get away with that,"
-	.byte NewLine
-	.text "are you?"
-	.byte WaitForA
-	.byte ScrollText
-	.text "If you're fixin' to fight the Empire,"
-	.byte NewLine
-	.text "take this with you. This here ring's enchanted"
-	.byte NewLine
-	.text "with some spell or another."
-	.byte WaitForA
-	.byte ScrollText
-	.text "But don't just wear it on your finger like some"
-	.byte NewLine
-	.text "common bauble! You gotta actually [Use] it"
-	.byte NewLine
-	.text "for it to do any good!"
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01VulneraryHouse
+    .word xavier_portrait
+	.byte $09
 
-	.byte Right_slot
-    .word LoadPortrait
-    .word oldlady3_portrait
-	.byte $09 ; font 9(always use font 9)
-	
-	.text "Y'all made it back! What a relief..."
-	.byte WaitForA
-	.byte ScrollText
-	.text "But look, there's no Fiana Freeblades without"
-	.byte NewLine
-	.text "Fiana, right? So don't just stop with them"
-	.byte NewLine
-	.text "pirates—drive the Empire from our village, too!"
-	.byte WaitForA
-	.byte ScrollText
-	.text "...Not to imply that I ain't grateful, a' course."
-	.byte NewLine
-	.text "Take this with you. Use it if you get scraped up."
-	.byte WaitForA
-	.byte ScrollText
-	.text "We don't have much in the way of medicine,"
-	.byte NewLine
-	.text "but it's the least we can do after everythin'"
-	.byte NewLine
-	.text "the Commander's done fer us."
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01IronSwordHouse
-
-	.byte Right_slot
-    .word LoadPortrait
-    .word moustache_portrait
-	.byte $09 ; font 9(always use font 9)	
-	.text "Weapons can be mighty expensive, can't they?" 
-	.byte NewLine
-	.text "Most folk here gotta make do by nicking"
-	.byte NewLine
-	.text "supplies from Imperial troops."
-	.byte WaitForA
-	.byte ScrollText
-	.text "It's awful risky, but if you can capture an enemy"
-	.byte NewLine
-	.text "alive, you get to help yourself to their stuff."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Matter of fact, I got the drop on an Imperial"
-	.byte NewLine
-	.text "soldier myself. Heard 'im snoring from three"
-	.byte NewLine
-	.text "houses away, so I took me a souvenir!"
-	.byte WaitForA
-	.byte ScrollText
-	.text "...Not that it'll do me much good, though."
-	.byte NewLine
-	.text "Probably better off in your hands, I reckon."
-	.byte WaitForA
-	.byte ScrollText
-	.text "And hey, if you don't need it,"
-	.byte NewLine
-	.text "you can just hawk it for somethin' you do need."
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01HalvanHouseHalvan
-	
-	.byte Right_slot
-    .word LoadPortrait 
-    .word halvan_portrait
+	.text "Terrific start, Finn."
 
 	.byte Left_slot
     .word LoadPortrait
-    .word younglady_portrait
-	.byte $09 ; font 9(always use font 9)	
-	.text "Big brother!"
-	.byte NewLine
-	.text "I've got something real special for you!"
-	.byte NewLine
-	.text "You can use this to keep yourself safe, right?"
-	.byte WaitForA
-	
+    .word FinnPortrait
+	.text "Thank you, Sir."
+
 	.byte Right_slot
-	.text "An...axe? Where in the world did you get"
-	.byte NewLine
-	.text "such a fine weapon?"
-	.byte WaitForA
-	
-	.byte Left_slot
 	.byte ScrollText
-	.text "Darnedest thing... I was walkin' past the lake"
+	.text "Try not to let the old man's words"
 	.byte NewLine
-	.text "up on the mountain, when this strange ol' crone"
-	.byte NewLine
-	.text "just floated outta the water!"
+	.text "get to ya."
 	.byte WaitForA
 	.byte ScrollText
-	.text "She gave it to me, then vanished, quick"
+
+	.text "He's got a temper, but he means well."
 	.byte NewLine
-	.text "as you can blink! I been keepin' it for you,"
+	.text "Anyway, we've got a long day ahead of us."
 	.byte NewLine
-	.text "and takin' real good care of it."
+	.text "Shall we?"
 	.byte WaitForA
-	.byte ScrollText
-	.text "Now go put it to use, an' make me proud!"
-	.byte WaitForA
-	
+
 	.byte EndText
-	
-dialogueChapter01HalvanHouseOther
+
+introEnding3
 
 	.byte Right_slot
     .word LoadPortrait
-    .word younglady_portrait
-	.byte $09 ; font 9(always use font 9)	
-	.text "Hey, hey, have you seen my big brother,"
-	.byte NewLine
-	.text "Halvan? He's got me awful scared..."
-	.byte NewLine
-	.text "I hope he's all right..."
+    .word Finn_portrait
+	.byte $09
+
+	.byte Right_slot
+	.text "...sigh..."
 	.byte WaitForA
-	
+	.byte ScrollText
+
+	.text "(Where in the world is Glade?)"
+	.byte WaitForA
+
 	.byte EndText
-	
-dialogueChapter01Ending
+
+dummydialogue
 
 	.byte Right_slot
     .word LoadPortrait
-    .word leif_portrait2
-	.byte $09 ; font 9(always use font 9)
-	.text "Nanna! Mareeta! Where are you?!"
-	.byte NewLine
-	.text "Please, answer me!"
-	.byte WaitForA
-	
-	.byte Left_slot
-    .word LoadPortrait
-    .word eyvel_portrait
-	.text "Little Nan, Mareeta..."
-	.byte NewLine
-	.text "Raydrik must've taken 'em."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "What?! That means...they were taken"
-	.byte NewLine
-	.text "to Munster, right?"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Yeah—as bargaining chips, in case Weismann"
-	.byte NewLine
-	.text "couldn't finish the job. It's the sort of thing"
-	.byte NewLine
-	.text "Raydrik would pull, all right."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Gods' breath..."
-	.byte NewLine
-	.text "Commander, we have to give chase!"
-	.byte NewLine
-	.text "The two of them are counting on us!"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Now look here, Little Leif—" ;interrupt
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Commander, you yourself said"
-	.byte NewLine
-	.text "I'm not a child anymore."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Nanna and Mareeta were taken captive"
-	.byte NewLine
-	.text "because of me—and I refuse to let anyone"
-	.byte NewLine
-	.text "suffer in my place."
-	.byte WaitForA
-	.byte ScrollText
-	.text "I will never again let someone sacrifice"
-	.byte NewLine
-	.text "their life in exchange for mine."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "...I understand. We leave at dawn, then."
-	.byte NewLine
-	.text "I won't lie, Little Lord: this is gonna get rough."
-	.byte NewLine
-	.text "Get some rest while you can."
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01EndingNoEyvel
-
-	.byte Right_Slot
-    .word LoadPortrait
-    .word leif_portrait2
-	.byte $09 ; font 9(always use font 9)	
-	.text "Nanna! Mareeta! Where are you?!"
-	.byte NewLine
-	.text "Please, answer me!"
-	.byte WaitForA
-		
-	.byte Left_slot
-    .word LoadPortrait
-    .word youngman_portrait
-	.text "L-Lord Leif!"
-	.byte NewLine
-	.text "Gods' breath, are you a sight fer sore eyes!"
-	.byte NewLine
-	.text "I...wish I had better news fer you."
-	.byte WaitForA
-	.byte ScrollText
-	.text "They came fer Lady Nanna, they did,"
-	.byte NewLine
-	.text "and we couldn't do nuthin' to stop 'em!"
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "Nanna? What happened to Nanna?"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "The Empire took 'er, sure as you're standin'"
-	.byte NewLine
-	.text "here. Mareeta tried to break her loose,"
-	.byte NewLine
-	.text "but only got captured 'erself."
-	.byte WaitForA
-	.byte ScrollText
-	.text "They both wore chains, last I saw."
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "Where were they taken?"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Don't rightfully know, Lord Leif. One of them"
-	.byte NewLine
-	.text "soldiers said somethin' about headin' back"
-	.byte NewLine
-	.text "to Munster, but nuthin' more specific'n that."
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "Munster... Then that's where I'm headed, too."
-	.byte NewLine
-	.text "I'll bring everyone home: Nanna, Mareeta,"
-	.byte NewLine
-	.text "and the Commander!"
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01WorldMap1
-
-	.text "Barely escaping the burning of Castle Leonster"
-	.byte NewLine
-	.text "with his life, "
-	.byte WaitForA
-	
-	.word LoadPortraitalt_1
-	.long LoadPortraitalt_2
-	.word $0001 ;leify-right
-	.word $0406 ;y then x
-	.text "the young Prince Leif was looked"
-	.byte NewLine
-	.text "after by Finn, his knight and retainer."
-	.word LoadPortraitalt_1
-	.long LoadPortraitalt_2
-	.word $0102 ;finn
-	.word $0C10 ;y then x
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte EndText
-	
-dialogueChapter01WorldMap2
-
-	.text "Together with Nanna, "
-	.word LoadPortraitalt_1
-	.long LoadPortraitalt_2
-	.word $0213 ;nanna
-	.word $0C03 ;y then x
-	.byte WaitForA
-	.text "a young noblewoman"
-	.byte NewLine
-	.text "under Finn's care, the trio fled pursuers"
-	.byte WaitForA
-	
-	.byte NewLine
-	.text "sent by the conquerors of North Thracia:"
-	.byte NewLine
-	.text "the Grannvale Empire, which lay to the west."
-	.byte WaitForA
-	
-	.word ClearPortraitalt
-	.long $82937A
-	.word $0000
-	.byte ScrollText
-	.word ClearPortraitalt
-	.long $82937A
-	.word $0001
-	.byte ScrollText
-	.word ClearPortraitalt
-	.long $82937A
-	.word $0002
-	
-	.text "Yet Finn proved stronger than those who hunted"
-	.byte NewLine
-	.text "them, and the three made their way to the cities"
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte EndText
-	
-dialogueChapter01WorldMap3
-
-	.text "of Ulster"
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte EndText
-	
-dialogueChapter01WorldMap4
-
-	.text "and Tahra, posing as common vagrants."
-	.byte WaitForA
-	.byte ScrollText
-	
-	.byte EndText
-	
-dialogueChapter01WorldMap5
-
-	.text "Eventually, they drifted into Fiana,"
-	.byte NewLine
-	.text "a small village on Thracia's eastern coast."
-	.byte WaitForA
-	.byte ScrollText
-	
-	.text "Fiana was an independent community"
-	.byte NewLine
-	.text "with its own militia, "
-	.byte WaitForA
-	.text "the Fiana Freeblades,"
-	.byte NewLine
-	.text "led by the swordswoman Eyvel."
-	.word LoadPortraitalt_1
-	.long LoadPortraitalt_2
-	.word $0005 ;eyvel
-	.word $080B ;y then x
-	.byte WaitForA
-	.byte ScrollText
-	
-	.text "Eyvel welcomed Leif's group"
-	.byte NewLine
-	.word LoadPortraitalt_1
-	.long LoadPortraitalt_2
-	.word $0101 ;leify-left
-	.word $0817 ;y then x
-	.text "as if they were her own kin."
-	.byte WaitForA
-	.byte ScrollText
-	
-	.text "Under her watchful eye, the deposed prince"
-	.byte NewLine
-	.text "spent his childhood in Fiana, "
-	.byte WaitForA
-	.text "growing into"
-	.byte NewLine
-	.text "maturity alongside youths of common birth."
-	.byte WaitForA
-	
-	.word ClearPortraitalt
-	.long $82937A
-	.word $0000
-	.byte ScrollText
-	.word ClearPortraitalt
-	.long $82937A
-	.word $0001
-	.byte ScrollText
-	
-	.byte EndText
-	
-dialogueChapter01WorldMap6
-
-	.text "Now, in year 776 of the Grannvale calendar..."
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01EyvelDagdarTalk
-	
-	.byte Right_slot
-    .word LoadPortrait
-    .word dagdar_portrait
-
-	.byte Left_slot
-	.word LoadPortrait
-    .word eyvel_portrait
-	.byte $09 ; font 9(always use font 9)	
-	.text "Dagdar?! You...came down to fight with us?"
-	.byte WaitForA
-	
-	.byte Right_slot
-	.text "Eyvel! Does me heart good to see you"
-	.byte NewLine
-	.text "in one piece!"
-	.byte WaitForA
-	.byte ScrollText
-	.text "Listen, ya have any idea why the Empire"
-	.byte NewLine
-	.text "would come all the way out here?"
-	.byte WaitForA
-	.byte ScrollText
-	.text "It have anything to do with...the boy?"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Yeah. The Little Lord, Leif, he's..."
-	.byte NewLine
-	.text "He's not just some nobleman."
-	.byte NewLine
-	.text "He's the heir to House Leonster."
-	.byte WaitForA
-	.byte ScrollText
-	.text "I've been helping him hide from the Empire."
-	.byte NewLine
-	.text "I'm sorry... I shouldn't have kept it from you."
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "Mm, I figured as much. Well, no use worryin'"
-	.byte NewLine
-	.text "about it now. Long as I get to cut down some of"
-	.byte NewLine
-	.text "those Imperial dastards meself, we're even."
-	.byte WaitForA
-	
-	.byte EndText
-	
-dialogueChapter01OsianTanyaTalk
+    .word Ronan_portrait
+	.byte $09
 
 	.byte Right_slot
-    .word LoadPortrait
-    .word tanya_portrait
-	
-	.byte Left_slot
-    .word LoadPortrait
-    .word Osian_portrait
-	.text "Tanya? What do you think you're doing here?"
+	.text "sus"
 	.byte WaitForA
-	
-	.byte Right_slot
-	.text "What does it look like, Osian?"
-	.byte NewLine
-	.text "I'm here to help you guys, any way I can!"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "“Help any way you can,” huh?"
-	.byte NewLine
-	.text "In that case, turn tail and march back home."
-	.byte WaitForA
-	.byte ScrollText
-	.text "That's the only way a kid like you could help—"
-	.byte NewLine
-	.text "you'd just get in the way."
-	.byte WaitForA
-	
-	.byte Right_slot
-	.byte ScrollText
-	.text "You've got some nerve, Osian!"
-	.byte NewLine
-	.text "You're just a kid yourself, you know!"
-	.byte WaitForA
-	.byte ScrollText
-	.text "You want me gone, I'm gone—not all of us are"
-	.byte NewLine
-	.text "as eager to throw ourselves into danger as you!"
-	.byte WaitForA
-	
+
 	.byte EndText

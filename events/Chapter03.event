@@ -37,10 +37,10 @@ GUARD_FE5_CHAPTER03 :?= false
           _FlagChest1               = enum.enum()
           _FlagChest2               = enum.enum()
           _FlagRomeoHouseDestroy    = enum.enum()
-          _FlagCairpreHouseDestroy  = enum.enum()
+          _FlagTailtiuHouseDestroy  = enum.enum()
           _FlagLucciaHouseDestroy   = enum.enum()
           _FlagJubelHouseDestroy    = enum.enum()
-          _FlagCairpreHouseVisit    = enum.enum()
+          _FlagTailtiuHouseVisit    = enum.enum()
           _FlagLucciaHouseVisit     = enum.enum()
           _FlagRomeoHouseVisit      = enum.enum()
           _FlagJubelHouseVisit      = enum.enum()
@@ -88,18 +88,18 @@ GUARD_FE5_CHAPTER03 :?= false
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions ; 8C/E4B0
-          EVENT _FlagCairpreHouseDestroy, _CairpreHouseDestroy
+          EVENT _FlagTailtiuHouseDestroy, _TailtiuHouseDestroy
             macroECCheckCoordinates [23, 22]
             CMP_WORD wCurrentPhase, Enemy
           END_DEFINITION
-          EVENT _FlagCairpreHouseVisit, _CairpreHouseCairpre
+          EVENT _FlagTailtiuHouseVisit, _TailtiuHouseTailtiu
             CMP_WORD wCurrentPhase, Player
-            CHECK_ACTIVE_CARRYING Cairpre
+            CHECK_ACTIVE_CARRYING Tailtiu
             macroECCheckCoordinates [23, 22]
           END_DEFINITION
-          EVENT FlagAlwaysZero, _CairpreHouseOther
+          EVENT FlagAlwaysZero, _TailtiuHouseOther
             CMP_WORD wCurrentPhase, Player
-            TEST_FLAG_UNSET _FlagCairpreHouseVisit
+            TEST_FLAG_UNSET _FlagTailtiuHouseVisit
             macroECCheckCoordinates [23, 22]
           END_DEFINITION
           EVENT _FlagLucciaHouseDestroy, _LucciaHouseDestroy
@@ -228,27 +228,23 @@ GUARD_FE5_CHAPTER03 :?= false
           YIELD_UNK
         END2
 
-        _CairpreHouseOther ; 8C/E6ED
-          macroDialogue dialogueChapter03CairpreHouseOther
+        _TailtiuHouseOther ; 8C/E6ED
         END2
 
-        _CairpreHouseCairpre ; 8C/E6F6
+        _TailtiuHouseTailtiu ; 8C/E6F6
           PLAY_SOUND_FORCED $00F7
 
           CALL_ASM_SKIPPABLE rlASMCClearActiveUnitRescue
 
-          macroASMCRemoveUnit Cairpre
+          macroASMCRemoveUnit Tailtiu
 
           ADD_BYTE $7E4976, 1
           YIELD_UNK
-          YIELD_UNK
-
-          DIALOGUE dialogueChapter03CairpreHouseCairpre
           YIELD
 
           macroASMCSingleTileChangeByCoords [23, 22], $03F0
 
-          SET_FLAG FlagCairpreSaved
+          SET_FLAG FlagTailtiuSaved
         END2
 
         _LucciaHouseOther ; 8C/E733
@@ -368,7 +364,7 @@ GUARD_FE5_CHAPTER03 :?= false
           macroDestroyHouseByTileChangeID 9
         END1
 
-        _CairpreHouseDestroy ; 8C/EA35
+        _TailtiuHouseDestroy ; 8C/EA35
           macroDestroyHouseByTileChangeID 10
         END1
 
@@ -738,7 +734,7 @@ GUARD_FE5_CHAPTER03 :?= false
         _NPCGroup ; B1/F522
           UNIT Romeo, NPC, [12, 8], [12, 8], Ishtar, [], 1, false, [$02, $03, $00, $00]
           UNIT Luccia, NPC, [14, 8], [14, 8], Ishtar, [], 1, false, [$02, $03, $00, $00]
-          UNIT Cairpre, NPC, [13, 7], [13, 7], Ishtar, [], 1, false, [$02, $03, $00, $00]
+          UNIT Tailtiu, NPC, [13, 7], [13, 7], Ishtar, [], 1, false, [$02, $03, $00, $00]
           UNIT Jubel, NPC, [11, 7], [11, 7], Ishtar, [], 1, false, [$02, $03, $00, $00]
         UNIT
 
