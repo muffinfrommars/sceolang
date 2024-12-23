@@ -458,6 +458,33 @@ GUARD_FE5_CHAPTER01 :?= false
 
           DIALOGUE introDryas7
           YIELD
+
+          SCROLL_CAMERA_CHAR Dryas, 3
+          YIELD
+
+          DIALOGUE introFinal1
+          YIELD
+
+          DIALOGUE introFinal2
+          YIELD
+
+          DIALOGUE introFinal3
+          YIELD
+
+          DIALOGUE introFinal4
+          YIELD
+
+          DIALOGUE introFinal5
+          YIELD
+
+          DIALOGUE introFinal6
+          YIELD
+
+          DIALOGUE introFinal7
+          YIELD
+
+          DIALOGUE introFinal8
+          YIELD
           
           PAUSE_SKIPPABLE 30
           YIELD
