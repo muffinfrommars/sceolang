@@ -75,6 +75,10 @@ GUARD_FE5_CHAPTER01 :?= false
         .word 0
 
         _OpeningEvent
+          STORE_WORD wCurrentChapter, Chapter23
+          CALL_ASM_SKIPPABLE rlSetChapterVisionRange
+          CALL_ASM_SKIPPABLE $9A98B8
+
           SET_CAMERA_POSITION [10, 8]
           STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
 
@@ -99,38 +103,15 @@ GUARD_FE5_CHAPTER01 :?= false
 			
           FADE_IN $04
         
-          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $0F
-        
-          PAUSE_SKIPPABLE 60
-          YIELD
-          
-          MOVE_COORDS [10, 8], [10, 8], 1
-        
-          WAIT_MOVE
-          YIELD
-        
-          CALL_ASM_SKIPPABLE rlClearHDMAArray
-        
-          STORE_LONG lEventEngineLongParameter, _EthlynDeathScriptedBattle
-          CALL_ASM_SKIPPABLE $9A8D0F
-        
-          STORE_WORD wEventEngineParameter1, None
-          STORE_WORD wEventEngineParameter2, IronLance
-          STORE_WORD wEventEngineXCoordinate, 10
-          STORE_WORD wEventEngineYCoordinate, 7
-          STORE_WORD wEventEngineXCoordinateAlt, 10
-          STORE_WORD wEventEngineYCoordinateAlt, 8
-          CALL_ASM_SKIPPABLE $9A8E50
-        
-          CALL_ASM_SKIPPABLE $84B719
-        
-          HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
-        
-          CALL_ASM_SKIPPABLE rlUpdateUnitMaps
-          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap
-        
-          PAUSE_SKIPPABLE 2
-          YIELD
+          STORE_WORD_FROM wEventEngineParameter1, wCurrentChapter
+          STORE_WORD wEventEngineParameter2, 5
+          CALL_ASM_SKIPPABLE $9A98E6, $0000
+
+          STORE_BYTE $7E41AC, $00
+
+          HALT_UNTIL_WORD_SKIPPABLE $7FAA14, $0000
+
+          STORE_WORD_FROM wCurrentChapter, wEventEngineParameter1
 
           PLAY_EXTENDED_SOUND $2F
 
@@ -178,7 +159,10 @@ GUARD_FE5_CHAPTER01 :?= false
           MOVE_UNIT None, [9, 11], [9, 7], 1, None
           YIELD_UNK
 
-          PAUSE_SKIPPABLE 16
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 8
           YIELD
 
           FADE_OUT $02
@@ -690,7 +674,7 @@ GUARD_FE5_CHAPTER01 :?= false
           ;macroASMCRemoveUnit LeonsterSoldier
           ;macroASMCRemoveUnit LeonsterSoldier
 
-          STORE_WORD wCurrentChapter, Chapter02
+          STORE_WORD wCurrentChapter, Chapter01
           CALL_ASM_SKIPPABLE rlSetChapterVisionRange
           CALL_ASM_SKIPPABLE $9A98B8
 

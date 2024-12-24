@@ -1,5 +1,5 @@
 structChapterDataTableEntry 0,TilesetGraphics,TilesetConfig,TilesetPalette,Map,MapChanges,StartingPositions,ObjectiveMarkers,VisionRange,PrepScreen,MinUnits,MaxUnits,PlayerAllegiance,EnemyAllegiance,NPCAllegiance,Unknown,PlayerPhaseMusic,EnemyPhaseMusic,NPCPhaseMusic,AlternateGraphics,TilesetAnimations
-Chapter01ChapterData,ptiles,ptileset,ppalette,aedcutscene,$FCEBF5,None,None,None,None,10,20,$2,$4,$0,$1,$3D,$9,$1,None,aTilesetAnimation8487CE
+Chapter01ChapterData,ptiles,ptileset,ppalette,mapone,None,None,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTilesetAnimation8487CE
 Chapter02ChapterData,ptiles,ptileset,ppalette,mapone,None,None,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTilesetAnimation8487CE
 Chapter02xChapterData,$F6E885,$FAEB21,$F68200,$FBE0DC,None,eventChapter02xData._StartingPositions,None,3,None,10,20,$2,$4,$0,$5,$7,$D,$7,$FAA256,aTilesetAnimation8487CE
 Chapter03ChapterData,$F7AC25,$FB8059,$F68300,$FBE590,$FCEC64,eventChapter03Data._StartingPositions,None,None,None,10,20,$2,$4,$0,$3,$1,$9,$1,None,None
@@ -30,7 +30,7 @@ Chapter20ChapterData,$F7AC25,$FB8059,$F69B00,$FCC52D,$FCF31A,eventChapter20Data.
 Chapter21ChapterData,$F6E885,$FAEB21,$F69C00,$FCC8E6,$FCF497,eventChapter21Data._StartingPositions,None,None,$2,8,16,$2,$4,$0,$1,$1,$A,$1,None,aTilesetAnimation8487CE
 Chapter21xChapterData,$F7AC25,$FB8059,$F69D00,$FCCE92,$FCF4AF,eventChapter21xData._StartingPositions,$978047,None,$2,8,8,$2,$4,$0,$1,$1,$A,$1,None,None
 Chapter22ChapterData,$F6E885,$FAEB21,$F69E00,$FCD183,$FCF50C,eventChapter22Data._StartingPositions,None,None,$2,8,16,$2,$4,$0,$1,$3,$B,$3,None,aTilesetAnimation8487CE
-Chapter23ChapterData,$F6E885,$FAEB21,$F69F00,$FCD685,$FCF54B,eventChapter23Data._StartingPositions,None,None,$2,8,16,$2,$4,$4,$3,$8,$B,$8,$FAAE20,aTilesetAnimation8487CE
+Chapter23ChapterData,ptiles,ptileset,ppalette,aedcutscene,$FCEBF5,None,None,None,None,10,20,$2,$4,$0,$1,$3D,$9,$1,None,aTilesetAnimation8487CE
 Chapter24ChapterData,ctiles,ctileset,cpalette,village,$FCF570,eventChapter24Data._StartingPositions,None,None,$2,10,18,$2,$4,$4,%101,$5F,$9,$1,None,aTilesetAnimation848831
 Chapter24xChapterData,ptiles,ptileset,ppalette,overworld,$FCF66E,eventChapter24xData._StartingPositions,$978055,None,$2,8,16,$2,$4,$4,%101,$6E,$7E,$6E,None,aTilesetAnimation8487CE
 ChapterFinalChapterData,$F9AE74,$FBBDDF,$F6A200,$FCE2C2,$FCF6B0,eventChapterFinalData._StartingPositions,None,None,$2,6,18,$2,$4,$0,$1,$8,$E,$8,None,aTilesetAnimation8488C7

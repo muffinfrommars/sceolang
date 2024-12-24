@@ -729,29 +729,6 @@ GUARD_FE5_CHAPTER23 :?= false
 			eventChapter23Data ; B1/8000
 			
 				_PrepGroup ; B1/8000
-					.byte 19, 10
-			
-					UNIT Civilian17, NPC, [11, 13], [11, 13], Ishtar, [], 1, False, [$02, $0B, $00, $00]
-					UNIT LoptrianSorcerer1, Enemy, [18, 15], [18, 15], Alphand, [Jormungand, Sleep], 18, False, [$0B, $07, $00, $00]
-					UNIT LoptrianSorcerer1, Enemy, [19, 15], [19, 15], Alphand, [Jormungand, Sleep], 18, False, [$0B, $07, $00, $00]
-					UNIT MunsterVeninBallista, Enemy, [18, 9], [18, 9], Faden, [VeninBallista], 18, False, [$01, $03, $00, $00]
-					UNIT MunsterVeninBallista, Enemy, [19, 9], [19, 9], Faden, [VeninBallista], 18, False, [$01, $03, $00, $00]
-					UNIT MunsterVeninBallista, Enemy, [20, 9], [20, 9], Faden, [VeninBallista], 18, False, [$01, $03, $00, $00]
-					UNIT MunsterGeneral, Enemy, [19, 10], [19, 10], Faden, [Hammer, Poleax, VeninAxe, KillerAxe, MasterAxe, Vulnerary], 20, False, [$00, $03, $00, $00]
-					UNIT MunsterGreatKnight, Enemy, [17, 17], [17, 17], Faden, [BattleAxe, Hammer, Vulnerary], 17, False, [$00, $00, $00, $00]
-					UNIT MunsterDukeKnight, Enemy, [20, 16], [20, 16], Faden, [Greatlance, KillerLance, Vulnerary], 18, False, [$00, $00, $00, $00]
-					UNIT MunsterDukeKnight, Enemy, [20, 17], [20, 17], Faden, [Greatlance, KillerLance, Vulnerary], 18, False, [$00, $00, $00, $00]
-					UNIT MunsterDukeKnight, Enemy, [19, 16], [19, 16], Faden, [Greatlance, KillerLance, Vulnerary], 18, False, [$00, $00, $00, $00]
-					UNIT MunsterDukeKnight, Enemy, [19, 17], [19, 17], Faden, [Greatlance, KillerLance, Vulnerary], 18, False, [$00, $00, $00, $00]
-					UNIT MunsterArchKnight, Enemy, [18, 16], [18, 16], Faden, [Greatbow, Vulnerary], 17, False, [$00, $00, $00, $00]
-					UNIT MunsterArchKnight, Enemy, [18, 17], [18, 17], Faden, [Greatbow, Vulnerary], 17, False, [$00, $00, $00, $00]
-					UNIT MunsterGreatKnight, Enemy, [17, 16], [17, 16], Faden, [BattleAxe, Hammer, Vulnerary], 17, False, [$00, $00, $00, $00]
-					UNIT MunsterGreatKnight, Enemy, [16, 16], [16, 16], Faden, [BattleAxe, Hammer, Vulnerary], 17, False, [$00, $00, $00, $00]
-					UNIT Civilian19, NPC, [11, 15], [11, 15], Ishtar, [], 1, False, [$02, $0B, $00, $00]
-					UNIT Civilian20, NPC, [10, 15], [10, 15], Ishtar, [], 1, False, [$02, $0B, $00, $00]
-					UNIT Civilian21, NPC, [10, 16], [10, 16], Ishtar, [], 1, False, [$02, $0B, $00, $00]
-					UNIT Civilian22, NPC, [11, 16], [11, 16], Ishtar, [], 1, False, [$02, $0B, $00, $00]
-					UNIT Civilian18, NPC, [10, 14], [10, 14], Ishtar, [], 1, False, [$02, $0B, $00, $00]
 				UNIT
 			
 				_ThiefReinforcementsCameraCoordinates ; B1/81A8
