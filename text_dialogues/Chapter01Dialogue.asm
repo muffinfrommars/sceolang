@@ -587,6 +587,9 @@ introFinal1
 	.text "Let's cut the nonsense and get to the point."
 	.byte WaitForA
 	.byte ScrollText
+
+	.word PlayMusic
+	.byte $32
 	
 	.text "Being here today means you've demonstrated"
 	.byte NewLine
@@ -813,6 +816,7 @@ introEnding1
 	.byte NewLine
 	.text "down into the forts!"
 	.byte WaitForA
+	.byte ScrollText
 
 	.byte EndText
 
@@ -824,11 +828,16 @@ introEnding2
 	.byte $09
 
 	.text "Terrific start, Finn."
+	.byte WaitForA
+	.byte ScrollText
 
 	.byte Left_slot
     .word LoadPortrait
     .word FinnPortrait
 	.text "Thank you, Sir."
+	.byte WaitForA
+	.byte ScrollText
+	
 
 	.byte Right_slot
 	.byte ScrollText
@@ -837,6 +846,7 @@ introEnding2
 	.text "get to ya."
 	.byte WaitForA
 	.byte ScrollText
+	.word ClearPortrait
 
 	.text "He's got a temper, but he means well."
 	.byte NewLine
@@ -844,6 +854,7 @@ introEnding2
 	.byte NewLine
 	.text "Shall we?"
 	.byte WaitForA
+	.byte ScrollText
 
 	.byte EndText
 

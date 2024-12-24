@@ -31,6 +31,9 @@ GUARD_FE5_CHAPTER01 :?= false
             CMP_WORD wCurrentPhase, Player
             CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
           END_DEFINITION
+          EVENT FlagAlliedDeath, eventMapDeathQuoteDummyEvent
+			      TEST_FLAG_SET FlagPlayerDeath
+		      END_DEFINITION
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
@@ -691,12 +694,13 @@ GUARD_FE5_CHAPTER01 :?= false
           macroASMCRemoveUnit Finn
           macroASMCRemoveUnit Dryas
           macroASMCRemoveUnit Xavier
+          macroASMCRemoveUnit Ranz
           macroASMCRemoveUnit LeonsterSoldier
           macroASMCRemoveUnit LeonsterSoldier
           macroASMCRemoveUnit LeonsterSoldier
-          ;macroASMCRemoveUnit LeonsterSoldier
-          ;macroASMCRemoveUnit LeonsterSoldier
-          ;macroASMCRemoveUnit LeonsterSoldier
+          macroASMCRemoveUnit LeonsterSoldier
+          macroASMCRemoveUnit LeonsterSoldier
+          macroASMCRemoveUnit LeonsterSoldier
 
           STORE_WORD wCurrentChapter, Chapter01
           CALL_ASM_SKIPPABLE rlSetChapterVisionRange
@@ -731,12 +735,11 @@ GUARD_FE5_CHAPTER01 :?= false
 
           CALL_ASM_LOOP rlASMCSaveActiveUnitDataChapterEnd, $0000
 
-          SET_MUSIC $4B
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
           YIELD
 
-          CALL_ASM_LOOP rlASMCSaveChapterAndTurncount, $0000
-
-          DIALOGUE introEnding1
+          SET_MUSIC $4B
           YIELD
 
           macroASMCSingleTileChangeByCoords [9, 10], $0041
@@ -747,8 +750,24 @@ GUARD_FE5_CHAPTER01 :?= false
           WARP_UNIT Finn, [0, 0], [7, 7]
           WARP_UNIT Xavier, [10, 12], [8, 7]
 
-          DIALOGUE introEnding2
+          macroASMCRemoveUnit Ranz
+
+          CALL_ASM_LOOP rlASMCSaveChapterAndTurncount, $0000
+
+          macroDialogueWithBG introEnding1, 3
+
+          STORE_LONG lEventEngineLongParameter, introEnding2
+          CALL_ASM_LOOP rlASMCDialogueContinue
+
+          STORE_LONG lEventEngineLongParameter, introEnding3
+          CALL_ASM_LOOP rlASMCDialogueContinue
+
+          HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+
+          FADE_OUT $01
           YIELD
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEndFadeOut
 
           MOVE_UNIT Xavier, [8, 7], [10, 12], 1, None
           YIELD_UNK
@@ -760,9 +779,6 @@ GUARD_FE5_CHAPTER01 :?= false
           YIELD
           
           WARP_UNIT Xavier, [10, 12], [17, 17]
-
-          DIALOGUE introEnding3
-          YIELD
 
           MOVE_UNIT Finn, [7, 7], [10, 12], 1, None
           YIELD_UNK

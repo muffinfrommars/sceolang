@@ -67,56 +67,6 @@ GUARD_FE5_CHAPTER02 :?= false
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions ; 99/820C
-          EVENT _FlagRonanHouseDestroy, _RonanHouseDestroy
-            macroECCheckCoordinates [8, 10]
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT _FlagRonanHouseVisit, _RonanHouseVisit
-            CMP_WORD wCurrentPhase, Player
-            macroECCheckCoordinates [8, 10]
-            TEST_FLAG_UNSET _FlagVillageAttacked
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _RonanHouseVisitVillageAttacked
-            CMP_WORD wCurrentPhase, Player
-            macroECCheckCoordinates [8, 10]
-            TEST_FLAG_SET _FlagVillageAttacked
-          END_DEFINITION
-          EVENT _FlagSpeedRingHouseDestroy, _SpeedRingHouseDestroy
-            macroECCheckCoordinates [16, 13]
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT _FlagSpeedRingHouseVisit, _SpeedRingHouseVisit
-            CMP_WORD wCurrentPhase, Player
-            macroECCheckCoordinates [16, 13]
-            TEST_FLAG_UNSET _FlagVillageAttacked
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _SpeedRingHouseVisitVillageAttacked
-            CMP_WORD wCurrentPhase, Player
-            macroECCheckCoordinates [16, 13]
-            TEST_FLAG_SET _FlagVillageAttacked
-          END_DEFINITION
-          EVENT _FlagVulneraryHouseDestroy, _VulneraryHouseDestroy
-            macroECCheckCoordinates [10, 20]
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT _FlagVulneraryHouseVisit, _VulneraryHouseVisit
-            CMP_WORD wCurrentPhase, Player
-            macroECCheckCoordinates [10, 20]
-            TEST_FLAG_UNSET _FlagVillageAttacked
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _VulneraryHouseVisitVillageAttacked
-            CMP_WORD wCurrentPhase, Player
-            macroECCheckCoordinates [10, 20]
-            TEST_FLAG_SET _FlagVillageAttacked
-          END_DEFINITION
-          EVENT _FlagOpeningHouseDestroy, _OpeningHouseDestroy
-            macroECCheckCoordinates [17, 19]
-            CMP_WORD wCurrentPhase, Player
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _EndingEvent
-            macroECCheckCoordinates [9, 3]
-            CMP_WORD wCurrentPhase, Player
-          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BeforeActionEventDefinitions ; 99/8301
@@ -534,58 +484,6 @@ GUARD_FE5_CHAPTER02 :?= false
     .section Chapter02WorldMapEventsSection
 
       eventChapter02WorldMapEvents ; E7/E225
-
-        SCROLL_CAMERA_COORDS [20, 16], 4
-        SET_CURSOR_POSITION
-        YIELD
-
-        PLAY_SOUND_FORCED $00E0
-        PAUSE_SKIPPABLE 32
-        YIELD
-
-        SET_MUSIC $29
-        YIELD
-
-        FADE_IN 1
-        YIELD
-
-        macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
-
-        macroWMDrawSpecialMarker [144, 112], WMMarkerTable.Circle, 0
-
-        macroASMCWMDialogue dialogueChapter02WorldMap1
-        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
-
-        macroWMClearSpecialMarker 0
-
-        PAUSE_SKIPPABLE 1
-        YIELD
-
-        macroWMDrawSpecialMarker [96, 16], WMMarkerTable.Crown, 0
-
-        macroASMCWMDialogue dialogueChapter02WorldMap2
-        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
-
-        macroWMClearSpecialMarker 0
-
-        PAUSE_SKIPPABLE 1
-        YIELD
-
-        macroWMDrawSpecialMarker [151, 87], WMMarkerTable.Circle, 0
-
-        macroASMCWMDialogue dialogueChapter02WorldMap3
-        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
-
-        macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
-
-        macroWMClearSpecialMarker 0
-
-        PAUSE_SKIPPABLE 1
-        YIELD
-
-        FADE_OUT 2
-        YIELD
-
         CALL_ASM_LOOP rlASMCEndWMEvents
         YIELD
       END1
