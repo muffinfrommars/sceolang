@@ -71,6 +71,23 @@ GUARD_FE5_CHAPTER01 :?= false
             .byte $02, $01, $00, $10
           .word $FFFF, $FFFF
 
+        _NPCScriptedBattleOne
+            .byte $82, $02, $00, $0C	;First80+Left2;Miss2;0;
+            .byte $00, $12, $00, $0C	;Right0;Astra10+Miss2;0;
+            .byte $00, $02, $00, $02	;Right0;Miss2;0;
+            .byte $00, $02, $00, $0C	;Right0;Miss2;0;
+            .byte $00, $02, $00, $0C	;Right0;Miss2;0;
+            .byte $00, $02, $00, $0C	;Right0;Miss2;0;
+          .word $FFFF, $FFFF
+
+        _NPCScriptedBattleTwo
+            .byte $80, $02, $00, $0C	;First80+Right0;Miss2;0;
+            .byte $00, $02, $00, $0C	;Right0;Miss2;0;
+            .byte $02, $02, $00, $02	;Left2;Miss2;0;
+            .byte $02, $03, $00, $02	;Left2;Crit1+Miss2;0;
+            .byte $00, $03, $00, $0C	;Right0;Crit1+Miss2;0;
+          .word $FFFF, $FFFF  
+
         _ShopEventDefinitions
         END_DEFINITION_ARRAY
 
@@ -538,7 +555,7 @@ GUARD_FE5_CHAPTER01 :?= false
         
           CALL_ASM_SKIPPABLE rlClearHDMAArray
         
-          STORE_LONG lEventEngineLongParameter, _EthlynDeathScriptedBattle
+          STORE_LONG lEventEngineLongParameter, _NPCScriptedBattleOne
           CALL_ASM_SKIPPABLE $9A8D0F
         
           STORE_WORD wEventEngineParameter1, IronLance
@@ -589,7 +606,7 @@ GUARD_FE5_CHAPTER01 :?= false
         
           CALL_ASM_SKIPPABLE rlClearHDMAArray
         
-          STORE_LONG lEventEngineLongParameter, _EthlynDeathScriptedBattle
+          STORE_LONG lEventEngineLongParameter, _NPCScriptedBattleTwo
           CALL_ASM_SKIPPABLE $9A8D0F
         
           STORE_WORD wEventEngineParameter1, IronLance
@@ -610,7 +627,7 @@ GUARD_FE5_CHAPTER01 :?= false
           PAUSE_SKIPPABLE 2
           YIELD
 
-          MOVE_UNIT None, [17, 13], [17, 15], 1, None
+          MOVE_UNIT None, [18, 13], [17, 15], 1, None
           YIELD_UNK
 
           MOVE_UNIT None, [17, 13], [20, 15], 1, None
@@ -724,9 +741,6 @@ GUARD_FE5_CHAPTER01 :?= false
         _EthlynDeathMovestring
           MS_DEATH_EFFECT
         MS_END
-
-
-          
 
     .endsection Chapter01EventsSection
 
