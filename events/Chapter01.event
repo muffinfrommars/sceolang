@@ -18,6 +18,8 @@ GUARD_FE5_CHAPTER01 :?= false
 
       eventChapter01Events
 
+        _FlagDryasBattleQuote = enum.enum()
+
         _OpeningEventDefinitions ; FD/8000
           EVENT FlagAlwaysZero, _OpeningEvent
             CMP_WORD wCurrentTurn, 0
@@ -62,6 +64,7 @@ GUARD_FE5_CHAPTER01 :?= false
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions
+        		macroECBossQuote _FlagDryasBattleQuote, Dryas
         END_DEFINITION_ARRAY
 
         _EthlynDeathScriptedBattle
@@ -78,6 +81,8 @@ GUARD_FE5_CHAPTER01 :?= false
           STORE_WORD wCurrentChapter, Chapter23
           CALL_ASM_SKIPPABLE rlSetChapterVisionRange
           CALL_ASM_SKIPPABLE $9A98B8
+
+          STORE_WORD aSoundSystem.wStatus, pack([$00, $CB])
 
           SET_CAMERA_POSITION [10, 8]
           STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
@@ -608,7 +613,7 @@ GUARD_FE5_CHAPTER01 :?= false
           MOVE_UNIT None, [17, 13], [17, 15], 1, None
           YIELD_UNK
 
-          MOVE_UNIT None, [18, 13], [20, 15], 1, None
+          MOVE_UNIT None, [17, 13], [20, 15], 1, None
           YIELD_UNK
 
           WAIT_MOVE

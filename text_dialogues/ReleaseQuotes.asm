@@ -21,6 +21,13 @@ dialogueWeismannReleaseQuote
 .byte WaitForA
 .byte EndText
 
+dialogueDryasReleaseQuote
+.text "Bro I'm on a horse."
+.byte NewLine
+.text "How tf did you capture me lol"
+.byte WaitForA
+.byte EndText
+
 dialogueBucksReleaseQuote
 .text "That's it? No collectin' the bounty"
 .byte NewLine

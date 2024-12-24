@@ -125,7 +125,7 @@ Civilian7Chapter4DeathQuote,Civilian7,Chapter04,FlagAlliedDeath,None
 EmilyChapter5DeathQuote,Emily,Chapter05,FlagAlliedDeath,None
 RanzDeathQuote,Ranz,Chapter05,FlagAlliedDeath,None ;previously MurphyChapter5
 BellaChapter5DeathQuote,Bella,Chapter05,FlagAlliedDeath,None
-CliffChapter5DeathQuote,Dryas,Chapter05,FlagAlliedDeath,None ;previously Cliff
+DryasDeathQuote,Dryas,AnyChapter,None,dialogueDryasDeathQuote ;previously Cliff
 BowieChapter5DeathQuote,Bowie,Chapter05,FlagAlliedDeath,None
 LeenaChapter5DeathQuote,Leena,Chapter05,FlagAlliedDeath,None
 UlsterCavalier2Chapter16ADeathQuote,UlsterCavalier2,Chapter16A,eventChapter16AEvents._FlagUlsterCavalier2Death,None
