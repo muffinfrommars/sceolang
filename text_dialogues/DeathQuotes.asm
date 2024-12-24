@@ -313,13 +313,6 @@ dialogueWeismannDeathQuote
 .byte WaitForA
 .byte EndText
 
-dialogueDryasDeathQuote
-.text "I-I..."
-.byte NewLine
-.text "I lost?"
-.byte WaitForA
-.byte EndText
-
 dialogueBucksDeathQuote
 .text "Ugh... You'll regret this someday..."
 .byte NewLine

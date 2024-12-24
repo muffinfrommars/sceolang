@@ -7,7 +7,7 @@
     village          .binary "village.bin.fe4"
     overworld        .binary "overworld.bin.fe4"
     mapone           .binary "mapone.bin.fe4"
-    ;maptwo           .binary "maptwo.bin.fe4"
+    maptwo           .binary "maptwo.bin.fe4"
     ;mapthree         .binary "mapthree.bin.fe4"
     ;mapfour          .binary "mapfour.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"

@@ -43,6 +43,10 @@ GUARD_FE5_CHAPTER01 :?= false
           EVENT $07, _Music
             CMP_WORD wCurrentPhase, Player
             CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
+          END_DEFINITION
+          EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
+            CHECK_IF_BOSS_DEAD Dryas
+            CMP_WORD wCurrentPhase, Player
           END_DEFINITION  
         END_DEFINITION_ARRAY
 
@@ -68,15 +72,14 @@ GUARD_FE5_CHAPTER01 :?= false
         END_DEFINITION_ARRAY
 
         _EthlynDeathScriptedBattle
-            .byte $02, $01, $00, $10
+            .byte $02, $01, $00, $10 ;Left kills right
           .word $FFFF, $FFFF
 
         _NPCScriptedBattleOne
             .byte $82, $02, $00, $0C	;First80+Left2;Miss2;0;
-            .byte $00, $12, $00, $0C	;Right0;Astra10+Miss2;0;
+            .byte $02, $02, $00, $02	;Left2;Miss2;0;
             .byte $00, $02, $00, $02	;Right0;Miss2;0;
-            .byte $00, $02, $00, $0C	;Right0;Miss2;0;
-            .byte $00, $02, $00, $0C	;Right0;Miss2;0;
+            .byte $02, $03, $00, $02	;Left2;Crit1+Miss2;0;
             .byte $00, $02, $00, $0C	;Right0;Miss2;0;
           .word $FFFF, $FFFF
 
@@ -84,8 +87,7 @@ GUARD_FE5_CHAPTER01 :?= false
             .byte $80, $02, $00, $0C	;First80+Right0;Miss2;0;
             .byte $00, $02, $00, $0C	;Right0;Miss2;0;
             .byte $02, $02, $00, $02	;Left2;Miss2;0;
-            .byte $02, $03, $00, $02	;Left2;Crit1+Miss2;0;
-            .byte $00, $03, $00, $0C	;Right0;Crit1+Miss2;0;
+            .byte $00, $02, $00, $0C	;Right0;Miss2;0;
           .word $FFFF, $FFFF  
 
         _ShopEventDefinitions
@@ -722,21 +724,61 @@ GUARD_FE5_CHAPTER01 :?= false
 	        END2
           
         _EndingEvent ; FD/8536
+
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 16
           YIELD
 
-          CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
+          CALL_ASM_LOOP rlASMCSaveActiveUnitDataChapterEnd, $0000
 
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
+          SET_MUSIC $4B
           YIELD
+
+          CALL_ASM_LOOP rlASMCSaveChapterAndTurncount, $0000
+
+          DIALOGUE introEnding1
+          YIELD
+
+          macroASMCSingleTileChangeByCoords [9, 10], $0041
+          macroASMCSingleTileChangeByCoords [10, 10], $0041
+          macroASMCSingleTileChangeByCoords [9, 11], $0041
+          macroASMCSingleTileChangeByCoords [10, 11], $0041
+
+          WARP_UNIT Finn, [0, 0], [7, 7]
+          WARP_UNIT Xavier, [10, 12], [8, 7]
+
+          DIALOGUE introEnding2
+          YIELD
+
+          MOVE_UNIT Xavier, [8, 7], [10, 12], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 40
+          YIELD
+          
+          WARP_UNIT Xavier, [10, 12], [17, 17]
+
+          DIALOGUE introEnding3
+          YIELD
+
+          MOVE_UNIT Finn, [7, 7], [10, 12], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 40
+          YIELD
+
+          WARP_UNIT Finn, [10, 12], [17, 18]
 
           FADE_OUT $01
           YIELD
 
-          CALL_ASM_LOOP rlASMCChapterEnd
-          END1
+          CALL_ASM_LOOP rlASMCChapterEnd, $0000
 
         _EthlynDeathMovestring
           MS_DEATH_EFFECT
