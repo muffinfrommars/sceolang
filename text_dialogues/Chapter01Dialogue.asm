@@ -588,7 +588,7 @@ introFinal1
 	.byte WaitForA
 	.byte ScrollText
 	
-	.text "If you're here today, it means you've demonstrated"
+	.text "Being here today means you've demonstrated"
 	.byte NewLine
 	.text "yourself as a promising youth, ready and willing"
 	.byte NewLine
@@ -604,11 +604,11 @@ introFinal1
 	.byte WaitForA
 	.byte ScrollText
 
-	.text "To my left stands Lieutenant Ranz of the 2nd division"
+	.text "To my left, Lieutenant Ranz, 2nd division"
 	.byte NewLine
-	.text "company of the Lanzenritter. He's had plenty of"
+	.text "company of the Lanzenritter. He's had plenty"
 	.byte NewLine
-	.text "experience, quelling skirmishes at the Thracian border."
+	.text " of experience quelling skirmishes down south."
 	.byte WaitForA
 
 	.byte EndText
@@ -721,6 +721,20 @@ introFinal5
 
 	.byte EndText
 
+introRanz1
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word Ronan_portrait
+	.byte $09
+
+	.text "Good to see you, lad."
+	.byte NewLine
+	.text "I'll be rootin' for you today."
+	.byte WaitForA
+
+	.byte EndText
+
 introFinal6
 
 	.byte Right_slot
@@ -733,7 +747,6 @@ introFinal6
 	.text "Step there, and there."
 	.byte WaitForA
 	.byte ScrollText
-	.byte NewLine
 	.text "When I blow the whistle, begin your battle."
 	.byte WaitForA
 
@@ -746,7 +759,7 @@ introFinal7
     .word dorias_portrait
 	.byte $09
 
-	.text "And last, you two."
+	.text "Next, you two."
 	.byte NewLine
 	.text "Prepare yourselves."
 	.byte ScrollText
@@ -763,9 +776,14 @@ introFinal8
     .word dorias_portrait
 	.byte $09
 
-	.text "Well done."
+	.text "...Finn, was it?"
 	.byte NewLine
-	.text "Now, show me what you've got!"
+	.text "I've heard a lot about you..."
+	.byte NewLine
+	.text "You. Take position there. Finn, there."
+	.byte WaitForA
+	.byte ScrollText
+	.text "Now, show me what you've got, boy!"
 	.byte WaitForA
 
 	.byte EndText

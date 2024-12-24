@@ -477,10 +477,157 @@ GUARD_FE5_CHAPTER01 :?= false
           DIALOGUE introFinal5
           YIELD
 
+          MOVE_UNIT Ranz, [20, 12], [15, 14], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Ranz, [15, 14], [16, 14], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Ranz, [16, 14], [17, 14], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Ranz, [17, 14], [18, 14], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Ranz, [18, 14], [19, 14], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_CHAR Finn, 2
+          YIELD
+
+          DIALOGUE introRanz1
+          YIELD
+
+          SCROLL_CAMERA_CHAR Dryas, 8
+          YIELD
+
+          MOVE_UNIT Ranz, [19, 14], [20, 14], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Ranz, [20, 14], [20, 12], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
           DIALOGUE introFinal6
           YIELD
 
+          SCROLL_CAMERA_COORDS [17, 14], 2
+          YIELD
+
+          MOVE_UNIT None, [15, 15], [17, 13], 1, None
+          YIELD_UNK
+
+          MOVE_UNIT None, [18, 15], [18, 13], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          PLAY_SOUND_FORCED $4C
+
+          CALL_ASM_SKIPPABLE rlUnknown8C9E22
+        
+          CALL_ASM_SKIPPABLE rlClearHDMAArray
+        
+          STORE_LONG lEventEngineLongParameter, _EthlynDeathScriptedBattle
+          CALL_ASM_SKIPPABLE $9A8D0F
+        
+          STORE_WORD wEventEngineParameter1, IronLance
+          STORE_WORD wEventEngineParameter2, IronLance
+          STORE_WORD wEventEngineXCoordinate, 17
+          STORE_WORD wEventEngineYCoordinate, 13
+          STORE_WORD wEventEngineXCoordinateAlt, 18
+          STORE_WORD wEventEngineYCoordinateAlt, 13
+          CALL_ASM_SKIPPABLE $9A8E50
+        
+          CALL_ASM_SKIPPABLE $84B719
+        
+          HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+        
+          CALL_ASM_SKIPPABLE rlUpdateUnitMaps
+          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap
+        
+          PAUSE_SKIPPABLE 2
+          YIELD
+
+          SCROLL_CAMERA_CHAR Dryas, 8
+          YIELD
+
+          MOVE_UNIT None, [17, 13], [15, 15], 1, None
+          YIELD_UNK
+
+          MOVE_UNIT None, [18, 13], [18, 15], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
           DIALOGUE introFinal7
+          YIELD
+
+          MOVE_UNIT None, [17, 15], [17, 13], 1, None
+          YIELD_UNK
+
+          MOVE_UNIT None, [20, 15], [18, 13], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          PLAY_SOUND_FORCED $4C
+
+          CALL_ASM_SKIPPABLE rlUnknown8C9E22
+        
+          CALL_ASM_SKIPPABLE rlClearHDMAArray
+        
+          STORE_LONG lEventEngineLongParameter, _EthlynDeathScriptedBattle
+          CALL_ASM_SKIPPABLE $9A8D0F
+        
+          STORE_WORD wEventEngineParameter1, IronLance
+          STORE_WORD wEventEngineParameter2, IronLance
+          STORE_WORD wEventEngineXCoordinate, 17
+          STORE_WORD wEventEngineYCoordinate, 13
+          STORE_WORD wEventEngineXCoordinateAlt, 18
+          STORE_WORD wEventEngineYCoordinateAlt, 13
+          CALL_ASM_SKIPPABLE $9A8E50
+        
+          CALL_ASM_SKIPPABLE $84B719
+        
+          HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+        
+          CALL_ASM_SKIPPABLE rlUpdateUnitMaps
+          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap
+        
+          PAUSE_SKIPPABLE 2
+          YIELD
+
+          MOVE_UNIT None, [17, 13], [17, 15], 1, None
+          YIELD_UNK
+
+          MOVE_UNIT None, [18, 13], [20, 15], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
           YIELD
 
           DIALOGUE introFinal8
@@ -498,7 +645,7 @@ GUARD_FE5_CHAPTER01 :?= false
           WAIT_MOVE
           YIELD
 
-          MOVE_UNIT Ranz, [20, 12], [18, 25], 1, None
+          MOVE_UNIT Ranz, [20, 12], [21, 19], 1, None
           YIELD_UNK
 
           MOVE_UNIT None, [17, 15], [19, 25], 1, None
@@ -658,6 +805,7 @@ GUARD_FE5_CHAPTER01 :?= false
         _ch1FinalGroup
           UNIT Finn, Player, [11, 8], [11, 8], Dryas, [IronLance, GaeBolg, Vulnerary], 1, False, [$00, $00, $00, $00]
           UNIT Xavier, NPC, [10, 12], [10, 12], Quan, [GreatLance], 8, True, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [11, 12], [11, 12], Quan, [KillerLance], 10, True, [$01, $03, $00, $80]
           UNIT Dryas, NPC, [3, 6], [3, 6], Quan, [Javelin], 3, True, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [7, 7], [7, 7], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
         UNIT
