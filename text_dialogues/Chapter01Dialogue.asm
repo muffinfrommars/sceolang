@@ -783,7 +783,7 @@ introFinal8
 	.text "You. Take position there. Finn, there."
 	.byte WaitForA
 	.byte ScrollText
-	.text "Now, show me what you've got, boy!"
+	.text "Now, let's see what you're capable of!"
 	.byte WaitForA
 
 	.byte EndText
