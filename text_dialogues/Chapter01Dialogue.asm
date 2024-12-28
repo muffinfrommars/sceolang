@@ -846,7 +846,7 @@ introEnding2
 	.text "get to ya."
 	.byte WaitForA
 	.byte ScrollText
-	.word ClearPortraitalt
+	
 
 	.text "He's got a temper, but he means well."
 	.byte NewLine
@@ -855,6 +855,9 @@ introEnding2
 	.text "Shall we?"
 	.byte WaitForA
 	.byte ScrollText
+
+	.byte Left_slot
+	.word ClearPortrait
 
 	.byte EndText
 
@@ -873,6 +876,17 @@ introEnding3
 	.text "(Where in the world is Glade?)"
 	.byte WaitForA
 
+	.byte EndText
+
+ch1northerncave
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word Ronan_portrait
+	.byte $09 ; font 9(always use font 9)	
+	.text "kaga did nothing wrong"
+	.byte WaitForA
+	
 	.byte EndText
 
 dummydialogue

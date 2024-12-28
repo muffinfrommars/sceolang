@@ -435,10 +435,6 @@ GUARD_FE5_CHAPTER06 :?= false
 
 
         _CedGroupAIList  := [(CedChp4x, [$0B, $00])]
-        _CedGroupAIList ..= [(MagiSquadMyrmidon2, [$0B, $00])]
-        _CedGroupAIList ..= [(MagiSquadMyrmidon1, [$0B, $00])]
-        _CedGroupAIList ..= [(MagiSquadFighter, [$0B, $00])]
-        _CedGroupAIList ..= [(MagiSquadArcher, [$0B, $00])]
 
         .for _Character, _AISetting in _CedGroupAIList
 
@@ -769,15 +765,6 @@ GUARD_FE5_CHAPTER06 :?= false
 
         _CedGroup ; B1/E51C
           UNIT CedChp4x, NPC, [19, 1], [19, 1], CedChp4x, [ForsetiInfinite], 5, false, [$00, $00, $00, $00]
-          UNIT MagiSquadMyrmidon2, NPC, [18, 1], [18, 1], CedChp4x, [KillingEdge], 7, false, [$00, $00, $00, $00]
-          UNIT MagiSquadMyrmidon1, NPC, [20, 1], [20, 1], CedChp4x, [IronSword], 4, false, [$00, $00, $00, $00]
-          UNIT MagiSquadFighter, NPC, [17, 1], [17, 1], CedChp4x, [HandAxe], 5, false, [$00, $00, $00, $00]
-          UNIT MagiSquadFighter, NPC, [21, 1], [21, 1], CedChp4x, [HandAxe], 5, false, [$00, $00, $00, $00]
-          UNIT MagiSquadArcher, NPC, [16, 1], [16, 1], CedChp4x, [IronBow], 4, false, [$00, $00, $00, $00]
-          UNIT MagiSquadArcher, NPC, [22, 1], [22, 1], CedChp4x, [IronBow], 4, false, [$00, $00, $00, $00]
-          UNIT MagiSquadMyrmidon2, NPC, [18, 2], [18, 2], CedChp4x, [IronBlade], 5, false, [$00, $00, $00, $00]
-          UNIT MagiSquadMyrmidon2, NPC, [19, 2], [19, 2], CedChp4x, [IronBlade], 5, false, [$00, $00, $00, $00]
-          UNIT MagiSquadMyrmidon2, NPC, [20, 2], [20, 2], CedChp4x, [IronBlade], 5, false, [$00, $00, $00, $00]
         UNIT
 
         _UnusedCoordinates3 ; B1/E5E6

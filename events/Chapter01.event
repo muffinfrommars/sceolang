@@ -773,6 +773,7 @@ GUARD_FE5_CHAPTER01 :?= false
           WARP_UNIT Xavier, [10, 12], [8, 7]
 
           macroASMCRemoveUnit Ranz
+          macroASMCRemoveUnit LeonsterSoldier
 
           CALL_ASM_LOOP rlASMCSaveChapterAndTurncount, $0000
 
@@ -800,7 +801,7 @@ GUARD_FE5_CHAPTER01 :?= false
           PAUSE_SKIPPABLE 40
           YIELD
           
-          WARP_UNIT Xavier, [10, 12], [17, 17]
+          macroASMCRemoveUnit Xavier
 
           MOVE_UNIT Finn, [7, 7], [10, 12], 1, None
           YIELD_UNK
@@ -813,10 +814,23 @@ GUARD_FE5_CHAPTER01 :?= false
 
           WARP_UNIT Finn, [10, 12], [17, 18]
 
-          FADE_OUT $01
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 16
           YIELD
 
-          CALL_ASM_LOOP rlASMCChapterEnd, $0000
+          CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          CALL_ASM_LOOP rlASMCSaveChapterTurncount
+
+          FADE_OUT 1
+          YIELD
+
+          CALL_ASM_LOOP rlASMCChapterEnd
+        END1
 
         _EthlynDeathMovestring
           MS_DEATH_EFFECT
