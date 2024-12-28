@@ -645,10 +645,16 @@ GUARD_FE5_CHAPTER01 :?= false
           PAUSE_SKIPPABLE 2
           YIELD
 
+          SCROLL_CAMERA_CHAR Dryas, 8
+          YIELD
+
           MOVE_UNIT None, [18, 13], [17, 15], 1, None
           YIELD_UNK
 
-          MOVE_UNIT None, [17, 13], [20, 15], 1, None
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT None, [18, 13], [20, 15], 1, None
           YIELD_UNK
 
           WAIT_MOVE
