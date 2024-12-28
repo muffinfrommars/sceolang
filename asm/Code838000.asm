@@ -6349,12 +6349,13 @@ rlCheckIfGameOverDeath ; 83/A238
 
 	cpx #CedChp23
 	beq ++
-
-	cpx #CedChp4x
+	
+	+
+	cpx #Leif
 	beq ++
 
 	+
-	cpx #Leif
+	cpx #Finn
 	beq +
 
 	bra _End

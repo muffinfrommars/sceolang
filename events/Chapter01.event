@@ -29,7 +29,7 @@ GUARD_FE5_CHAPTER01 :?= false
         _TurnEventDefinitions
           EVENT $07, _Music
             CMP_WORD wCurrentPhase, Player
-            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
+            CMP_WORD_RANGE wCurrentTurn, 2, $FFFF
           END_DEFINITION
           EVENT FlagAlliedDeath, eventMapDeathQuoteDummyEvent
 			      TEST_FLAG_SET FlagPlayerDeath
@@ -45,7 +45,7 @@ GUARD_FE5_CHAPTER01 :?= false
         _BeforeActionEventDefinitions
           EVENT $07, _Music
             CMP_WORD wCurrentPhase, Player
-            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
+            CMP_WORD_RANGE wCurrentTurn, 2, $FFFF
           END_DEFINITION
           EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
             CHECK_IF_BOSS_DEAD Dryas
@@ -87,7 +87,7 @@ GUARD_FE5_CHAPTER01 :?= false
           .word $FFFF, $FFFF
 
         _NPCScriptedBattleTwo
-            .byte $80, $02, $00, $0C	;First80+Right0;Miss2;0;
+            .byte $82, $02, $00, $0C	;First80+Left2;Miss2;0;
             .byte $00, $02, $00, $0C	;Right0;Miss2;0;
             .byte $02, $02, $00, $02	;Left2;Miss2;0;
             .byte $00, $02, $00, $0C	;Right0;Miss2;0;
@@ -100,14 +100,12 @@ GUARD_FE5_CHAPTER01 :?= false
         .word 0
 
         _OpeningEvent
+
           STORE_WORD wCurrentChapter, Chapter23
           CALL_ASM_SKIPPABLE rlSetChapterVisionRange
-          CALL_ASM_SKIPPABLE $9A98B8
-
-          STORE_WORD aSoundSystem.wStatus, pack([$00, $CB])
+				  CALL_ASM_SKIPPABLE $9A98CF
 
           SET_CAMERA_POSITION [10, 8]
-          STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
 
           PLAY_SOUND_FORCED $00E0
           YIELD
@@ -127,9 +125,9 @@ GUARD_FE5_CHAPTER01 :?= false
           YIELD
 
           CALL_ASM_SKIPPABLE rlUnknown8C9E22
-			
-          FADE_IN $04
-        
+
+          STORE_WORD aSoundSystem.wStatus, pack([$00, $CB])
+                  
           STORE_WORD_FROM wEventEngineParameter1, wCurrentChapter
           STORE_WORD wEventEngineParameter2, 5
           CALL_ASM_SKIPPABLE $9A98E6, $0000
@@ -140,6 +138,8 @@ GUARD_FE5_CHAPTER01 :?= false
 
           STORE_WORD_FROM wCurrentChapter, wEventEngineParameter1
 
+          FADE_OUT $04
+
           PLAY_EXTENDED_SOUND $2F
 
           MOVE_CHAR None, [11, 7], 1, _EthlynDeathMovestring
@@ -149,6 +149,14 @@ GUARD_FE5_CHAPTER01 :?= false
           YIELD
 
           macroASMCRemoveUnit Ethlyn
+          
+          PAUSE_SKIPPABLE 8
+          YIELD
+
+          WAIT_MOVE
+          YIELD
+
+          PLAY_EXTENDED_SOUND $05
 
           MOVE_COORDS [10, 8], [19, 16], 1
           YIELD_UNK
@@ -161,6 +169,8 @@ GUARD_FE5_CHAPTER01 :?= false
 
           PAUSE_SKIPPABLE 32
           YIELD
+
+          PLAY_EXTENDED_SOUND $00
 
           DIALOGUE dialogueAedTravant1
           YIELD
@@ -384,6 +394,9 @@ GUARD_FE5_CHAPTER01 :?= false
           MOVE_UNIT Dryas, [32, 26], [18, 12], 1, None
           YIELD_UNK
 
+          PAUSE_SKIPPABLE 8
+          YIELD
+
           MOVE_UNIT Ranz, [21, 22], [20, 12], 1, None
           YIELD_UNK
 
@@ -399,7 +412,7 @@ GUARD_FE5_CHAPTER01 :?= false
           DIALOGUE introDryas2
           YIELD		
 
-          MOVE_UNIT Xavier, [13, 13], [19, 13], 2, None
+          MOVE_UNIT Xavier, [13, 13], [19, 13], 1, None
           YIELD_UNK
 
           PAUSE_SKIPPABLE 12
@@ -723,6 +736,9 @@ GUARD_FE5_CHAPTER01 :?= false
           END3
 
         _Music
+          PAUSE_SKIPPABLE 32
+          YIELD
+
 		      RESET_PHASE_MUSIC $01
 		      YIELD
 	        END2

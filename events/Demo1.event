@@ -70,8 +70,8 @@ GUARD_FE5_CHAPTERDEMO1 :?= false
 			
 			eventDemo1Events ; 9A/E188
 				STORE_WORD aOptions.wTextSpeed, $0001
-				STORE_WORD wUnknown001838, $0000
-				CALL_ASM_SKIPPABLE $9A9D79
+				STORE_WORD wUnknown001838, $0000 						;has something to do with OsianHalvanFight
+				CALL_ASM_SKIPPABLE $9A9D79 								;has something to do with OsianHalvanFight
 			
 				CALL_ASM_LOOP rlDemoSkipCheck
 				JUMP_TRUE _End

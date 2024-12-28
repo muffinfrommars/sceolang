@@ -846,7 +846,7 @@ introEnding2
 	.text "get to ya."
 	.byte WaitForA
 	.byte ScrollText
-	.word ClearPortrait
+	.word ClearPortraitalt
 
 	.text "He's got a temper, but he means well."
 	.byte NewLine
