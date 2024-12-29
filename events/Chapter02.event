@@ -96,20 +96,20 @@ GUARD_FE5_CHAPTER02 :?= false
           CALL_ASM_SKIPPABLE rlUpdateVisibilityMap, $0000
           CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog, $0000
 
+          SET_CAMERA_POSITION [17, 14]
+          YIELD
+
           macroASMCLoadUnitGroup eventChapter02Data._ch02IntroGroup
 
           WARP_UNIT Finn, [0, 0], [20, 20]
 
-          FADE_IN $02
-          YIELD
-
-          SET_CAMERA_POSITION [17, 14]
+          FADE_IN 2
           YIELD
 
           CALL_ASM_SKIPPABLE rlUpdateVisibilityMap, $0000
           CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog, $0000
 
-          PAUSE_SKIPPABLE 48
+          PAUSE_SKIPPABLE 16
           YIELD
 
           SCROLL_CAMERA_COORDS [17, 25], 1
@@ -126,7 +126,7 @@ GUARD_FE5_CHAPTER02 :?= false
           WAIT_MOVE
           YIELD
 
-          DIALOGUE dummydialogue
+          DIALOGUE dPrologue2P1 ;CH02DIALOGUE1
           YIELD
 
           SCROLL_CAMERA_COORDS [11, 26], 2
@@ -158,7 +158,7 @@ GUARD_FE5_CHAPTER02 :?= false
           WAIT_MOVE
           YIELD
 
-          DIALOGUE dummydialogue
+          DIALOGUE dPrologue2P2 ;CH02DIALOGUE2
           YIELD
 
           SCROLL_CAMERA_COORDS [1, 26], 1
@@ -230,7 +230,7 @@ GUARD_FE5_CHAPTER02 :?= false
           FADE_IN $01
           YIELD
 
-          DIALOGUE dummydialogue
+          DIALOGUE dPrologue2P3 ;CH02DIALOGUE3
           YIELD
         END2
 

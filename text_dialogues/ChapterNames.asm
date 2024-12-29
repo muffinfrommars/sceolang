@@ -1,25 +1,25 @@
 dialogueChapter01Title
-.text "The Lance of Legend"
+.text "Prologue 1: The Lance of Legend"
 .byte $01
 
 dialogueChapter02Title
-.text "Chapter 2: The Coastal Village"
+.text "Prologue 2: Knight of Integrity"
 .byte $01
 
 dialogueChapter02xTitle
-.text "Chapter 2x: The Corsair Isles"
+.text "Prologue 3: Bow of Beauty"
 .byte $01
 
 dialogueChapter03Title
-.text "Chapter 3: Kerberos' Gate"
+.text "Prologue 4: Holy Knight"
 .byte $01
 
 dialogueChapter04Title
-.text "Chapter 4: Imprisoned"
+.text "Prologue 5: Luminous Lancer"
 .byte $01
 
 dialogueChapter04xTitle
-.text "Chapter 4x: Hero on the Wind"
+.text "Prologue 6:"
 .byte $01
 
 dialogueChapter05Title
