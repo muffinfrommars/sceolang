@@ -101,9 +101,7 @@ GUARD_FE5_CHAPTER01 :?= false
 
         _OpeningEvent
 
-          STORE_WORD wCurrentChapter, Chapter23
-          CALL_ASM_SKIPPABLE rlSetChapterVisionRange
-				  CALL_ASM_SKIPPABLE $9A98CF
+          cmacroChangeMapSkippable Chapter23
 
           SET_CAMERA_POSITION [10, 8]
 
@@ -237,7 +235,6 @@ GUARD_FE5_CHAPTER01 :?= false
           ;
 
           STORE_WORD wCurrentChapter, Chapter24
-          CALL_ASM_SKIPPABLE rlSetChapterVisionRange
           CALL_ASM_SKIPPABLE $9A98B8 ;loads map placement data!
           
           SCROLL_CAMERA_COORDS [7, 10], 8
@@ -333,7 +330,6 @@ GUARD_FE5_CHAPTER01 :?= false
           ;
 
           STORE_WORD wCurrentChapter, Chapter24x
-          CALL_ASM_SKIPPABLE rlSetChapterVisionRange
           CALL_ASM_SKIPPABLE $9A98B8
 
           PLAY_SOUND_FORCED $00E0
@@ -722,7 +718,6 @@ GUARD_FE5_CHAPTER01 :?= false
           macroASMCRemoveUnit LeonsterSoldier
 
           STORE_WORD wCurrentChapter, Chapter01
-          CALL_ASM_SKIPPABLE rlSetChapterVisionRange
           CALL_ASM_SKIPPABLE $9A98B8
 
           macroASMCLoadUnitGroup eventChapter01Data._ch1FinalGroup

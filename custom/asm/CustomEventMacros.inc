@@ -1,28 +1,28 @@
-cmacroChangeMapnew .macro Chapter
+cmacroChangeMapnew .segment Chapter
 		
-				FADE_OUT 2
-				YIELD
-			
-				CALL_ASM_SKIPPABLE rlUnknown8C9E22
-				CALL_ASM_SKIPPABLE $83FBDC
-				CALL_ASM_SKIPPABLE $9A9D79
-			
-				STORE_WORD wCurrentChapter, \Chapter
-			
-				CALL_ASM_SKIPPABLE rlSetChapterVisionRange
-				CALL_ASM_SKIPPABLE $9A98CF
-			
-				HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $01
-			
-				STORE_WORD bBufferINIDISP, $0000
-				STORE_WORD INIDISP, $0000
-			
-				CALL_ASM_SKIPPABLE rlEventEngineCancelFading
-	.endm
+	FADE_OUT 2
+	YIELD
 
-	cmacroSoundOff .macro
+	CALL_ASM_SKIPPABLE rlUnknown8C9E22
+	CALL_ASM_SKIPPABLE $83FBDC
+	CALL_ASM_SKIPPABLE $9A9D79
+
+	STORE_WORD wCurrentChapter, \Chapter
+
+	CALL_ASM_SKIPPABLE rlSetChapterVisionRange
+	CALL_ASM_SKIPPABLE $9A98CF
+
+	HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $01
+
+	STORE_WORD bBufferINIDISP, $0000
+	STORE_WORD INIDISP, $0000
+
+	CALL_ASM_SKIPPABLE rlEventEngineCancelFading
+	.endsegment
+
+	cmacroSoundOff .segment
 		CALL_ASM_SKIPPABLE $9A9D79 ;Sets sound to "Off"
-	.endm
+	.endsegment
 cmacroChangeMapSkippable .macro Chapter
 
 		FADE_OUT $02
@@ -52,7 +52,7 @@ cmacroChangeMapSkippable .macro Chapter
 		CALL_ASM_SKIPPABLE rlUnknown8C9E22
 			
 		FADE_IN $04
-	.endm
+	.endsegment
 
 cmacroCustomBattleAnimOFF .segment EventPointer, Weapon1, Weapon2, Coords1, Coords2, CoordsAlt1, CoordsAlt2
 		CALL_ASM_SKIPPABLE rlClearHDMAArray
@@ -92,11 +92,11 @@ cmacroCustomBattleAnimON .segment BattleID
 		HALT_UNTIL_BYTE_SKIPPABLE bBuf_INIDISP, $0F
 	.endsegment
 
-cmacroClearMap .macro
+cmacroClearMap .segment
 	CALL_ASM_SKIPPABLE rlUnknown8C9E22, $0000
-	.endm
+	.endsegment
 
-cmacroUnitActionTorch .macro Unit
+cmacroUnitActionTorch .segment Unit
 		STORE_WORD wR0, \Unit
 		STORE_WORD wR1, aSelectedCharacterBuffer
 		CALL_ASM_SKIPPABLE rlSearchForUnitAndWriteTargetToBuffer
@@ -112,4 +112,4 @@ cmacroUnitActionTorch .macro Unit
 
 		PAUSE_SKIPPABLE 60
 		YIELD
-	.endm
+	.endsegment
