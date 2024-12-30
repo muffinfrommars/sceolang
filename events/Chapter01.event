@@ -101,7 +101,10 @@ GUARD_FE5_CHAPTER01 :?= false
 
         _OpeningEvent
 
-          cmacroChangeMapSkippable Chapter23
+          FADE_OUT $04
+
+          STORE_WORD wCurrentChapter, Chapter23
+				  CALL_ASM_SKIPPABLE $9A98CF
 
           SET_CAMERA_POSITION [10, 8]
 
@@ -122,9 +125,7 @@ GUARD_FE5_CHAPTER01 :?= false
           WAIT_MOVE
           YIELD
 
-          CALL_ASM_SKIPPABLE rlUnknown8C9E22
-
-          STORE_WORD aSoundSystem.wStatus, pack([$00, $CB])
+          ;CALL_ASM_SKIPPABLE rlUnknown8C9E22
                   
           STORE_WORD_FROM wEventEngineParameter1, wCurrentChapter
           STORE_WORD wEventEngineParameter2, 5

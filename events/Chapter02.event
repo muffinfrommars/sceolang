@@ -134,7 +134,6 @@ GUARD_FE5_CHAPTER02 :?= false
 
           CALL_ASM_LOOP rlASMCLoadPlayerUnitsByStartingPositions, $0000
 
-          ;CALL_ASM_LOOP $83ACEA, $0000
           CALL_ASM_SKIPPABLE rlUpdateVisibilityMap, $0000
           CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog, $0000
 
@@ -264,7 +263,6 @@ GUARD_FE5_CHAPTER02 :?= false
 
           SET_CAMERA_POSITION [1, 1]
 
-          ;CALL_ASM_LOOP $83ACEA, $0000
           CALL_ASM_SKIPPABLE rlUpdateVisibilityMap, $0000
           CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog, $0000
           YIELD
