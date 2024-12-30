@@ -1,36 +1,34 @@
 cmacroChangeMapnew .segment Chapter
 		
-	FADE_OUT 2
-	YIELD
+		FADE_OUT 2
+		YIELD
 
-	CALL_ASM_SKIPPABLE rlUnknown8C9E22
-	CALL_ASM_SKIPPABLE $83FBDC
-	CALL_ASM_SKIPPABLE $9A9D79
+		CALL_ASM_SKIPPABLE rlUnknown8C9E22
+		CALL_ASM_SKIPPABLE $83FBDC
 
-	STORE_WORD wCurrentChapter, \Chapter
+		STORE_WORD wCurrentChapter, \Chapter
 
-	CALL_ASM_SKIPPABLE rlSetChapterVisionRange
-	CALL_ASM_SKIPPABLE $9A98CF
+		CALL_ASM_SKIPPABLE rlSetChapterVisionRange
+		CALL_ASM_SKIPPABLE $9A98CF
 
-	HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $01
+		HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $01
 
-	STORE_WORD bBufferINIDISP, $0000
-	STORE_WORD INIDISP, $0000
+		STORE_WORD bBufferINIDISP, $0000
+		STORE_WORD INIDISP, $0000
 
-	CALL_ASM_SKIPPABLE rlEventEngineCancelFading
-	.endsegment
+		CALL_ASM_SKIPPABLE rlEventEngineCancelFading
+		.endsegment
 
-	cmacroSoundOff .segment
-		CALL_ASM_SKIPPABLE $9A9D79 ;Sets sound to "Off"
-	.endsegment
-cmacroChangeMapSkippable .macro Chapter
+		cmacroSoundOff .segment
+			CALL_ASM_SKIPPABLE $9A9D79 ;Sets sound to "Off"
+		.endsegment
+cmacroChangeMapSkippable .segment Chapter
 
 		FADE_OUT $02
 		YIELD
 
 		CALL_ASM_SKIPPABLE rlUnknown8C9E22
 		CALL_ASM_SKIPPABLE $83FBDC
-		CALL_ASM_SKIPPABLE $9A9D79
 
 		STORE_WORD wCurrentChapter, \Chapter	
 		
