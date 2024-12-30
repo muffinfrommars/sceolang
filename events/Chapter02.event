@@ -58,6 +58,14 @@ GUARD_FE5_CHAPTER02 :?= false
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions ; 99/8303
+          EVENT FlagAlwaysZero, _FinnAdvances
+            macroECCheckCoordinateRanges [3, 6], [7, 11]
+            CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
+          EVENT $24, _NorthernCave
+			      macroECCheckCoordinates [1, 1]
+			      CMP_WORD wCurrentPhase, Player
+		      END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions ; 99/8305
@@ -78,6 +86,41 @@ GUARD_FE5_CHAPTER02 :?= false
 
         macroItemHouse ch1northerncave, Gungnir, [20, 20], $03F0
         CALL_ASM_LOOP rlASMCSaveActiveUnitData, $0000
+        END2
+
+        _FinnAdvances ; 99/94F1
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          DIALOGUE dPrologue2End1
+          YIELD
+
+          MOVE_CHAR Finn, [1, 12], 4
+          YIELD_UNK
+
+          WARP_UNIT Finn, [1, 12], [20, 20]
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 16
+          YIELD
+
+          DIALOGUE dPrologue2End2
+          YIELD
+
+          CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          CALL_ASM_LOOP rlASMCSaveChapterTurncount
+
+          FADE_OUT 1
+          YIELD
+
+          CALL_ASM_LOOP rlASMCChapterEnd
         END2
       
         _OpeningEvent ; 99/85CA
@@ -181,7 +224,7 @@ GUARD_FE5_CHAPTER02 :?= false
           PAUSE_SKIPPABLE 30
           YIELD
 
-          FADE_OUT 1
+          FADE_OUT 2
           YIELD
 
           PAUSE_SKIPPABLE 15
@@ -213,6 +256,7 @@ GUARD_FE5_CHAPTER02 :?= false
 
           macroASMCSetBitsCharacterDataWord Ranz, Skills2, Skill2Anchor
 					macroASMCSetCharacterDataWord Finn, Leader, Dryas
+          macroASMCSetCharacterDataByte Finn, Fatigue, 1
 
           macroASMCDismount LeonsterBowKnight
           macroASMCDismount LeonsterLanceKnight

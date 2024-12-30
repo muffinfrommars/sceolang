@@ -4,12 +4,12 @@ dialogueChapterObjectiveChapter01
 
 
 dialogueChapterObjektiveChapter02
-	.text "Seize the manor's gate."
+	.text "Rout the Enemy."
 .byte EndTextNoPortraitFade
 
 
 dialogueChapterObjektiveChapter02x
-	.text "Seize the pirate hideout's gate."
+	.text "Protect Selphina and Glade!"
 .byte EndTextNoPortraitFade
 
 

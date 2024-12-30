@@ -1,7 +1,7 @@
 structChapterDataTableEntry 0,TilesetGraphics,TilesetConfig,TilesetPalette,Map,MapChanges,StartingPositions,ObjectiveMarkers,VisionRange,PrepScreen,MinUnits,MaxUnits,PlayerAllegiance,EnemyAllegiance,NPCAllegiance,Unknown,PlayerPhaseMusic,EnemyPhaseMusic,NPCPhaseMusic,AlternateGraphics,TilesetAnimations
 Chapter01ChapterData,ptiles,ptileset,ppalette,mapone,None,None,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTilesetAnimation8487CE
 Chapter02ChapterData,ptiles,ptileset,ppalette,maptwo,None,None,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTilesetAnimation8487CE
-Chapter02xChapterData,$F6E885,$FAEB21,$F68200,$FBE0DC,None,eventChapter02xData._StartingPositions,None,3,None,10,20,$2,$4,$0,$5,$7,$D,$7,$FAA256,aTilesetAnimation8487CE
+Chapter02xChapterData,ptiles,ptileset,ppalette,forest,None,None,None,None,None,10,20,$2,$4,$4,%101,$3F,$3F,$1,None,aTilesetAnimation8487CE
 Chapter03ChapterData,$F7AC25,$FB8059,$F68300,$FBE590,$FCEC64,eventChapter03Data._StartingPositions,None,None,None,10,20,$2,$4,$0,$3,$1,$9,$1,None,None
 Chapter04ChapterData,$F7F221,$FB91E4,$F68400,$FBE997,$FCED1F,eventChapter04Data._StartingPositions,$978000,None,None,10,20,$2,$4,$4,$3,$7,$A,$7,None,aTilesetAnimation848894
 Chapter04xChapterData,$F7F221,$FB91E4,$F68500,$FBEBE0,$FCEE5A,eventChapter04xData._StartingPositions,$978008,3,None,10,20,$2,$4,$4,$3,$7,$A,$7,None,aTilesetAnimation848894

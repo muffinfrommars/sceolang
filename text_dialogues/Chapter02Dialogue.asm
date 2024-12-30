@@ -121,4 +121,54 @@ dPrologue2P3
 
 	.byte EndText
 
+dPrologue2End1
+
+    .byte left_slot
+	.byte $09
+
+	.text "AAAH! HELP!"
+	.byte WaitForA
+	.byte ScrollText
+
+	.byte Right_slot
+    .word LoadPortrait
+    .word Finnportrait
+	.byte $09
+
+	.text "?!"
+    .byte NewLine
+	.text "Did anyone else hear-"
+    .byte WaitForA
+	.byte ScrollText
+	
+    
+    .byte left_slot
+	.text "I'm too young to die!"
+	.byte WaitForA
+	.byte ScrollText
+    
+	.byte Right_slot
+    .text "Someone's in trouble...!"
+    .byte WaitForA
+	.byte ScrollText
+
+	.byte EndText
+
+dPrologue2End2
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word ronan_portrait
+	.byte $09
+
+	.text "Finn...?"
+	.byte WaitForA
+	.byte ScrollText
+
+	.byte right_slot
+	.word ClearPortrait
+
+	.byte EndText
+
+
 

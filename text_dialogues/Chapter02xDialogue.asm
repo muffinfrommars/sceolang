@@ -1,23 +1,24 @@
-
-dialogueChapter02xOpening1
+dPrologue3s1
 	.byte Left_slot ; Left slot
-  .word LoadPortrait    ; load portrait
-  .word shiva_portrait
+	.word LoadPortrait    ; load portrait
+	.word bucksportrait
 
-  .byte Right_Slot ; Right slot
-  .word LoadPortrait    ; load portrait
-  .word lifis_portrait
+	.byte Right_Slot ; Right slot
+	.word LoadPortrait    ; load portrait
+	.word Glade_portrait
 	
 	.byte Left_slot ; opentext left
 	.byte $09 ; font 9(always use font 9)
 	
-	.text "I shouldn't have to say this, Lifis,"
+	.text "Enough messin' around! Hand over the"
 	.byte NewLine
-	.text "but don't you dare lay a hand on the cleric."
+	.text "girl and we'll let you walk out o' here"
+	.byte NewLine
+	.text "with yer skin intact!"
 	.byte WaitForA
 	
 	.byte Right_Slot
-	.text "Oh, uh... R-Right. Got it."
+	.text "Selphina! S-stay behind me, alright!?"
 	.byte WaitForA
 	.byte ScrollText
 	
@@ -26,275 +27,125 @@ dialogueChapter02xOpening1
 	
 	.byte Right_Slot
 	.word ClearPortrait
+
+    .word LoadPortrait 
+    .word Selphina_portrait
 	
-	.byte Left_slot
-	.word ClearPortrait
-    .word LoadPortrait    ; load portrait
-    .word lifis_portrait
-		
-	.byte Right_Slot	
-	.word LoadPortrait    ; load portrait
-    .word safie_portrait
-	
-	.byte Left_slot ; Right slot
-	.text "You could stand to give me the time of day,"
-	.byte NewLine
-	.text "Safy. We both know I could get"
-	.byte NewLine
-	.text "anything you want."
+	.text "Y-yes Glade!"
 	.byte WaitForA
 	.byte ScrollText
-	.text "Just go along with me, yeah?"
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.text "I have given my word to see Lady Linoan's"
-	.byte NewLine
-	.text "hopes realized. Unless you wish to join us"
-	.byte NewLine
-	.text "in fighting for Tahra, I will not falter."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "T-Take up arms against the Empire?!"
-	.byte NewLine
-	.text "May as well stand on the shore"
-	.byte NewLine
-	.text "an' try to push the tide back!"
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Perhaps it sounds impossible,"
-	.byte NewLine
-	.text "but the alternative is to do nothing"
-	.byte NewLine
-	.text "as innocent children are ritually slaughtered."
-	.byte WaitForA
-	.byte ScrollText
-	.text "No matter the cost, no one with"
-	.byte NewLine
-	.text "a drop of humanity could stand by"
-	.byte NewLine
-	.text "and allow this to continue."
-	.byte WaitForA
-	.byte ScrollText
-	.text "We're not naive. Everyone knows the risks—"
-	.byte NewLine
-	.text "we know we'll likely die."
-	.byte NewLine
-	.text "But this isn't just about us!"
-	.byte WaitForA
-	.byte ScrollText
-	.text "This is bigger than one city or one society—"
-	.byte NewLine
-	.text "this is about resisting the grip of damnation"
-	.byte NewLine
-	.text "itself."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Loptous beckons, Lifis."
-	.byte NewLine
-	.text "The world hurtles ever closer toward his jaws."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Tahra is the only place in Jugdral"
-	.byte NewLine
-	.text "still in dispute—where will you be"
-	.byte NewLine
-	.text "when history is written?"
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "Well... I..."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Look, you're out to fulfill your Lady's hopes,"
-	.byte NewLine
-	.text "right? If I say yes, will you fulfill"
-	.byte NewLine
-	.text "one of my own hopes?"
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "If it is within my power, I will."
-	.byte WaitForA
-	
-	.byte Left_slot
-	.byte ScrollText
-	.text "It's a deal. I'll talk to my boys,"
-	.byte NewLine
-	.text "make sure everybody is on board."
-	.byte NewLine
-	.text "But don't forget our little arrangement."
-	.byte WaitForA
-	
-	.byte Right_Slot
-	.byte ScrollText
-	.text "Very well."
-	.byte WaitForA
 	
 	.byte EndText
 	
-dialogueChapter02xOpening2
+dPrologue3s2
 	.byte Right_Slot
-  .word LoadPortrait
-  .word leif_portrait
+  	.word LoadPortrait
+ 	.word Finn_portrait
 	.byte $09 ; font 9(always use font 9)
-	.text "Of all the rotten luck...!"
-	.byte NewLine
-	.text "We just had to land right as it was getting dark."
+	.text "Glade, Selfina! Are you two alright?!"
 	.byte WaitForA
 	
 	.byte Left_slot
     .word LoadPortrait    ; load portrait
-    .word augustus_portrait
-	.text "The timing isn't ideal, granted,"
-	.byte NewLine
-	.text "but with a torch in hand,"
-	.byte NewLine
-	.text "your men will be able to see a ways ahead."
+    .word Glade_portrait
+	.text "Finn?! What are you doing here?"
 	.byte WaitForA
 	
 	.byte Right_Slot
 	.byte ScrollText
-	.text "I...don't believe we have any flint or tinder"
-	.byte NewLine
-	.text "handy. What are our chances without torches?"
-	.byte WaitForA
+	.text "I heard a scream and-"
 	
 	.byte Left_slot
 	.byte ScrollText
-	.text "Your men won't be totally blind, but they'll"
-	.byte NewLine
-	.text "barely be able to see in front of them."
-	.byte WaitForA
-	.byte ScrollText
-	.text "Still, I imagine you can find a spare torch"
-	.byte NewLine
-	.text "or two lying around somewhere."
+	.text "Nevermind that, get over here and help!"
 	.byte WaitForA
 	
 	.byte Right_Slot
 	.byte ScrollText
-	.text "Then let's get moving."
-	.byte NewLine
-	.text "There's no time to waste!"
+	.text "Right away!"
 	.byte WaitForA
 	
 	.byte EndText
 	
-dialogueChapter02xReinforcementsDialogue
+dPrologueForestFinnGlade
 
-	.byte Left_slot ; Left slot
-  .word LoadPortrait    ; load portrait
-  .word bandit_portrait
-
-  .byte Right_Slot ; Right slot
-  .word LoadPortrait    ; load portrait
-  .word lifis_portrait
-	
-	.byte Left_slot ; opentext left
+	.byte Right_Slot
+  	.word LoadPortrait
+ 	.word Finn_portrait
 	.byte $09 ; font 9(always use font 9)
-	
-	.text "Boss, you really mean to make for Tahra?"
-	.byte NewLine
-	.text "I'm goin' pale jus' thinkin' about fightin'"
-	.byte NewLine
-	.text "the Empire..."
+	.text "Glade, What is going on here?"
 	.byte WaitForA
-	.byte ScrollText
-	.text "I mean, we might as well jus' jab a knife in our"
+	
+	.byte Left_slot
+    .word LoadPortrait    ; load portrait
+    .word Glade_portrait
+	.text "I was on my way to the trials when"
 	.byte NewLine
-	.text "necks now an' save everybody some time!"
+	.text "I heard a scream in this area. Bandits"
+	.byte NewLine
+	.text "had gotten a hold of Selphina!"
 	.byte WaitForA
 	
 	.byte Right_Slot
-	.text "I know, I know, I'm just leading her on!"
-	.byte NewLine
-	.text "Gotta get my foot in the door with that lass."
-	.byte WaitForA
 	.byte ScrollText
-	.text "An' just who does Shiva think he is, talking to"
-	.byte NewLine
-	.text "me like that? Did that cutthroat sellsword"
-	.byte NewLine
-	.text "grow a conscience when nobody was looking?"
-	.byte WaitForA
+	.text "I'm glad you came when you did, then."
 	
 	.byte Left_slot
 	.byte ScrollText
-	.word LoadPortrait    ; load portrait
-    .word bandit1_portrait
-	
-	.text "Hey Boss, we got a couple do-gooders"
-	.byte NewLine
-	.text "scurryin' in from the west!"
+	.text "Yeah, but now there's too many of them!"
 	.byte WaitForA
 	
-	.byte Right_slot
+	.byte Right_Slot
 	.byte ScrollText
-	.text "What? Here? You gotta be joking!"
-	.byte WaitForA
-	.byte ScrollText
-	.text "...All right boys, let's go say hello!"
+	.text "Ranz and the others saw me run this way."
 	.byte NewLine
-	.text "The sharks are gonna be well-fed tonight!"
+	.text "If they followed me, it shouldn't be too"
+	.byte NewLine
+	.text "long before help arrives. Just keep guard!"
 	.byte WaitForA
 	
 	.byte EndText
+
 	
-dialogueChapter02xLeifEyvelTalk
+dPrologueForestFinnSelphina
 	.byte Left_slot
 	.word LoadPortrait
-	.word leif_portrait
+	.word Selphina_portrait
 	
 	.byte Right_slot
 	.word LoadPortrait
-	.word eyvel_portrait
+	.word Finn_portrait
 	
 	.byte Left_slot
-	.text "The pirates seem to have greater numbers..."
-	.byte NewLine
-	.text "Can we make it through this, Commander?"
+	.text "Finn? What are you doing here?"
 	.byte WaitForA
 
 	.byte Right_slot
-	.text "Numbers aren't everything."
+	.text "Lady Selphina, I heard a scream coming"
 	.byte NewLine
-	.text "We keep our heads about us,"
+	.text "from this direction. I'm guessing that"
 	.byte NewLine
-	.text "we'll make it through just fine."
+	.text "was you?"
 	.byte WaitForA
 
 	.byte Left_slot
 	.byte ScrollText
-	.text "O-Of course, Commander."
+	.text "...Maybe. Oh, but you're too late!"
 	.byte NewLine
-	.text "Still, would you happen to know anything"
+	.text "My knight in shining armor has already arrived"
 	.byte NewLine
-	.text "useful about this Lifis thug?"
+	.text "to the scene first - Glade!"
 	.byte WaitForA
 
 	.byte Right_slot
 	.byte ScrollText
-	.text "Hah! “Thug” is too generous for Lifis."
+	.text "Hah! In the midst of danger and you're"
 	.byte NewLine
-	.text "He's small-time—ain't even worth killing."
+	.text "still on about Glade, huh? I guess it's"
+	.byte NewLine
+	.text "funny that it was him of all people saving you."
 	.byte WaitForA
 	.byte ScrollText
-	.text "When we get our hands on him, take him alive,"
-	.byte NewLine
-	.text "and don't let him go after the fighting's done."
-	.byte WaitForA
-	.byte ScrollText
-	.text "We'll bring him back to Iz and see that he gets"
-	.byte NewLine
-	.text "justice for his crimes."
-	.byte WaitForA
 	
 	.byte EndText
 	
