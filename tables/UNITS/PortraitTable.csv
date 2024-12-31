@@ -120,10 +120,10 @@ GomezPortrait,g4bppcPortraitEE9378,$63
 BucksPortrait,g4bppcPortraitEE9840,$64
 ShivaPortrait,g4bppcPortraitEE9D0E,$65
 RaydrikPortrait,g4bppcPortraitEEA236,$66
-LargoPortrait,g4bppcPortraitEEA74E,$67
-BaldachPortrait,g4bppcPortraitEEA74E,$D5
-BrookPortrait,g4bppcPortraitEEA74E,$D6
-BlumePortrait,g4bppcPortraitEEAC11,$68
+LargoPortrait,g4bppcPortraitAlec,$67 ;formerly Largo Baldach Largo
+BaldachPortrait,g4bppcPortraitAlec,$D5 ;formerly BrookPortrait
+AlecPortrait,g4bppcPortraitAlec,$D6 ;formerly BrookPortrait
+NaoisePortrait,g4bppcPortraitNaoise,$68 ;formerly Thracia 776 Blume EEAC11
 ManfroyPortrait,g4bppcPortraitEEB0AB,$69
 BharatPortrait,g4bppcPortraitEEB5B3,$6A
 Conomor2Portrait,g4bppcPortraitEEBA8A,$6B

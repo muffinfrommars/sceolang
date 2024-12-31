@@ -241,8 +241,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word SchuperMarlonPortrait		;<<
 	.word Schuper
 
-	.word BrookPortrait
-	.word Brook
+	.word AlecPortrait ;formerly BrookPortrait
+	.word Alec
 
 	.word LargoPortrait
 	.word Nicolov

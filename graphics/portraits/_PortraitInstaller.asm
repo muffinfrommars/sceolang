@@ -265,7 +265,7 @@
 
 	segmentStart
 
-	g4bppcPortraitEB8318 .binary "sprites/PortraitEB8318.4bpp.comp" ;old travant
+	g4bppcPortraitEB8318 .binary "sprites/PortraitEB8318.4bpp.comp" ;Thracia 776 travant
 	g4bppcPortraitTailtiu .binary "../../custom/graphics/portraits/PortraitTailtiu.4bpp.fe4" ;formerly EB8851 Cairpre
 	g4bppcPortraitEB8C84 .binary "sprites/PortraitEB8C84.4bpp.comp"
 	g4bppcPortraitEB91DE .binary "sprites/PortraitEB91DE.4bpp.comp"
@@ -380,8 +380,8 @@
 	g4bppcPortraitEE9840 .binary "sprites/PortraitEE9840.4bpp.comp"
 	g4bppcPortraitEE9D0E .binary "sprites/PortraitEE9D0E.4bpp.comp"
 	g4bppcPortraitEEA236 .binary "sprites/PortraitEEA236.4bpp.comp"
-	g4bppcPortraitEEA74E .binary "sprites/PortraitEEA74E.4bpp.comp"
-	g4bppcPortraitEEAC11 .binary "sprites/PortraitEEAC11.4bpp.comp"
+	g4bppcPortraitAlec .binary "../../custom/graphics/portraits/PortraitAlec.4bpp.fe4" ; formerly g4bppcPortraitEEA74E - Brook and Baldach
+	g4bppcPortraitNaoise .binary "../../custom/graphics/portraits/PortraitNaoise.4bpp.fe4" ; formerly g4bppcPortraitEEAC11 - Thracia 776 Blume
 	g4bppcPortraitEEB0AB .binary "sprites/PortraitEEB0AB.4bpp.comp"
 	g4bppcPortraitEEB5B3 .binary "sprites/PortraitEEB5B3.4bpp.comp"
 	g4bppcPortraitEEBA8A .binary "sprites/PortraitEEBA8A.4bpp.comp"

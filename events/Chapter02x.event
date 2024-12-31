@@ -33,35 +33,35 @@ GUARD_FE5_CHAPTER02x :?= false
 
         _TurnEventDefinitions ; 97/8067
           EVENT FlagAlwaysZero, _PrologueForestReinforcementASpawn
-            CMP_WORD_RANGE wCurrentTurn, 2, 2
-            CMP_WORD wCurrentPhase, Player
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _PrologueForestReinforcementBSpawn
             CMP_WORD_RANGE wCurrentTurn, 3, 3
             CMP_WORD wCurrentPhase, Player
             ROLL_RNG 60
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
-          EVENT FlagAlwaysZero, _PrologueForestReinforcementCSpawn
-            CMP_WORD_RANGE wCurrentTurn, 4, 4
-            CMP_WORD wCurrentPhase, Player
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _PrologueForestReinforcementDSpawn
+          EVENT FlagAlwaysZero, _PrologueForestReinforcementBSpawn
             CMP_WORD_RANGE wCurrentTurn, 5, 5
             CMP_WORD wCurrentPhase, Player
             ROLL_RNG 60
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
+          EVENT FlagAlwaysZero, _PrologueForestReinforcementCSpawn
+            CMP_WORD_RANGE wCurrentTurn, 7, 7
+            CMP_WORD wCurrentPhase, Player
+            ROLL_RNG 60
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _PrologueForestReinforcementDSpawn
+            CMP_WORD_RANGE wCurrentTurn, 9, 9
+            CMP_WORD wCurrentPhase, Player
+            ROLL_RNG 60
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
           EVENT FlagAlwaysZero, _CounterIncrease
-						CMP_WORD_RANGE wCurrentTurn, 1, 8
+						CMP_WORD_RANGE wCurrentTurn, 1, 11
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
           EVENT FlagAlwaysZero, _EndingEvent
-						CMP_BYTE $7E4976, 7
+						CMP_BYTE $7E4976, 10
 						CMP_WORD wCurrentPhase, NPC
 					END_DEFINITION
         END_DEFINITION_ARRAY
@@ -100,6 +100,10 @@ GUARD_FE5_CHAPTER02x :?= false
         END2
 
         _PrologueForestReinforcementASpawn
+
+          SCROLL_CAMERA_COORDS [15, 15], 1
+          YIELD
+
           LOAD_GROUP_BLOCKABLE eventChapter02xData._PrologueForestReinforcementA
           WAIT_MOVE
           YIELD
@@ -108,6 +112,10 @@ GUARD_FE5_CHAPTER02x :?= false
         END2
 
         _PrologueForestReinforcementBSpawn
+
+          SCROLL_CAMERA_COORDS [15, 15], 1
+          YIELD
+
           LOAD_GROUP_BLOCKABLE eventChapter02xData._PrologueForestReinforcementB
           WAIT_MOVE
           YIELD
@@ -116,6 +124,10 @@ GUARD_FE5_CHAPTER02x :?= false
         END2
 
         _PrologueForestReinforcementCSpawn
+        
+          SCROLL_CAMERA_COORDS [15, 15], 1
+          YIELD
+
           LOAD_GROUP_BLOCKABLE eventChapter02xData._PrologueForestReinforcementC
           WAIT_MOVE
           YIELD
@@ -124,6 +136,10 @@ GUARD_FE5_CHAPTER02x :?= false
         END2
 
         _PrologueForestReinforcementDSpawn
+        
+          SCROLL_CAMERA_COORDS [15, 15], 1
+          YIELD
+
           LOAD_GROUP_BLOCKABLE eventChapter02xData._PrologueForestReinforcementD
           WAIT_MOVE
           YIELD
@@ -137,6 +153,10 @@ GUARD_FE5_CHAPTER02x :?= false
 					YIELD_UNK
 				END1
 
+        _SigurdBucksScriptedBattle
+            .byte $02, $01, $00, $10 ;Left kills right
+          .word $FFFF, $FFFF
+
         _PrepGroups ; 97/8206
         .word 0
 
@@ -145,6 +165,8 @@ GUARD_FE5_CHAPTER02x :?= false
 
           macroASMCLoadUnitGroup eventChapter02xData._GladeSelphina
           macroASMCLoadUnitGroup eventChapter02xData._PrologueForestStationary
+
+          macroASMCSetBitsCharacterDataWord Bucks, Skills3, Skill3Immortal
 
           macroLoadPlayerUnitsByStartingPositions
 
@@ -171,42 +193,84 @@ GUARD_FE5_CHAPTER02x :?= false
         END2
 
         _EndingEvent ; 97/8398
+
+          DIALOGUE dPrologueForestEnding1
+        
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 16
           YIELD
 
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
 
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
+          SET_MUSIC $4A
           YIELD
 
-          SET_MUSIC $43
+          LOAD_GROUP eventChapter02xData._PrologueForestSigurd
+
+          SCROLL_CAMERA_CHAR Sigurd, 1
+          YIELD
+
+          DIALOGUE dPrologueForestEnding2
+          YIELD
+
+          MOVE_UNIT Sigurd, [1, 7], [10, 10], 3, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueForestEnding3
+          YIELD
+
+          SCROLL_CAMERA_CHAR Sigurd, 1
+          YIELD
+
+          CALL_ASM_SKIPPABLE rlUnknown8C9E22
+        
+          CALL_ASM_SKIPPABLE rlClearHDMAArray
+        
+          STORE_LONG lEventEngineLongParameter, _SigurdBucksScriptedBattle
+          CALL_ASM_SKIPPABLE $9A8D0F
+        
+          STORE_WORD wEventEngineParameter1, IronAxe
+          STORE_WORD wEventEngineParameter2, IronSword
+          STORE_WORD wEventEngineXCoordinate, 11
+          STORE_WORD wEventEngineYCoordinate, 10
+          STORE_WORD wEventEngineXCoordinateAlt, 10
+          STORE_WORD wEventEngineYCoordinateAlt, 10
+          CALL_ASM_SKIPPABLE $9A8E50
+        
+          CALL_ASM_SKIPPABLE $84B719
+        
+          HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+        
+          CALL_ASM_SKIPPABLE rlUpdateUnitMaps
+          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap
+        
+          PAUSE_SKIPPABLE 2
+          YIELD
+
+          SCROLL_CAMERA_CHAR Sigurd, 1
+          YIELD
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueForestEnding4
+          YIELD
+
+          MOVE_UNIT Bucks, [11, 10], [7, 14], 3, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Bucks
+
+          WAIT_MOVE
           YIELD
 
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
-
-          macroASMCSubtractCharacterDataByte Leif, LeadershipStars, 1
-
-          FADE_OUT 1
-          YIELD
-
-          STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
-
-          macroASMCChangeAllegianceToPlayerIfHeld Lifis
-
-          YIELD
-
-          HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
-
-          FADE_OUT $01
-          YIELD
-
-          CALL_ASM_LOOP rlASMCDialogueWithBGEndFadeOut
-
-          STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
-
-          macroASMCPrepareCapturedUnitsForRescue None, Player
 
           FADE_OUT 1
           YIELD
@@ -238,6 +302,7 @@ GUARD_FE5_CHAPTER02x :?= false
 
         _PrologueForestReinforcementA
           UNIT BanditBrigand1, Enemy, [1, 6], [1, 6], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
+          UNIT BanditBrigand1, Enemy, [13, 13], [13, 13], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
           UNIT BanditBrigand1, Enemy, [1, 9], [1, 9], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
         UNIT
 
@@ -247,12 +312,23 @@ GUARD_FE5_CHAPTER02x :?= false
         UNIT
 
         _PrologueForestReinforcementC
+          UNIT BanditBrigand1, Enemy, [15, 1], [15, 1], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
           UNIT BanditBrigand1, Enemy, [7, 1], [7, 1], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
+          UNIT BanditBrigand1, Enemy, [12, 14], [12, 14], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
         UNIT
 
         _PrologueForestReinforcementD
           UNIT BanditBrigand1, Enemy, [7, 14], [7, 14], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
           UNIT BanditBrigand1, Enemy, [1, 8], [1, 8], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]         
+        UNIT
+
+        _PrologueForestSigurd
+          UNIT Sigurd, NPC, [1, 7], [1, 7], Quan, [IronSword], 5, false, [$00, $02, $00, $00]
+        UNIT
+
+        _PrologueForestAlecNaoise
+          UNIT Alec, Enemy, [1, 6], [1, 6], Quan, [IronSword], 5, false, [$00, $02, $00, $00]
+          UNIT Naoise, Enemy, [1, 9], [1, 8], Quan, [IronSword], 5, false, [$00, $02, $00, $00]         
         UNIT
 
         _StartingPositions ; B1/F909

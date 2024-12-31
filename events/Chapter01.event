@@ -264,11 +264,8 @@ GUARD_FE5_CHAPTER01 :?= false
           STORE_WORD_FROM wEventEngineParameter1, wCurrentChapter
           STORE_WORD wEventEngineParameter2, 4
           CALL_ASM_SKIPPABLE $9A98E6, $0000
-
-          STORE_BYTE $7E41AC, $00
-
+          STORE_BYTE $7E41AC, $00                                     ;grouping this nonsense together bc all related code
           HALT_UNTIL_WORD_SKIPPABLE $7FAA14, $0000
-
           STORE_WORD_FROM wCurrentChapter, wEventEngineParameter1
 
           SCROLL_CAMERA_COORDS [7, 10], 8
@@ -896,7 +893,7 @@ GUARD_FE5_CHAPTER01 :?= false
         UNIT
 
         _ch1FinalGroup
-          UNIT Finn, Player, [11, 8], [11, 8], Dryas, [IronLance, GaeBolg, Vulnerary], 1, False, [$00, $00, $00, $00]
+          UNIT Finn, Player, [11, 8], [11, 8], Dryas, [IronLance, Vulnerary], 1, False, [$00, $00, $00, $00]
           UNIT Xavier, NPC, [10, 12], [10, 12], Quan, [GreatLance], 8, True, [$01, $03, $00, $80]
           UNIT Ranz, NPC, [11, 12], [11, 12], Quan, [KillerLance], 10, True, [$01, $03, $00, $80]
           UNIT Dryas, NPC, [3, 6], [3, 6], Quan, [Javelin], 3, True, [$01, $03, $00, $80]
