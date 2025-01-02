@@ -200,6 +200,17 @@ dPrologueForestEnding4
 
 	.byte EndText
 
+dPrologueForestEnding4addendum
+
+	.byte Right_Slot
+	.byte ScrollText
+	.word LoadPortrait
+	.word bandit1_portrait 
+	.text "B-Boss?!"
+	.byte WaitForA
+
+	.byte EndText
+
 dPrologueForestEnding5
 
 	.byte Right_Slot

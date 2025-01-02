@@ -61,7 +61,7 @@ GUARD_FE5_CHAPTER02x :?= false
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
           EVENT FlagAlwaysZero, _EndingEvent
-						CMP_BYTE $7E4976, 10
+						CMP_BYTE $7E4976, 2 ; remember to change back to 10
 						CMP_WORD wCurrentPhase, NPC
 					END_DEFINITION
         END_DEFINITION_ARRAY
@@ -270,6 +270,9 @@ GUARD_FE5_CHAPTER02x :?= false
           macroASMCRemoveUnit Bucks
 
           WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueForestEnding4addendum
           YIELD
 
           SCROLL_CAMERA_CHAR Finn, 1
