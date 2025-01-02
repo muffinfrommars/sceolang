@@ -907,7 +907,7 @@
 			.text "Tol[man \n"
 		
 		menutextUnitMagiName
-			.text "(Magi \n"
+			.text "Trainee \n" ;previously (Magi
 		
 		menutextUnitBishopName
 			.text "Bishop\n"

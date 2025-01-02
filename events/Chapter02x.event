@@ -125,7 +125,7 @@ GUARD_FE5_CHAPTER02x :?= false
 
         _PrologueForestReinforcementCSpawn
         
-          SCROLL_CAMERA_COORDS [15, 15], 1
+          SCROLL_CAMERA_COORDS [15, 1], 1
           YIELD
 
           LOAD_GROUP_BLOCKABLE eventChapter02xData._PrologueForestReinforcementC
@@ -193,6 +193,8 @@ GUARD_FE5_CHAPTER02x :?= false
         END2
 
         _EndingEvent ; 97/8398
+
+          LOAD_GROUP_BLOCKABLE eventChapter02xData._PrologueForestAfterwards
 
           DIALOGUE dPrologueForestEnding1
         
@@ -270,6 +272,62 @@ GUARD_FE5_CHAPTER02x :?= false
           WAIT_MOVE
           YIELD
 
+          SCROLL_CAMERA_CHAR Finn, 1
+          YIELD
+
+          MOVE_UNIT Sigurd, [10, 10], [7, 7], 2, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueForestEnding5
+          YIELD
+
+          SCROLL_CAMERA_COORDS [1, 1], 1
+          YIELD
+
+          LOAD_GROUP eventChapter02xData._PrologueForestAlecNaoise
+
+          DIALOGUE dPrologueForestEnding6
+          YIELD
+
+          MOVE_UNIT Alec, [0, 0], [6, 8], 2, None
+          YIELD_UNK
+
+          MOVE_UNIT Naoise, [0, 0], [8, 8], 2, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueForestFinnSigurd
+          YIELD
+
+          MOVE_UNIT Sigurd, [7, 7], [1, 7], 1, None
+          YIELD_UNK
+
+          MOVE_UNIT Naoise, [8, 8], [1, 8], 1, None
+          YIELD_UNK
+
+          macroASMCRemoveUnit Sigurd
+
+          macroASMCRemoveUnit Naoise
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueForestAlec
+          YIELD
+
+          MOVE_UNIT Alec, [6, 8], [1, 8], 2, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Alec
+
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
 
           FADE_OUT 1
@@ -327,8 +385,17 @@ GUARD_FE5_CHAPTER02x :?= false
         UNIT
 
         _PrologueForestAlecNaoise
-          UNIT Alec, Enemy, [1, 6], [1, 6], Quan, [IronSword], 5, false, [$00, $02, $00, $00]
-          UNIT Naoise, Enemy, [1, 9], [1, 8], Quan, [IronSword], 5, false, [$00, $02, $00, $00]         
+          UNIT Alec, NPC, [1, 6], [1, 6], Quan, [IronSword], 5, false, [$00, $02, $00, $00]
+          UNIT Naoise, NPC, [1, 9], [1, 8], Quan, [IronSword], 5, false, [$00, $02, $00, $00]         
+        UNIT
+
+        _PrologueForestAfterwards; B1/F69B
+          UNIT BanditBrigand1, Enemy, [5, 1], [5, 1], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
+          UNIT BanditBrigand1, Enemy, [2, 7], [2, 7], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
+          UNIT BanditBrigand1, Enemy, [12, 7], [12, 7], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
+          UNIT BanditBrigand1, Enemy, [15, 4], [15, 4], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
+          UNIT BanditBrigand1, Enemy, [15, 13], [15, 13], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
+          UNIT BanditBrigand1, Enemy, [1, 12], [1, 12], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
         UNIT
 
         _StartingPositions ; B1/F909
