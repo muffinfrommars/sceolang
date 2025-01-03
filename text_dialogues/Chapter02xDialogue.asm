@@ -207,6 +207,8 @@ dPrologueForestEnding4addendum
 	.word LoadPortrait
 	.word bandit1_portrait 
 	.text "B-Boss?!"
+	.byte NewLine
+	.text "Wait for us!!!"
 	.byte WaitForA
 
 	.byte EndText
