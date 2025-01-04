@@ -4,10 +4,6 @@
 
     ptiles    .binary "plainsTiles.dat.fe4"
     ptileset        .binary "plainsTileset.dat.fe4"
-    ;ctiles      .binary "castletiles.dat.fe4"
-    ;ctileset         .binary "castletileset.dat.fe4"
-    ;ttiles         .binary "templeTiles.dat.fe4"
-    ;ttileset       .binary "templeTileset.dat.fe4"
 
 .here
 

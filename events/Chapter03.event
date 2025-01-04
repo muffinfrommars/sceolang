@@ -74,24 +74,112 @@ GUARD_FE5_CHAPTER03 :?= false
           PAUSE_SKIPPABLE 32
           YIELD
 
-          SET_MUSIC $39
+          FADE_IN 2 
+
+          SET_CAMERA_POSITION [4, 34]
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter03Data._ch03cutsceneGroupB
+          YIELD
+
+          macroASMCDismount LeonsterBowKnight
+          macroASMCDismount LeonsterLanceKnight
+
+          LOAD_GROUP eventChapter03Data._ch03cutsceneGroupA
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueThreeStart1
+          YIELD
+
+          SCROLL_CAMERA_CHAR Ranz, 2
+          YIELD
+
+          DIALOGUE dPrologueThreeStart2
+          YIELD
+
+          SCROLL_CAMERA_COORDS [17, 39], 3
+
+          MOVE_UNIT Ranz, [9, 30], [18, 26], 4, None
+          YIELD_UNK
+
+          MOVE_UNIT Dryas, [9, 30], [17, 26], 4, None
+          YIELD_UNK
+
+          MOVE_UNIT Xavier, [9, 30], [19, 26], 3, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE dPrologueThreeStart3
+          YIELD
+
+          DIALOGUE dPrologueThreeStart4
+          YIELD
+
+          MOVE_UNIT Finn, [9, 30], [11, 26], 4, None
+          YIELD_UNK
+
+          MOVE_UNIT Selphina, [9, 30], [12, 27], 4, None
+          YIELD_UNK
+
+          MOVE_UNIT Glade, [9, 30], [11, 28], 3, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_CHAR Selphina, 1
+          YIELD
+
+          DIALOGUE dPrologueThreeStart5
+          YIELD
+
+          SCROLL_CAMERA_COORDS [17, 39], 3
+          YIELD
+
+          FADE_OUT 2
+          YIELD
+
+          macroASMCRemoveUnit Finn
+          macroASMCRemoveUnit Glade
+          macroASMCRemoveUnit Selphina
+          macroASMCRemoveUnit Dryas
+          macroASMCRemoveUnit Ranz
+          macroASMCRemoveUnit Xavier
+          macroASMCRemoveUnit LeonsterSoldier
+          macroASMCRemoveUnit LeonsterMyrmidon
+          macroASMCRemoveUnit LeonsterArcher
+          macroASMCRemoveUnit LeonsterHero
+          macroASMCRemoveUnit LeonsterBowKnight
+          macroASMCRemoveUnit LeonsterLanceKnight
+
+          YIELD
+
+
+          SET_CAMERA_POSITION [1, 1]
           YIELD
 
           STORE_WORD wCurrentChapter, Chapter03
           CALL_ASM_SKIPPABLE $9A98B8
 
-          SET_CAMERA_POSITION [1, 1]
-          YIELD
+          macroASMCLoadUnitGroup eventChapter03Data._ch03NPCGroupfinal
+
+          macroASMCDismount LeonsterBowKnight
+          macroASMCDismount LeonsterLanceKnight
 
           macroLoadPlayerUnitsByStartingPositions
-          YIELD
 
-          macroASMCLoadUnitGroup eventChapter03Data._NPCGroup
+          DIALOGUE dPrologueThreeStart6
+          YIELD
 
           WAIT_MOVE
           YIELD
 
           FADE_IN 2
+
+          
         END2
 
         _EndingEvent ; 8C/EC8D
@@ -120,17 +208,41 @@ GUARD_FE5_CHAPTER03 :?= false
 
       eventChapter03Data ; B1/F318
 
-        _UnusedCoordinates1 ; B1/F318
-          .byte [11, 11]
+        _ch03cutsceneGroupA
+          UNIT Finn, Player, [2, 35], [8, 32], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
+          UNIT Glade, Player, [1, 33], [6, 32], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+          UNIT Selphina, Player, [1, 36], [7, 33], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+        UNIT
 
-        _NPCGroup
-          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Longbow, ShortLance], 1, true, [$00, $00, $00, $00]
+        _ch03cutsceneGroupB
+          UNIT Dryas, NPC, [7, 30], [7, 30], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
+          UNIT Ranz, NPC, [9, 30], [9, 30], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+          UNIT Xavier, NPC, [5, 30], [5, 30], Dryas, [GreatLance], 1, true, [$00, $00, $00, $00]
+          UNIT LeonsterSoldier, NPC, [7, 34], [7, 34], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterMyrmidon, NPC, [6, 34], [6, 34], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterArcher, NPC, [8, 34], [8, 34], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterHero, NPC, [6, 35], [6, 35], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterBowKnight, NPC, [7, 35], [7, 35], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterLanceKnight, NPC, [8, 35], [8, 35], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
+        UNIT
+
+        _ch03NPCGroupfinal
+          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
+          UNIT Ranz, NPC, [8, 1], [8, 1], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+          UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$00, $00, $00, $00]
+          UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterMyrmidon, NPC, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterHero, NPC, [14, 2], [14, 2], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
+
         UNIT
 
         _StartingPositions ; B1/F5BC
           .byte [1, 1]
           .byte [1, 3]
-          .byte [6, 1]
+          .byte [2, 2]
         .char -1
 
 
@@ -140,51 +252,6 @@ GUARD_FE5_CHAPTER03 :?= false
     .section Chapter03WorldMapEventsSection
 
       eventChapter03WorldMapEvents ; E7/E336
-
-        SCROLL_CAMERA_COORDS [20, 14], 4
-        SET_CURSOR_POSITION
-        YIELD
-
-        PLAY_SOUND_FORCED $00E0
-        PAUSE_SKIPPABLE 32
-        YIELD
-
-        SET_MUSIC $29
-        YIELD
-
-        FADE_IN 1
-        YIELD
-
-        SCROLL_CAMERA_COORDS [20, 12], 1
-        SET_CURSOR_POSITION
-        YIELD
-
-        macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
-
-        macroWMDrawSpecialMarker [96, 80], WMMarkerTable.Crown, 0
-
-        macroASMCWMDialogue dialogueChapter03WorldMap1
-        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
-
-        macroWMClearSpecialMarker 0
-
-        PAUSE_SKIPPABLE 3
-        YIELD
-
-        macroWMDrawSpecialMarker [136, 112], WMMarkerTable.Circle, 0
-
-        macroASMCWMDialogue dialogueChapter03WorldMap2
-        HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
-
-        macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
-
-        macroWMClearSpecialMarker 0
-
-        PAUSE_SKIPPABLE 1
-        YIELD
-
-        PAUSE_SKIPPABLE 1
-        YIELD
 
         FADE_OUT 2
         YIELD
