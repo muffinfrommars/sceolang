@@ -287,7 +287,7 @@ dPrologueForestFinnSigurd
     .byte ScrollText
     .text "I heard what we thought was a tea kettle, but"
     .byte NewLine
-    .text "Alec insisted it was a scream."
+    .text "Naoise insisted it was a scream."
     .byte WaitForA
 
     .byte Left_slot
