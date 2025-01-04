@@ -60,7 +60,6 @@ GUARD_FE5_CHAPTER03 :?= false
         END_DEFINITION_ARRAY
 
         _ShopEventDefinitions ; 8C/E698
-          macroECShop eventChapter03Data._Vendor
         END_DEFINITION_ARRAY
 
 
