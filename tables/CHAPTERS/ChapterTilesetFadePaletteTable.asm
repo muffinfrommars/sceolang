@@ -32,7 +32,7 @@ aChapterTilesetFadePaletteTable ; 8C/C9F9
 	.long $F08491
 	.long $F08533
 	.long $F08659
-	.long $F086E7
-	.long $F08780
+	.long ppalettedark
+	.long ppalettedark
 	.long $F08820
 	.long $F088C0
