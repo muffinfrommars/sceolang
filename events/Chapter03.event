@@ -485,7 +485,7 @@ GUARD_FE5_CHAPTER03 :?= false
           macroASMCRemoveUnit Finn
           macroASMCRemoveUnit Glade
           macroASMCRemoveUnit Selphina
-          macroASMCRemoveUnit Dryas
+          ;macroASMCRemoveUnit Dryas
           macroASMCRemoveUnit Ranz
           macroASMCRemoveUnit Xavier
           macroASMCRemoveUnit LeonsterSoldier
