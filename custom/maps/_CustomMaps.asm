@@ -15,11 +15,14 @@
     ;eastthracia      .binary "eastthracia.bin.fe4"
     ;debug2           .binary "debug2MapMain.bin.fe4"
     ;mapleif          .binary "leif.bin.fe4"
+.here
 
+
+* = $476760
+.logical lorom($476760, 1)
     startEventScenes
       .dsection Chapter02xEventsSection
     endEventScenes
-
 .here
 
 * = $5FFE78 ; - veeerryy end of the rom. nothing can go past this

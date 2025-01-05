@@ -1,8 +1,5 @@
 dPrologueThreeStart1
 
-    .word PlayMusic
-	.byte $32
-
 	.byte Right_Slot
   	.word LoadPortrait
  	.word Selphina_portrait

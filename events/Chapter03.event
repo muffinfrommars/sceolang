@@ -70,8 +70,7 @@ GUARD_FE5_CHAPTER03 :?= false
           STORE_WORD wCurrentChapter, Chapter24x
           CALL_ASM_SKIPPABLE $9A98B8
 
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
+          SET_MUSIC $32
           YIELD
 
           FADE_IN 2 
@@ -154,9 +153,7 @@ GUARD_FE5_CHAPTER03 :?= false
           macroASMCRemoveUnit LeonsterHero
           macroASMCRemoveUnit LeonsterBowKnight
           macroASMCRemoveUnit LeonsterLanceKnight
-
           YIELD
-
 
           SET_CAMERA_POSITION [1, 1]
           YIELD
@@ -164,12 +161,12 @@ GUARD_FE5_CHAPTER03 :?= false
           STORE_WORD wCurrentChapter, Chapter03
           CALL_ASM_SKIPPABLE $9A98B8
 
+          macroLoadPlayerUnitsByStartingPositions
+
           macroASMCLoadUnitGroup eventChapter03Data._ch03NPCGroupfinal
 
           macroASMCDismount LeonsterBowKnight
           macroASMCDismount LeonsterLanceKnight
-
-          macroLoadPlayerUnitsByStartingPositions
 
           DIALOGUE dPrologueThreeStart6
           YIELD
