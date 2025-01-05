@@ -95,11 +95,9 @@ dialogueLeifDeathQuote
 .byte EndText
 
 dialogueFinnDeathQuote
-.text "Lord Leif..."
+.text "Is this the best..."
 .byte NewLine
-.text "Y-You must...fulfill"
-.byte NewLine
-.text "your lord father's dying wish..."
+.text "I can really do...?"
 .byte WaitForA
 .byte EndText
 

@@ -103,6 +103,10 @@ GUARD_FE5_CHAPTER01 :?= false
 
           FADE_OUT $04
 
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
           STORE_WORD wCurrentChapter, Chapter23
 				  CALL_ASM_SKIPPABLE $9A98CF
 

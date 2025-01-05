@@ -189,11 +189,11 @@ GUARD_FE5_CHAPTER02x :?= false
           WAIT_MOVE
           YIELD
 
-          DIALOGUE dPrologue3s2
-          YIELD
-
           MOVE_UNIT Finn, [15, 1], [12, 5], 5
           YIELD_UNK
+
+          DIALOGUE dPrologue3s2
+          YIELD
 
           WAIT_MOVE
           YIELD
@@ -404,7 +404,6 @@ GUARD_FE5_CHAPTER02x :?= false
           YIELD_UNK
 
           macroASMCRemoveUnit Sigurd
-
           macroASMCRemoveUnit Naoise
 
           WAIT_MOVE
