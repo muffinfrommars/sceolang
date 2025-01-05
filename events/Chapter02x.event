@@ -163,6 +163,10 @@ GUARD_FE5_CHAPTER02x :?= false
         _OpeningEvent ; 97/8208
           HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(false, 15)
 
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
           macroASMCLoadUnitGroup eventChapter02xData._GladeSelphina
           macroASMCLoadUnitGroup eventChapter02xData._PrologueForestStationary
 
@@ -170,9 +174,11 @@ GUARD_FE5_CHAPTER02x :?= false
 
           macroLoadPlayerUnitsByStartingPositions
 
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
+          FADE_IN 2
+
+          SET_MUSIC $3A
           YIELD
+
 
           DIALOGUE dPrologue3s1
           YIELD
@@ -180,16 +186,17 @@ GUARD_FE5_CHAPTER02x :?= false
           WARP_UNIT Finn, [0, 0], [15, 1]
           YIELD_UNK
 
-          SET_MUSIC $3A
+          WAIT_MOVE
           YIELD
-
-          PLAY_SOUND_FORCED $00E7
 
           DIALOGUE dPrologue3s2
           YIELD
 
-          MOVE_UNIT Finn, [15, 1], [12, 5], 3
+          MOVE_UNIT Finn, [15, 1], [12, 5], 5
           YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
         END2
 
         _EndingEvent ; 97/8398
@@ -219,6 +226,9 @@ GUARD_FE5_CHAPTER02x :?= false
           YIELD_UNK
 
           WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_CHAR Sigurd, 3
           YIELD
 
           DIALOGUE dPrologueForestEnding3
