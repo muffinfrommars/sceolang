@@ -919,7 +919,7 @@ DSizeEnds		     := []
     endData
     startEventScenes
 
-      .dsection Chapter02xEventsSection
+      ;.dsection Chapter02xEventsSection ch02x got too big! need to move elsewhere
       .dsection Chapter08xEventsSection
       .dsection Chapter24xEventsSection
 

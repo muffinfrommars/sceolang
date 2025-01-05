@@ -1,4 +1,4 @@
-;custom maps
+;custom maps and eventfiles
 
 * = $546950
 .logical lorom($546950, 1)
@@ -13,8 +13,12 @@
     ;mapfour          .binary "mapfour.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"
     ;eastthracia      .binary "eastthracia.bin.fe4"
-    debug2           .binary "debug2MapMain.bin.fe4"
+    ;debug2           .binary "debug2MapMain.bin.fe4"
     ;mapleif          .binary "leif.bin.fe4"
+
+    startEventScenes
+      .dsection Chapter02xEventsSection
+    endEventScenes
 
 .here
 
