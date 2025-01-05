@@ -311,7 +311,6 @@ GUARD_FE5_CHAPTER02 :?= false
           UNIT LeonsterSoldier, NPC, [17, 26], [17, 26], Dryas, [IronLance], 2, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [18, 26], [18, 26], Dryas, [IronLance], 2, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [15, 25], [15, 25], Dryas, [IronLance], 2, False, [$01, $03, $00, $80]
-
         UNIT
 
         _ch02MainGroup1
