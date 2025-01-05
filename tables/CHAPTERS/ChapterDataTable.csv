@@ -32,7 +32,7 @@ Chapter21xChapterData,$F7AC25,$FB8059,$F69D00,$FCCE92,$FCF4AF,eventChapter21xDat
 Chapter22ChapterData,$F6E885,$FAEB21,$F69E00,$FCD183,$FCF50C,eventChapter22Data._StartingPositions,None,None,$2,8,16,$2,$4,$0,$1,$3,$B,$3,None,aTilesetAnimation8487CE
 Chapter23ChapterData,ptiles,ptileset,ppalette,aedcutscene,$FCEBF5,None,None,None,None,10,20,$2,$4,$0,$1,$3D,$9,$1,None,aTilesetAnimation8487CE
 Chapter24ChapterData,ctiles,ctileset,cpalette,village,$FCF570,eventChapter24Data._StartingPositions,None,None,$2,10,18,$2,$4,$4,%101,$5F,$9,$1,None,aTilesetAnimation848831
-Chapter24xChapterData,ptiles,ptileset,ppalette,overworld,$FCF66E,eventChapter24xData._StartingPositions,$978055,None,$2,8,16,$2,$4,$4,%101,$6E,$7E,$6E,None,aTilesetAnimation8487CE
+Chapter24xChapterData,ptiles,ptileset,ppalette,overworld,$FCF66E,eventChapter24xData._StartingPositions,None,None,$2,8,16,$2,$4,$4,%101,$6E,$7E,$6E,None,aTilesetAnimation8487CE
 ChapterFinalChapterData,$F9AE74,$FBBDDF,$F6A200,$FCE2C2,$FCF6B0,eventChapterFinalData._StartingPositions,None,None,$2,6,18,$2,$4,$0,$1,$8,$E,$8,None,aTilesetAnimation8488C7
 ChapterUnknownChapterData,$F9AE74,$FBBDDF,$F6A300,$FCE57D,$FCF724,None,None,None,$2,8,16,$2,$4,$0,$1,$7,$E,$7,None,aTilesetAnimation8488C7
 WorldMapChapterData,$F9E117,$FBCA18,$F6A400,$FCE828,None,None,None,None,$2,10,20,$2,$4,$0,$1,$1,$9,$1,None,None

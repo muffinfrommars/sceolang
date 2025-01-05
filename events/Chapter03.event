@@ -27,25 +27,7 @@ GUARD_FE5_CHAPTER03 :?= false
 
           ; TODO: map installer definitions
 
-          _FlagDoor1                = enum.enum($21)
-          _FlagDoor2                = enum.enum()
-          _FlagDoor3                = enum.enum()
-          _FlagDoor4                = enum.enum()
-          _FlagDoor5                = enum.enum()
-          _FlagDoor6                = enum.enum()
-          _FlagDoor7                = enum.enum()
-          _FlagChest1               = enum.enum()
-          _FlagChest2               = enum.enum()
-          _FlagRomeoHouseDestroy    = enum.enum()
-          _FlagTailtiuHouseDestroy  = enum.enum()
-          _FlagLucciaHouseDestroy   = enum.enum()
-          _FlagJubelHouseDestroy    = enum.enum()
-          _FlagTailtiuHouseVisit    = enum.enum()
-          _FlagLucciaHouseVisit     = enum.enum()
-          _FlagRomeoHouseVisit      = enum.enum()
-          _FlagJubelHouseVisit      = enum.enum()
-          _FlagDoor8                = enum.enum()
-          _FlagDoor9                = enum.enum()
+          _FlagDoor1                = enum.enum()
 
         _OpeningEventDefinitions ; 8C/E435
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -54,111 +36,16 @@ GUARD_FE5_CHAPTER03 :?= false
         END_DEFINITION_ARRAY
 
         _TurnEventDefinitions ; 8C/E442
-          EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
-            CHECK_IF_BOSS_DEAD Lobos
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _Brigand1Reinforcements
-            CMP_WORD_RANGE wCurrentTurn, 10, 16
-            CMP_WORD wCurrentPhase, Enemy
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _Brigand2Reinforcements
-            CMP_WORD_RANGE wCurrentTurn, 10, 16
-            CMP_WORD wCurrentPhase, Enemy
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _SoldierReinforcements
-            CMP_WORD_RANGE wCurrentTurn, 14, 16
-            CMP_WORD wCurrentPhase, Enemy
-            ROLL_RNG 75
-            TEST_FLAG_UNSET FlagBossDeath
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _ArmorReinforcements
-            CMP_WORD_RANGE wCurrentTurn, 11, 17
-            CMP_WORD wCurrentPhase, Enemy
-            ROLL_RNG 50
-            TEST_FLAG_UNSET $02
-          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions ; 8C/E4AE
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions ; 8C/E4B0
-          EVENT _FlagTailtiuHouseDestroy, _TailtiuHouseDestroy
-            macroECCheckCoordinates [23, 22]
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT _FlagTailtiuHouseVisit, _TailtiuHouseTailtiu
-            CMP_WORD wCurrentPhase, Player
-            CHECK_ACTIVE_CARRYING Tailtiu
-            macroECCheckCoordinates [23, 22]
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _TailtiuHouseOther
-            CMP_WORD wCurrentPhase, Player
-            TEST_FLAG_UNSET _FlagTailtiuHouseVisit
-            macroECCheckCoordinates [23, 22]
-          END_DEFINITION
-          EVENT _FlagLucciaHouseDestroy, _LucciaHouseDestroy
-            macroECCheckCoordinates [20, 27]
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT _FlagLucciaHouseVisit, _LucciaHouseLuccia
-            CMP_WORD wCurrentPhase, Player
-            CHECK_ACTIVE_CARRYING Luccia
-            macroECCheckCoordinates [20, 27]
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _LucciaHouseOther
-            CMP_WORD wCurrentPhase, Player
-            TEST_FLAG_UNSET _FlagLucciaHouseVisit
-            macroECCheckCoordinates [20, 27]
-          END_DEFINITION
-          EVENT _FlagRomeoHouseDestroy, _RomeoHouseDestroy
-            macroECCheckCoordinates [20, 22]
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT _FlagRomeoHouseVisit, _RomeoHouseRomeo
-            CMP_WORD wCurrentPhase, Player
-            CHECK_ACTIVE_CARRYING Romeo
-            macroECCheckCoordinates [20, 22]
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _RomeoHouseOther
-            CMP_WORD wCurrentPhase, Player
-            TEST_FLAG_UNSET _FlagRomeoHouseVisit
-            macroECCheckCoordinates [20, 22]
-          END_DEFINITION
-          EVENT _FlagJubelHouseDestroy, _JubelHouseDestroy
-            macroECCheckCoordinates [23, 27]
-            CMP_WORD wCurrentPhase, Enemy
-          END_DEFINITION
-          EVENT _FlagJubelHouseVisit, _JubelHouseJubel
-            CMP_WORD wCurrentPhase, Player
-            CHECK_ACTIVE_CARRYING Jubel
-            macroECCheckCoordinates [23, 27]
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _JubelHouseOther
-            CMP_WORD wCurrentPhase, Player
-            TEST_FLAG_UNSET _FlagJubelHouseVisit
-            macroECCheckCoordinates [23, 27]
-          END_DEFINITION
-          macroECDoor _FlagDoor1, [12, 11], _Door1
-          macroECDoor _FlagDoor2, [13, 9], _Door2
-          macroECDoor _FlagDoor3, [16, 8], _Door3
-          macroECDoor _FlagDoor4, [22, 8], _Door4
-          macroECDoor _FlagDoor5, [22, 4], _Door5
-          macroECDoor _FlagDoor6, [2, 4], _Door6
-          macroECDoor _FlagDoor7, [2, 8], _Door7
-          macroECDoor _FlagDoor8, [9, 1], _Door8
-          macroECDoor _FlagDoor9, [15, 1], _Door9
-          macroECVanillaChest _FlagChest1, eventChapter03Data._Chest1
-          macroECVanillaChest _FlagChest2, eventChapter03Data._Chest2
           EVENT FlagAlwaysZero, _EndingEvent
-            macroECCheckCoordinates [12, 4]
+            macroECCheckCoordinates [14, 2]
             CMP_WORD wCurrentPhase, Player
-            CMP_WORD aSelectedCharacterBuffer.Character, Leif
+            CMP_WORD aSelectedCharacterBuffer.Character, Finn
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -175,240 +62,13 @@ GUARD_FE5_CHAPTER03 :?= false
         _ShopEventDefinitions ; 8C/E698
         END_DEFINITION_ARRAY
 
-        _Brigand1Reinforcements ; 8C/E6AD
-          SCROLL_CAMERA_ADDRESS eventChapter03Data._Brigand1ReinforcementsCameraCoordinates
-          YIELD
-
-          LOAD_GROUP_BLOCKABLE eventChapter03Data._Brigand1ReinforcementsGroup1
-          WAIT_MOVE
-          YIELD
-
-          YIELD_UNK
-
-          LOAD_GROUP_BLOCKABLE eventChapter03Data._Brigand1ReinforcementsGroup2
-          WAIT_MOVE
-          YIELD
-        END2
-
-        _Brigand2Reinforcements ; 8C/E6C0
-          SCROLL_CAMERA_ADDRESS eventChapter03Data._Brigand2ReinforcementsCameraCoordinates
-          YIELD
-
-          LOAD_GROUP_BLOCKABLE eventChapter03Data._Brigand2ReinforcementsGroup1
-          WAIT_MOVE
-          YIELD
-
-          YIELD_UNK
-
-          LOAD_GROUP_BLOCKABLE eventChapter03Data._Brigand2ReinforcementsGroup2
-          WAIT_MOVE
-          YIELD
-        END2
-
-        _SoldierReinforcements ; 8C/E6D3
-          SCROLL_CAMERA_ADDRESS eventChapter03Data._SoldierReinforcementsCameraCoordinates
-          YIELD
-
-          LOAD_GROUP_BLOCKABLE eventChapter03Data._SoldierReinforcementsGroup
-          WAIT_MOVE
-          YIELD
-
-          YIELD_UNK
-        END2
-
-        _ArmorReinforcements ; 8C/E6E0
-          SCROLL_CAMERA_ADDRESS eventChapter03Data._ArmorReinforcementsCameraCoordinates
-          YIELD
-
-          LOAD_GROUP_BLOCKABLE eventChapter03Data._ArmorReinforcementsGroup
-          WAIT_MOVE
-          YIELD
-
-          YIELD_UNK
-        END2
-
-        _TailtiuHouseOther ; 8C/E6ED
-        END2
-
-        _TailtiuHouseTailtiu ; 8C/E6F6
-          PLAY_SOUND_FORCED $00F7
-
-          CALL_ASM_SKIPPABLE rlASMCClearActiveUnitRescue
-
-          macroASMCRemoveUnit Tailtiu
-
-          ADD_BYTE $7E4976, 1
-          YIELD_UNK
-          YIELD
-
-          macroASMCSingleTileChangeByCoords [23, 22], $03F0
-
-          SET_FLAG FlagTailtiuSaved
-        END2
-
-        _LucciaHouseOther ; 8C/E733
-          macroDialogue dialogueChapter03LucciaHouseOther
-        END2
-
-        _LucciaHouseLuccia ; 8C/E73C
-          PLAY_SOUND_FORCED $00F7
-
-          CALL_ASM_LOOP rlASMCClearActiveUnitRescue
-
-          macroASMCRemoveUnit Luccia
-
-          ADD_BYTE $7E4976, 1
-          YIELD_UNK
-          YIELD_UNK
-
-          DIALOGUE dialogueChapter03LucciaHouseLuccia
-          YIELD
-
-          macroASMCActiveUnitSetUnitState UnitStateHidden
-
-          macroGiveActiveUnitItem BaldrsScroll
-
-          macroASMCActiveUnitUnsetUnitState UnitStateHidden
-
-          macroASMCSingleTileChangeByCoords [20, 27], $03F0
-        END2
-
-        _RomeoHouseOther ; 8C/E7B8
-          macroDialogue dialogueChapter03RomeoHouseOther
-        END2
-
-        _RomeoHouseRomeo ; 8C/E7C1
-          PLAY_SOUND_FORCED $00F7
-
-          CALL_ASM_LOOP rlASMCClearActiveUnitRescue
-
-          macroASMCRemoveUnit Romeo
-
-          ADD_BYTE $7E4976, 1
-          YIELD_UNK
-          YIELD_UNK
-
-          DIALOGUE dialogueChapter03RomeoHouseRomeo
-          YIELD
-
-          macroASMCActiveUnitSetUnitState UnitStateHidden
-
-          macroGiveActiveUnitItem ShieldRing
-
-          macroASMCActiveUnitUnsetUnitState UnitStateHidden
-
-          macroASMCSingleTileChangeByCoords [20, 22], $03F0
-        END2
-
-        _JubelHouseOther ; 8C/E83D
-          macroDialogue dialogueChapter03JubelHouseOther
-        END2
-
-        _JubelHouseJubel ; 8C/E846
-          PLAY_SOUND_FORCED $00F7
-
-          CALL_ASM_LOOP rlASMCClearActiveUnitRescue
-
-          macroASMCRemoveUnit Jubel
-
-          ADD_BYTE $7E4976, 1
-          YIELD_UNK
-          YIELD_UNK
-
-          DIALOGUE dialogueChapter03JubelHouseJubel
-          YIELD
-
-          SET_FLAG FlagJubelSaved
-
-          macroASMCSingleTileChangeByCoords [23, 27], $03F0
-        END2
-
-        _Door1 ; 8C/E883
-          macroOpenDoorByTileChangeID 0
-        END1
-
-        _Door2 ; 8C/E8AE
-          macroOpenDoorByTileChangeID 1
-        END1
-
-        _Door3 ; 8C/E8D9
-          macroOpenDoorByTileChangeID 2
-        END1
-
-        _Door4 ; 8C/E904
-          macroOpenDoorByTileChangeID 3
-        END1
-
-        _Door5 ; 8C/E92F
-          macroOpenDoorByTileChangeID 4
-        END1
-
-        _Door6 ; 8C/E95A
-          macroOpenDoorByTileChangeID 5
-        END1
-
-        _Door7 ; 8C/E985
-          macroOpenDoorByTileChangeID 6
-        END1
-
-        _Door8 ; 8C/E9B0
-          macroOpenDoorByTileChangeID 13
-        END1
-
-        _Door9 ; 8C/E9DB
-          macroOpenDoorByTileChangeID 14
-        END1
-
-        _RomeoHouseDestroy ; 8C/EA06
-          macroDestroyHouseByTileChangeID 9
-        END1
-
-        _TailtiuHouseDestroy ; 8C/EA35
-          macroDestroyHouseByTileChangeID 10
-        END1
-
-        _LucciaHouseDestroy ; 8C/EA64
-          macroDestroyHouseByTileChangeID 11
-        END1
-
-        _JubelHouseDestroy ; 8C/EA93
-          macroDestroyHouseByTileChangeID 12
-        END1
 
         _PrepGroups ; 8C/EAC2
         .word 0
 
         _OpeningEvent ; 8C/EAC4
-          CALL_ASM_SKIPPABLE rlEventEngineCancelFading
-
-          STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
-
-          SET_CAMERA_POSITION [13, 8]
-          YIELD
-
-          macroASMCAllUnitsSetUnitState (UnitStateUnknown1 | UnitStateHidden)
-          macroASMCAllUnitsUnsetUnitState (UnitStateGrayed | UnitStateMovementStar | UnitStateMoved)
-
-          macroLoadPlayerUnitsByStartingPositions
-
-          LOAD_GROUP eventChapter03Data._NPCGroup
-          WAIT_MOVE
-          YIELD
-
-          LOAD_GROUP eventChapter03Data._BossesGroup
-          WAIT_MOVE
-          YIELD
-
-          LOAD_GROUP eventChapter03Data._BishopGroup
-          WAIT_MOVE
-          YIELD
-
-          WAIT_MOVE
-          YIELD
-
-          FADE_IN 2
-
-          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(false, 15)
+          STORE_WORD wCurrentChapter, Chapter24x
+          CALL_ASM_SKIPPABLE $9A98B8
 
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 32
@@ -419,104 +79,148 @@ GUARD_FE5_CHAPTER03 :?= false
           SET_CAMERA_POSITION [4, 34]
           YIELD
 
-          macroASMCLoadUnitGroup eventChapter03Data._ch03cutsceneGroupB
+          macroChapterTitlePopup dialogueChapter03Title
+
+          SCROLL_CAMERA_COORDS [8, 7], 4
           YIELD
 
-          macroASMCDismount LeonsterBowKnight
-          macroASMCDismount LeonsterLanceKnight
-
-          LOAD_GROUP eventChapter03Data._ch03cutsceneGroupA
-          WAIT_MOVE
-          YIELD
-
-          DIALOGUE dPrologueThreeStart1
-          YIELD
-
-          SCROLL_CAMERA_CHAR Ranz, 2
-          YIELD
-
-          DIALOGUE dPrologueThreeStart2
-          YIELD
-
-          SCROLL_CAMERA_COORDS [17, 39], 3
-
-          MOVE_UNIT Ranz, [9, 30], [18, 26], 4, None
-          YIELD_UNK
-
-          MOVE_UNIT Dryas, [9, 30], [17, 26], 4, None
-          YIELD_UNK
-
-          MOVE_UNIT Xavier, [9, 30], [19, 26], 3, None
-          YIELD_UNK
+          MOVE_CHAR Raydrik, [12, 12], 1
 
           WAIT_MOVE
           YIELD
 
-          DIALOGUE dPrologueThreeStart3
+          SCROLL_CAMERA_COORDS [12, 9], 4
+
+          macroOpenDoorByTileChangeID 0
+
+          MOVE_CHAR Raydrik, [11, 11], 1, _RaydrikMovestring1
+
+          MOVE_CHAR Lobos, [13, 5], 1
+
+          PAUSE_SKIPPABLE 64
           YIELD
 
-          DIALOGUE dPrologueThreeStart4
+          macroASMCSingleTileChangeByCoords [12, 11], $03A5
+
+          PLAY_EXTENDED_SOUND $6C
+          WAIT_MOVE
           YIELD
 
-          MOVE_UNIT Finn, [9, 30], [11, 26], 4, None
-          YIELD_UNK
+          MOVE_CHAR Lobos, [12, 5], 1
 
-          MOVE_UNIT Selphina, [9, 30], [12, 27], 4, None
-          YIELD_UNK
+          WAIT_MOVE
+          YIELD
 
-          MOVE_UNIT Glade, [9, 30], [11, 28], 3, None
+          DIALOGUE dialogueChapter03Opening1
+          YIELD
+
+          MOVE_CHAR Raydrik, [15, 1], 1, _RaydrikMovestring2
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Raydrik
+
+          MOVE_CHAR Lobos, [12, 4], 1
+
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter03Data._EnemyGroup1CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter03Data._EnemyGroup1
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter03Data._EnemyGroup3CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter03Data._EnemyGroup3
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter03Data._EnemyGroup2CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter03Data._EnemyGroup2
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter03Data._EnemyGroup4CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter03Data._EnemyGroup4
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_ADDRESS eventChapter03Data._EnemyGroup5CameraCoordinates
+          YIELD
+
+          LOAD_GROUP eventChapter03Data._EnemyGroup5
+          WAIT_MOVE
+          YIELD
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          SET_MUSIC $32
+          YIELD
+
+          SCROLL_CAMERA_CHAR Leif, 4
+
+          DIALOGUE dialogueChapter03Opening2
+          YIELD
+
+          MOVE_UNIT ThraciaBishop, [11, 28], [1, 27], 1
           YIELD_UNK
 
           WAIT_MOVE
           YIELD
 
-          SCROLL_CAMERA_CHAR Selphina, 1
-          YIELD
+          macroASMCRemoveUnit ThraciaBishop
 
-          DIALOGUE dPrologueThreeStart5
-          YIELD
+          MOVE_UNIT ThraciaBishop, [11, 28], [11, 27], 1, _BishopMovestring
+          YIELD_UNK
 
-          SCROLL_CAMERA_COORDS [17, 39], 3
-          YIELD
-
-          FADE_OUT 2
-          YIELD
-
-          macroASMCRemoveUnit Finn
-          macroASMCRemoveUnit Glade
-          macroASMCRemoveUnit Selphina
-          ;macroASMCRemoveUnit Dryas
-          macroASMCRemoveUnit Ranz
-          macroASMCRemoveUnit Xavier
-          macroASMCRemoveUnit LeonsterSoldier
-          macroASMCRemoveUnit LeonsterMyrmidon
-          macroASMCRemoveUnit LeonsterArcher
-          macroASMCRemoveUnit LeonsterHero
-          macroASMCRemoveUnit LeonsterBowKnight
-          macroASMCRemoveUnit LeonsterLanceKnight
-
-          YIELD
-
-
-          SET_CAMERA_POSITION [1, 1]
-          YIELD
-
-          STORE_WORD wCurrentChapter, Chapter03
-          CALL_ASM_SKIPPABLE $9A98B8
-
-          SET_CAMERA_POSITION [1, 1]
-          YIELD
-
-          macroLoadPlayerUnitsByStartingPositions
-          YIELD
-
-          macroASMCLoadUnitGroup eventChapter03Data._NPCGroup
-
-          WAIT_MOVE
-          YIELD
-
-          FADE_IN 2
+          macroASMCRemoveUnit ThraciaBishop
         END2
+
+        _BishopMovestring ; 8C/EC70
+          MS_MOVE_UP
+        MS_END
+
+        _RaydrikMovestring1 ; 8C/EC72
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_LEFT
+          MS_MOVE_LEFT
+          MS_MOVE_LEFT
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_LEFT
+          MS_MOVE_LEFT
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_UP
+        MS_END
+
+        _RaydrikMovestring2 ; 8C/EC85
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_UP
+        MS_END
 
         _EndingEvent ; 8C/EC8D
           STORE_WORD wCurrentMapMusic, $00
@@ -527,66 +231,9 @@ GUARD_FE5_CHAPTER03 :?= false
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
 
-          macroASMCSetUnitState Leif, UnitStateHidden
-
-          macroDialogueWithBG dialogueChapter03Ending1, 1
-
-          CALL_ASM_LOOP rlASMCDialogueWithBGEnd
+          SET_CAMERA_POSITION [11, 26]
           YIELD
 
-          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(false, 15)
-
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
-          YIELD
-
-          SET_MUSIC $42
-          YIELD
-
-          _EndingDialogueList  := [(Eyvel, dialogueChapter03Ending2)]
-          _EndingDialogueList ..= [(Finn, dialogueChapter03Ending3)]
-          _EndingDialogueList ..= [(Osian, dialogueChapter03Ending5)]
-          _EndingDialogueList ..= [(Halvan, dialogueChapter03Ending4)]
-          _EndingDialogueList ..= [(Safy, dialogueChapter03Ending6)]
-          _EndingDialogueList ..= [(Dagdar, dialogueChapter03Ending7)]
-
-          .for _DialogueChar, _DialoguePointer in _EndingDialogueList
-
-            macroASMCCountAllUnitsRescuedByPlayerOrNPC _DialogueChar
-            JUMP_FALSE +
-
-              SCROLL_CAMERA_CHAR _DialogueChar, 4
-
-              DIALOGUE _DialoguePointer
-              YIELD
-
-            +
-          .endfor
-
-          PLAY_SOUND_FORCED $00E7
-
-          FADE_OUT 1
-          YIELD
-
-          STORE_BYTE bBufferINIDISP, INIDISP_Setting(false, 0)
-
-          macroASMCUnsetUnitState Eyvel, UnitStateCaptured
-
-          _UnitClearList  := [Eyvel, Finn, Osian, Halvan, Dagdar]
-          _UnitClearList ..= [Marty, Ronan, Safy, Tanya]
-
-          .for _Unit in _UnitClearList
-
-            macroASMCCheckUnitStateSet _Unit, UnitStateCaptured
-            JUMP_TRUE +
-
-              macroASMCClearRescue _Unit
-
-              macroASMCUnsetUnitState _Unit, (UnitStateGrayed | UnitStateMovementStar | UnitStateMoved | UnitStateUnknown2)
-              macroASMCSetUnitState _Unit, (UnitStateHidden | UnitStateDisabled)
-
-            +
-          .endfor
 
           FADE_OUT 1
           YIELD
@@ -605,38 +252,116 @@ GUARD_FE5_CHAPTER03 :?= false
         _UnusedCoordinates1 ; B1/F318
           .byte [11, 11]
 
-        _NPCGroup
-          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Longbow, ShortLance], 1, true, [$00, $00, $00, $00]
-=======
-        _ch03cutsceneGroupA
-          UNIT Finn, Player, [2, 35], [8, 32], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
-          UNIT Glade, Player, [1, 33], [6, 32], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
-          UNIT Selphina, Player, [1, 36], [7, 33], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+        _BossesGroup ; B1/F31A
+          UNIT Lobos, Enemy, [12, 4], [12, 4], Lobos, [Longbow, ShortLance], 1, true, [$01, $03, $00, $80]
+          UNIT Raydrik, Enemy, [14, 19], [14, 19], Raydrik, [], 1, false, [$00, $00, $00, $00]
         UNIT
 
-        _ch03cutsceneGroupB
-          UNIT Dryas, NPC, [7, 30], [7, 30], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
-          UNIT Ranz, NPC, [9, 30], [9, 30], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
-          UNIT Xavier, NPC, [5, 30], [5, 30], Dryas, [GreatLance], 1, true, [$00, $00, $00, $00]
-          UNIT LeonsterSoldier, NPC, [7, 34], [7, 34], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterMyrmidon, NPC, [6, 34], [6, 34], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterArcher, NPC, [8, 34], [8, 34], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterHero, NPC, [6, 35], [6, 35], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterBowKnight, NPC, [7, 35], [7, 35], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterLanceKnight, NPC, [8, 35], [8, 35], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
+        _EnemyGroup1CameraCoordinates ; B1/F344
+          .byte [13, 8]
+
+        _EnemyGroup1 ; B1/F346
+          UNIT MunsterArmoredSword, Enemy, [7, 6], [7, 6], Lobos, [Shortsword, Vulnerary], 8, false, [$19, $03, $00, $00]
+          UNIT MunsterArmoredSword, Enemy, [15, 10], [15, 10], Lobos, [Shortsword, DoorKey, Vulnerary], 8, false, [$19, $03, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [9, 5], [9, 5], Lobos, [ShortLance], 12, false, [$19, $03, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [9, 10], [9, 10], Lobos, [ShortLance], 9, false, [$19, $29, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [18, 7], [18, 7], Lobos, [ShortLance], 10, false, [$19, $29, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [3, 5], [3, 5], Lobos, [ShortLance], 8, false, [$19, $29, $00, $00]
+          UNIT MunsterBishop2, Enemy, [15, 3], [15, 3], Lobos, [Elfire, Heal, DoorKey, ChestKey], 10, false, [$08, $03, $00, $00]
         UNIT
 
-        _ch03NPCGroupfinal
-          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Javelin], 1, true, [$01, $03, $00, $80]
-          UNIT Ranz, NPC, [8, 1], [8, 1], Dryas, [Rapier], 1, true, [$01, $03, $00, $80]
-          UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$01, $03, $00, $80]
-          UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterMyrmidon, NPC, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterHero, NPC, [14, 2], [14, 2], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
->>>>>>> d920ac1 (1.5.25)
+        _EnemyGroup2CameraCoordinates ; B1/F3D4
+          .byte [17, 14]
+
+        _EnemyGroup2 ; B1/F3D6
+          UNIT MunsterArmoredBow, Enemy, [18, 13], [18, 13], Lobos, [Shortbow, Vulnerary], 7, false, [$19, $03, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [23, 15], [23, 15], Lobos, [ShortLance, Vulnerary], 13, false, [$19, $29, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [21, 12], [21, 12], Lobos, [ShortLance], 13, false, [$19, $29, $00, $00]
+        UNIT
+
+        _EnemyGroup3CameraCoordinates ; B1/F414
+          .byte [8, 10]
+
+        _EnemyGroup3 ; B1/F416
+          UNIT MunsterThunderMage, Enemy, [1, 11], [1, 11], Lobos, [Fire], 6, false, [$19, $29, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [4, 11], [4, 11], Lobos, [ShortLance], 11, false, [$19, $29, $00, $00]
+        UNIT
+
+        _EnemyGroup4CameraCoordinates ; B1/F440
+          .byte [13, 16]
+
+        _EnemyGroup4 ; B1/F442
+          UNIT MunsterSoldier2, Enemy, [12, 15], [12, 15], Lobos, [ShortLance, DoorKey], 10, false, [$19, $03, $00, $00]
+          UNIT MunsterArcher, Enemy, [13, 14], [13, 14], Lobos, [Shortbow], 10, false, [$19, $03, $00, $00]
+          UNIT MunsterArcher, Enemy, [10, 13], [11, 14], Lobos, [Shortbow], 10, false, [$19, $03, $00, $00]
+        UNIT
+
+        _EnemyGroup5CameraCoordinates ; B1/F480
+          .byte [8, 23]
+
+        _EnemyGroup5 ; B1/F482
+          UNIT MunsterArcher, Enemy, [6, 23], [6, 23], Lobos, [Shortbow], 10, false, [$19, $29, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [4, 23], [4, 23], Lobos, [ShortLance, Vulnerary], 11, false, [$19, $29, $00, $00]
+          UNIT MunsterSoldier2, Enemy, [5, 29], [5, 25], Lobos, [ShortLance], 12, false, [$19, $29, $00, $00]
+        UNIT
+
+        _SoldierReinforcementsCameraCoordinates ; B1/F4C0
+          .byte [8, 8]
+
+        _SoldierReinforcementsGroup ; B1/F4C2
+          UNIT MunsterSoldier2, Enemy, [8, 1], [8, 1], Lobos, [ShortLance], 7, false, [$00, $00, $00, $00]
+        UNIT
+
+        _ArmorReinforcementsCameraCoordinates ; B1/F4D8
+          .byte [17, 8]
+
+        _ArmorReinforcementsGroup ; B1/F4DA
+          UNIT MunsterArmoredSword, Enemy, [16, 1], [16, 1], Lobos, [Shortsword], 8, false, [$00, $00, $00, $00]
+        UNIT
+
+        _Brigand1ReinforcementsCameraCoordinates ; B1/F4F0
+          .byte [8, 21]
+
+        _Brigand1ReinforcementsGroup1 ; B1/F4F2
+          UNIT BanditBrigand1, Enemy, [0, 21], [1, 21], Seil, [IronAxe], 5, false, [$19, $09, $00, $00]
+        UNIT
+
+        _Brigand2ReinforcementsCameraCoordinates ; B1/F508
+          .byte [8, 21]
+
+        _Brigand2ReinforcementsGroup1 ; B1/F50A
+          UNIT BanditBrigand1, Enemy, [0, 21], [1, 21], Seil, [IronAxe], 5, false, [$02, $09, $00, $00]
+        UNIT
+
+        _UnusedCoordinates2 ; B1/F520
+          .byte [13, 8]
+
+        _NPCGroup ; B1/F522
+          UNIT Romeo, NPC, [12, 8], [12, 8], Ishtar, [], 1, false, [$02, $03, $00, $00]
+          UNIT Luccia, NPC, [14, 8], [14, 8], Ishtar, [], 1, false, [$02, $03, $00, $00]
+          UNIT Tailtiu, NPC, [13, 7], [13, 7], Ishtar, [], 1, false, [$02, $03, $00, $00]
+          UNIT Jubel, NPC, [11, 7], [11, 7], Ishtar, [], 1, false, [$02, $03, $00, $00]
+        UNIT
+
+        _UnusedCoordinates3 ; B1/F574
+          .byte [13, 8]
+
+        _BishopGroup ; B1/F576
+          UNIT ThraciaBishop, Player, [11, 28], [11, 28], Leif, [], 1, false, [$00, $00, $00, $00]
+        UNIT
+
+        _UnusedCoordinates4 ; B1/F58C
+          .byte [8, 7]
+
+        _Brigand2ReinforcementsGroup2 ; B1/F58E
+          UNIT BanditBrigand1, Enemy, [0, 22], [1, 22], Seil, [IronAxe], 5, false, [$02, $09, $00, $00]
+        UNIT
+
+        _UnusedCoordinates5 ; B1/F5A4
+          .byte [8, 26]
+
+        _Brigand1ReinforcementsGroup2 ; B1/F5A6
+          UNIT BanditBrigand1, Enemy, [0, 22], [1, 22], Seil, [IronAxe], 5, false, [$02, $09, $00, $00]
         UNIT
 
         _StartingPositions ; B1/F5BC
@@ -645,10 +370,7 @@ GUARD_FE5_CHAPTER03 :?= false
           .byte [6, 1]
         .char -1
 
-        _Chest1 VANILLA_CHEST Armorslayer, [11, 1] ; B1/F5D3
-        _Chest2 VANILLA_CHEST Meteor, [13, 1] ; B1/F5D3
 
-        _Vendor SHOP [2, 1], [Vulnerary, DoorKey] ; B1/F65B
 
     .endsection Chapter03DataSection
 
