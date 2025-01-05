@@ -601,11 +601,42 @@ GUARD_FE5_CHAPTER03 :?= false
 
       eventChapter03Data ; B1/F318
 
+<<<<<<< HEAD
         _UnusedCoordinates1 ; B1/F318
           .byte [11, 11]
 
         _NPCGroup
           UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Longbow, ShortLance], 1, true, [$00, $00, $00, $00]
+=======
+        _ch03cutsceneGroupA
+          UNIT Finn, Player, [2, 35], [8, 32], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
+          UNIT Glade, Player, [1, 33], [6, 32], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+          UNIT Selphina, Player, [1, 36], [7, 33], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+        UNIT
+
+        _ch03cutsceneGroupB
+          UNIT Dryas, NPC, [7, 30], [7, 30], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
+          UNIT Ranz, NPC, [9, 30], [9, 30], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
+          UNIT Xavier, NPC, [5, 30], [5, 30], Dryas, [GreatLance], 1, true, [$00, $00, $00, $00]
+          UNIT LeonsterSoldier, NPC, [7, 34], [7, 34], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterMyrmidon, NPC, [6, 34], [6, 34], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterArcher, NPC, [8, 34], [8, 34], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterHero, NPC, [6, 35], [6, 35], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterBowKnight, NPC, [7, 35], [7, 35], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterLanceKnight, NPC, [8, 35], [8, 35], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
+        UNIT
+
+        _ch03NPCGroupfinal
+          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Javelin], 1, true, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [8, 1], [8, 1], Dryas, [Rapier], 1, true, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterMyrmidon, NPC, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterHero, NPC, [14, 2], [14, 2], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
+>>>>>>> d920ac1 (1.5.25)
         UNIT
 
         _StartingPositions ; B1/F5BC
