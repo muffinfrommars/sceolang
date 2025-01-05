@@ -169,7 +169,9 @@ dPrologueThreeStart5
     .byte ScrollText
     .text "I was really tough against the baddies in the forest!"
     .byte NewLine
-    .text "I swear I even poked an eye out with one of my arrows!"
+    .text "I swear I even poked an eye out with one of"
+     .byte NewLine
+    .text "my arrows!"
     .byte WaitForA
 	
 	.byte EndText

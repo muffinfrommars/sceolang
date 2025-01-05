@@ -227,16 +227,15 @@ GUARD_FE5_CHAPTER03 :?= false
         UNIT
 
         _ch03NPCGroupfinal
-          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Javelin], 1, true, [$00, $00, $00, $00]
-          UNIT Ranz, NPC, [8, 1], [8, 1], Dryas, [Rapier], 1, true, [$00, $00, $00, $00]
-          UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$00, $00, $00, $00]
+          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Javelin], 1, true, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [8, 1], [8, 1], Dryas, [Rapier], 1, true, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
           UNIT LeonsterMyrmidon, NPC, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
           UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
           UNIT LeonsterHero, NPC, [14, 2], [14, 2], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
           UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
           UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
-
         UNIT
 
         _StartingPositions ; B1/F5BC
