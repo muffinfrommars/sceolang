@@ -100,7 +100,7 @@ rlGetWarpTileTargetCoords ; 9A/9C3C
 		.word None ; Chapter1
 		.word None ; Chapter2
 		.word None ; Chapter2x
-		.word None ; Chapter3
+		.addr _Chapter03Table ; Chapter3
 		.word None ; Chapter4
 		.word None ; Chapter4x
 		.word None ; Chapter5
@@ -133,6 +133,12 @@ rlGetWarpTileTargetCoords ; 9A/9C3C
 		.addr _Chapter24xTable ; Chapter24x
 		.word None ; ChapterFinal
 		.word None ; ChapterUnknown
+
+	_Chapter03Table
+		.byte 3, 1
+		.byte 13, 5
+		.byte 3, 1
+	.word $FFFF
 
 	_Chapter16BTable ; 9A/9CBE
 		.byte 12, 6

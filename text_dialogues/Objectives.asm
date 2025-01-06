@@ -14,7 +14,7 @@ dialogueChapterObjektiveChapter02x
 
 
 dialogueChapterObjektiveChapter03
-	.text "Seize Kerberos' throne."
+	.text "Have Finn seize the right fort."
 .byte EndTextNoPortraitFade
 
 

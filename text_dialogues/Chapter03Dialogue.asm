@@ -271,8 +271,21 @@ pThreeGladeSelphinaTalk
 
     .byte Right_Slot
     .byte ScrollText
-    .text "Ugh, you KNOW thats not what I meant -"
+    .text "Ugh, you KNOW thats not what I meant..."
     .byte WaitForA
 	
+	
+	.byte EndText
+
+dchapter03GameOverFortress
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Dorias_portrait
+	.byte $09
+    .text "The left fortress has fallen!"
+    .byte NewLine
+    .text "Victory goes to the right team!"
+	.byte WaitForA
 	
 	.byte EndText
