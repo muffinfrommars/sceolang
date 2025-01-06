@@ -91,12 +91,12 @@ dialogueLifisBattleQuote
 .byte WaitForA
 .byte EndText
 
-dialogueLobosBattleQuote
-.text "Wh-who do you think you are?!"
+dialogueRanzBattleQuote
+.text "You've made it this far - good!"
 .byte NewLine
-.text "You honestly believe"
+.text "But do you think you can get past"
 .byte NewLine
-.text "you'll get away with this?!"
+.text "me?"
 .byte WaitForA
 .byte EndText
 

@@ -10,7 +10,7 @@ WeissmannBattleQuote,Weissmann,AnyChapter,None,dialogueWeissmannBattleQuote
 BucksBattleQuote,Bucks,AnyChapter,None,dialogueBucksBattleQuote
 ShivaBattleQuote1,Shiva,AnyChapter,None,dialogueShivaBattleQuote
 LifisBattleQuote,Lifis,AnyChapter,None,dialogueLifisBattleQuote
-LobosBattleQuote,Lobos,AnyChapter,None,dialogueLobosBattleQuote
+RanzBattleQuote,Ranz,Chapter03,None,dialogueRanzBattleQuote ;previously Lobos
 DalsinBattleQuote,Dalsin,AnyChapter,None,dialogueDalsinBattleQuote
 GalzusBattleQuote,Galzus,AnyChapter,None,dialogueGalzusBattleQuote
 ShivaBattleQuote2,Shiva,AnyChapter,None,dialogueShivaBattleQuote

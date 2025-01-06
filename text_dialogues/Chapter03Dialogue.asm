@@ -222,3 +222,57 @@ ch03lever
 	.byte WaitForA
 	
 	.byte EndText
+
+dPrologueThreeRanz
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Ronan_portrait
+	.byte $09
+    .text "General, mind if I give it a go now?"
+    .byte NewLine
+    .text "I still am waiting on my duel with Finn..."
+	.byte WaitForA
+
+    .byte Left_Slot
+  	.word LoadPortrait
+ 	.word Dorias_portrait
+	.byte $09 ; font 9(always use font 9)
+	.text "Go for it, Leiutenant."
+	.byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "All right! Reinforcements! Assemble!"
+    .byte WaitForA
+	
+	
+	.byte EndText
+
+pThreeGladeSelphinaTalk
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Glade_portrait
+	.byte $09
+    .text "Selphina, if you're feeling fatigued,"
+    .byte NewLine
+    .text "guard duty might suit you best here."
+	.byte WaitForA
+
+    .byte Left_Slot
+  	.word LoadPortrait
+ 	.word Selphina_portrait
+	.byte $09 ; font 9(always use font 9)
+	.text "Aww, how thoughtful of you, Glade~"
+	.byte NewLine
+    .text "Thinking about protecting me - how cute!"
+	.byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "Ugh, you KNOW thats not what I meant -"
+    .byte WaitForA
+	
+	
+	.byte EndText

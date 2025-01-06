@@ -23,11 +23,12 @@ GUARD_FE5_CHAPTER03 :?= false
 
         ; Flag definitions
 
-          _FlagLobosBattleQuote     = enum.enum($06)
+          _FlagRanzBattleQuote     = enum.enum($06)
 
           ; TODO: map installer definitions
 
             _FlagDoor1              = enum.enum($23)
+            _FlagThreeGladeSelphinaTalk  = enum.enum()
 
         _OpeningEventDefinitions ; 8C/E435
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -35,21 +36,27 @@ GUARD_FE5_CHAPTER03 :?= false
           END_DEFINITION
         END_DEFINITION_ARRAY
 
-        _TurnEventDefinitions ; 8C/E442
+        _TurnEventDefinitions
+          EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
+              CHECK_IF_BOSS_DEAD Ranz
+              CMP_WORD wCurrentPhase, Enemy
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
-        _TalkEventDefinitions ; 8C/E4AE
+        _TalkEventDefinitions
+          EVENT _FlagThreeGladeSelphinaTalk, _ThreeGladeSelphinaTalk
+            CHECK_CHARS2 Glade, Selphina
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions ; 8C/E4B0
-          
         END_DEFINITION_ARRAY
 
         _BeforeActionEventDefinitions ; 8C/E68A
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
-          EVENT $24, _CaveLever
+          EVENT $24, _CaveLeverEvent
             macroECCheckCoordinates [13, 10]
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET _FlagDoor1
@@ -62,17 +69,21 @@ GUARD_FE5_CHAPTER03 :?= false
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions ; 8C/E68E
-          macroECBossQuote _FlagLobosBattleQuote, Lobos
+          macroECBossQuote _FlagRanzBattleQuote, Ranz
         END_DEFINITION_ARRAY
 
         _ShopEventDefinitions ; 8C/E698
         END_DEFINITION_ARRAY
 
+        _ThreeGladeSelphinaTalk
+          macroDialogue pThreeGladeSelphinaTalk
+        END2
+
 
         _PrepGroups ; 8C/EAC2
         .word 0
 
-        _CaveLever ; 99/8324
+        _CaveLeverEvent ; 99/8324
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 32
           YIELD
@@ -85,6 +96,27 @@ GUARD_FE5_CHAPTER03 :?= false
           macroASMCSingleTileChangeByCoords [11, 5], $027F
 
           PLAY_SOUND_FORCED $45
+
+          SET_MUSIC $01
+          YIELD
+
+          DIALOGUE dPrologueThreeRanz
+          YIELD
+
+          macroASMCRemoveUnit Ranz
+
+          PAUSE_SKIPPABLE 48
+          YIELD
+
+          LOAD_GROUP eventChapter03Data._ch03NPCGroupfinalReinforcement
+
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 48
+          YIELD
+
+          macroASMCDismount Ranz
 
           SET_FLAG _FlagDoor1
         END1
@@ -233,12 +265,20 @@ GUARD_FE5_CHAPTER03 :?= false
           UNIT Dryas, Enemy, [7, 1], [7, 1], Dryas, [Javelin], 1, true, [$01, $03, $00, $80]
           UNIT Ranz, Enemy, [8, 1], [8, 1], Dryas, [Rapier], 1, true, [$01, $03, $00, $80]
           UNIT Xavier, Enemy, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$01, $03, $00, $80]
-          UNIT LeonsterSoldier, Enemy, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterMyrmidon, Enemy, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterArcher, Enemy, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterHero, Enemy, [14, 2], [14, 2], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterBowKnight, Enemy, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterLanceKnight, Enemy, [2, 11], [2, 11], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterSoldier, Enemy, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $0F, $00, $00]
+          UNIT LeonsterMyrmidon, Enemy, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$06, $0F, $00, $00]
+          UNIT LeonsterArcher, Enemy, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $0F, $00, $00]
+          UNIT LeonsterHero, Enemy, [14, 6], [14, 6], Dryas, [IronAxe], 2, False, [$00, $0F, $00, $00]
+          UNIT LeonsterBowKnight, Enemy, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$06, $0F, $00, $00]
+          UNIT LeonsterLanceKnight, Enemy, [2, 11], [2, 11], Dryas, [SlimSword], 2, False, [$00, $0F, $00, $00]
+        UNIT
+
+        _ch03NPCGroupfinalReinforcement
+          UNIT Ranz, Enemy, [14, 5], [14, 2], Dryas, [Rapier], 1, true, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, Enemy, [1, 12], [1, 12], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterMyrmidon, Enemy, [2, 11], [2, 11], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterArcher, Enemy, [3, 12], [3, 12], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterHero, Enemy, [13, 7], [13, 7], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
         UNIT
 
         _ch03cutsceneGroupA
