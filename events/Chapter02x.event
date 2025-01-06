@@ -299,7 +299,7 @@ GUARD_FE5_CHAPTER02x :?= false
           DIALOGUE dPrologueForestEnding4addendum ;b-boss!?
           YIELD
 
-          MOVE_UNIT BanditBrigand1, [5, 1], [5, 1], 2, None
+          MOVE_UNIT BanditBrigand1, [5, 1], [7, 14], 2, None
           YIELD_UNK
 
           WAIT_MOVE
@@ -312,7 +312,7 @@ GUARD_FE5_CHAPTER02x :?= false
           WAIT_MOVE
           YIELD
 
-          MOVE_UNIT BanditBrigand1, [2, 7], [7, 1], 2, None
+          MOVE_UNIT BanditBrigand1, [2, 7], [7, 14], 2, None
           YIELD_UNK
 
           WAIT_MOVE
@@ -325,7 +325,7 @@ GUARD_FE5_CHAPTER02x :?= false
           WAIT_MOVE
           YIELD
 
-          MOVE_UNIT BanditBrigand1, [12, 7], [15, 1], 3, None
+          MOVE_UNIT BanditBrigand1, [12, 7], [7, 14], 3, None
           YIELD_UNK
 
           WARP_UNIT BanditBrigand1, [15, 1], [30, 30]
@@ -335,7 +335,7 @@ GUARD_FE5_CHAPTER02x :?= false
           WAIT_MOVE
           YIELD
 
-          MOVE_UNIT BanditBrigand1, [15, 4], [15, 1], 2, None
+          MOVE_UNIT BanditBrigand1, [15, 4], [7, 14], 2, None
           YIELD_UNK
 
           WARP_UNIT BanditBrigand1, [15, 1], [30, 30]
@@ -345,7 +345,7 @@ GUARD_FE5_CHAPTER02x :?= false
           WAIT_MOVE
           YIELD
 
-          MOVE_UNIT BanditBrigand1, [15, 13], [8, 14], 4, None
+          MOVE_UNIT BanditBrigand1, [15, 13], [7, 14], 4, None
           YIELD_UNK
 
           WARP_UNIT BanditBrigand1, [8, 14], [30, 30]

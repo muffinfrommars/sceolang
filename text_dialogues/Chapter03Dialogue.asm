@@ -207,3 +207,18 @@ dPrologueThreeStart6
     .byte WaitForA
 	
 	.byte EndText
+
+ch03lever
+
+    .byte Right_Slot
+  	.word LoadPortrait
+
+ 	DIALOGUE_LOAD_RAM
+    
+	.byte $09
+    .text "It's pretty dark in here..."
+    .byte NewLine
+    .text "Aha!"
+	.byte WaitForA
+	
+	.byte EndText
