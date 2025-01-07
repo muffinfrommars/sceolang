@@ -223,9 +223,9 @@ dialogueNannaDeathQuote
 dialogueSelphinaDeathQuote
 .text "*Huff... Huff...*"
 .byte NewLine
-.text "I...made it this far..."
+.text "I think... I think I'll"
 .byte NewLine
-.text "Please forgive me, Glade..."
+.text "stay behind Glade from now on..."
 .byte WaitForA
 .byte EndText
 
@@ -415,9 +415,11 @@ dialogueTinaDeathQuote
 .byte EndText
 
 dialogueGladeDeathQuote
-.text "Even without me..."
+.text "Urk!"
 .byte NewLine
-.text "Leonster...shall...rise again..."
+.text "I-I can't keep up anymore..."
+.byte NewLine
+.text "...Sorry, Finn..."
 .byte WaitForA
 .byte EndText
 

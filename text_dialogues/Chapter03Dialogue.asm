@@ -208,7 +208,7 @@ dPrologueThreeStart6
 	
 	.byte EndText
 
-ch03lever
+ch03cavelever
 
     .byte Right_Slot
   	.word LoadPortrait
@@ -218,7 +218,9 @@ ch03lever
 	.byte $09
     .text "It's pretty dark in here..."
     .byte NewLine
-    .text "Aha!"
+    .text "Aha! Here's the lever."
+	.byte NewLine
+	.text "Oh, what's this?"
 	.byte WaitForA
 	
 	.byte EndText
@@ -287,5 +289,9 @@ dchapter03GameOverFortress
     .byte NewLine
     .text "Victory goes to the right team!"
 	.byte WaitForA
+	
+	.byte EndText
+
+nulldialogue
 	
 	.byte EndText

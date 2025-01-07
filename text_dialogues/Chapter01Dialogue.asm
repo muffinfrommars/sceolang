@@ -882,9 +882,11 @@ ch1northerncave
 
 	.byte Right_slot
     .word LoadPortrait
-    .word Ronan_portrait
+    .word Finn_portrait
 	.byte $09 ; font 9(always use font 9)	
-	.text "kaga did nothing wrong"
+	.text "An old cave..."
+	.byte NewLine
+	.text "Hm, what's this?"
 	.byte WaitForA
 	
 	.byte EndText

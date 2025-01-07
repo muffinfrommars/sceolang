@@ -114,8 +114,15 @@ GUARD_FE5_CHAPTER03 :?= false
 
           ;CALL_ASM_SKIPPABLE rlASMCPrepActiveUnitPortrait :?= address($8CC731)
 
-          DIALOGUE ch03lever
+          macroDialogueWithBG ch03cavelever, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd
           YIELD
+
+          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(false, 15)
+
+          macroItemHouse nulldialogue, Vulnerary, [20, 20], $03F0
+          CALL_ASM_LOOP rlASMCSaveActiveUnitData, $0000
 
           macroASMCSingleTileChangeByCoords [11, 5], $027F
 
