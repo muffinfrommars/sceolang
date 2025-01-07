@@ -131,11 +131,28 @@ GUARD_FE5_CHAPTER04 :?= false
 
           FADE_IN 2
 
+          macroASMCLoadUnitGroup eventChapter04Data._chapter04introgroupB
+
           SET_CAMERA_POSITION [17, 39]
           YIELD
 
           LOAD_GROUP eventChapter04Data._chapter04introgroupA
           WAIT_MOVE
+          YIELD
+
+          DIALOGUE pdialogueFourIntro1
+          YIELD
+
+          MOVE_UNIT Xavier, [19, 26], [30, 26], 2, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_CHAR Xavier, 2
+          YIELD
+
+          DIALOGUE pdialogueFourIntro2
           YIELD
 
           STORE_WORD wCurrentChapter, Chapter04
@@ -175,6 +192,11 @@ GUARD_FE5_CHAPTER04 :?= false
           UNIT Selphina, Player, [24, 27], [23, 29], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
           UNIT Glade, Player, [24, 27], [24, 30], Dryas, [Rapier], 5, False, [$02, $08, $00, $00]
           UNIT Ranz, NPC, [24, 27], [24, 27], Dryas, [Rapier], 5, True, [$02, $08, $00, $80]
+        UNIT
+
+        _chapter04introgroupB
+          UNIT Dryas, NPC, [17, 26], [17, 26], Dryas, [Javelin], 3, True, [$02, $08, $00, $00]
+          UNIT Xavier, NPC, [19, 26], [19, 26], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
         UNIT
 
         _StartingPositions ; B1/F311
