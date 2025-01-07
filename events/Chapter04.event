@@ -80,7 +80,7 @@ GUARD_FE5_CHAPTER04 :?= false
         END_DEFINITION_ARRAY
 
         _EthlynSelphinaHeal
-            .byte $00, $00, $00, $00 ;Left kills right
+            .byte $02, $00, $00, $00 ;Left kills right
           .word $FFFF, $FFFF
 
         _RandomChest ; 99/8EA0
