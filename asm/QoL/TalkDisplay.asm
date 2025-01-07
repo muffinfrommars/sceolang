@@ -454,10 +454,10 @@ GUARD_ZQOL_TALK_DISPLAY :?= false
         ; A null pointer means that the chapter has no talks.
 
         aChapterTalkTargetTablePointers
-          .long aChapter1TalkTargetTable
+          .long nONE
           .long None
           .long aChapter2xTalkTargetTable
-          .long None
+          .long aChapter3TalkTargetTable
           .long aChapter4TalkTargetTable
           .long aChapter4xTalkTargetTable
           .long None
@@ -496,13 +496,13 @@ GUARD_ZQOL_TALK_DISPLAY :?= false
         ; event definitions. These are not a replacement
         ; for the chapter talk event definitions.
 
-        aChapter1TalkTargetTable
-          ZQOL_TALK_ENTRY Eyvel, [Dagdar]
-          ZQOL_TALK_ENTRY Osian, [Tanya]
+        aChapter3TalkTargetTable
+          ZQOL_TALK_ENTRY Glade, [Selphina]
         ZQOL_END_TALK_CHAPTER
 
         aChapter2xTalkTargetTable
-          ZQOL_TALK_ENTRY Leif, [Eyvel]
+          ZQOL_TALK_ENTRY Finn, [Selphina]
+          ZQOL_TALK_ENTRY Finn, [Glade]
         ZQOL_END_TALK_CHAPTER
 
         aChapter4TalkTargetTable
@@ -580,14 +580,6 @@ GUARD_ZQOL_TALK_DISPLAY :?= false
         aChapter18TalkTargetTable
           ZQOL_TALK_ENTRY Xavier, [Leif]
           ZQOL_TALK_ENTRY Leif, [Xavier]
-          ZQOL_TALK_ENTRY Civilian9, [XavierArmor1]
-          ZQOL_TALK_ENTRY Civilian10, [XavierArmor2]
-          ZQOL_TALK_ENTRY Civilian11, [XavierArmor3]
-          ZQOL_TALK_ENTRY Civilian12, [XavierArmor4]
-          ZQOL_TALK_ENTRY Civilian13, [XavierArmor5]
-          ZQOL_TALK_ENTRY Civilian14, [XavierArmor6]
-          ZQOL_TALK_ENTRY Civilian15, [XavierArmor7]
-          ZQOL_TALK_ENTRY Civilian16, [XavierArmor8]
         ZQOL_END_TALK_CHAPTER
 
         aChapter19TalkTargetTable

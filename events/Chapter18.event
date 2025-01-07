@@ -85,30 +85,6 @@ GUARD_FE5_CHAPTER18 :?= false
 						CHECK_CHARS2 Leif, Xavier
 						CMP_BYTE $7E4976, 8
 					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue1
-						CHECK_CHARS2 Civilian9, XavierArmor1
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue2
-						CHECK_CHARS2 Civilian10, XavierArmor2
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue3
-						CHECK_CHARS2 Civilian11, XavierArmor3
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue4
-						CHECK_CHARS2 Civilian12, XavierArmor4
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue5
-						CHECK_CHARS2 Civilian13, XavierArmor5
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue6
-						CHECK_CHARS2 Civilian14, XavierArmor6
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue7
-						CHECK_CHARS2 Civilian15, XavierArmor7
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDialogue8
-						CHECK_CHARS2 Civilian16, XavierArmor8
-					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_LocationEventDefinitions ; E7/8105
@@ -655,9 +631,6 @@ GUARD_FE5_CHAPTER18 :?= false
 					UNIT Civilian11, NPC, [10, 8], [10, 8], Ishtar, [], 1, False, [$02, $1C, $00, $00]
 					UNIT Civilian12, NPC, [9, 8], [9, 8], Ishtar, [], 1, False, [$02, $1D, $00, $00]
 					UNIT Civilian13, NPC, [9, 9], [9, 9], Ishtar, [], 1, False, [$02, $1E, $00, $00]
-					UNIT Civilian14, NPC, [8, 10], [8, 10], Ishtar, [], 1, False, [$02, $1F, $00, $00]
-					UNIT Civilian15, NPC, [7, 10], [7, 10], Ishtar, [], 1, False, [$02, $20, $00, $00]
-					UNIT Civilian16, NPC, [5, 8], [5, 8], Ishtar, [], 1, False, [$02, $21, $00, $00]
 					UNIT Xavier, Enemy, [21, 6], [21, 6], Xavier, [MasterAxe, KillerBow], 6, False, [$14, $03, $00, $00]
 				UNIT
 			

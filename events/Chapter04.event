@@ -79,6 +79,10 @@ GUARD_FE5_CHAPTER04 :?= false
         _ShopEventDefinitions ; 99/897E
         END_DEFINITION_ARRAY
 
+        _EthlynSelphinaHeal
+            .byte $00, $00, $00, $00 ;Left kills right
+          .word $FFFF, $FFFF
+
         _RandomChest ; 99/8EA0
           STORE_WORD wMapBattleFlag, 1
 
@@ -155,11 +159,87 @@ GUARD_FE5_CHAPTER04 :?= false
           DIALOGUE pdialogueFourIntro2
           YIELD
 
+          LOAD_GROUP eventChapter04Data._chapter04introgroupNPC
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE pdialogueFourIntroNPCs
+          YIELD
+
+          MOVE_UNIT Ultima, [19, 26], [29, 10], 2, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Zane, [19, 26], [28, 11], 2, None
+          YIELD_UNK
+
+          MOVE_UNIT Mia, [19, 26], [30, 11], 2, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          SCROLL_CAMERA_COORDS [33, 2], 3
+          YIELD
+
+          DIALOGUE pdialogueFourIntro3
+          YIELD
+
+          SCROLL_CAMERA_CHAR Xavier, 3
+          YIELD
+
+          DIALOGUE pdialogueFourIntro4
+          YIELD
+
+          LOAD_GROUP eventChapter04Data._chapter04introgroupEthlyn
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE pdialogueFourIntroEthlyn
+          YIELD
+          
+          SCROLL_CAMERA_CHAR Ethlyn, 3
+          YIELD          
+
+          CALL_ASM_SKIPPABLE rlUnknown8C9E22
+        
+          CALL_ASM_SKIPPABLE rlClearHDMAArray
+        
+          STORE_LONG lEventEngineLongParameter, _EthlynSelphinaHeal
+          CALL_ASM_SKIPPABLE $9A8D0F
+        
+          STORE_WORD wEventEngineParameter1, Physic
+          STORE_WORD wEventEngineParameter2, Physic
+          STORE_WORD wEventEngineXCoordinate, 23
+          STORE_WORD wEventEngineYCoordinate, 29
+          STORE_WORD wEventEngineXCoordinateAlt, 29
+          STORE_WORD wEventEngineYCoordinateAlt, 27
+          CALL_ASM_SKIPPABLE $9A8E50
+        
+          CALL_ASM_SKIPPABLE $84B719
+        
+          HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+        
+          CALL_ASM_SKIPPABLE rlUpdateUnitMaps
+          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap
+        
+          PAUSE_SKIPPABLE 2
+          YIELD
+
+          FADE_OUT 2
+          YIELD
+
           STORE_WORD wCurrentChapter, Chapter04
           CALL_ASM_SKIPPABLE $9A98B8
 
-          SET_CAMERA_POSITION [2, 37]
+          SET_CAMERA_POSITION [8, 31]
           YIELD
+
+          FADE_IN 2
+
+          macroLoadPlayerUnitsByStartingPositions
           
         END2
 
@@ -188,21 +268,31 @@ GUARD_FE5_CHAPTER04 :?= false
       eventChapter04Data ; B1/EF95
 
          _chapter04introgroupA
-          UNIT Finn, Player, [24, 27], [24, 28], Dryas, [Javelin], 3, True, [$02, $08, $00, $00]
+          UNIT Finn, Player, [24, 27], [24, 28], Dryas, [Javelin], 3, False, [$02, $08, $00, $00]
           UNIT Selphina, Player, [24, 27], [23, 29], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
           UNIT Glade, Player, [24, 27], [24, 30], Dryas, [Rapier], 5, False, [$02, $08, $00, $00]
           UNIT Ranz, NPC, [24, 27], [24, 27], Dryas, [Rapier], 5, True, [$02, $08, $00, $80]
         UNIT
 
+        _chapter04introgroupNPC
+          UNIT Mia, NPC, [37, 26], [33, 24], Dryas, [Javelin], 3, False, [$02, $08, $00, $00]
+          UNIT Zane, NPC, [37, 26], [32, 25], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
+          UNIT Ultima, NPC, [37, 26], [34, 25], Dryas, [Rapier], 5, False, [$02, $08, $00, $00]
+        UNIT
+
         _chapter04introgroupB
           UNIT Dryas, NPC, [17, 26], [17, 26], Dryas, [Javelin], 3, True, [$02, $08, $00, $00]
-          UNIT Xavier, NPC, [19, 26], [19, 26], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
+          UNIT Xavier, NPC, [19, 26], [19, 26], Dryas, [ShortLance], 2, True, [$02, $08, $00, $00]
+        UNIT
+
+        _chapter04introgroupEthlyn
+          UNIT Ethlyn, NPC, [15, 23], [29, 27], Quan, [Physic], 3, True, [$02, $08, $00, $00]
         UNIT
 
         _StartingPositions ; B1/F311
-          .byte [11, 30]
-          .byte [1, 0]
-          .byte [1, 1]
+          .byte [1, 28]
+          .byte [2, 29]
+          .byte [1, 30]
         .char -1
 
     .endsection Chapter04DataSection

@@ -84,7 +84,10 @@ GUARD_FE5_CHAPTER02 :?= false
         SET_MUSIC $32
         YIELD
 
-        macroItemHouse ch1northerncave, Gungnir, [20, 20], $03F0
+        ;CALL_ASM_SKIPPABLE rlASMCPrepActiveUnitPortrait :?= address($8CC731) ;for dynamically loading portraits
+        
+        
+        macroItemHouse ch1northerncave, IronLance, [20, 20], $03F0
         CALL_ASM_LOOP rlASMCSaveActiveUnitData, $0000
         END2
 
