@@ -203,30 +203,8 @@ GUARD_FE5_CHAPTER04 :?= false
           SCROLL_CAMERA_CHAR Ethlyn, 3
           YIELD          
 
-          CALL_ASM_SKIPPABLE rlUnknown8C9E22
-        
-          CALL_ASM_SKIPPABLE rlClearHDMAArray
-        
-          STORE_LONG lEventEngineLongParameter, _EthlynSelphinaHeal
-          CALL_ASM_SKIPPABLE $9A8D0F
-        
-          STORE_WORD wEventEngineParameter1, Physic
-          STORE_WORD wEventEngineParameter2, Physic
-          STORE_WORD wEventEngineXCoordinate, 23
-          STORE_WORD wEventEngineYCoordinate, 29
-          STORE_WORD wEventEngineXCoordinateAlt, 29
-          STORE_WORD wEventEngineYCoordinateAlt, 27
-          CALL_ASM_SKIPPABLE $9A8E50
-        
-          CALL_ASM_SKIPPABLE $84B719
-        
-          HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
-        
-          CALL_ASM_SKIPPABLE rlUpdateUnitMaps
-          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap
-        
-          PAUSE_SKIPPABLE 2
-          YIELD
+          macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Selphina
+          macroASMCBeginScriptedCastMapBattle
 
           FADE_OUT 2
           YIELD
