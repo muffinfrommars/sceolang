@@ -3,7 +3,7 @@ Chapter01ChapterData,ptiles,ptileset,ppalette,mapone,None,None,None,None,None,10
 Chapter02ChapterData,ptiles,ptileset,ppalette,maptwo,None,None,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTilesetAnimation8487CE
 Chapter02xChapterData,ptiles,ptileset,ppalette,forest,None,eventChapter02xData._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$3F,$3F,$1,None,aTilesetAnimation8487CE
 Chapter03ChapterData,ptiles,ptileset,ppalette,mapthree,None,eventChapter03Data._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTilesetAnimation8487CE
-Chapter04ChapterData,ptiles,ptileset,ppalette,mapfour,None,eventChapter04Data._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$8,$A,$7,None,aTilesetAnimation8487CE
+Chapter04ChapterData,ptiles,ptileset,ppalette,mapfour,None,eventChapter04Data._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTilesetAnimation8487CE
 Chapter04xChapterData,$F7F221,$FB91E4,$F68500,$FBEBE0,$FCEE5A,eventChapter04xData._StartingPositions,$978008,3,None,10,20,$2,$4,$4,$3,$7,$A,$7,None,aTilesetAnimation848894
 Chapter05ChapterData,$F8A3D6,$FB9ABD,$F68600,$FBED88,$FCEEB7,eventChapter05Data._StartingPositions,$97800D,None,None,10,20,$2,$4,$0,$1,$4,$A,$4,None,None
 Chapter06ChapterData,$F8A3D6,$FB9ABD,$F68700,$FBF0A8,$FCEF06,eventChapter06Data._StartingPositions,$978012,None,None,10,20,$2,$4,$4,$3,$4,$A,$4,None,None

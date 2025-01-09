@@ -744,11 +744,9 @@ dialogueVeldDeathQuote
 ; Unused
 
 dialogueEthlynDeathQuote
-.text "Oof..."
+.text "*Pant* I think... *Pant*"
 .byte NewLine
-.text "I suppose I've lived long enough..."
-.byte NewLine
-.text "Asbel..."
+.text "I think I'll sit this one out..."
 .byte WaitForA
 .byte EndText
 

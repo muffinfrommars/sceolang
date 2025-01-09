@@ -102,7 +102,7 @@ GUARD_FE5_CHAPTER04x :?= false
           END_DEFINITION
         END_DEFINITION_ARRAY
 
-        _LocationEventDefinitions ; FD/8689
+        _LocationEventDefinitions 
           macroECDoor _FlagDoor1, [6, 4], _Door1
           macroECDoor _FlagDoor2, [12, 4], _Door2
           macroECDoor _FlagDoor3, [3, 6], _Door3
@@ -118,7 +118,7 @@ GUARD_FE5_CHAPTER04x :?= false
           macroECVanillaChest _FlagChest3, eventChapter04xData._Chest3
         END_DEFINITION_ARRAY
 
-        _BeforeActionEventDefinitions ; FD/875A
+        _BeforeActionEventDefinitions 
           macroECPlayerRetreat _FlagEnding, _PlayerRetreat, Leif
           EVENT FlagAlwaysZero, _NPCRetreat
             CMP_WORD wCurrentPhase, NPC

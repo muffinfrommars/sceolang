@@ -23,23 +23,22 @@ GUARD_FE5_CHAPTER04 :?= false
 
         ; Flag definitions
 
-          _FlagDalsinTalk        = enum.enum($06)
-          _FlagDetected           = enum.enum()
           _FlagEnding             = enum.enum()
-          _FlagDalsinBattleQuote = enum.enum()
+          _FlagDalsinBattleQuote  = enum.enum()
+          _FlagRescueMia          = enum.enum()
+          _FlagRescueZane         = enum.enum()
+          _FlagRescueUltima       = enum.enum()
+          _FlagRescueReward       = enum.enum()
+          _FlagBlueHouseVisit 		= enum.enum()
+
+
 
           ; TODO: map installer definitions
 
-          _FlagDoor1              = enum.enum($23)
-          _FlagDoor2              = enum.enum()
-          _FlagDoor3              = enum.enum()
-          _FlagDoor4              = enum.enum()
-          _FlagDoor5              = enum.enum()
-          _FlagDoor6              = enum.enum()
-          _FlagDoor7              = enum.enum()
-          _FlagDoor8              = enum.enum()
-          _FlagDoor9              = enum.enum()
-          _FlagDoor10             = enum.enum()
+          _FlagDoor1               = enum.enum($23)
+          _FlagGladeZaneTalk       = enum.enum()
+          _FlagFinnMiaTalk         = enum.enum()
+          _FlagSelphinaUltimaTalk  = enum.enum()
 
         _OpeningEventDefinitions ; 99/8778
           EVENT FlagAlwaysZero,_OpeningEvent
@@ -51,12 +50,25 @@ GUARD_FE5_CHAPTER04 :?= false
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
+        EVENT _FlagFinnMiaTalk, _pfourFinnMiaTalk
+            CHECK_CHARS2 Finn, Mia
+          END_DEFINITION
+          EVENT _FlagGladeZaneTalk, _pfourGladeZaneTalk
+            CHECK_CHARS2 Glade, Zane
+          END_DEFINITION
+          EVENT _FlagSelphinaUltimaTalk, _pfourSelphinaUltimaTalk
+            CHECK_CHARS2 Selphina, Ultima
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions ; 99/8862
           EVENT FlagAlwaysZero, _RandomChest
             CHECK_IF_RANDOM_CHEST
           END_DEFINITION
+          EVENT _FlagBlueHouseVisit, _BlueHouseVisit
+						macroECCheckCoordinates [14, 27]
+						CMP_WORD wCurrentPhase, Player
+					END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BeforeActionEventDefinitions ; 99/891E
@@ -69,6 +81,31 @@ GUARD_FE5_CHAPTER04 :?= false
 
         _AfterActionEventDefinitions ; 99/896B
           EVENT FlagAlwaysZero, _EndingEvent
+          END_DEFINITION
+          EVENT _FlagRescueMia, _FlagEventMia
+            macroECCheckCoordinateRanges [6, 1], [12, 5]
+            CMP_WORD aSelectedCharacterBuffer.Character, Mia
+          END_DEFINITION
+          EVENT _FlagRescueZane, _FlagEventZane
+            macroECCheckCoordinateRanges [6, 1], [12, 5]
+            CMP_WORD aSelectedCharacterBuffer.Character, Zane
+          END_DEFINITION
+          EVENT _FlagRescueUltima, _FlagEventUltima
+            macroECCheckCoordinateRanges [6, 1], [12, 5]
+            CMP_WORD aSelectedCharacterBuffer.Character, Ultima
+          END_DEFINITION
+          EVENT _FlagRescueReward, _RescueRewardEvent
+						CMP_WORD wCurrentPhase, Player
+						CMP_BYTE $7E4976, 3
+					END_DEFINITION
+          EVENT $24, _NorthernCave2
+			      macroECCheckCoordinates [2, 2]
+			      CMP_WORD wCurrentPhase, Player
+		      END_DEFINITION
+          EVENT FlagAlwaysZero, _EndingEvent
+            macroECCheckCoordinates [9, 1]
+            CMP_WORD wCurrentPhase, Player
+            CMP_WORD aSelectedCharacterBuffer.Character, Finn
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -98,9 +135,95 @@ GUARD_FE5_CHAPTER04 :?= false
           STORE_WORD wMapBattleFlag, 0
         END1
 
+        _NorthernCave2 ; 99/8324
+
+          ;CALL_ASM_SKIPPABLE rlASMCPrepActiveUnitPortrait :?= address($8CC731) ;for dynamically loading portraits
+          
+          macroItemHouse dpNorthernCave2, SlimLance, [20, 20], $03F0
+          CALL_ASM_LOOP rlASMCSaveActiveUnitData, $0000
+        END2
+
+        _BlueHouseVisit
+
+        DIALOGUE dp4BlueHouseVisit
+        YIELD
+
+        macroASMCSingleTileChangeByCoords [14, 27], $0021
+
+        END2
+
+         _FlagEventMia
+
+          DIALOGUE dpRescueMia
+          YIELD
+
+          ADD_BYTE $7E4976, 1
+          YIELD_UNK
+          YIELD_UNK
+        END2
+
+        _FlagEventZane
+          
+          DIALOGUE dpRescueZane
+          YIELD
+
+          ADD_BYTE $7E4976, 1
+          YIELD_UNK
+          YIELD_UNK
+        END2
+
+        _FlagEventUltima
+
+          DIALOGUE dpRescueUltima
+          YIELD
+
+          ADD_BYTE $7E4976, 1
+          YIELD_UNK
+          YIELD_UNK
+        END2
+
+        _RescueRewardEvent
+
+          DIALOGUE dpRescueComplete
+          YIELD
+
+          macroASMCGiveUnitItemSilent Finn, GaeBolg
+        END2
+
         _PlayerRetreat ; 99/8F5B
           macroASMCSetFlagIfRetreatingUnitByTable _RetreatingNPCTable
           macroHaveActiveUnitRetreat _RetreatMovestring
+        END2
+
+        _pfourFinnMiaTalk
+          macroDialogue dpFinnMia
+
+          macroASMCActiveUnitSetUnitState UnitStateHidden
+			
+					macroGiveActiveUnitItem GaeBolg
+			
+					macroASMCActiveUnitUnsetUnitState UnitStateHidden
+        END2
+
+        _pfourGladeZaneTalk
+          macroDialogue dpGladeZane
+
+          macroASMCActiveUnitSetUnitState UnitStateHidden
+			
+					macroGiveActiveUnitItem IronLance
+			
+					macroASMCActiveUnitUnsetUnitState UnitStateHidden
+          
+        END2
+
+        _pfourSelphinaUltimaTalk
+          macroDialogue dpSelphinaUltima
+
+          macroASMCActiveUnitSetUnitState UnitStateHidden
+			
+					macroGiveActiveUnitItem IronBow
+			
+					macroASMCActiveUnitUnsetUnitState UnitStateHidden
         END2
 
         _NPCRetreat ; 99/8FA5
@@ -114,11 +237,6 @@ GUARD_FE5_CHAPTER04 :?= false
 
         _RetreatingNPCTable ; 99/8FBB
           RETREAT_FLAG Civilian2, FlagChp4Civilian2Saved
-          RETREAT_FLAG Civilian3, FlagChp4Civilian3Saved
-          RETREAT_FLAG Civilian4, FlagChp4Civilian4Saved
-          RETREAT_FLAG Civilian5, FlagChp4Civilian5Saved
-          RETREAT_FLAG Civilian6, FlagChp4Civilian6Saved
-          RETREAT_FLAG Civilian7, FlagChp4Civilian7Saved
         RETREAT_FLAG
 
         _RetreatMovestring ; 99/8FD1
@@ -137,7 +255,7 @@ GUARD_FE5_CHAPTER04 :?= false
 
           macroASMCLoadUnitGroup eventChapter04Data._chapter04introgroupB
 
-          SET_CAMERA_POSITION [17, 39]
+          SET_CAMERA_POSITION [18, 39]
           YIELD
 
           LOAD_GROUP eventChapter04Data._chapter04introgroupA
@@ -146,6 +264,9 @@ GUARD_FE5_CHAPTER04 :?= false
 
           DIALOGUE pdialogueFourIntro1
           YIELD
+
+          MOVE_UNIT Dryas, [29, 27], [28, 26], 3, None
+          YIELD_UNK
 
           MOVE_UNIT Xavier, [19, 26], [30, 26], 2, None
           YIELD_UNK
@@ -206,18 +327,86 @@ GUARD_FE5_CHAPTER04 :?= false
           macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Selphina
           macroASMCBeginScriptedCastMapBattle
 
+          SCROLL_CAMERA_CHAR Selphina, 1
+          YIELD
+
+          MOVE_UNIT Ethlyn, [29, 27], [26, 28], 2, None
+          YIELD_UNK
+
+          DIALOGUE pdialogueFourIntroEthlyn2
+          YIELD
+
+          SCROLL_CAMERA_CHAR Ethlyn, 2
+          YIELD
+
+          DIALOGUE pdialogueFourIntroEthlyn3
+          YIELD
+
+          MOVE_UNIT Ranz, [24, 27], [29, 27], 3, None
+          YIELD_UNK
+
+          SCROLL_CAMERA_CHAR Dryas, 2
+          YIELD
+
+          DIALOGUE pdialogueFourIntroDryasXavierRanz
+          YIELD
+          
+          SCROLL_CAMERA_CHAR Xavier, 1
+          YIELD
+
+          DIALOGUE pdialogueFourIntroDryasXavierRanz2
+          YIELD
+
+          MOVE_UNIT Dryas, [28, 26], [37, 26], 3, None
+          YIELD_UNK
+
+          MOVE_UNIT Ranz, [29, 27], [37, 26], 3, None
+          YIELD_UNK
+
+          macroASMCRemoveUnit Ranz
+
+          macroASMCRemoveUnit Dryas
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Xavier, [30, 26], [35, 15], 2, None
+          YIELD_UNK
+
+          macroASMCRemoveUnit Xavier
+
+          WAIT_MOVE
+          YIELD
+
           FADE_OUT 2
           YIELD
+
+          macroASMCRemoveUnit Finn
+          macroASMCRemoveUnit Selphina
+          macroASMCRemoveUnit Glade
+          macroASMCRemoveUnit Ethlyn
+          macroASMCRemoveUnit Mia
+          macroASMCRemoveUnit Zane
+          macroASMCRemoveUnit Ultima
+          macroASMCRemoveUnit Xavier
 
           STORE_WORD wCurrentChapter, Chapter04
           CALL_ASM_SKIPPABLE $9A98B8
 
-          SET_CAMERA_POSITION [8, 31]
+          SET_CAMERA_POSITION [8, 29]
+          YIELD
+
+          macroLoadPlayerUnitsByStartingPositions
+          macroASMCLoadUnitGroup eventChapter04Data._chapter04introgroupEthlyn2
           YIELD
 
           FADE_IN 2
 
-          macroLoadPlayerUnitsByStartingPositions
+          LOAD_GROUP eventChapter04Data._ch04FinalGroupA
+
+          macroASMCDismount LeonsterBowKnight
+          macroASMCDismount LeonsterLanceKnight
+
           
         END2
 
@@ -247,15 +436,15 @@ GUARD_FE5_CHAPTER04 :?= false
 
          _chapter04introgroupA
           UNIT Finn, Player, [24, 27], [24, 28], Dryas, [Javelin], 3, False, [$02, $08, $00, $00]
-          UNIT Selphina, Player, [24, 27], [23, 29], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
+          UNIT Selphina, Player, [24, 27], [25, 29], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
           UNIT Glade, Player, [24, 27], [24, 30], Dryas, [Rapier], 5, False, [$02, $08, $00, $00]
           UNIT Ranz, NPC, [24, 27], [24, 27], Dryas, [Rapier], 5, True, [$02, $08, $00, $80]
         UNIT
 
         _chapter04introgroupNPC
-          UNIT Mia, NPC, [37, 26], [33, 24], Dryas, [Javelin], 3, False, [$02, $08, $00, $00]
-          UNIT Zane, NPC, [37, 26], [32, 25], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
-          UNIT Ultima, NPC, [37, 26], [34, 25], Dryas, [Rapier], 5, False, [$02, $08, $00, $00]
+          UNIT Mia, Player, [37, 26], [33, 24], Dryas, [Javelin], 3, False, [$02, $08, $00, $00]
+          UNIT Zane, Player, [37, 26], [32, 25], Dryas, [ShortLance], 2, False, [$02, $08, $00, $00]
+          UNIT Ultima, Player, [37, 26], [34, 25], Dryas, [Rapier], 5, False, [$02, $08, $00, $00]
         UNIT
 
         _chapter04introgroupB
@@ -263,14 +452,36 @@ GUARD_FE5_CHAPTER04 :?= false
           UNIT Xavier, NPC, [19, 26], [19, 26], Dryas, [ShortLance], 2, True, [$02, $08, $00, $00]
         UNIT
 
+        _ch04FinalGroupA
+          UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [ShortLance], 10, True, [$01, $03, $00, $80]
+          UNIT LeonsterMyrmidon, NPC, [14, 27], [14, 27], Dryas, [IronBlade], 2, False, [$01, $03, $00, $80]
+          UNIT LeonsterBowKnight, NPC, [6, 13], [6, 13], Dryas, [ShortBow], 2, False, [$01, $00, $00, $80]
+          UNIT LeonsterArcher, NPC, [4, 21], [4, 21], Dryas, [IronBow], 2, False, [$00, $03, $00, $80]
+          UNIT LeonsterHero, NPC, [12, 16], [12, 16], Dryas, [IronAxe], 2, False, [$00, $03, $00, $80]
+          UNIT LeonsterLanceKnight, NPC, [6, 27], [6, 27], Dryas, [IronSword], 2, False, [$00, $03, $00, 80]
+          UNIT LeonsterSoldier, NPC, [12, 9], [12, 9], Dryas, [IronLance], 2, False, [$00, $03, $00, $80]
+          UNIT LeonsterWarrior, NPC, [7, 1], [7, 1], Dryas, [IronBow], 6, False, [$00, $03, $00, $80]
+          UNIT LeonsterBerserker, NPC, [11, 1], [11, 1], Dryas, [SteelAxe], 5, False, [$00, $03, $00, $80]
+          UNIT LeonsterHero2, NPC, [13, 23], [13, 23], Dryas, [IronAxe], 4, False, [$00, $00, $00, $80]
+          UNIT LeonsterSoldier, NPC, [13, 38], [13, 38], Dryas, [IronLance], 3, False, [$01, $03, $00, $80]
+          UNIT Mia, Player, [6, 11], [6, 11], Quan, [], 20, False, [$02, $08, $00, $00]
+          UNIT Zane, Player, [5, 12], [5, 12], Quan, [], 20, False, [$02, $08, $00, $00]
+          UNIT Ultima, Player, [7, 12], [7, 12], Quan, [], 20, False, [$02, $08, $00, $00]
+        UNIT
+
         _chapter04introgroupEthlyn
-          UNIT Ethlyn, NPC, [15, 23], [29, 27], Quan, [Physic], 3, True, [$02, $08, $00, $00]
+          UNIT Ethlyn, NPC, [15, 23], [29, 27], Quan, [Physic, Heal, Vulnerary], 3, True, [$02, $08, $00, $00]
+        UNIT
+
+        _chapter04introgroupEthlyn2
+          UNIT Ethlyn, Player, [3, 29], [3, 29], Quan, [Physic, Heal, Vulnerary, Rapier], 20, False, [$02, $08, $00, $00]
         UNIT
 
         _StartingPositions ; B1/F311
           .byte [1, 28]
-          .byte [2, 29]
           .byte [1, 30]
+          .byte [2, 29]
+          
         .char -1
 
     .endsection Chapter04DataSection

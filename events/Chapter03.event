@@ -72,10 +72,10 @@ GUARD_FE5_CHAPTER03 :?= false
             CMP_WORD wCurrentPhase, Player
             CMP_WORD aSelectedCharacterBuffer.Character, Finn
           END_DEFINITION
-          EVENT FlagAlwaysZero, _WarpTest
-			      macroECCheckCoordinates [1, 1]
-			      CMP_WORD wCurrentPhase, Player
-		      END_DEFINITION
+          ;EVENT FlagAlwaysZero, _WarpTest ;debug only
+			     ;macroECCheckCoordinates [1, 1]
+			      ;CMP_WORD wCurrentPhase, Player
+		      ;END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions ; 8C/E68E
@@ -87,6 +87,12 @@ GUARD_FE5_CHAPTER03 :?= false
 
         _ThreeGladeSelphinaTalk
           macroDialogue pThreeGladeSelphinaTalk
+
+          macroASMCActiveUnitSetUnitState UnitStateHidden
+			
+					macroGiveActiveUnitItem IronLance
+			
+					macroASMCActiveUnitUnsetUnitState UnitStateHidden
         END2
 
         _PlayerLoss

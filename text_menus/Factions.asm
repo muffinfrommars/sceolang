@@ -282,7 +282,7 @@
 			.text ")Welkenrosen\n"
 		
 		menutextLifisCrewLeader
-			.text "Lifis Pirates \n"
+			.text "House Leonster\n"
 		
 		menutextMagiSquadLeader
 			.text "(Magi Squad \n"

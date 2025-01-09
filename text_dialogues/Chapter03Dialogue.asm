@@ -275,6 +275,24 @@ pThreeGladeSelphinaTalk
     .byte ScrollText
     .text "Ugh, you KNOW thats not what I meant..."
     .byte WaitForA
+
+	.byte Left_Slot
+	.byte ScrollText
+
+    .text "Oh, before I forget!"
+    .byte NewLine
+    .text "I want you to have this."
+    .byte NewLine
+    .text "Hopefully it helps with the trials~"
+    .byte WaitForA
+
+	.byte Right_slot
+    .byte ScrollText
+
+    .text "Wow, Selphina..."
+    .byte NewLine
+    .text "Thanks, I appreciate it!"
+	.byte WaitForA
 	
 	
 	.byte EndText

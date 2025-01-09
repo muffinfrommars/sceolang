@@ -189,9 +189,9 @@ Frieda
 Chris
 Daphnée
 Stella
-Edgar
-A[my
-+Nira
+Ultima
+Mia
+Zane
 (Marlon
 Frank
 Charles
@@ -205,7 +205,7 @@ Ulster
 Lifis Pirates
 Friege
 Gelbenritter
-Pitfighter
+Trainee 
 Leonster
 Loptrian
 Trainee
@@ -264,7 +264,7 @@ Friege's Ar[my
 Gelbenritter
 Ulster's Ar[my
 )Welkenrosen
-Lifis Pirates
+House Leonster
 (Magi Squad
 Bandits
 Resistance

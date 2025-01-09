@@ -15,11 +15,11 @@ dialogueChapter03Title
 .byte $01
 
 dialogueChapter04Title
-.text "Prologue 5: Luminous Lancer"
+.text "Prologue 5: Spirited Princess"
 .byte $01
 
 dialogueChapter04xTitle
-.text "Prologue 6:"
+.text "Prologue 6: Luminous Lancer"
 .byte $01
 
 dialogueChapter05Title

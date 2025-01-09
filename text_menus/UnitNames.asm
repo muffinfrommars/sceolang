@@ -746,7 +746,7 @@
 			.text "Baldach \n"
 		
 		menutextUnitLeonsterName
-			.text "Leonster\n"
+			.text "Trainee \n"
 		
 		; Xavier's adjutants. Names are a Lil' Manster QoL addition, and act as mini-credits.
 		menutextUnitLeonsterite1Name
@@ -804,14 +804,14 @@
 		menutextUnitCivilian5Name
 			.text "Stella\n"
 			
-		menutextUnitCivilian6Name
-			.text "Edgar \n"
+		menutextUnitCivilian6Name ;ch04 npc
+			.text "Ulti[ma \n"
 			
-		menutextUnitCivilian7Name
-			.text "A[my\n"
+		menutextUnitCivilian7Name ;ch04 npc
+			.text "Zane\n"
 			
-		menutextUnitCivilian8Name
-			.text "+Nira \n"
+		menutextUnitCivilian8Name ;ch04 npc
+			.text "(Mia\n"
 		
 		menutextUnitThiefName
 			.text "Thief \n"
@@ -898,7 +898,7 @@
 			.text "(Manfroy\n"
 		
 		menutextUnitPitfighterName
-			.text "Pitfighter\n"
+			.text "Trainee \n" ;previously Pitfighter
 		
 		menutextUnitBandoleName
 			.text "Bandole \n"

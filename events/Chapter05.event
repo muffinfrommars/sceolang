@@ -660,11 +660,11 @@ GUARD_FE5_CHAPTER05 :?= false
           .autsiz
           .databank ?
 
-          _ArenaEnemyList  := [PitfighterHero]
-          _ArenaEnemyList ..= [PitfighterWarrior]
-          _ArenaEnemyList ..= [PitfighterGeneral]
-          _ArenaEnemyList ..= [PitfighterSwordmaster]
-          _ArenaEnemyList ..= [PitfighterBerserker]
+          _ArenaEnemyList  := []
+          _ArenaEnemyList ..= []
+          _ArenaEnemyList ..= []
+          _ArenaEnemyList ..= []
+          _ArenaEnemyList ..= []
           _ArenaEnemyList ..= [Mareeta]
 
           lda #(`_ArenaEnemyTable)<<8
@@ -820,21 +820,18 @@ GUARD_FE5_CHAPTER05 :?= false
           .byte [16, 14]
 
         _PitfighterHeroGroup ; B1/E6CB
-          UNIT PitfighterHero, Enemy, [13, 11], [13, 11], Raydrik, [IronSword, Vulnerary], 5, false, [$00, $00, $00, $00]
         UNIT
 
         _UnusedCoordinates3 ; B1/E6E1
           .byte [16, 14]
 
         _PitfighterWarriorGroup ; B1/E6E3
-          UNIT PitfighterWarrior, Enemy, [15, 11], [15, 11], Raydrik, [IronAxe, Vulnerary], 5, false, [$00, $00, $00, $00]
         UNIT
 
         _UnusedCoordinates4 ; B1/E6F9
           .byte [16, 14]
 
         _PitfighterGeneralGroup ; B1/E6FB
-          UNIT PitfighterGeneral, Enemy, [17, 11], [17, 11], Raydrik, [SlimLance, Vulnerary], 5, false, [$00, $00, $00, $00]
         UNIT
 
         _UnusedCoordinates5 ; B1/E711
@@ -908,14 +905,12 @@ GUARD_FE5_CHAPTER05 :?= false
           .byte [16, 14]
 
         _PitfighterSwordmasterGroup ; B1/EA0B
-          UNIT PitfighterSwordmaster, Enemy, [13, 9], [13, 9], Raydrik, [KillingEdge, Vulnerary], 9, false, [$00, $00, $00, $00]
         UNIT
 
         _UnusedCoordinates11 ; B1/EA21
           .byte [16, 14]
 
         _PitfighterBerserkerGroup ; B1/EA23
-          UNIT PitfighterBerserker, Enemy, [17, 9], [17, 9], Raydrik, [KillerAxe, Vulnerary], 10, false, [$00, $00, $00, $00]
         UNIT
 
         _UnusedCoordinates12 ; B1/EA39
