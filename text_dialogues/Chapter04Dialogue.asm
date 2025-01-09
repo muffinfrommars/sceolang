@@ -472,6 +472,16 @@ dpSelphinaUltima
     .text "I'd like you to have this."
     .byte WaitForA
 
+    .byte Left_Slot
+    .byte ScrollText
+  	.word LoadPortrait
+    .word Selphina_portrait
+
+    .text "An Iron Bow?"
+    .byte NewLine
+    .text "Thank you so much!"
+	.byte WaitForA
+
     .byte EndText
 
 dpFinnMia
@@ -483,10 +493,20 @@ dpFinnMia
 
     .text "Finn, was it?"
     .byte NewLine
-    .text "Thank you for your hard work!"
+    .text "Thanks for your service!"
     .byte NewLine
-    .text "I'd like you to have this."
+    .text "Please take this as a token of my gratitude."
     .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+  	.word LoadPortrait
+    .word Finn_portrait
+
+    .text "Are you sure?"
+    .byte NewLine
+    .text "Thank you, it means a lot!"
+	.byte WaitForA
 
     .byte EndText
 
@@ -503,6 +523,14 @@ dpGladeZane
     .byte NewLine
     .text "I'd like you to have this."
     .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+  	.word LoadPortrait
+    .word Glade_portrait
+
+    .text "Wow, thanks!"
+	.byte WaitForA
 
     .byte EndText
 
@@ -555,6 +583,13 @@ dpRescueComplete
     .byte NewLine
     .text "Finn, check your inventory for your reward."
 	.byte WaitForA
+
+    .byte ScrollText
+
+    .text "You may not need it now, but it's best to"
+    .byte NewLine
+    .text "keep a reserve for emergencies, hm?"
+	.byte WaitForA
 	
 	.byte EndText
 
@@ -580,9 +615,6 @@ dp4BlueHouseVisit
     .byte Right_Slot
   	.word LoadPortrait
     .word Dorias_Portrait
-
-    .word PlayMusic
-	.byte $32
     
 	.byte $09
     .text "Very kind of you to visit."

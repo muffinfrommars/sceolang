@@ -18,6 +18,7 @@
     forest           .binary "forest.bin.fe4"
     mapthree         .binary "mapthree.bin.fe4"
     mapfour          .binary "mapfour.bin.fe4"
+    mapfive          .binary "mapfive.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"
     ;eastthracia      .binary "eastthracia.bin.fe4"
     ;debug2           .binary "debug2MapMain.bin.fe4"

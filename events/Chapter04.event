@@ -50,7 +50,7 @@ GUARD_FE5_CHAPTER04 :?= false
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
-        EVENT _FlagFinnMiaTalk, _pfourFinnMiaTalk
+          EVENT _FlagFinnMiaTalk, _pfourFinnMiaTalk
             CHECK_CHARS2 Finn, Mia
           END_DEFINITION
           EVENT _FlagGladeZaneTalk, _pfourGladeZaneTalk
@@ -58,6 +58,15 @@ GUARD_FE5_CHAPTER04 :?= false
           END_DEFINITION
           EVENT _FlagSelphinaUltimaTalk, _pfourSelphinaUltimaTalk
             CHECK_CHARS2 Selphina, Ultima
+          END_DEFINITION
+          EVENT _FlagFinnMiaTalk, _pfourFinnMiaTalk
+            CHECK_CHARS2 Mia, Finn
+          END_DEFINITION
+          EVENT _FlagGladeZaneTalk, _pfourGladeZaneTalk
+            CHECK_CHARS2 Zane, Glade
+          END_DEFINITION
+          EVENT _FlagSelphinaUltimaTalk, _pfourSelphinaUltimaTalk
+            CHECK_CHARS2 Ultima, Selphina
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -98,7 +107,7 @@ GUARD_FE5_CHAPTER04 :?= false
 						CMP_WORD wCurrentPhase, Player
 						CMP_BYTE $7E4976, 3
 					END_DEFINITION
-          EVENT $24, _NorthernCave2
+          EVENT FlagAlwaysZero, _NorthernCave2
 			      macroECCheckCoordinates [2, 2]
 			      CMP_WORD wCurrentPhase, Player
 		      END_DEFINITION
@@ -187,7 +196,7 @@ GUARD_FE5_CHAPTER04 :?= false
           DIALOGUE dpRescueComplete
           YIELD
 
-          macroASMCGiveUnitItemSilent Finn, GaeBolg
+          macroASMCGiveUnitItemSilent Finn, StaminaDrink
         END2
 
         _PlayerRetreat ; 99/8F5B
@@ -197,43 +206,29 @@ GUARD_FE5_CHAPTER04 :?= false
 
         _pfourFinnMiaTalk
           macroDialogue dpFinnMia
-
-          macroASMCActiveUnitSetUnitState UnitStateHidden
-			
-					macroGiveActiveUnitItem GaeBolg
-			
-					macroASMCActiveUnitUnsetUnitState UnitStateHidden
+          macroASMCGiveUnitItemSilent Finn, SteelLance
         END2
 
         _pfourGladeZaneTalk
           macroDialogue dpGladeZane
-
-          macroASMCActiveUnitSetUnitState UnitStateHidden
-			
-					macroGiveActiveUnitItem IronLance
-			
-					macroASMCActiveUnitUnsetUnitState UnitStateHidden
-          
+          macroASMCGiveUnitItemSilent Glade, IronLance
         END2
 
         _pfourSelphinaUltimaTalk
           macroDialogue dpSelphinaUltima
-
-          macroASMCActiveUnitSetUnitState UnitStateHidden
-			
-					macroGiveActiveUnitItem IronBow
-			
-					macroASMCActiveUnitUnsetUnitState UnitStateHidden
+					macroASMCGiveUnitItemSilent Selphina, IronBow
         END2
 
-        _NPCRetreat ; 99/8FA5
+        _NPCRetreat
           EVENT_CMP_BYTE_EQ aAISelectedUnitInfo.bActionDecision, $05
           JUMP_FALSE +
-
             macroASMCSetFlagIfRetreatingUnitByTable _RetreatingNPCTable
-
           +
         END1
+
+        _SimpleMovestring
+          MS_MOVE_UP
+        MS_END
 
         _RetreatingNPCTable ; 99/8FBB
           RETREAT_FLAG Civilian2, FlagChp4Civilian2Saved
@@ -378,6 +373,21 @@ GUARD_FE5_CHAPTER04 :?= false
           WAIT_MOVE
           YIELD
 
+          MOVE_CHAR Selphina, [25, 29], 1, _SimpleMovestring
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Finn, [24, 28], 1, _SimpleMovestring
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Glade, [24, 30], 1, _SimpleMovestring
+
+          WAIT_MOVE
+          YIELD
+
           FADE_OUT 2
           YIELD
 
@@ -406,17 +416,20 @@ GUARD_FE5_CHAPTER04 :?= false
 
           macroASMCDismount LeonsterBowKnight
           macroASMCDismount LeonsterLanceKnight
-
           
         END2
 
         _ChestPositionTable ; must keep or game crashes
           .byte [2, 13]
 
-        _EndingEvent ; 99/9167
+        _EndingEvent
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 16
           YIELD
+
+          macroASMCRemoveUnit Mia
+          macroASMCRemoveUnit Zane
+          macroASMCRemoveUnit Ultima
 
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
 
@@ -453,15 +466,15 @@ GUARD_FE5_CHAPTER04 :?= false
         UNIT
 
         _ch04FinalGroupA
-          UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [ShortLance], 10, True, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [9, 2], [9, 2], Dryas, [ShortLance], 10, True, [$01, $03, $00, $80]
           UNIT LeonsterMyrmidon, NPC, [14, 27], [14, 27], Dryas, [IronBlade], 2, False, [$01, $03, $00, $80]
           UNIT LeonsterBowKnight, NPC, [6, 13], [6, 13], Dryas, [ShortBow], 2, False, [$01, $00, $00, $80]
           UNIT LeonsterArcher, NPC, [4, 21], [4, 21], Dryas, [IronBow], 2, False, [$00, $03, $00, $80]
           UNIT LeonsterHero, NPC, [12, 16], [12, 16], Dryas, [IronAxe], 2, False, [$00, $03, $00, $80]
           UNIT LeonsterLanceKnight, NPC, [6, 27], [6, 27], Dryas, [IronSword], 2, False, [$00, $03, $00, 80]
           UNIT LeonsterSoldier, NPC, [12, 9], [12, 9], Dryas, [IronLance], 2, False, [$00, $03, $00, $80]
-          UNIT LeonsterWarrior, NPC, [7, 1], [7, 1], Dryas, [IronBow], 6, False, [$00, $03, $00, $80]
-          UNIT LeonsterBerserker, NPC, [11, 1], [11, 1], Dryas, [SteelAxe], 5, False, [$00, $03, $00, $80]
+          UNIT LeonsterWarrior, NPC, [7, 1], [7, 1], Dryas, [IronBow], 6, False, [$01, $03, $00, $80]
+          UNIT LeonsterBrigand, NPC, [11, 1], [11, 1], Dryas, [HandAxe], 5, False, [$01, $03, $00, $80]
           UNIT LeonsterHero2, NPC, [13, 23], [13, 23], Dryas, [IronAxe], 4, False, [$00, $00, $00, $80]
           UNIT LeonsterSoldier, NPC, [13, 38], [13, 38], Dryas, [IronLance], 3, False, [$01, $03, $00, $80]
           UNIT Mia, Player, [6, 11], [6, 11], Quan, [], 20, False, [$02, $08, $00, $00]
