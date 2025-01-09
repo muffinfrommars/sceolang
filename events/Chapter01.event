@@ -29,11 +29,15 @@ GUARD_FE5_CHAPTER01 :?= false
         _TurnEventDefinitions
           EVENT $07, _Music
             CMP_WORD wCurrentPhase, Player
-            CMP_WORD_RANGE wCurrentTurn, 2, $FFFF
+            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
           END_DEFINITION
           EVENT FlagAlliedDeath, eventMapDeathQuoteDummyEvent
 			      TEST_FLAG_SET FlagPlayerDeath
 		      END_DEFINITION
+          EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
+            CHECK_IF_BOSS_DEAD Dryas
+            CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
@@ -43,14 +47,11 @@ GUARD_FE5_CHAPTER01 :?= false
         END_DEFINITION_ARRAY
 
         _BeforeActionEventDefinitions
-          EVENT $07, _Music
-            CMP_WORD wCurrentPhase, Player
-            CMP_WORD_RANGE wCurrentTurn, 2, $FFFF
-          END_DEFINITION
           EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
             CHECK_IF_BOSS_DEAD Dryas
             CMP_WORD wCurrentPhase, Player
-          END_DEFINITION  
+          END_DEFINITION
+          
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
@@ -739,11 +740,9 @@ GUARD_FE5_CHAPTER01 :?= false
           END3
 
         _Music
-          PAUSE_SKIPPABLE 32
+          STORE_WORD wCurrentMapMusic, $0001
+          PAUSE_SKIPPABLE 16
           YIELD
-
-		      RESET_PHASE_MUSIC $01
-		      YIELD
 	        END2
           
         _EndingEvent ; FD/8536

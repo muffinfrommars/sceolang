@@ -18,3 +18,11 @@ sppalette   .binary "snowplainspalette.bin" ; only one palette fits here
 
 .here
 
+* = $5FC000 
+.logical lorom($5FC000, 1)
+
+    vpalette        .binary "villagePalette.bin"
+    fpalette        .binary "fortPalette.bin"
+
+.here
+

@@ -19,7 +19,7 @@ dialogueChapterObjektiveChapter03
 
 
 dialogueChapterObjektivecChapter04
-	.text "Escape the dungeon."
+	.text "Escort the civillians to the plateau."
 .byte EndTextNoPortraitFade
 
 

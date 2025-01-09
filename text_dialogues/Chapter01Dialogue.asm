@@ -29,10 +29,6 @@ EthlynDeathScript1
 
 EthlynDeathScript2
 
-	.byte right_slot
-	.byte $09 ; font 9(always use font 9)
-	.word LoadPortrait
-    .word EthlynPortrait
 	.text "Q-Quan... Altena..."
 	.byte WaitForA
 

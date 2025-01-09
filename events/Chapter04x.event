@@ -363,61 +363,7 @@ GUARD_FE5_CHAPTER04x :?= false
         END2
 
         _OpeningEvent ; FD/8E69
-          CALL_ASM_SKIPPABLE rlEventEngineCancelFading
-
-          macroASMCAllUnitsSetUnitState (UnitStateUnknown1 | UnitStateHidden)
-          macroASMCAllUnitsUnsetUnitState (UnitStateGrayed | UnitStateMovementStar | UnitStateMoved)
-
-          macroLoadPlayerUnitsByStartingPositions
-
-          macroASMCPrepareCapturedUnitsForRescue Player, _CapturedUnitTable
-
-          macroASMCLoadUnitGroup eventChapter04xData._ChildGroup
-          macroASMCLoadUnitGroup eventChapter04xData._ArmorGroup
-          macroASMCLoadUnitGroup eventChapter04xData._EnemyGroup1
-
-          WAIT_MOVE
-          YIELD
-
-          CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog
-
-          FADE_IN 2
-          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(false, 15)
-
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
-          YIELD
-
-          SET_MUSIC $4B
-          YIELD
-
-          macroChapterTitlePopup dialogueChapter04xTitle
-
-          SCROLL_CAMERA_ADDRESS eventChapter04xData._Opening1CameraCoordinates
-          YIELD
-
-          LOAD_GROUP eventChapter04xData._CedGroup
-          WAIT_MOVE
-          YIELD
-
-          SCROLL_CAMERA_CHAR CedChp4x, 4
-
-          DIALOGUE dialogueChapter04xOpening1
-          YIELD
-
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
-          YIELD
-
-          SET_MUSIC $07
-          YIELD
-
-          PLAY_SOUND_FORCED $00F7
-
-          SCROLL_CAMERA_CHAR Bella, 4
-
-          DIALOGUE dialogueChapter04xOpening2
-          YIELD
+          
         END2
 
         _CapturedUnitTable ; FD/8F37
