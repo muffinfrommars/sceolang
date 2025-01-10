@@ -23,7 +23,7 @@ GUARD_FE5_CHAPTER04 :?= false
 
         ; Flag definitions
 
-          _FlagEnding             = enum.enum()
+          _FlagEnding             = enum.enum($05)
           _FlagDalsinBattleQuote  = enum.enum()
           _FlagRescueMia          = enum.enum()
           _FlagRescueZane         = enum.enum()
@@ -449,14 +449,22 @@ GUARD_FE5_CHAPTER04 :?= false
 
         _EndingEvent
 
-          EVENT_CMP_BYTE_EQ $7E4976, 0
-          JUMP_FALSE +
+          EVENT_TEST_FLAG_SET _FlagRescueMia
+          JUMP_TRUE +
+
+          EVENT_TEST_FLAG_SET _FlagRescueZane
+          JUMP_TRUE +
+
+          EVENT_TEST_FLAG_SET _FlagRescueUltima
+          JUMP_TRUE +
 
             DIALOGUE dp4GameOver
             YIELD
 
             macroASMCGameOver
-          +
+          END1
+
+            +
           
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 16

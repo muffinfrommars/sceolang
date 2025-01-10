@@ -539,6 +539,7 @@ GUARD_FE5_CHAPTER22 :?= false
 					CALL_ASM_LOOP rlASMCDialogueWithBGEndFadeOut
 			
 					STORE_BYTE bBufferINIDISP, $00
+					YIELD
 
 					macroASMCCountAllUnitsAlive Dean
 					JUMP_FALSE +
