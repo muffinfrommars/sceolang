@@ -645,3 +645,25 @@ dp4GameOver
 	.byte WaitForA
 	
 	.byte EndText
+
+dp4Success
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Xavier_portrait 
+	.byte $09
+    .text "Great work, all of you."
+    .byte NewLine
+    .text "You did well to make it this far,"
+    .byte NewLine
+    .text "and you completed the additional objective!"
+	.byte WaitForA
+
+    .byte ScrollText
+
+    .text "Let's call it for now and regroup in a moment,"
+    .byte NewLine
+    .text "shall we?"
+	.byte WaitForA
+	
+	.byte EndText
