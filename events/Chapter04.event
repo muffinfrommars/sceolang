@@ -50,13 +50,13 @@ GUARD_FE5_CHAPTER04 :?= false
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
-          EVENT _FlagFinnMiaTalk, _pfourFinnMiaTalk
+          EVENT _FlagFinnMiaTalk, _pfourFinnMiaTalk2
             CHECK_CHARS2 Finn, Mia
           END_DEFINITION
-          EVENT _FlagGladeZaneTalk, _pfourGladeZaneTalk
+          EVENT _FlagGladeZaneTalk, _pfourGladeZaneTalk2
             CHECK_CHARS2 Glade, Zane
           END_DEFINITION
-          EVENT _FlagSelphinaUltimaTalk, _pfourSelphinaUltimaTalk
+          EVENT _FlagSelphinaUltimaTalk, _pfourSelphinaUltimaTalk2
             CHECK_CHARS2 Selphina, Ultima
           END_DEFINITION
           EVENT _FlagFinnMiaTalk, _pfourFinnMiaTalk
@@ -85,6 +85,11 @@ GUARD_FE5_CHAPTER04 :?= false
           EVENT FlagAlwaysZero, _NPCRetreat
             CMP_WORD wCurrentPhase, NPC
             TEST_FLAG_UNSET _FlagEnding
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _WarpTest ;debug WarpTile
+            macroECCheckCoordinates [1, 33]
+            CMP_WORD wCurrentPhase, Player
+            CMP_WORD aSelectedCharacterBuffer.Character, Finn
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -125,9 +130,9 @@ GUARD_FE5_CHAPTER04 :?= false
         _ShopEventDefinitions ; 99/897E
         END_DEFINITION_ARRAY
 
-        _EthlynSelphinaHeal
-            .byte $02, $00, $00, $00 ;Left kills right
-          .word $FFFF, $FFFF
+        _WarpTest
+          macroScriptedRewarpStaff aSelectedCharacterBuffer, [9, 3]
+        END1
 
         _RandomChest ; 99/8EA0
           STORE_WORD wMapBattleFlag, 1
@@ -217,6 +222,27 @@ GUARD_FE5_CHAPTER04 :?= false
         _pfourSelphinaUltimaTalk
           macroDialogue dpSelphinaUltima
 					macroASMCGiveUnitItemSilent Selphina, IronBow
+        END2
+
+        _pfourFinnMiaTalk2
+          macroDialogue dpFinnMia
+          macroASMCActiveUnitSetUnitState UnitStateHidden
+          macroGiveActiveUnitItem SteelLance
+          macroASMCActiveUnitUnsetUnitState UnitStateHidden
+        END2
+
+        _pfourGladeZaneTalk2
+          macroDialogue dpGladeZane
+          macroASMCActiveUnitSetUnitState UnitStateHidden
+          macroGiveActiveUnitItem GreatLance
+          macroASMCActiveUnitUnsetUnitState UnitStateHidden
+        END2
+
+        _pfourSelphinaUltimaTalk2
+          macroDialogue dpSelphinaUltima
+					macroASMCActiveUnitSetUnitState UnitStateHidden
+          macroGiveActiveUnitItem IronBow
+          macroASMCActiveUnitUnsetUnitState UnitStateHidden
         END2
 
         _NPCRetreat
@@ -416,13 +442,22 @@ GUARD_FE5_CHAPTER04 :?= false
 
           macroASMCDismount LeonsterBowKnight
           macroASMCDismount LeonsterLanceKnight
-          
         END2
 
         _ChestPositionTable ; must keep or game crashes
           .byte [2, 13]
 
         _EndingEvent
+
+          EVENT_CMP_BYTE_EQ $7E4976, 0
+          JUMP_FALSE +
+
+            DIALOGUE dp4GameOver
+            YIELD
+
+            macroASMCGameOver
+          +
+          
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 16
           YIELD
@@ -434,9 +469,9 @@ GUARD_FE5_CHAPTER04 :?= false
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
 
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
-
-          FADE_OUT $01
           YIELD
+          
+          FADE_OUT $01
 
           CALL_ASM_LOOP rlASMCChapterEnd
         END1

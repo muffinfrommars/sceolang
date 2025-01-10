@@ -625,3 +625,23 @@ dp4BlueHouseVisit
 	.byte WaitForA
 	
 	.byte EndText
+
+dp4GameOver
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Xavier_portrait 
+	.byte $09
+    .text "Er, Finn?"
+    .byte NewLine
+    .text "You did well to make it this far,"
+    .byte NewLine
+    .text "but I don't see any civilians!"
+	.byte WaitForA
+
+    .byte ScrollText
+
+    .text "Let's do that over, shall we?"
+	.byte WaitForA
+	
+	.byte EndText
