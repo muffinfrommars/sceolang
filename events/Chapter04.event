@@ -544,7 +544,7 @@ GUARD_FE5_CHAPTER04 :?= false
         UNIT
 
         _chapter04introgroupEthlyn2
-          UNIT Ethlyn, Player, [3, 29], [3, 29], Quan, [Physic, Heal, Vulnerary, Rapier], 20, False, [$02, $08, $00, $00]
+          UNIT Ethlyn, Player, [3, 29], [3, 29], Quan, [Physic, Heal, Vulnerary, ], 20, False, [$02, $08, $00, $00]
         UNIT
 
         _StartingPositions ; B1/F311

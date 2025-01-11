@@ -95,6 +95,10 @@ dialogueLeifDeathQuote
 .byte EndText
 
 dialogueFinnDeathQuote
+
+.word PlayMusic
+.byte $44
+
 .text "Is this the best..."
 .byte NewLine
 .text "I can really do...?"
@@ -602,10 +606,10 @@ dialoguePalmanDeathQuote
 .byte WaitForA
 .byte EndText
 
-dialogueXavierDeathQuote
-.text "F-Forgive me, Lord Leif..."
+dialogueXavierDeathQuotech04
+.text "W-well done..."
 .byte NewLine
-.text "Glory...to Leonster...!"
+.text "I see true potential in you!"
 .byte WaitForA
 .byte EndText
 
@@ -741,20 +745,28 @@ dialogueVeldDeathQuote
 .byte WaitForA
 .byte EndText
 
-; Unused
-
 dialogueEthlynDeathQuote
-.text "*Pant* I think... *Pant*"
-.byte NewLine
-.text "I think I'll sit this one out..."
-.byte WaitForA
-.byte EndText
+    .text "*Pant* I think... *Pant*"
+    .byte NewLine
+    .text "I think I'll sit this one out..."
+    .byte WaitForA
+    .byte EndText
 
-dialogueMannheimDeathQuote
-.text "Ugh...!"
-.byte NewLine
-.text "King Bloom, I've failed you..."
-.byte NewLine
-.text "Please forgive me..."
-.byte WaitForA
-.byte EndText
+dialogueEthlynDeathQuotech04x
+
+    .word PlayMusic
+    .byte $44
+
+    .text "Q-Quan...?"
+    .byte NewLine
+    .text "I-Its so c-cold..."
+    .byte WaitForA
+    .byte EndText
+
+dialogueDryasChapter01DeathQuote
+
+    .text "Ugh...!"
+    .byte NewLine
+    .text "W-well done..."
+    .byte WaitForA
+    .byte EndText

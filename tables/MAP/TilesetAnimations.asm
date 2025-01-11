@@ -1,5 +1,5 @@
 
-aTilesetAnimation8487CE ; 84/87CE
+aTAPlains ; 84/87CE
 	.dstruct structTilesetAnimationFrame, $FE8000, $7000, 1
 	.dstruct structTilesetAnimationFrame, $FE8800, $7800, 11
 
@@ -25,7 +25,7 @@ aTilesetAnimation8487CE ; 84/87CE
 	.dstruct structTilesetAnimationFrame, $FEF800, $7800, 11
 .dstruct structTilesetAnimationEnd
 
-aTilesetAnimation848831 ; 84/8831
+aTACastle ; 84/8831
 	.dstruct structTilesetAnimationFrame, $FF8000, $7000, 1
 	.dstruct structTilesetAnimationFrame, $FF8800, $7800, 11
 
@@ -51,7 +51,7 @@ aTilesetAnimation848831 ; 84/8831
 	.dstruct structTilesetAnimationFrame, $FFF800, $7800, 11
 .dstruct structTilesetAnimationEnd
 
-aTilesetAnimation848894 ; 84/8894
+aTADungeon ; 84/8894
 	.dstruct structTilesetAnimationFrame, $F58000, $7000, 10
 	.dstruct structTilesetAnimationFrame, $F58800, $7000, 10
 	.dstruct structTilesetAnimationFrame, $F59000, $7000, 10
@@ -62,7 +62,7 @@ aTilesetAnimation848894 ; 84/8894
 	.dstruct structTilesetAnimationFrame, $F5B800, $7000, 10
 .dstruct structTilesetAnimationEnd
 
-aTilesetAnimation8488C7 ; 84/88C7
+aTATemple ; 84/88C7
 	.dstruct structTilesetAnimationFrame, $F5C000, $7000, 10
 	.dstruct structTilesetAnimationFrame, $F5C800, $7000, 10
 	.dstruct structTilesetAnimationFrame, $F5D000, $7000, 10
