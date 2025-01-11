@@ -34,6 +34,21 @@ GUARD_FE5_CHAPTER04x :?= false
         END_DEFINITION_ARRAY
 
         _TurnEventDefinitions
+          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveAEvent
+            CMP_WORD_RANGE wCurrentTurn, 2, 6
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveAEvent
+            CMP_WORD_RANGE wCurrentTurn, 7, 7
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveAEvent
+            CMP_WORD_RANGE wCurrentTurn, 9, 9
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
@@ -54,13 +69,43 @@ GUARD_FE5_CHAPTER04x :?= false
         _ShopEventDefinitions
         END_DEFINITION_ARRAY
 
+        _ch04xReinforcementsWaveAEvent
+
+          SCROLL_CAMERA_ADDRESS eventChapter04xData._ch04xReinforcementsCameraCoords
+          YIELD
+
+          LOAD_GROUP eventChapter04xData._ch04xReinforcementsWaveA
+          WAIT_MOVE
+          YIELD
+
+          YIELD_UNK
+        END2
+
+        _ch04xReinforcementsWaveBEvent
+
+          SCROLL_CAMERA_ADDRESS eventChapter04xData._ch04xReinforcementsCameraCoords
+          YIELD
+
+          LOAD_GROUP eventChapter04xData._ch04xReinforcementsWaveB
+          WAIT_MOVE
+          YIELD
+
+          YIELD_UNK
+        END2
+
         _OpeningEvent
-
-          macroLoadPlayerUnitsByStartingPositions
-          macroASMCRemoveUnit Ethlyn
-          macroASMCLoadUnitGroup eventChapter04xData._ch04xStartingGroup
-
           SET_CAMERA_POSITION [1, 20]
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter04xData._ch04xStartingGroup
+          macroASMCDismount Ethlyn
+          macroASMCDismount Ranz
+          macroASMCDismount Dryas
+
+          macroASMCSetBitsCharacterDataWord Xavier, Skills2, Skill2Anchor
+          macroASMCSetBitsCharacterDataWord Ethlyn, Skills2, Skill2Anchor
+
+          FADE_IN 2
           YIELD
 
           FADE_IN $02
@@ -72,8 +117,53 @@ GUARD_FE5_CHAPTER04x :?= false
           DIALOGUE pd04xIntro1
           YIELD
 
-          macroASMCChangeAllegianceToNPC Ethlyn
+          MOVE_UNIT Dryas, [8, 2], [5, 17], 3, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Dryas
+
+          SCROLL_CAMERA_COORDS [5, 20], 3
+          YIELD
+
+          LOAD_GROUP eventChapter04xData._ch04xStartingGroupBrigands
+
+          SCROLL_CAMERA_CHAR Finn, 3
+          YIELD
+
+          MOVE_UNIT Selphina, [30, 26], [4, 1], 1, None
+          YIELD_UNK
+
+          MOVE_UNIT Ranz, [30, 26], [11, 1], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Finn, [30, 26], [7, 3], 2, None
+          YIELD_UNK
+
+          MOVE_UNIT Glade, [30, 26], [8, 3], 2, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
           macroASMCChangeAllegianceToPlayer Ranz
+
+          FADE_OUT 2
+          YIELD
+
+          macroASMCRemoveUnit Finn
+          macroASMCRemoveUnit Glade
+          macroASMCRemoveUnit Selphina
+
+          macroLoadPlayerUnitsByStartingPositions
+
+          FADE_IN 1
+          YIELD
 
         END2
 
@@ -104,18 +194,48 @@ GUARD_FE5_CHAPTER04x :?= false
 
       eventChapter04xData
 
-        _ch04xStartingGroup ; B1/DE50
-          UNIT Ethlyn, Player, [7, 1], [7, 1], Quan, [Physic, Heal, Vulnerary, ], 20, False, [$02, $08, $00, $00]
-          UNIT Xavier, NPC, [8, 1], [8, 1], Quan, [ShortLance], 3, false, [$01, $03, $00, $00]
-          UNIT Ranz, NPC, [11, 1], [11, 1], Quan, [ShortLance], 3, false, [$01, $03, $00, $00]
-
+        _ch04xStartingGroup
+          UNIT Ethlyn, NPC, [7, 1], [7, 1], Quan, [Vulnerary], 20, False, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [8, 1], [8, 1], Quan, [ShortLance], 10, false, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [9, 4], [9, 4], Quan, [IronBlade, Rapier, Vulnerary], 5, false, [$01, $03, $00, $00]
+          UNIT Finn, Player, [6, 4], [6, 4], Quan, [Vulnerary], 20, False, [$01, $03, $00, $80]
+          UNIT Glade, Player, [7, 4], [7, 4], Quan, [ShortLance], 10, false, [$01, $03, $00, $80]
+          UNIT Selphina, Player, [8, 4], [8, 4], Quan, [IronBlade, Rapier, Vulnerary], 5, false, [$01, $03, $00, $00]
+          UNIT Dryas, NPC, [8, 2], [8, 2], Quan, [], 5, false, [$01, $03, $00, $00]
         UNIT
+
+        _ch04xStartingGroupBrigands
+          UNIT BanditBrigand1, Enemy, [5, 17], [6, 5], Seil, [HandAxe, IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditBrigand1, Enemy, [10, 17], [9, 5], Seil, [HandAxe, IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditHunter, Enemy, [5, 17], [4, 8], Seil, [IronBow, Vulnerary], 5, false, [$00, $02, $00, $80]
+          UNIT BanditBrigand1, Enemy, [10, 17], [11, 8], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditBrigand1, Enemy, [5, 17], [3, 13], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditBrigand1, Enemy, [10, 17], [12, 13], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditBrigand1, Enemy, [5, 17], [7, 10], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditWarrior, Enemy, [10, 17], [8, 10], Seil, [IronBow, SteelAxe], 5, false, [$00, $02, $00, $80]
+          UNIT Bucks, Enemy, [10, 17], [7, 17], Seil, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditHunter, Enemy, [5, 17], [8, 17], Seil, [IronBow], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [10, 17], [10, 17], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [5, 17], [5, 17], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+        UNIT
+
+        _ch04xReinforcementsWaveA
+          UNIT BanditBrigand1, Enemy, [10, 17], [10, 16], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
+          UNIT BanditBrigand1, Enemy, [5, 17], [5, 16], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+        UNIT
+
+        _ch04xReinforcementsWaveB
+          UNIT BanditBerserker, Enemy, [10, 17], [10, 16], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
+          UNIT BanditBerserker, Enemy, [5, 17], [5, 16], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+        UNIT
+
+        _ch04xReinforcementsCameraCoords
+          .byte [5, 20]
 
         _StartingPositions ; B1/EEB8
           .byte [7, 3]
           .byte [8, 3]
           .byte [4, 1]
-          .byte [7, 1]
         .char -1
 
     .endsection Chapter04xDataSection

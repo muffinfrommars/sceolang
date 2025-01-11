@@ -19,7 +19,7 @@ pd04xIntro1
 
     .text "This little outpost was once the"
     .byte NewLine
-    .text "original outpost for Leonster's military."
+    .text "original campsite for Leonster's military."
 	.byte WaitForA
 
     .byte ScrollText
@@ -38,6 +38,26 @@ pd04xIntro1
     .text "it was decided to be upkept and reused as a"
     .byte NewLine
     .text "training grounds to simulate indoor combat."
+
+    .byte Right_Slot
+    .byte ScrollText
+
+    .text "('Upkept' is a bit generous...)"
 	.byte WaitForA
 
+    .word PlayMusic
+	.byte $32
+
+    
+    .byte Left_Slot
+    .byte ScrollText
+
+    .text "Our break time is over."
+    .byte NewLine
+    .text "I shall go and gather the rest of the men"
+    .byte NewLine
+    .text "and return shortly."
+
     .byte EndText
+
+    

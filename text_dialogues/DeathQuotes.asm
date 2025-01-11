@@ -770,3 +770,19 @@ dialogueDryasChapter01DeathQuote
     .text "W-well done..."
     .byte WaitForA
     .byte EndText
+
+dialogueXavierDeathQuotech04x
+
+    .text "Ugh...!"
+    .byte NewLine
+    .text "G-Glory to House L-Leonster..."
+    .byte WaitForA
+    .byte EndText
+
+dialogueRanz04xDeathQuote
+
+    .text "These wounds!"
+    .byte NewLine
+    .text "I need to retreat..!"
+    .byte WaitForA
+    .byte EndText

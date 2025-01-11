@@ -486,6 +486,7 @@ GUARD_FE5_CHAPTER04 :?= false
           macroASMCRemoveUnit Mia
           macroASMCRemoveUnit Zane
           macroASMCRemoveUnit Ultima
+          macroASMCRemoveUnit Ethlyn
 
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
 
