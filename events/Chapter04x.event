@@ -49,6 +49,26 @@ GUARD_FE5_CHAPTER04x :?= false
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
+          EVENT FlagAlwaysZero, _EthlynHealRanz
+            CMP_WORD wCurrentTurn, 2
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _EthlynHealSelphina
+            CMP_WORD wCurrentTurn, 3
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _EthlynHealGlade
+            CMP_WORD wCurrentTurn, 4
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _EthlynHealFinn
+            CMP_WORD wCurrentTurn, 5
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
@@ -79,6 +99,80 @@ GUARD_FE5_CHAPTER04x :?= false
           YIELD
 
           YIELD_UNK
+        END2
+
+        _DryasBucksScriptedBattle
+            .byte $02, $01, $00, $10 ;Left kills right
+          .word $FFFF, $FFFF
+
+        _EthlynHealRanz
+
+          SET_MUSIC $04
+          YIELD
+
+          macroASMCCountAllUnitsAlive Ranz
+          JUMP_FALSE +
+          
+          SCROLL_CAMERA_CHAR Ethlyn, 3
+          YIELD
+
+          DIALOGUE EthlynHealRanzTalk
+          YIELD
+
+          macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Ranz
+          macroASMCBeginScriptedCastMapBattle
+          +
+        END2
+
+        _EthlynHealSelphina
+          SET_MUSIC $04
+          YIELD
+
+          macroASMCCountAllUnitsAlive Selphina
+          JUMP_FALSE +
+
+          SCROLL_CAMERA_CHAR Ethlyn, 3
+          YIELD
+
+          DIALOGUE EthlynHealSelphinaTalk
+          YIELD
+
+          macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Selphina
+          macroASMCBeginScriptedCastMapBattle
+          +
+        END2
+
+        _EthlynHealGlade
+
+          SET_MUSIC $04
+          YIELD
+
+          macroASMCCountAllUnitsAlive Glade
+          JUMP_FALSE +
+          
+          SCROLL_CAMERA_CHAR Ethlyn, 3
+          YIELD
+
+          DIALOGUE EthlynHealGladeTalk
+          YIELD
+
+          macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Glade
+          macroASMCBeginScriptedCastMapBattle
+          +
+        END2
+
+        _EthlynHealFinn
+          SET_MUSIC $04
+          YIELD
+          
+          SCROLL_CAMERA_CHAR Ethlyn, 3
+          YIELD
+
+          DIALOGUE EthlynHealFinnTalk
+          YIELD
+
+          macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Finn
+          macroASMCBeginScriptedCastMapBattle
         END2
 
         _ch04xReinforcementsWaveBEvent
@@ -125,12 +219,96 @@ GUARD_FE5_CHAPTER04x :?= false
 
           macroASMCRemoveUnit Dryas
 
-          SCROLL_CAMERA_COORDS [5, 20], 3
+          DIALOGUE pd04xIntro2
           YIELD
+
+          PLAY_SOUND_FORCED $00E0
+          YIELD
+
+          LOAD_GROUP eventChapter04xData._ch04xReinforcementsDryas
+          macroASMCDismount Dryas
+
+          SCROLL_CAMERA_CHAR Dryas, 4
+          YIELD
+
+          PAUSE_SKIPPABLE 64
+          YIELD
+
+          DIALOGUE pd04xIntro3
+          YIELD
+
+          SCROLL_CAMERA_CHAR Finn, 4
+          YIELD
+
+          DIALOGUE pd04xIntro4
+          YIELD
+
+          SET_MUSIC $3A
+          YIELD
+
+          SCROLL_CAMERA_CHAR Dryas, 4
+          YIELD
+
+          LOAD_GROUP eventChapter04xData._ch04xReinforcementsBucksGroup
+
+          DIALOGUE pd04xIntro5
+          YIELD
+
+          SCROLL_CAMERA_CHAR Bucks, 8
+          YIELD
+
+          CALL_ASM_SKIPPABLE rlUnknown8C9E22
+        
+          CALL_ASM_SKIPPABLE rlClearHDMAArray
+        
+          STORE_LONG lEventEngineLongParameter, _DryasBucksScriptedBattle
+          CALL_ASM_SKIPPABLE $9A8D0F
+        
+          STORE_WORD wEventEngineParameter1, IronSword
+          STORE_WORD wEventEngineParameter2, IronAxe
+          STORE_WORD wEventEngineXCoordinate, 10
+          STORE_WORD wEventEngineYCoordinate, 17
+          STORE_WORD wEventEngineXCoordinateAlt, 9
+          STORE_WORD wEventEngineYCoordinateAlt, 17
+          CALL_ASM_SKIPPABLE $9A8E50
+        
+          CALL_ASM_SKIPPABLE $84B719
+        
+          HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+        
+          CALL_ASM_SKIPPABLE rlUpdateUnitMaps
+          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap
+        
+          PAUSE_SKIPPABLE 2
+          YIELD
+
+          SCROLL_CAMERA_CHAR Bucks, 1
+          YIELD
+
+          DIALOGUE pd04xIntro6
+          YIELD
+
+          PAUSE_SKIPPABLE 32
+          YIELD
+
+          PLAY_EXTENDED_SOUND $2F
+          macroASMCRemoveUnit Dryas
+
+          SET_MUSIC $31
+          YIELD
+
+          DIALOGUE pd04xIntro7
+          YIELD
+
+          MOVE_UNIT Bucks, [9, 17], [7, 17], 3, None
+          YIELD_UNK
 
           LOAD_GROUP eventChapter04xData._ch04xStartingGroupBrigands
 
           SCROLL_CAMERA_CHAR Finn, 3
+          YIELD
+
+          DIALOGUE pd04xIntro8
           YIELD
 
           MOVE_UNIT Selphina, [30, 26], [4, 1], 1, None
@@ -159,6 +337,7 @@ GUARD_FE5_CHAPTER04x :?= false
           macroASMCRemoveUnit Finn
           macroASMCRemoveUnit Glade
           macroASMCRemoveUnit Selphina
+          
 
           macroLoadPlayerUnitsByStartingPositions
 
@@ -195,13 +374,21 @@ GUARD_FE5_CHAPTER04x :?= false
       eventChapter04xData
 
         _ch04xStartingGroup
-          UNIT Ethlyn, NPC, [7, 1], [7, 1], Quan, [Vulnerary], 20, False, [$01, $03, $00, $80]
+          UNIT Ethlyn, NPC, [7, 1], [7, 1], Quan, [Physic, Vulnerary], 20, False, [$01, $03, $00, $80]
           UNIT Xavier, NPC, [8, 1], [8, 1], Quan, [ShortLance], 10, false, [$01, $03, $00, $80]
           UNIT Ranz, NPC, [9, 4], [9, 4], Quan, [IronBlade, Rapier, Vulnerary], 5, false, [$01, $03, $00, $00]
           UNIT Finn, Player, [6, 4], [6, 4], Quan, [Vulnerary], 20, False, [$01, $03, $00, $80]
           UNIT Glade, Player, [7, 4], [7, 4], Quan, [ShortLance], 10, false, [$01, $03, $00, $80]
           UNIT Selphina, Player, [8, 4], [8, 4], Quan, [IronBlade, Rapier, Vulnerary], 5, false, [$01, $03, $00, $00]
           UNIT Dryas, NPC, [8, 2], [8, 2], Quan, [], 5, false, [$01, $03, $00, $00]
+        UNIT
+
+        _ch04xReinforcementsDryas
+          UNIT Dryas, NPC, [10, 17], [10, 17], Seil, [], 5, false, [$00, $00, $00, $80]
+        UNIT
+
+        _ch04xReinforcementsBucksGroup
+          UNIT Bucks, Enemy, [5, 17], [9, 17], Seil, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
         UNIT
 
         _ch04xStartingGroupBrigands
@@ -213,7 +400,6 @@ GUARD_FE5_CHAPTER04x :?= false
           UNIT BanditBrigand1, Enemy, [10, 17], [12, 13], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
           UNIT BanditBrigand1, Enemy, [5, 17], [7, 10], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
           UNIT BanditWarrior, Enemy, [10, 17], [8, 10], Seil, [IronBow, SteelAxe], 5, false, [$00, $02, $00, $80]
-          UNIT Bucks, Enemy, [10, 17], [7, 17], Seil, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
           UNIT BanditHunter, Enemy, [5, 17], [8, 17], Seil, [IronBow], 5, false, [$01, $03, $00, $80]
           UNIT BanditBrigand1, Enemy, [10, 17], [10, 17], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
           UNIT BanditBrigand1, Enemy, [5, 17], [5, 17], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]

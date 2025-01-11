@@ -33,7 +33,7 @@
 	DoorKeyUse        = 13*2
 	BridgeKeyUse      = 14*2
 	LockpickUse       = 15*2
-	VulneraryUse	  	= 16*2
+	VulneraryUse	  = 16*2
 	PureWaterUse      = 17*2
 	TorchUse          = 18*2
 	AntitoxinUse      = 19*2
