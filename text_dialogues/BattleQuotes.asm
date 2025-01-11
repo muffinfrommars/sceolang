@@ -68,7 +68,7 @@ dialogueWeissmannBattleQuote
 dialogueBucksBattleQuote
 .text "You have any idea who "
 .byte NewLine
-.text "yer dealin' with? I'm THE Bucks,"
+.text "yer dealin' with? I'm Bucks Sr.,"
 .byte NewLine
 .text "a beast born from a life at sea!"
 .byte WaitForA

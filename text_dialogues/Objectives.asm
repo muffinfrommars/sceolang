@@ -1,5 +1,5 @@
 dialogueChapterObjectiveChapter01
-	.text "Survive."
+	.text "Defeat General Dryas."
 .byte EndTextNoPortraitFade
 
 
@@ -24,7 +24,11 @@ dialogueChapterObjektivecChapter04
 
 
 dialogueChapterObjektiveChapter04x
-	.text "Escape the dungeon."
+	.text "Defeat Bucks AND"
+.byte EndTextNoPortraitFade
+
+dialogueChapterObjektiveChapter04xLine2
+	.text "protect Princess Ethlyn."
 .byte EndTextNoPortraitFade
 
 

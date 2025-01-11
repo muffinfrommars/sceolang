@@ -25,7 +25,8 @@ GUARD_FE5_CHAPTER04x :?= false
 
         ; Flag definitions
 
-          _FlagAsbelLeifTalk = enum.enum($05)
+          _FlagBucksBattleQuote = enum.enum($05)
+          _FlagBucks04xDead     = enum.enum()
 
         _OpeningEventDefinitions ; FD/85C5
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -34,18 +35,26 @@ GUARD_FE5_CHAPTER04x :?= false
         END_DEFINITION_ARRAY
 
         _TurnEventDefinitions
+          EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
+						CHECK_IF_BOSS_DEAD Bucks
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+          EVENT FlagAlwaysZero, _EndingEvent
+            TEST_FLAG_SET FlagBossDeath
+            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
+          END_DEFINITION
           EVENT FlagAlwaysZero, _ch04xReinforcementsWaveAEvent
             CMP_WORD_RANGE wCurrentTurn, 2, 6
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
-          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveAEvent
+          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveBEvent
             CMP_WORD_RANGE wCurrentTurn, 7, 7
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
-          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveAEvent
-            CMP_WORD_RANGE wCurrentTurn, 9, 9
+          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveBEvent
+            CMP_WORD_RANGE wCurrentTurn, 10, 10
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
@@ -81,9 +90,14 @@ GUARD_FE5_CHAPTER04x :?= false
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
+          EVENT FlagAlwaysZero, _EndingEvent
+            TEST_FLAG_SET FlagBossDeath
+            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions
+          macroECBossQuote _FlagBucksBattleQuote, Bucks
         END_DEFINITION_ARRAY
 
         _ShopEventDefinitions
@@ -121,6 +135,10 @@ GUARD_FE5_CHAPTER04x :?= false
 
           macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Ranz
           macroASMCBeginScriptedCastMapBattle
+
+          macroASMCSetCharacterDataByte Ranz, CurrentHP, 26
+          ;macroASMCRemoveItemFromUnit Ethlyn, Physic
+          ;macroASMCGiveActiveUnitItemCurrentDurability Physic, 4
           +
         END2
 
@@ -139,6 +157,8 @@ GUARD_FE5_CHAPTER04x :?= false
 
           macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Selphina
           macroASMCBeginScriptedCastMapBattle
+
+          macroASMCSetCharacterDataByte Selphina, CurrentHP, 22
           +
         END2
 
@@ -158,6 +178,8 @@ GUARD_FE5_CHAPTER04x :?= false
 
           macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Glade
           macroASMCBeginScriptedCastMapBattle
+
+          macroASMCSetCharacterDataByte Glade, CurrentHP, 25
           +
         END2
 
@@ -173,6 +195,8 @@ GUARD_FE5_CHAPTER04x :?= false
 
           macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Finn
           macroASMCBeginScriptedCastMapBattle
+
+          macroASMCSetCharacterDataByte Finn, CurrentHP, 30
         END2
 
         _ch04xReinforcementsWaveBEvent
@@ -374,9 +398,9 @@ GUARD_FE5_CHAPTER04x :?= false
       eventChapter04xData
 
         _ch04xStartingGroup
-          UNIT Ethlyn, NPC, [7, 1], [7, 1], Quan, [Physic, Vulnerary], 20, False, [$01, $03, $00, $80]
-          UNIT Xavier, NPC, [8, 1], [8, 1], Quan, [ShortLance], 10, false, [$01, $03, $00, $80]
-          UNIT Ranz, NPC, [9, 4], [9, 4], Quan, [IronBlade, Rapier, Vulnerary], 5, false, [$01, $03, $00, $00]
+          UNIT Ethlyn, NPC, [7, 1], [7, 1], Quan, [Physic, Vulnerary], 20, False, [$12, $03, $00, $80]
+          UNIT Xavier, NPC, [8, 1], [8, 1], Quan, [Javelin, ShortLance], 10, false, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [9, 4], [9, 4], Quan, [IronBlade, IronSword, Vulnerary], 5, false, [$01, $03, $00, $00]
           UNIT Finn, Player, [6, 4], [6, 4], Quan, [Vulnerary], 20, False, [$01, $03, $00, $80]
           UNIT Glade, Player, [7, 4], [7, 4], Quan, [ShortLance], 10, false, [$01, $03, $00, $80]
           UNIT Selphina, Player, [8, 4], [8, 4], Quan, [IronBlade, Rapier, Vulnerary], 5, false, [$01, $03, $00, $00]
@@ -401,8 +425,8 @@ GUARD_FE5_CHAPTER04x :?= false
           UNIT BanditBrigand1, Enemy, [5, 17], [7, 10], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
           UNIT BanditWarrior, Enemy, [10, 17], [8, 10], Seil, [IronBow, SteelAxe], 5, false, [$00, $02, $00, $80]
           UNIT BanditHunter, Enemy, [5, 17], [8, 17], Seil, [IronBow], 5, false, [$01, $03, $00, $80]
-          UNIT BanditBrigand1, Enemy, [10, 17], [10, 17], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
-          UNIT BanditBrigand1, Enemy, [5, 17], [5, 17], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [10, 17], [10, 17], Seil, [IronAxe], 5, false, [$01, $02, $00, $80]
+          UNIT BanditBrigand1, Enemy, [5, 17], [5, 17], Seil, [IronAxe], 5, false, [$01, $02, $00, $80]
         UNIT
 
         _ch04xReinforcementsWaveA

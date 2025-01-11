@@ -316,9 +316,11 @@ dialogueWeismannDeathQuote
 .byte EndText
 
 dialogueBucksDeathQuote
-.text "Ugh... You'll regret this someday..."
+.text "Ugh... This isn't over...!"
 .byte NewLine
-.text "I...deserved to die at sea..."
+.text "Bucks Jr..."
+.byte NewLine
+.text "A-Avenge m-me..."
 .byte WaitForA
 .byte EndText
 

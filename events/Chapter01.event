@@ -18,7 +18,7 @@ GUARD_FE5_CHAPTER01 :?= false
 
       eventChapter01Events
 
-        _FlagDryasBattleQuote = enum.enum()
+        _FlagDryasBattleQuote = enum.enum($05)
 
         _OpeningEventDefinitions ; FD/8000
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -37,6 +37,10 @@ GUARD_FE5_CHAPTER01 :?= false
           EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
             CHECK_IF_BOSS_DEAD Dryas
             CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _EndingEvent
+            TEST_FLAG_SET FlagBossDeath
+            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -60,7 +64,6 @@ GUARD_FE5_CHAPTER01 :?= false
             CMP_WORD wCurrentPhase, NPC
           END_DEFINITION
           EVENT FlagAlwaysZero, _EndingEvent
-            TEST_FLAG_UNSET $06
             TEST_FLAG_SET FlagBossDeath
             CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
           END_DEFINITION
