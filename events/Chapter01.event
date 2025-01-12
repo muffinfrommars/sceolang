@@ -18,7 +18,7 @@ GUARD_FE5_CHAPTER01 :?= false
 
       eventChapter01Events
 
-        _FlagDryasBattleQuote = enum.enum($05)
+        _FlagDryasBattleQuote = enum.enum($06)
 
         _OpeningEventDefinitions ; FD/8000
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -75,7 +75,7 @@ GUARD_FE5_CHAPTER01 :?= false
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions
-        		macroECBossQuote _FlagDryasBattleQuote, Dryas
+        	macroECBossQuote _FlagDryasBattleQuote, Dryas
         END_DEFINITION_ARRAY
 
         _EthlynDeathScriptedBattle

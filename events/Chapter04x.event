@@ -422,6 +422,14 @@ GUARD_FE5_CHAPTER04x :?= false
           DIALOGUE pd04xEnd4
           YIELD
 
+          macroASMCRemoveUnit Xavier
+          macroASMCRemoveUnit Ethlyn
+          macroASMCRemoveUnit Dryas
+          macroASMCRemoveUnit Sigurd
+          macroASMCRemoveUnit Quan
+
+
+
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
 
@@ -431,11 +439,7 @@ GUARD_FE5_CHAPTER04x :?= false
           FADE_OUT 1
           YIELD
 
-          macroASMCRemoveUnit Xavier
-          macroASMCRemoveUnit Ethlyn
-          macroASMCRemoveUnit Dryas
-          macroASMCRemoveUnit Sigurd
-          macroASMCRemoveUnit Quan
+          
 
           CALL_ASM_LOOP rlASMCChapterEnd
         END1

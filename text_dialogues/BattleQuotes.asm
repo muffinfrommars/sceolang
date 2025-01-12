@@ -56,12 +56,8 @@ dialogueCh19WolfeBattleQuote
 .byte WaitForA
 .byte EndText
 
-dialogueWeissmannBattleQuote
-.text "Do you fools realize"
-.byte NewLine
-.text "what you're doing?!"
-.byte NewLine
-.text "If I die, so do the women we took!"
+dialogueDryasBattleQuote
+.text "Let's see what you've got, boy!"
 .byte WaitForA
 .byte EndText
 
