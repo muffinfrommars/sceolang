@@ -49,12 +49,7 @@ GUARD_FE5_CHAPTER04x :?= false
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
           EVENT FlagAlwaysZero, _ch04xReinforcementsWaveBEvent
-            CMP_WORD_RANGE wCurrentTurn, 7, 7
-            CMP_WORD wCurrentPhase, Player
-            TEST_FLAG_UNSET FlagBossDeath
-          END_DEFINITION
-          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveBEvent
-            CMP_WORD_RANGE wCurrentTurn, 10, 10
+            CMP_WORD_RANGE wCurrentTurn, 8, 8
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION

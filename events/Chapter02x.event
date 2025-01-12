@@ -440,36 +440,36 @@ GUARD_FE5_CHAPTER02x :?= false
         UNIT
 
         _PrologueForestStationary; B1/F69B
-          UNIT BanditBrigand1, Enemy, [7, 14], [7, 14], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [13, 12], [13, 12], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [2, 13], [2, 13], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [14, 6], [14, 6], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [15, 9], [15, 9], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [2, 2], [2, 2], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [1, 11], [1, 11], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
+          UNIT BanditBrigand1, Enemy, [7, 14], [7, 14], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [13, 12], [13, 12], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [2, 13], [2, 13], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [14, 6], [14, 6], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [15, 9], [15, 9], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [2, 2], [2, 2], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [1, 11], [1, 11], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
           UNIT Bucks, Enemy, [11, 10], [11, 10], Bucks, [IronAxe, IronBow, Vulnerary], 4, true, [$01, $03, $00, $80]
         UNIT
 
         _PrologueForestReinforcementA
           UNIT BanditBrigand1, Enemy, [1, 6], [1, 6], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
           UNIT BanditBrigand1, Enemy, [13, 13], [13, 13], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
-          UNIT BanditBrigand1, Enemy, [1, 9], [1, 9], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
+          UNIT BanditBrigand1, Enemy, [1, 9], [1, 9], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
         UNIT
 
         _PrologueForestReinforcementB
-          UNIT BanditBrigand1, Enemy, [5, 14], [5, 14], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
-          UNIT BanditBrigand1, Enemy, [10, 14], [10, 14], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
+          UNIT BanditBrigand1, Enemy, [5, 14], [5, 14], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
+          UNIT BanditBrigand1, Enemy, [10, 14], [10, 14], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
         UNIT
 
         _PrologueForestReinforcementC
-          UNIT BanditBrigand1, Enemy, [15, 1], [15, 1], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
-          UNIT BanditBrigand1, Enemy, [7, 1], [7, 1], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
-          UNIT BanditBrigand1, Enemy, [12, 14], [12, 14], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
+          UNIT BanditBrigand1, Enemy, [15, 1], [15, 1], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
+          UNIT BanditBrigand1, Enemy, [7, 1], [7, 1], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
+          UNIT BanditBrigand1, Enemy, [12, 14], [12, 14], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
         UNIT
 
         _PrologueForestReinforcementD
-          UNIT BanditBrigand1, Enemy, [7, 14], [7, 14], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
-          UNIT BanditBrigand1, Enemy, [1, 8], [1, 8], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]         
+          UNIT BanditBrigand1, Enemy, [7, 14], [7, 14], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
+          UNIT BanditBrigand1, Enemy, [1, 8], [1, 8], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]         
         UNIT
 
         _PrologueForestSigurd
@@ -482,12 +482,12 @@ GUARD_FE5_CHAPTER02x :?= false
         UNIT
 
         _PrologueForestAfterwards; B1/F69B
-          UNIT BanditBrigand1, Enemy, [5, 1], [5, 1], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [2, 7], [2, 7], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [12, 7], [12, 7], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [15, 4], [15, 4], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [15, 13], [15, 13], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [1, 12], [1, 12], Seil, [IronAxe], 5, false, [$01, $03, $00, $00]
+          UNIT BanditBrigand1, Enemy, [5, 1], [5, 1], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [2, 7], [2, 7], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [12, 7], [12, 7], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [15, 4], [15, 4], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [15, 13], [15, 13], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BanditBrigand1, Enemy, [1, 12], [1, 12], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
         UNIT
 
         _StartingPositions ; B1/F909
