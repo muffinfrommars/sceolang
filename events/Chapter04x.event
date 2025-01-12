@@ -372,7 +372,6 @@ GUARD_FE5_CHAPTER04x :?= false
 
         _CapturedUnitTable
           .byte [2, 11]
-
         .byte 0
 
         _EndingEvent ; FD/8F5C
@@ -381,12 +380,62 @@ GUARD_FE5_CHAPTER04x :?= false
           PAUSE_SKIPPABLE 16
           YIELD
 
+          macroASMCRemoveUnit BanditBrigand1
+          macroASMCRemoveUnit BanditBerserker
+          macroASMCRemoveUnit BanditBerserker
+          macroASMCRemoveUnit BanditHunter
+          macroASMCRemoveUnit BanditBrigand1
+
+          MOVE_UNIT Ethlyn, [7, 1], [7, 14], 3, None
+          YIELD_UNK
+
+          MOVE_UNIT Xavier, [8, 1], [8, 14], 3, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          SET_MUSIC $41
+          YIELD
+
+          DIALOGUE pd04xEnd1
+          YIELD
+
+          LOAD_GROUP eventChapter04xData._ch04xEndCutsceneA
+          macroASMCDismount Sigurd
+          macroASMCDismount Quan
+
+          DIALOGUE pd04xEnd2
+          YIELD
+
+          LOAD_GROUP eventChapter04xData._ch04xEndCutsceneB
+
+
+          macroASMCDismount Dryas
+
+          DIALOGUE pd04xEnd3
+          YIELD
+
+          macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Dryas
+          macroASMCBeginScriptedCastMapBattle
+
+          DIALOGUE pd04xEnd4
+          YIELD
+
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
-          CALL_ASM_LOOP rlASMCSetUnitsLeftBehindAsCaptured
+
+          WAIT_MOVE
+          YIELD
 
           FADE_OUT 1
           YIELD
+
+          macroASMCRemoveUnit Xavier
+          macroASMCRemoveUnit Ethlyn
+          macroASMCRemoveUnit Dryas
+          macroASMCRemoveUnit Sigurd
+          macroASMCRemoveUnit Quan
 
           CALL_ASM_LOOP rlASMCChapterEnd
         END1
@@ -441,6 +490,15 @@ GUARD_FE5_CHAPTER04x :?= false
 
         _ch04xReinforcementsCameraCoords
           .byte [5, 20]
+
+        _ch04xEndCutsceneA
+          UNIT Quan, Player, [6, 17], [6, 16], Quan, [], 5, false, [$00, $00, $00, $80]
+          UNIT Sigurd, Player, [5, 17], [5, 16], Quan, [], 5, false, [$00, $02, $00, $80]
+        UNIT
+
+        _ch04xEndCutsceneB
+          UNIT Dryas, NPC, [5, 17], [5, 17], Quan, [], 5, false, [$00, $02, $00, $80]
+        UNIT
 
         _StartingPositions ; B1/EEB8
           .byte [7, 3]
