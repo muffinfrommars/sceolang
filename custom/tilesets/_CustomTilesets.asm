@@ -1,18 +1,22 @@
 ;plains tileset related info
-* = $4BBD00
-.logical lorom($4BBD00, 1)
+* = $4C0000
+.logical lorom($4C0000, 1)
     ptiles          .binary "plainsTiles.dat.fe4"
     ptileset        .binary "plainsTileset.dat.fe4"
-    ftiles          .binary "fortTiles.dat.fe4"
-    ftileset        .binary "fortTileset.dat.fe4"
-    vtiles          .binary "villageTiles.dat.fe4"
-    vtileset        .binary "villageTileset.dat.fe4"
 .here
 
-* = $476C30
-.logical lorom($476C30, 1)
-    sptiles         .binary "sunsetplainsTiles.dat.fe4"
-    sptileset       .binary "sunsetplainsTileset.dat.fe4"
+* = $548800
+.logical lorom($548800, 1)
+    suntiles                   .binary "sunsetplainsTiles.dat.fe4"
+    suntileset                 .binary "sunsetplainsTileset.dat.fe4"
+    sunpalette                 .binary "mappalettes/sunsetplainspalette.bin"
+    ;ftiles                    .binary "fortTiles.dat.fe4"
+    ;ftileset                  .binary "fortTileset.dat.fe4"
+    ;fpalette                  .binary "mappalettes/fortPalette.bin"
+    ;vtiles                    .binary "villageTiles.dat.fe4"
+    ;vtileset                  .binary "villageTileset.dat.fe4"
+    ;vpalette                  .binary "mappalettes/villagePalette.bin"
+    ;castlepalettefade         .binary "mappalettes/newcastlepalette.bin"
 .here
 
 

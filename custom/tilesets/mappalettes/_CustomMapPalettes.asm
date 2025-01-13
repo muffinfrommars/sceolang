@@ -11,16 +11,7 @@
 
 * = $3E7ED7
 .logical lorom($3E7ED7, 1)
-
-snowppalette   .binary "snowplainspalette.bin" ; only one palette fits here
-
+    snowppalette   .binary "snowplainspalette.bin" ; only one palette fits here
 .here
 
-* = $5FC000 
-.logical lorom($5FC000, 1)
-    vpalette                 .binary "villagePalette.bin"
-    fpalette                 .binary "fortPalette.bin"
-    sppalette                .binary "sunsetplainspalette.bin"
-    castlepalettefade        .binary "newcastlepalette.bin"
-.here
 

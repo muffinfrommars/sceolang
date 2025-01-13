@@ -65,7 +65,7 @@ GUARD_FE5_CHAPTER05 :?= false
         MS_END
 
         _OpeningEvent ; 99/A179
-          
+        macroLoadPlayerUnitsByStartingPositions
         END2
 
         _EndingEvent ; 99/A2DB
@@ -92,10 +92,10 @@ GUARD_FE5_CHAPTER05 :?= false
       eventChapter05Data ; B1/E685
 
         _StartingPositions ; B1/EA69
-          .byte [15, 27]
-          .byte [14, 26]
-          .byte [16, 26]
-          .byte [14, 27]
+          .byte [6, 11]
+          .byte [5, 11]
+          .byte [7, 11]
+          .byte [27,13]
         .char -1
 
     .endsection Chapter05DataSection

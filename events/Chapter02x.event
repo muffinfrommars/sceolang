@@ -67,10 +67,12 @@ GUARD_FE5_CHAPTER02x :?= false
           EVENT FlagAlwaysZero, _02xGameOverSelphina
             CHECK_IF_BOSS_DEAD Selphina
             CMP_WORD wCurrentPhase, NPC
+            CMP_WORD_RANGE wCurrentTurn, 1, 9
           END_DEFINITION
           EVENT FlagAlwaysZero, _02xGameOverGlade
             CHECK_IF_BOSS_DEAD Glade
             CMP_WORD wCurrentPhase, NPC
+            CMP_WORD_RANGE wCurrentTurn, 1, 9
           END_DEFINITION
         END_DEFINITION_ARRAY
 

@@ -24,6 +24,7 @@ GUARD_FE5_CHAPTER03 :?= false
         ; Flag definitions
 
           _FlagRanzBattleQuote     = enum.enum($06)
+          _CaveLeverFlag           = enum.enum()
 
           ; TODO: map installer definitions
 
@@ -63,7 +64,7 @@ GUARD_FE5_CHAPTER03 :?= false
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
-          EVENT FlagAlwaysZero, _CaveLeverEvent
+          EVENT _CaveLeverFlag, _CaveLeverEvent
             macroECCheckCoordinates [13, 10]
             CMP_WORD wCurrentPhase, Player
           END_DEFINITION
