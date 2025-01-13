@@ -575,3 +575,17 @@ pd04xFinal2
 	.byte WaitForA
 	
     .byte EndText
+
+dPrologueGameOverEthlyn
+
+  .byte Right_Slot
+  .word LoadPortrait
+  .word Xavier_portrait
+	.byte $09
+
+  .text "The Princess has fallen...!"
+  .byte NewLine
+  .text "We've... failed her..."
+  .byte WaitForA
+
+  .byte EndText

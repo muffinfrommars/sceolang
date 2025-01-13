@@ -33,25 +33,25 @@ GUARD_FE5_CHAPTER02x :?= false
 
         _TurnEventDefinitions ; 97/8067
           EVENT FlagAlwaysZero, _PrologueForestReinforcementASpawn
-            CMP_WORD_RANGE wCurrentTurn, 3, 3
+            CMP_WORD_RANGE wCurrentTurn, 1, 1
             CMP_WORD wCurrentPhase, Player
             ROLL_RNG 60
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
           EVENT FlagAlwaysZero, _PrologueForestReinforcementBSpawn
-            CMP_WORD_RANGE wCurrentTurn, 5, 5
+            CMP_WORD_RANGE wCurrentTurn, 3, 3
             CMP_WORD wCurrentPhase, Player
             ROLL_RNG 60
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
           EVENT FlagAlwaysZero, _PrologueForestReinforcementCSpawn
-            CMP_WORD_RANGE wCurrentTurn, 7, 7
+            CMP_WORD_RANGE wCurrentTurn, 5, 5
             CMP_WORD wCurrentPhase, Player
             ROLL_RNG 60
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
           EVENT FlagAlwaysZero, _PrologueForestReinforcementDSpawn
-            CMP_WORD_RANGE wCurrentTurn, 9, 9
+            CMP_WORD_RANGE wCurrentTurn, 7, 7
             CMP_WORD wCurrentPhase, Player
             ROLL_RNG 60
             TEST_FLAG_UNSET FlagBossDeath
@@ -61,9 +61,17 @@ GUARD_FE5_CHAPTER02x :?= false
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
           EVENT FlagAlwaysZero, _EndingEvent
-						CMP_BYTE $7E4976, 10 ; remember to change back to 10
+						CMP_BYTE $7E4976, 9 ; remember to change back to 10
 						CMP_WORD wCurrentPhase, NPC
 					END_DEFINITION
+          EVENT FlagAlwaysZero, _02xGameOverSelphina
+            CHECK_IF_BOSS_DEAD Selphina
+            CMP_WORD wCurrentPhase, NPC
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _02xGameOverGlade
+            CHECK_IF_BOSS_DEAD Glade
+            CMP_WORD wCurrentPhase, NPC
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions
@@ -76,12 +84,24 @@ GUARD_FE5_CHAPTER02x :?= false
           EVENT _FlagForestFinnSelphinaTalk, _ForestFinnSelphinaTalk
             CHECK_CHARS2 Finn, Selphina
           END_DEFINITION
+          EVENT _FlagForestFinnGladeTalk, _ForestFinnGladeTalk
+            CHECK_CHARS2 Glade, Finn
+          END_DEFINITION
+          EVENT _FlagForestFinnSelphinaTalk, _ForestFinnSelphinaTalk
+            CHECK_CHARS2 Selphina, Finn
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BeforeActionEventDefinitions
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
+          EVENT FlagAlwaysZero, _02xGameOverSelphina
+            CHECK_IF_BOSS_DEAD Selphina
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _02xGameOverGlade
+            CHECK_IF_BOSS_DEAD Glade
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions
@@ -91,6 +111,28 @@ GUARD_FE5_CHAPTER02x :?= false
         _ShopEventDefinitions
         END_DEFINITION_ARRAY
 
+        _02xGameOverGlade
+          PLAY_SOUND_FORCED $00E0
+			
+					STORE_WORD wCurrentMapMusic, $00
+
+          DIALOGUE dPrologueForestGameOverGlade
+          YIELD
+
+          macroASMCGameOver
+        END2
+
+        _02xGameOverSelphina
+          PLAY_SOUND_FORCED $00E0
+			
+					STORE_WORD wCurrentMapMusic, $00
+
+          DIALOGUE dPrologueForestGameOverSelphina
+          YIELD
+
+          macroASMCGameOver
+        END2
+        
         _ForestFinnGladeTalk
           macroDialogue dPrologueForestFinnGlade
         END2

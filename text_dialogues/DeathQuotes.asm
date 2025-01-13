@@ -755,7 +755,6 @@ dialogueEthlynDeathQuote
     .byte EndText
 
 dialogueEthlynDeathQuotech04x
-
     .word PlayMusic
     .byte $44
 
@@ -786,5 +785,27 @@ dialogueRanz04xDeathQuote
     .text "These wounds!"
     .byte NewLine
     .text "I need to retreat..!"
+    .byte WaitForA
+    .byte EndText
+
+dialogueSelphinaDeathQuotech02x
+
+    .word PlayMusic
+    .byte $44
+
+    .text "It's so c-c-old..."
+    .byte NewLine
+    .text "Oh, daddy..."
+    .byte WaitForA
+    .byte EndText
+
+dialogueGladeDeathQuotech02x
+
+    .word PlayMusic
+    .byte $44
+
+    .text "Finn..."
+    .byte NewLine
+    .text "Protect... her..."
     .byte WaitForA
     .byte EndText

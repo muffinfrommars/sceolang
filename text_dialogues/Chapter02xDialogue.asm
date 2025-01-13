@@ -433,3 +433,23 @@ dPrologueForestAlec
     .byte WaitForA
 
     .byte EndText
+
+dPrologueForestGameOverGlade
+
+    .byte Right_Slot
+    .word LoadPortrait
+    .word Selphina_portrait
+    .text "Oh gods, Glade!!"
+    .byte WaitForA
+
+    .byte EndText
+
+dPrologueForestGameOverSelphina
+
+    .byte Right_Slot
+    .word LoadPortrait
+    .word Glade_portrait
+    .text "Selphina...!"
+    .byte WaitForA
+
+    .byte EndText

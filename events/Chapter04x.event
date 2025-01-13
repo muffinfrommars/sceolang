@@ -53,11 +53,6 @@ GUARD_FE5_CHAPTER04x :?= false
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
-          EVENT FlagAlwaysZero, _ch04xReinforcementsWaveBEvent
-            CMP_WORD_RANGE wCurrentTurn, 10, 10
-            CMP_WORD wCurrentPhase, Player
-            TEST_FLAG_UNSET FlagBossDeath
-          END_DEFINITION
           EVENT FlagAlwaysZero, _EthlynHealRanz
             CMP_WORD wCurrentTurn, 2
             CMP_WORD wCurrentPhase, Player
@@ -78,6 +73,15 @@ GUARD_FE5_CHAPTER04x :?= false
             CMP_WORD wCurrentPhase, Player
             TEST_FLAG_UNSET FlagBossDeath
           END_DEFINITION
+          EVENT FlagAlwaysZero, _04xGameOverEthlyn
+            CHECK_IF_BOSS_DEAD Ethlyn
+            CMP_WORD wCurrentPhase, NPC
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _EthlynHealRanz
+            CMP_WORD wCurrentTurn, 6
+            CMP_WORD wCurrentPhase, Player
+            TEST_FLAG_UNSET FlagBossDeath
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
@@ -92,6 +96,10 @@ GUARD_FE5_CHAPTER04x :?= false
         _AfterActionEventDefinitions
           EVENT FlagAlwaysZero, _EndingEvent
             TEST_FLAG_SET FlagBossDeath
+            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _04xGameOverEthlyn
+            CHECK_IF_BOSS_DEAD Ethlyn
             CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
           END_DEFINITION
         END_DEFINITION_ARRAY
@@ -113,6 +121,17 @@ GUARD_FE5_CHAPTER04x :?= false
           YIELD
 
           YIELD_UNK
+        END2
+
+        _04xGameOverEthlyn
+          PLAY_SOUND_FORCED $00E0
+			
+					STORE_WORD wCurrentMapMusic, $00
+
+          DIALOGUE dPrologueGameOverEthlyn
+          YIELD
+
+          macroASMCGameOver
         END2
 
         _DryasBucksScriptedBattle
@@ -158,7 +177,7 @@ GUARD_FE5_CHAPTER04x :?= false
           macroASMCScriptedCastMapBattleSetup Physic, Ethlyn, Selphina
           macroASMCBeginScriptedCastMapBattle
 
-          macroASMCSetCharacterDataByte Selphina, CurrentHP, 22
+          macroASMCSetCharacterDataByte Selphina, CurrentHP, 25
           +
         END2
 
@@ -488,8 +507,7 @@ GUARD_FE5_CHAPTER04x :?= false
         UNIT
 
         _ch04xReinforcementsWaveB
-          UNIT BanditBerserker, Enemy, [10, 17], [10, 16], Seil, [IronAxe], 5, false, [$00, $00, $00, $80]
-          UNIT BanditBerserker, Enemy, [5, 17], [5, 16], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditBerserker, Enemy, [10, 17], [10, 16], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
         UNIT
 
         _ch04xReinforcementsCameraCoords

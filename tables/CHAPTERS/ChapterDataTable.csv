@@ -5,7 +5,7 @@ Chapter02xChapterData,ptiles,ptileset,ppalette,forest,None,eventChapter02xData._
 Chapter03ChapterData,ptiles,ptileset,ppalette,mapthree,None,eventChapter03Data._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTAPlains
 Chapter04ChapterData,ptiles,ptileset,ppalette,mapfour,None,eventChapter04Data._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTAPlains
 Chapter04xChapterData,ctiles,ctileset,cpalette,mapfive,None,eventChapter04xData._StartingPositions,None,None,None,6,8,$2,$4,$4,$3,$4,$4,$4,None,aTACastle
-Chapter05ChapterData,ptiles,ptileset,ppalette,leonsterfront,None,eventChapter05Data._StartingPositions,None,None,None,10,20,$2,$4,$0,$1,$4,$A,$4,None,aTAPlains
+Chapter05ChapterData,sptiles,sptileset,sppalette,leonsterfront,None,eventChapter05Data._StartingPositions,None,None,None,10,20,$2,$4,$0,$1,$4,$A,$4,None,aTAPlains
 Chapter06ChapterData,$F8A3D6,$FB9ABD,$F68700,$FBF0A8,$FCEF06,eventChapter06Data._StartingPositions,$978012,None,None,10,20,$2,$4,$4,$3,$4,$A,$4,None,None
 Chapter07ChapterData,$F6E885,$FAEB21,$F68800,$FBF54F,None,eventChapter07Data._StartingPositions,$97801D,None,None,12,16,$2,$4,$4,$3,$4,$A,$4,$FAAE20,aTAPlains
 Chapter08ChapterData,$F6A500,$FAD82F,$F68900,$FBFA39,$FCEF5E,eventChapter08Data._StartingPositions,None,None,$2,6,8,$2,$4,$0,$1,$4,$A,$4,None,aTACastle

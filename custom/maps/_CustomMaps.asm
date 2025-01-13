@@ -19,8 +19,8 @@
     mapfour          .binary "mapfour.bin.fe4"
 .here
 
-* = $467BC0
-.logical lorom($467BC0, 1)
+* = $47C930
+.logical lorom($47C930, 1)
     mapfive          .binary "mapfive.bin.fe4"
     leonsterfront    .binary "leonsterfront.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"
