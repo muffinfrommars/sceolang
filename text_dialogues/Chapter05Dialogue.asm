@@ -329,3 +329,22 @@ dpreception1
 
     .byte EndText
 
+dpreception2
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Selphina_portrait
+	.byte $09
+
+    .text "Helloooo boys!"
+    .byte NewLine
+    .text "My, you two look rather dashing."
+	.byte WaitForA
+    
+    .byte Left_Slot
+    .word LoadPortrait
+    .word Glade_portrait
+
+    
+
+
