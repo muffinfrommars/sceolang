@@ -23,7 +23,7 @@ dialogueChapter04xTitle
 .byte $01
 
 dialogueChapter05Title
-.text "Chapter 5: Mother and Daughter"
+.text "Paralogue A: Celebrations"
 .byte $01
 
 dialogueChapter06Title
@@ -122,8 +122,6 @@ dialogueChapter22Title
 .text "Chapter 22: Beyond the River"
 .byte $01
 
-; dialogueChapter22xTitle
-
 dialogueChapter23Title
 .text "Chapter 23: The Fiend's Lair"
 .byte $01
@@ -138,4 +136,12 @@ dialogueChapter24xTitle
 
 dialogueChapterFinalTitle
 .text "Endgame: Sworn Upon a Sword"
+.byte $01
+
+dialogueLaterThatDay
+.text "Later That day..."
+.byte $01
+
+dialogueTheNextDay
+.text "The Next Day..."
 .byte $01

@@ -64,8 +64,80 @@ GUARD_FE5_CHAPTER05 :?= false
           MS_MOVE_LEFT
         MS_END
 
-        _OpeningEvent ; 99/A179
-        macroLoadPlayerUnitsByStartingPositions
+        _OpeningEvent
+          SET_CAMERA_POSITION [6, 15]
+          YIELD
+
+          macroChapterTitlePopup dialogueLaterThatDay
+
+          LOAD_GROUP eventChapter05Data._ch05StartingFinn
+          WAIT_MOVE
+          YIELD
+
+          MOVE_UNIT Finn, [6, 11], [5, 8], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 24
+          YIELD
+
+          SCROLL_CAMERA_CHAR Finn, 1
+          YIELD
+
+          macroDialogueWithBG dpcelebrate1, 3
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+
+          macroGiveActiveUnitItem MasterSeal
+
+          macroDialogueWithBG dpcelebrate2, 3
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05StartingGroupB
+          YIELD
+
+          SCROLL_CAMERA_COORDS [6, 15], 1
+
+          PLAY_SOUND_FORCED $00E0
+          YIELD
+
+          MOVE_UNIT Selphina, [18, 12], [6, 11], 3, None
+          YIELD_UNK
+
+          DIALOGUE dpcelebrate3
+          YIELD
+
+          FADE_OUT 2
+          YIELD
+
+          macroASMCRemoveUnit Finn
+          macroASMCRemoveUnit Glade
+          macroASMCRemoveUnit Selphina
+
+          STORE_WORD wCurrentChapter, Chapter22
+				  CALL_ASM_SKIPPABLE $9A98CF
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05StartingGroupA
+
+          SET_CAMERA_POSITION [15, 29]
+          YIELD
+
+          FADE_IN 2
+          YIELD
+
+          SET_MUSIC $49
+
+          macroChapterTitlePopup dialogueTheNextDay
+
+          macroDialogueWithBG dpReception1, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
         END2
 
         _EndingEvent ; 99/A2DB
@@ -90,6 +162,24 @@ GUARD_FE5_CHAPTER05 :?= false
     .section Chapter05DataSection
 
       eventChapter05Data ; B1/E685
+
+        _ch05StartingFinn
+          UNIT Finn, Player, [6, 12], [6, 11], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _ch05StartingGroupB
+          UNIT Glade, Player, [5, 9], [5, 9], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Selphina, Player, [18, 12], [18, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _ch05StartingGroupA
+          UNIT Glade, Player, [12, 27], [12, 27], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Finn, Player, [12, 28], [12, 28], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [12, 26], [12, 26], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [18, 26], [18, 26], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [18, 27], [18, 27], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [18, 28], [18, 28], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
 
         _StartingPositions ; B1/EA69
           .byte [6, 11]

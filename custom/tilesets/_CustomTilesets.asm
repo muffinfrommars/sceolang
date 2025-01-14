@@ -10,6 +10,7 @@
     suntiles                   .binary "sunsetplainsTiles.dat.fe4"
     suntileset                 .binary "sunsetplainsTileset.dat.fe4"
     sunpalette                 .binary "mappalettes/sunsetplainspalette.bin"
+    sunsetppalettefade         .binary "mappalettes/sunsetplainspalettefade.bin"
     ;ftiles                    .binary "fortTiles.dat.fe4"
     ;ftileset                  .binary "fortTileset.dat.fe4"
     ;fpalette                  .binary "mappalettes/fortPalette.bin"
