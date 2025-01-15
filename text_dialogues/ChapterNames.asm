@@ -23,7 +23,7 @@ dialogueChapter04xTitle
 .byte $01
 
 dialogueChapter05Title
-.text "Paralogue A: Celebrations"
+.text "Paralogue: Fairy-tale Wedding"
 .byte $01
 
 dialogueChapter06Title
@@ -144,4 +144,8 @@ dialogueLaterThatDay
 
 dialogueTheNextDay
 .text "The Next Day..."
+.byte $01
+
+dialogueAnHourLater
+.text "One Hour Later..."
 .byte $01

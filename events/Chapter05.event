@@ -64,6 +64,26 @@ GUARD_FE5_CHAPTER05 :?= false
           MS_MOVE_LEFT
         MS_END
 
+        _GuestMovestring
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_UP
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+        MS_END
+
         _OpeningEvent
           SET_CAMERA_POSITION [6, 15]
           YIELD
@@ -138,6 +158,142 @@ GUARD_FE5_CHAPTER05 :?= false
 
           CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
           YIELD
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05receptionSelphinaDryas
+
+          macroASMCDismount Dryas
+
+          WAIT_MOVE
+          YIELD
+
+          PAUSE_SKIPPABLE 120
+          YIELD
+
+          macroDialogueWithBG dpReception2, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+
+          MOVE_CHAR Dryas, [16, 27], 2, _GuestMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Dryas
+
+          DIALOGUE dpReception3
+          YIELD
+
+          MOVE_UNIT Selphina, [14, 27], [12, 29], 1, None
+          YIELD_UNK
+
+          DIALOGUE dpReception4
+          YIELD
+
+          SET_MUSIC $02
+
+          macroDialogueWithBG dpReception5, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05receptionChalphy
+
+          macroASMCDismount Sigurd
+          macroASMCDismount Alec
+          macroASMCDismount Naoise
+
+
+          MOVE_CHAR Sigurd, [16, 27], 2, _GuestMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Alec, [16, 27], 2, _GuestMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Naoise, [16, 27], 2, _GuestMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Sigurd
+          macroASMCRemoveUnit Alec
+          macroASMCRemoveUnit Naoise
+
+          ;;;; Rinse and repeat
+
+          macroDialogueWithBG dpReception6, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05receptionNordion1
+
+          macroASMCDismount Eldigan
+
+          MOVE_CHAR Eldigan, [15, 27], 1, _GuestMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Eldigan
+
+         ;;;;
+
+          macroDialogueWithBG dpReception7, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05receptionNordion2
+
+          macroASMCDismount Lachesis
+
+          SET_MUSIC $02
+
+          MOVE_CHAR Lachesis, [15, 27], 5, _GuestMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Lachesis
+
+          macroDialogueWithBG dpreception8, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05receptionConnacht
+
+          MOVE_CHAR Raydrik, [14, 27], 1, _GuestMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Xavier, [16, 27], 1, _GuestMovestring ;represents king auerbach
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Raydrik
+          macroASMCRemoveUnit Xavier
+
+          DIALOGUE dpReception9
+          YIELD
+
+          SET_MUSIC $02
+
+          macroDialogueWithBG dpreceptionA, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+
+          FADE_OUT 2
+          YIELD
+
+          FADE_IN 2
+          YIELD
+
+          macroChapterTitlePopup dialogueAnHourLater
+
         END2
 
         _EndingEvent ; 99/A2DB
@@ -148,8 +304,6 @@ GUARD_FE5_CHAPTER05 :?= false
 
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
-
-          
 
           FADE_OUT 1
           YIELD
@@ -179,6 +333,30 @@ GUARD_FE5_CHAPTER05 :?= false
           UNIT LeonsterSoldier, NPC, [18, 26], [18, 26], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [18, 27], [18, 27], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [18, 28], [18, 28], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _ch05receptionSelphinaDryas
+          UNIT Selphina, Player, [14, 29], [14, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Dryas, NPC, [16, 29], [16, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _ch05receptionChalphy
+          UNIT Sigurd, NPC, [14, 29], [14, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Alec, NPC, [15, 29], [15, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Naoise, NPC, [16, 29], [16, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+         _ch05receptionNordion1 
+          UNIT Eldigan, NPC, [15, 29], [15, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _ch05receptionNordion2
+          UNIT Lachesis, NPC, [15, 29], [15, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _ch05receptionConnacht
+          UNIT Raydrik, NPC, [14, 29], [14, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [16, 29], [16, 29], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
 
         _StartingPositions ; B1/EA69
