@@ -399,7 +399,7 @@ dpreception2
 
     .text "Please, you two."
     .byte NewLine
-    .text "Make your way down this hall to the ball room."
+    .text "Make your way down this hall to the ballroom."
 	.byte WaitForA
 
     .byte Right_Slot
@@ -557,7 +557,7 @@ dpreception5
     .byte Left_Slot
     .byte ScrollText
 
-    .text "...Grumble..."
+    .text "...*grumble*..."
     .byte WaitForA
 
     .byte Right_Slot
@@ -565,11 +565,11 @@ dpreception5
     .word Sigurd_portrait
     .byte ScrollText
 
-    .text "Pardon my retainers' colorful performances."
+    .text "Pardon my mens' colorful performances."
     .byte NewLine
-    .text "I'm familiar enough with Castle Leonster,"
+    .text "I'm familiar enough with Castle Leonster;"
     .byte NewLine
-    .text "I'll lead them to the ball room."
+    .text "I'll lead them to the ballroom."
     .byte WaitForA
 
     .byte Left_Slot
@@ -636,7 +636,7 @@ dpreception6
     .byte NewLine
     .text "Am I headed in the right direction"
     .byte NewLine
-    .text "to the ball room?"
+    .text "to the ballroom?"
     .byte WaitForA
 
     .byte Right_Slot
@@ -905,7 +905,7 @@ dpreception8
 
     .text "Who else?"
     .byte NewLine
-    .text "In what direction is the ball room?"
+    .text "In what direction is the ballroom?"
     .byte WaitForA
 
     .byte Left_Slot
@@ -931,7 +931,7 @@ dpreception9
     .word Glade_portrait
     .byte ScrollText
 
-    .text "Are you alright, Finn?"
+    .text "Are you all right, Finn?"
     .byte WaitForA
 
     .byte Left_Slot
@@ -969,9 +969,9 @@ dpreception9
     
     .text "Sir Raydrik, a notoriously tall and scary man,"
     .byte NewLine
-    .text "works for Prince Carl, not the King. Him being here"
+    .text "works for the King's son, not the King himself. "
     .byte NewLine
-    .text "doesn't make any sense."
+    .text "Him being here doesn't make any sense."
     .byte WaitForA
 
     .byte Left_Slot

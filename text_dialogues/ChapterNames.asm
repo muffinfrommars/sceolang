@@ -23,7 +23,7 @@ dialogueChapter04xTitle
 .byte $01
 
 dialogueChapter05Title
-.text "Fairy-tale Wedding"
+.text "Celebrations"
 .byte $01
 
 dialogueChapter06Title
@@ -31,11 +31,11 @@ dialogueChapter06Title
 .byte $01
 
 dialogueChapter07Title
-.text "Chapter 7: The Shield of Thracia"
+.text "Fairy-tale Wedding"
 .byte $01
 
 dialogueChapter08Title
-.text "Chapter 8: Mount Violdrake"
+.text "..."
 .byte $01
 
 dialogueChapter08xTitle

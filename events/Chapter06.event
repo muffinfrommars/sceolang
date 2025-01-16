@@ -154,14 +154,25 @@ GUARD_FE5_CHAPTER06 :?= false
         PAUSE_SKIPPABLE 16
         YIELD
 
-        MOVE_UNIT Travant, [6, 6], [7, 12], 1, None
+        MOVE_UNIT Travant, [6, 6], [6, 8], 1, None
+        YIELD_UNK
+
+        WAIT_MOVE
+        YIELD
+
+        DIALOGUE paralogueManfroyContinuation
+        YIELD
+
+        MOVE_UNIT Travant, [6, 8], [7, 12], 1, None
         YIELD_UNK
 
         WAIT_MOVE
         YIELD
 
         macroASMCRemoveUnit Travant
+        YIELD
 
+        DIALOGUE paralogueManfroy2
         YIELD
 
         macroScriptedRewarpStaff Veld
@@ -178,8 +189,10 @@ GUARD_FE5_CHAPTER06 :?= false
         WAIT_MOVE
         YIELD
 
-        FADE_OUT 2
+        FADE_OUT 1
         YIELD
+
+        CALL_ASM_LOOP rlASMCChapterEnd
       END2
 
       _EndingEvent ; 99/AFC0

@@ -40,7 +40,7 @@ paralogueTravant3
     .byte Right_slot
     .word LoadPortrait
     .word Travant_Portrait
-    .text "...reveal yourselves."
+    .text "...Reveal yourselves."
     .byte WaitForA
 
     .byte EndText
@@ -161,19 +161,21 @@ paralogueManfroy
     .byte ScrollText
     .text "Upon returning from a night of celebrations,"
     .byte NewLine
-    .text "King Auerbach will meet his end. Perhaps, one drink"
+    .text "King Auerbach will meet his end. Perhaps, one "
     .byte NewLine
-    .text "too many, for such a fragile body..."
+    .text "drink too many, for such a fragile body..."
     .byte WaitForA
 
     .byte ScrollText
     .text "It is only natural that Prince Carl, the King's"
     .byte NewLine
-    .text "child brother, will succeed him."
+    .text "child, should succeed him."
     .byte WaitForA
 
     .byte ScrollText
-    .text "But, a boy so young is cannot be ready to rule a kingdom..."
+    .text "But, a boy so young is cannot be ready to"
+    .byte NewLine
+    .text "rule a kingdom..."
     .byte WaitForA
 
     .byte ScrollText
@@ -210,7 +212,7 @@ paralogueManfroy
 
     .byte Left_Slot
     .byte ScrollText
-    .text "...you mean to tell me you plan on giving that"
+    .text "...You mean to tell me you plan on giving that"
     .byte NewLine
     .text "ape the power to rule a kingdom?"
     .byte WaitForA
@@ -229,12 +231,171 @@ paralogueManfroy
     .byte WaitForA
 
     .byte ScrollText
-    .text "The next time The District needs to band together,"
+    .text "Next time Munster needs to band together,"
     .byte NewLine
-    .text "half their might will be led by a raging lunatic."
+    .text "half their might will be led by a raging lunatic!"
     .byte WaitForA
 
+    .byte ScrollText
+    .text "Their army will have been crippled before a battle"
+    .byte NewLine
+    .text "has even begun!"
+    .byte WaitForA
+    
+    .byte Left_Slot
+    .byte ScrollText
+    .text "I understand now."
+    .byte NewLine
+    .text "I have waited many years for the day my people"
+    .byte NewLine
+    .text "could reunite with their kind, I can wait more."
+    .byte WaitForA
 
+    .byte ScrollText
+    .text "Is that all?"
+    .byte WaitForA
 
+    .byte Right_Slot
+    .byte ScrollText
+    .text "For now."
+    .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+    .text "..."
+    .byte WaitForA
+
+    .byte EndText
+
+paralogueManfroyContinuation
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Travant_portrait
+    .text "...Why are you telling me all this?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word manfroy_portrait
+    .text "You are an ambitious man, King Travant."
+    .byte NewLine
+    .text "We recognize your desire for a united Thracia."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "Spare me the preamble. You don't offer such"
+    .byte NewLine
+    .text "tidings without expecting something in return."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "A perceptive observation."
+    .byte NewLine
+    .text "Indeed, there is a mutual benefit to be found."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "Once Connacht falls into disarray, the Loptyrian"
+    .byte NewLine
+    .text "Empire will have no interest in Thracia."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "You will rule the highlands unchallenged, free"
+    .byte NewLine
+    .text "to pursue your dreams of unification."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "And in exchange? What 'loyalty' are you asking"
+    .byte NewLine
+    .text "for? Your kind never offers without taking"
+    .byte NewLine
+    .text "twice as much."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "You are wise to tread carefully, Your Majesty."
+    .byte NewLine
+    .text "But rest assured, our intentions are simple."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "We require your cooperation in crippling "
+    .byte NewLine
+    .text "Munster's strength, paving the way for"
+    .byte NewLine
+    .text "our influence."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "Hah. Influence, is it? Let's call it what it is:"
+    .byte NewLine
+    .text "domination. Don't think for a moment I've missed"
+    .byte NewLine
+    .text "your endgame here."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "And yet, you stand to gain more than you lose."
+    .byte NewLine
+    .text "Your kingdom, united. Your enemies, divided."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "All we ask is that Thracia lends its strength now,"
+    .byte NewLine
+    .text "to ensure a future where it reigns supreme."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "No. All you ask is that I play pawn to your"
+    .byte NewLine
+    .text "schemes. But a pawn that survives becomes a king."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "I'll agree to your terms for now, Manfroy. But"
+    .byte NewLine
+    .text "make no mistake: I serve only Thracia."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "A reasonable stance. We shall see how this"
+    .byte NewLine
+    .text "partnership unfolds."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "Hmph. And if your empire oversteps? Then I'll"
+    .byte NewLine
+    .text "show you why the highlands were never conquered."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "We expect nothing less from you, King Travant."
+    .byte WaitForA
+
+    .byte EndText
+
+    
+paralogueManfroy2
+    .byte Right_slot
+    .word LoadPortrait
+    .word manfroy_portrait
+    .text "Say what you will, the man has heart."
+    .byte WaitForA
+   
     .byte EndText
 

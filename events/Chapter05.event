@@ -351,6 +351,10 @@ GUARD_FE5_CHAPTER05 :?= false
           STORE_WORD wCurrentChapter, Chapter05
 				  CALL_ASM_SKIPPABLE $9A98CF
 
+          macroASMCRemoveUnit Finn
+          macroASMCRemoveUnit Glade
+          macroASMCRemoveUnit Selphina
+
           CALL_ASM_LOOP rlASMCChapterEnd
           
         END2

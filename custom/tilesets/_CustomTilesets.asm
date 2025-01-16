@@ -18,7 +18,8 @@
     ;vtiles                    .binary "villageTiles.dat.fe4"
     ;vtileset                  .binary "villageTileset.dat.fe4"
     ;vpalette                  .binary "mappalettes/villagePalette.bin"
-    ;castlepalettefade         .binary "mappalettes/newcastlepalette.bin"
+    templepalettefade         .binary "mappalettes/castlepalettefade.bin"
+    castlepalettefade         .binary "mappalettes/castlepalettefadeimage_map16.bin"
 .here
 
 

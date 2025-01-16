@@ -18,7 +18,7 @@ dPrologue3s1
 	.byte WaitForA
 	
 	.byte Right_Slot
-	.text "Selphina! S-stay behind me, alright!?"
+	.text "Selphina! S-stay behind me, all right!?"
 	.byte WaitForA
 	.byte ScrollText
 	
@@ -42,7 +42,7 @@ dPrologue3s2
   	.word LoadPortrait
  	.word Finn_portrait
 	.byte $09 ; font 9(always use font 9)
-	.text "Glade, Selfina! Are you two alright?!"
+	.text "Glade, Selfina! Are you two all right?!"
 	.byte WaitForA
 	
 	.byte Left_slot
@@ -268,7 +268,7 @@ dPrologueForestEnding6
 	.word LoadPortrait
 	.word Alecportrait
 	
-	.text "...Grumble..."
+	.text "...*grumble*..."
 	.byte WaitForA
 	
 	.byte EndText

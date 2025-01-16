@@ -141,7 +141,7 @@ introFinnGlade1
 	.byte $09 ; font 9(always use font 9)
 	.text "Glade!"
 	.byte NewLine
-	.text "Are you alright?!"
+	.text "Are you all right?!"
 	.byte WaitForA
 
 	.byte Left_slot
