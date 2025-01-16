@@ -147,6 +147,39 @@ GUARD_FE5_CHAPTER06 :?= false
 
         WAIT_MOVE
         YIELD
+
+        macroDialogueWithBG paralogueManfroy, 1
+        CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+
+        PAUSE_SKIPPABLE 16
+        YIELD
+
+        MOVE_UNIT Travant, [6, 6], [7, 12], 1, None
+        YIELD_UNK
+
+        WAIT_MOVE
+        YIELD
+
+        macroASMCRemoveUnit Travant
+
+        YIELD
+
+        macroScriptedRewarpStaff Veld
+
+				macroASMCRemoveUnit Veld
+
+        WAIT_MOVE
+        YIELD
+
+        macroScriptedRewarpStaff ThraciaBishop
+
+				macroASMCRemoveUnit ThraciaBishop
+
+        WAIT_MOVE
+        YIELD
+
+        FADE_OUT 2
+        YIELD
       END2
 
       _EndingEvent ; 99/AFC0
