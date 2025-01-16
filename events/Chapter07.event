@@ -336,9 +336,6 @@ GUARD_FE5_CHAPTER07 :?= false
 
           SET_MUSIC $39
           YIELD
-
-          DIALOGUE dialogueChapter06SaiasGalzus1
-          YIELD
         END2
 
         _SafyShivaTalk ; 99/B3E6

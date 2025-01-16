@@ -447,8 +447,6 @@ GUARD_FE5_CHAPTER04x :?= false
           macroASMCRemoveUnit Sigurd
           macroASMCRemoveUnit Quan
 
-
-
           CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
           CALL_ASM_LOOP rlASMCSaveChapterTurncount
 
@@ -457,8 +455,6 @@ GUARD_FE5_CHAPTER04x :?= false
 
           FADE_OUT 1
           YIELD
-
-          
 
           CALL_ASM_LOOP rlASMCChapterEnd
         END1

@@ -282,9 +282,8 @@ GUARD_FE5_CHAPTER05 :?= false
 
           SET_MUSIC $02
 
-          macroDialogueWithBG dpreceptionA, 1
-
-          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          DIALOGUE dpreceptionA
+          YIELD
 
           FADE_OUT 2
           YIELD
@@ -294,6 +293,66 @@ GUARD_FE5_CHAPTER05 :?= false
 
           macroChapterTitlePopup dialogueAnHourLater
 
+          SET_CAMERA_POSITION [15, 29]
+          YIELD
+
+          macroDialogueWithBG dpreceptionB, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05receptionLeonster
+
+          macroASMCDismount Quan
+
+          MOVE_CHAR Raydrik, [14, 27], 1, _GuestMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Xavier, [16, 27], 1, _GuestMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Raydrik
+          macroASMCRemoveUnit Xavier
+
+          MOVE_UNIT Quan, [15, 29], [14, 29], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroDialogueWithBG dpreceptionC, 1
+
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+
+          macroASMCLoadUnitGroup eventChapter05Data._ch05receptionLeonster2
+
+          macroASMCDismount Ethlyn
+          
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Quan, [14, 29], 1, _GuestMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Ethlyn, [16, 29], 1, _GuestMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit Ethlyn
+          macroASMCRemoveUnit Quan
+
+          FADE_OUT 1
+          YIELD
+
+          STORE_WORD wCurrentChapter, Chapter05
+				  CALL_ASM_SKIPPABLE $9A98CF
+
+          CALL_ASM_LOOP rlASMCChapterEnd
+          
         END2
 
         _EndingEvent ; 99/A2DB
@@ -357,6 +416,15 @@ GUARD_FE5_CHAPTER05 :?= false
         _ch05receptionConnacht
           UNIT Raydrik, NPC, [14, 29], [14, 29], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT Xavier, NPC, [16, 29], [16, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+        
+        _ch05receptionLeonster
+          UNIT Raydrik, NPC, [14, 29], [14, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [16, 29], [16, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Quan, NPC, [15, 29], [15, 29], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+        _ch05receptionLeonster2
+          UNIT Ethlyn, NPC, [15, 29], [15, 29], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
 
         _StartingPositions ; B1/EA69

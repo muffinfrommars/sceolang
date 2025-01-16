@@ -10,7 +10,7 @@
 	aPortraitPalette04 .binary "sprites/PortraitPalette04.bin"
 	aPortraitPalette05 .binary "sprites/PortraitPalette05.bin"
 	aPortraitPalette06 .binary "sprites/PortraitPalette06.bin"
-	aPortraitPalette07 .binary "sprites/PortraitPalette07.bin"
+	aPortraitPalette07 .binary "../../custom/graphics/portraits/PortraitYTravant.pal" ; previously Thracia 776 Travant
 	aPortraitPalette08 .binary "sprites/PortraitPalette08.bin" ; previously Cairpre's Palette
 	aPortraitPalette09 .binary "sprites/PortraitPalette09.bin"
 	aPortraitPalette0A .binary "sprites/PortraitPalette0A.bin"
@@ -247,6 +247,7 @@
 	aPortraitPaletteF1 .binary "sprites/PortraitPaletteF1.bin"
 	aPortraitPaletteF2 .binary "sprites/PortraitPaletteF2.bin"
 	aPortraitPaletteF3 .binary "sprites/PortraitPaletteF3.bin"
+	aPortraitPaletteF4 .binary "../../custom/graphics/portraits/PortraitPaletteFE5Travant.bin" 
 
 	g4bppcPortraitEADE80 .binary "sprites/PortraitEADE80.4bpp.comp"
 	g4bppcPortraitEAE3B9 .binary "sprites/PortraitEAE3B9.4bpp.comp"
@@ -265,7 +266,7 @@
 
 	segmentStart
 
-	g4bppcPortraitEB8318 .binary "sprites/PortraitEB8318.4bpp.comp" ;Thracia 776 travant
+	g4bppcPortraitTravant .binary "../../custom/graphics/portraits/PortraitYTravant.4bpp.fe4" ; formerly Thracia 776 travant EB8318
 	g4bppcPortraitTailtiu .binary "../../custom/graphics/portraits/PortraitTailtiu.4bpp.fe4" ;formerly EB8851 Cairpre
 	g4bppcPortraitEB8C84 .binary "sprites/PortraitEB8C84.4bpp.comp"
 	g4bppcPortraitEB91DE .binary "sprites/PortraitEB91DE.4bpp.comp"
@@ -441,5 +442,6 @@
 	g4bppcPortraitEFE801 .binary "sprites/PortraitEFE801.4bpp.comp"
 	g4bppcPortraitKalf .binary "../../custom/graphics/portraits/PortraitKalf.4bpp.fe4" ; formerly g4bppcEFEBDE - Unused HighPriest from FE4
 	g4bppcPortraitEFEF61 .binary "sprites/PortraitEFEF61.4bpp.comp"
+	g4bppcPortraitFE5Travant .binary "../../custom/graphics/portraits/PortraitFE5Travant.comp" 
 
 	.here

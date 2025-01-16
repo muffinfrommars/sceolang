@@ -24,9 +24,9 @@
     mapfive          .binary "mapfive.bin.fe4"
     leonsterfront    .binary "leonsterfront.bin.fe4"
     leonstercastle   .binary "leonstercastle.bin.fe4"
+    eastthracia      .binary "eastthracia.bin.fe4"
+    debug2           .binary "debug2.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"
-    ;eastthracia      .binary "eastthracia.bin.fe4"
-    ;debug2           .binary "debug2MapMain.bin.fe4"
     ;mapleif          .binary "leif.bin.fe4"
 .here
 

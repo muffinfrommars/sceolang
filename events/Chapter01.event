@@ -364,6 +364,8 @@ GUARD_FE5_CHAPTER01 :?= false
           FADE_IN $02
           YIELD
 
+          macroChapterTitlePopup dialogueTheNextDay
+
           SCROLL_CAMERA_COORDS [12, 13], 2
 
           MOVE_UNIT None, [19, 14], [14, 12], 1, None

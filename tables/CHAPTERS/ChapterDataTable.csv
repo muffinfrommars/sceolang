@@ -5,9 +5,9 @@ Chapter02xChapterData,ptiles,ptileset,ppalette,forest,None,eventChapter02xData._
 Chapter03ChapterData,ptiles,ptileset,ppalette,mapthree,None,eventChapter03Data._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTAPlains
 Chapter04ChapterData,ptiles,ptileset,ppalette,mapfour,None,eventChapter04Data._StartingPositions,None,None,None,10,20,$2,$4,$4,%101,$1,$1,$1,None,aTAPlains
 Chapter04xChapterData,ctiles,ctileset,cpalette,mapfive,None,eventChapter04xData._StartingPositions,None,None,None,6,8,$2,$4,$4,$3,$4,$4,$4,None,aTACastle
-Chapter05ChapterData,suntiles,suntileset,sunpalette,leonsterfront,None,eventChapter05Data._StartingPositions,None,None,None,10,20,$2,$4,$0,$1,$4,$A,$4,None,aTAPlains
-Chapter06ChapterData,$F8A3D6,$FB9ABD,$F68700,$FBF0A8,$FCEF06,eventChapter06Data._StartingPositions,$978012,None,None,10,20,$2,$4,$4,$3,$4,$A,$4,None,None
-Chapter07ChapterData,$F6E885,$FAEB21,$F68800,$FBF54F,None,eventChapter07Data._StartingPositions,$97801D,None,None,12,16,$2,$4,$4,$3,$4,$A,$4,$FAAE20,aTAPlains
+Chapter05ChapterData,suntiles,suntileset,sunpalette,leonsterfront,None,None,None,None,None,10,20,$2,$4,$0,$1,$4,$A,$4,None,aTAPlains
+Chapter06ChapterData,suntiles,suntileset,nightpal,eastthracia,None,None,None,None,None,10,20,$2,$4,$4,$3,$7,$A,$4,None,aTAPlains
+Chapter07ChapterData,ttiles,ttileset,tpalette,debug2,None,None,None,None,None,12,16,$2,$4,$4,$3,$4,$A,$4,None,aTADungeon
 Chapter08ChapterData,$F6A500,$FAD82F,$F68900,$FBFA39,$FCEF5E,eventChapter08Data._StartingPositions,None,None,$2,6,8,$2,$4,$0,$1,$4,$A,$4,None,aTACastle
 Chapter08xChapterData,$F8A3D6,$FB9ABD,$F68A00,$FBFE79,$FCEFB4,eventChapter08xData._StartingPositions,None,3,$2,4,6,$2,$4,$0,$1,$1,$9,$1,None,None
 Chapter09ChapterData,$F6E885,$FAEB21,$F68B00,$FC8031,None,eventChapter09Data._StartingPositions,$978022,None,$2,6,8,$2,$4,$0,$1,$1,$A,$1,$FAB831,aTAPlains

@@ -387,7 +387,7 @@ dpreception2
 
     .text "As if some low-life scum such as that"
     .byte NewLine
-    .text "could ever dent your General. Hah!"
+    .text "could ever put a dent in your General. Hah!"
     .byte NewLine
     .text "(Oof, did I just pull a muscle?)"
     .byte WaitForA
@@ -955,7 +955,7 @@ dpreception9
     .byte NewLine
     .text "I think that was Sir Raydrik, of Connacht's"
     .byte NewLine
-    .text " Royal Guard. But..."
+    .text "Royal Guard. But..."
     .byte WaitForA
 
     .byte Left_Slot
@@ -1005,49 +1005,37 @@ dpreceptionB
     .byte Right_Slot
     .word LoadPortrait
     .word Glade_portrait
-    .byte ScrollText
 
-    .text "Are you alright, Finn?"
+    .text "It's been over an hour."
+    .byte NewLine
+    .text "We should be almost done, yeah?"
     .byte WaitForA
 
     .byte Left_Slot
-    .word LoadPortrait
-    .word Finn_portrait
-    .byte ScrollText
-
-    .text "Y-Yeah..."
-    .byte WaitForA
-    .byte ScrollText
-
-    .text "Selphina, who was that?"
-    .byte WaitForA
-    
-    .byte Right_Slot
     .word LoadPortrait
     .word Selphina_portrait
-    .byte ScrollText
 
-    .text "..."
+    .text "Only a handful of more guests left!"
     .byte NewLine
-    .text "I think that was Sir Raydrik, of Connacht's"
-    .byte NewLine
-    .text " Royal Guard. But..."
+    .text "I wonder who's next~"
     .byte WaitForA
 
-    .byte Left_Slot
     .byte ScrollText
-
-    .text "What?"
+    .text "Ah, but of course!"
+    .byte NewLine
+    .text "None other than the Leonster Royal Family!"
     .byte WaitForA
 
     .byte Right_Slot
+    .word LoadPortrait
+    .word Dagdar_portrait ;represents King Kalf
     .byte ScrollText
-    
-    .text "Sir Raydrik, a notoriously tall and scary man,"
+
+    .text "Stand tall, soldiers."
     .byte NewLine
-    .text "works for Prince Carl, not the King. Him being here"
+    .text "Sir Glade, Sir Finn."
     .byte NewLine
-    .text "doesn't make any sense."
+    .text "I must say those outfits suit you two well."
     .byte WaitForA
 
     .byte Left_Slot
@@ -1055,11 +1043,139 @@ dpreceptionB
     .word Glade_portrait
     .byte ScrollText
 
-    .text "Maybe because it's a special occasion?"
+    .text "Your Majesty!"
     .byte NewLine
-    .text "Whatever the case, wow."
+    .text "Thank you, we will do our best to ensure we've"
     .byte NewLine
-    .text "That guy makes a good guard, alright."
+    .text "earned the priviledge to wear such honorable garb."
+    .byte WaitForA
+    
+    .byte Right_Slot
+    .word LoadPortrait
+    .word Eyvel_portrait ;Represents Queen Alfiona
+    .byte ScrollText
+
+    .text "You know, seeing such fresh faces wearing these"
+    .byte NewLine
+    .text "outfits remind me of when we first met, eh Kalf?"
+    .byte WaitForA
+
+    .byte Left_Slot
+    .word LoadPortrait
+    .word Quanportrait
+    .byte ScrollText
+    
+    .text "Mother, Father, let's get you to your seats, yes?"
+    .byte WaitForA
+
+    .byte EndText
+    
+dpreceptionC
+
+    .byte Right_Slot
+    .word LoadPortrait
+    .word Quanportrait
+
+    .text "I agree with Father, those outfits fit you two"
+    .byte NewLine
+    .text "quite naturally."
+    .byte WaitForA
+
+    .byte ScrollText
+
+    .text "How's your first day as Lanzenritter 1st been?"
+    .byte WaitForA
+
+    .byte Left_Slot
+    .word LoadPortrait
+    .word Finn_portrait
+
+    .text "I can't say it's been what I thought it'd turn"
+    .byte NewLine
+    .text "turn out to be, but the honor is mine all the same."
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+
+    .text "*Laughs*"
+    .byte NewLine
+    .text "Pretty boring then, eh?"
+    .byte NewLine
+    .text "I remember my first day well."
+    .byte WaitForA
+    
+    .byte Left_Slot
+    .word LoadPortrait
+    .word Selphina_portrait
+    .byte ScrollText
+
+    .text "Lord Quan!"
+    .byte NewLine
+    .text "Since when were you a part of the Lanzenritter?"
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    
+    .text "My time as 1st didnt last long."
+    .byte NewLine
+    .text "Being a prince, officials were eager"
+    .byte NewLine
+    .text "to promote me in and out the position quickly."
+    .byte WaitForA
+    
+    .byte ScrollText
+    .text "Still, looks good on a resume."
+
+    .byte Left_Slot
+    .word LoadPortrait
+    .word EthlynPortrait
+    .byte ScrollText
+    
+    .text "Not as good as that outfit you're wearing, hon."
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "E-Ethlyn?!"
+    .byte NewLine
+    .text "Isn't it bad luck to see the bride before"
+    .byte NewLine
+    .text "the dance?"
+    .byte WaitForA
+    
+    .byte Left_Slot
+    .byte ScrollText
+
+    .text "That's before the wedding ceremony, silly."
+    .byte NewLine
+    .text "(Which already happened, remember?)"
+    .byte WaitForA
+
+    .byte ScrollText
+    
+    .text "Besides, aren't we a little old to belive in"
+    .byte NewLine
+    .text "such tall tales?"
+    .byte WaitForA
+    
+    .byte Right_Slot
+    .byte ScrollText
+    .text "You're right, you're right..."
+    .byte WaitForA
+    
+    .byte Left_Slot
+    .word LoadPortrait
+    .word Glade_Portrait
+    .byte ScrollText
+    .text "I believe that makes everyone on the guest list!"
+    .byte WaitForA
+    
+    .byte ScrollText
+    .text "Lord Quan, Lady Ethlyn..."
+    .byte NewLine
+    .text "Everyone's waiting for you!"
     .byte WaitForA
 
     .byte EndText
