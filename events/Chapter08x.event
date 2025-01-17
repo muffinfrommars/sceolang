@@ -149,9 +149,6 @@ GUARD_FE5_CHAPTER08x :?= false
 
           SET_MUSIC $4A
           YIELD
-
-          DIALOGUE dialogueChapter08Chapter08xLeifDagdar
-          YIELD
         END2
 
         _PrepGroups ; 97/86F6

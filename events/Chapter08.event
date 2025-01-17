@@ -17,12 +17,11 @@ GUARD_FE5_CHAPTER08 :?= false
 
     .section Chapter08EventsSection
 
-      eventChapter08Events ; 99/BE7D
+      eventChapter08Events
 
           _FlagLemayBattleQuote       = enum.enum($06)
 
-
-        _OpeningEventDefinitions ; 99/BE7D
+        _OpeningEventDefinitions
           EVENT FlagAlwaysZero, _OpeningEvent
             CMP_WORD wCurrentTurn, 0
           END_DEFINITION
@@ -49,12 +48,96 @@ GUARD_FE5_CHAPTER08 :?= false
         _ShopEventDefinitions
         END_DEFINITION_ARRAY
 
+        _QuanMovestring
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_LEFT
+         MS_MOVE_UP
+         MS_MOVE_LEFT
+         MS_MOVE_LEFT
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_RIGHT
+         MS_MOVE_RIGHT
+         MS_MOVE_RIGHT
+        MS_END
+        
+        _EthlynMovestring
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_RIGHT
+         MS_MOVE_UP
+         MS_MOVE_RIGHT
+         MS_MOVE_RIGHT
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_LEFT
+         MS_MOVE_LEFT
+         MS_MOVE_LEFT
+        MS_END
+        
+        _TrioMovestring
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_RIGHT
+         MS_MOVE_RIGHT
+         MS_MOVE_RIGHT
+         MS_MOVE_RIGHT
+        MS_END
+
         _PrepGroups
-          .long eventChapter08Data._PrepGroup1
-          .long eventChapter08Data._PrepGroup2
+          .long eventChapter08Data._ch08Everyone1
+					.long eventChapter08Data._ch08Everyone2
+          .long eventChapter08Data._ch08Everyone3
         .word 0
 
         _OpeningEvent
+          SET_CAMERA_POSITION [14, 12]
+
+          DIALOGUE ch08wedding1
+          YIELD
+
+          LOAD_GROUP eventChapter08Data._ch08cute
+
+          PAUSE_SKIPPABLE 16
+          YIELD
+
+          macroASMCDismount Ethlyn
+          macroASMCDismount Quan
+
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Ethlyn, [14, 18], 1, _EthlynMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Quan, [14, 18], 1, _QuanMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          LOAD_GROUP eventChapter08Data._ch08Finn
+          WAIT_MOVE
+          YIELD
+
+          MOVE_CHAR Finn, [11, 18], 1, _TrioMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Selphina, [12, 18], 1, _TrioMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Glade, [13, 18], 1, _TrioMovestring
+          YIELD_UNK
+
         END2
 
         _EndingEvent
@@ -65,33 +148,55 @@ GUARD_FE5_CHAPTER08 :?= false
 
     .section Chapter08DataSection
 
-      eventChapter08Data ; B1/DD06
+      eventChapter08Data
 
-        _PrepGroup1 ; B1/DD06
-          .byte [8, 7]
+        _ch08Everyone1
+          UNIT Sigurd, NPC, [11, 12], [11, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Alec, NPC, [10, 12], [10, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Naoise, NPC, [9, 12], [9, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Dryas, NPC, [8, 12], [8, 12], Quan, [], 20, False, [$01, $03, $00, $80]
 
-          UNIT BanditWarrior, Enemy, [6, 11], [6, 11], Gomez, [VeninAxe, VeninBow, Vulnerary], 8, false, [$00, $03, $00, $00]
+          UNIT Raydrik, NPC, [16, 12], [16, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [17, 12], [17, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Raydrik, NPC, [18, 12], [18, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [19, 12], [19, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+        
+        _ch08Everyone2
+          UNIT ThraciaBishop, NPC, [16, 14], [16, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterHero, NPC, [17, 14], [17, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterBrigand, NPC, [18, 14], [18, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterArcher, NPC, [19, 14], [19, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          
+          UNIT Eldigan, NPC, [8, 14], [8, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Lachesis, NPC, [9, 14], [9, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [10, 14], [10, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [11, 14], [11, 14], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
 
-        _PrepGroup2 ; B1/DD66
-          .byte [8, 7]
-
-          UNIT BanditBrigand1, Enemy, [14, 10], [14, 10], Gomez, [VeninAxe], 5, false, [$00, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [17, 12], [17, 12], Gomez, [VeninAxe], 8, false, [$00, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [18, 13], [18, 13], Gomez, [VeninAxe, Vulnerary], 7, false, [$00, $03, $00, $00]
-          UNIT BanditHunter, Enemy, [15, 13], [15, 13], Gomez, [VeninBow], 3, false, [$00, $03, $00, $00]
-          UNIT BanditHunter, Enemy, [16, 14], [16, 14], Gomez, [VeninBow], 3, false, [$00, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [12, 9], [12, 9], Gomez, [VeninAxe], 5, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [18, 16], [18, 16], Gomez, [VeninAxe], 7, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [13, 14], [13, 14], Gomez, [VeninAxe], 10, false, [$01, $03, $00, $00]
-          UNIT BanditBrigand1, Enemy, [16, 8], [16, 8], Gomez, [VeninAxe], 10, false, [$01, $03, $00, $00]
+        _ch08Everyone3
+          UNIT LeonsterMyrmidon, NPC, [11, 16], [11, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Leif, NPC, [10, 16], [10, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Veld, NPC, [9, 16], [9, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Olwen, NPC, [8, 16], [8, 16], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
 
-        _StartingPositions ; B1/DE66
-          .byte [29, 9]
-          .byte [26, 9]
-          .byte [24, 10]
-          .byte [28, 8]
+        _ch08Finn
+          UNIT Finn, Player, [11, 18], [11, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _ch08GladeSelphina
+          UNIT Selphina, Player, [12, 18], [12, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Glade, Player, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+          
+        
+        _ch08cute
+          UNIT Quan, NPC, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Ethlyn, NPC, [14, 18], [14, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
+        _StartingPositions
         .char -1
 
     .endsection Chapter08DataSection

@@ -8,7 +8,7 @@ Chapter04xChapterData,ctiles,ctileset,cpalette,mapfive,None,eventChapter04xData.
 Chapter05ChapterData,suntiles,suntileset,sunpalette,leonsterfront,None,None,None,None,None,10,20,$2,$4,$0,$1,$4,$A,$4,None,aTAPlains
 Chapter06ChapterData,suntiles,suntileset,nightpal,eastthracia,None,None,None,None,None,10,20,$2,$4,$4,$3,$7,$A,$4,None,aTAPlains
 Chapter07ChapterData,ttiles,ttileset,tpalette,debug2,None,None,None,None,None,12,16,$2,$4,$4,$3,$4,$A,$4,None,aTADungeon
-Chapter08ChapterData,$F6A500,$FAD82F,$F68900,$FBFA39,$FCEF5E,eventChapter08Data._StartingPositions,None,None,$2,6,8,$2,$4,$0,$1,$4,$A,$4,None,aTACastle
+Chapter08ChapterData,ctiles,ctileset,cpalette,ballroom1,None,None,None,None,None,6,8,$2,$4,$0,$1,$1,$1,$1,None,aTACastle
 Chapter08xChapterData,$F8A3D6,$FB9ABD,$F68A00,$FBFE79,$FCEFB4,eventChapter08xData._StartingPositions,None,3,$2,4,6,$2,$4,$0,$1,$1,$9,$1,None,None
 Chapter09ChapterData,$F6E885,$FAEB21,$F68B00,$FC8031,None,eventChapter09Data._StartingPositions,$978022,None,$2,6,8,$2,$4,$0,$1,$1,$A,$1,$FAB831,aTAPlains
 Chapter10ChapterData,$F6E885,$FAEB21,$F68C00,$FC8627,$FCF027,eventChapter10Data._StartingPositions,None,None,$2,8,14,$2,$4,$0,$1,$2,$A,$2,None,aTAPlains

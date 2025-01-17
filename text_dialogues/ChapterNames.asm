@@ -35,7 +35,7 @@ dialogueChapter07Title
 .byte $01
 
 dialogueChapter08Title
-.text "..."
+.text "Fairy-Tale Wedding"
 .byte $01
 
 dialogueChapter08xTitle
@@ -148,8 +148,4 @@ dialogueTheNextDay
 
 dialogueAnHourLater
 .text "One Hour Later..."
-.byte $01
-
-dialogueMeanwhile
-.text "Meanwhile..."
 .byte $01
