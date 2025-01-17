@@ -102,10 +102,26 @@ GUARD_FE5_CHAPTER08 :?= false
         _OpeningEvent
           SET_CAMERA_POSITION [14, 12]
 
+          SET_MUSIC $05
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter08Data._ch08Everyone1
+
+          macroASMCDismount Sigurd
+          macroASMCDismount Alec
+          macroASMCDismount Naoise
+          macroASMCDismount Dryas
+          
+          ;macroASMCLoadUnitGroup eventChapter08Data._ch08Everyone2 ;GAME CRASH if too many npcs load so keep it low for now, fix later
+          ;macroASMCLoadUnitGroup eventChapter08Data._ch08Everyone3
+          
+          PAUSE_SKIPPABLE 16
+          YIELD
+
           DIALOGUE ch08wedding1
           YIELD
 
-          LOAD_GROUP eventChapter08Data._ch08cute
+          macroASMCLoadUnitGroup eventChapter08Data._ch08cute
 
           PAUSE_SKIPPABLE 16
           YIELD
@@ -125,18 +141,30 @@ GUARD_FE5_CHAPTER08 :?= false
           WAIT_MOVE
           YIELD
 
-          LOAD_GROUP eventChapter08Data._ch08Finn
+          PAUSE_SKIPPABLE 16
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter08Data._ch08GladeSelphina
+
+          MOVE_CHAR Selphina, [13, 18], [17, 16], 1, _TrioMovestring
+          YIELD_UNK
+
+          MOVE_CHAR Glade, [14, 18], [18, 16], 1, _TrioMovestring
+          YIELD_UNK
+
           WAIT_MOVE
           YIELD
 
-          MOVE_CHAR Finn, [11, 18], 1, _TrioMovestring
+          PAUSE_SKIPPABLE 16
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter08Data._ch08Finn
+
+          MOVE_UNIT Finn, [13, 18], [16, 16], 1, None
           YIELD_UNK
 
-          MOVE_CHAR Selphina, [12, 18], 1, _TrioMovestring
-          YIELD_UNK
-
-          MOVE_CHAR Glade, [13, 18], 1, _TrioMovestring
-          YIELD_UNK
+          WAIT_MOVE
+          YIELD
 
         END2
 
@@ -167,11 +195,12 @@ GUARD_FE5_CHAPTER08 :?= false
           UNIT LeonsterHero, NPC, [17, 14], [17, 14], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT LeonsterBrigand, NPC, [18, 14], [18, 14], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT LeonsterArcher, NPC, [19, 14], [19, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          
+
           UNIT Eldigan, NPC, [8, 14], [8, 14], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT Lachesis, NPC, [9, 14], [9, 14], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [10, 14], [10, 14], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [11, 14], [11, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          
         UNIT
 
         _ch08Everyone3
@@ -182,12 +211,12 @@ GUARD_FE5_CHAPTER08 :?= false
         UNIT
 
         _ch08Finn
-          UNIT Finn, Player, [11, 18], [11, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Finn, Player, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
 
         _ch08GladeSelphina
-          UNIT Selphina, Player, [12, 18], [12, 18], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Glade, Player, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Selphina, Player, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Glade, Player, [14, 18], [14, 18], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
           
         
