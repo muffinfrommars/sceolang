@@ -64,6 +64,44 @@ GUARD_FE5_CHAPTER08 :?= false
          MS_MOVE_RIGHT
          MS_MOVE_RIGHT
          MS_MOVE_RIGHT
+         MS_MOVE_UP
+        MS_END
+        
+        _QuanMovestring3
+          MS_MOVE_DOWN
+          MS_MOVE_LEFT
+          MS_MOVE_LEFT
+          MS_MOVE_LEFT
+          MS_MOVE_DOWN
+          MS_MOVE_DOWN
+          MS_MOVE_RIGHT
+          MS_MOVE_RIGHT
+          MS_MOVE_DOWN
+          MS_MOVE_RIGHT
+          MS_MOVE_DOWN
+          MS_MOVE_DOWN
+          MS_MOVE_DOWN
+          MS_MOVE_DOWN
+          MS_MOVE_DOWN
+          MS_MOVE_DOWN
+        MS_END
+
+        _QuanMovestring2
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+         MS_MOVE_UP
+        MS_END
+
+        _QuanMovestring4
+         MS_MOVE_DOWN
+         MS_MOVE_DOWN
+         MS_MOVE_DOWN
+         MS_MOVE_DOWN
+         MS_MOVE_DOWN
+         MS_MOVE_DOWN
         MS_END
         
         _EthlynMovestring
@@ -82,6 +120,7 @@ GUARD_FE5_CHAPTER08 :?= false
          MS_MOVE_LEFT
          MS_MOVE_LEFT
          MS_MOVE_LEFT
+         MS_MOVE_UP
         MS_END
         
         _TrioMovestring
@@ -92,28 +131,35 @@ GUARD_FE5_CHAPTER08 :?= false
          MS_MOVE_RIGHT
          MS_MOVE_RIGHT
         MS_END
+        
+        _FinnMovestring
+         MS_MOVE_LEFT
+         MS_MOVE_LEFT
+         MS_MOVE_LEFT
+         MS_MOVE_DOWN
+         MS_MOVE_DOWN
+        MS_END
 
         _PrepGroups
           .long eventChapter08Data._ch08Everyone1
 					.long eventChapter08Data._ch08Everyone2
-          .long eventChapter08Data._ch08Everyone3
         .word 0
 
         _OpeningEvent
           SET_CAMERA_POSITION [14, 12]
 
-          SET_MUSIC $05
-          YIELD
-
           macroASMCLoadUnitGroup eventChapter08Data._ch08Everyone1
+          macroASMCLoadUnitGroup eventChapter08Data._ch08Everyone2 ;green unit hard limit 16
 
           macroASMCDismount Sigurd
           macroASMCDismount Alec
           macroASMCDismount Naoise
           macroASMCDismount Dryas
-          
-          ;macroASMCLoadUnitGroup eventChapter08Data._ch08Everyone2 ;GAME CRASH if too many npcs load so keep it low for now, fix later
-          ;macroASMCLoadUnitGroup eventChapter08Data._ch08Everyone3
+          macroASMCDismount Eldigan
+          macroASMCDismount Olwen
+          macroASMCDismount LeonsterBowKnight
+
+          macroASMCSetCharacterDataByteIfCharacterDataWord Leader, Dryas, UnitState2, $08
           
           PAUSE_SKIPPABLE 16
           YIELD
@@ -146,10 +192,10 @@ GUARD_FE5_CHAPTER08 :?= false
 
           macroASMCLoadUnitGroup eventChapter08Data._ch08GladeSelphina
 
-          MOVE_CHAR Selphina, [13, 18], [17, 16], 1, _TrioMovestring
+          MOVE_CHAR Selphina, [13, 18], 1, _TrioMovestring
           YIELD_UNK
 
-          MOVE_CHAR Glade, [14, 18], [18, 16], 1, _TrioMovestring
+          MOVE_CHAR Glade, [14, 18], 1, _TrioMovestring
           YIELD_UNK
 
           WAIT_MOVE
@@ -166,6 +212,111 @@ GUARD_FE5_CHAPTER08 :?= false
           WAIT_MOVE
           YIELD
 
+          SET_MUSIC $24
+          YIELD
+
+          DIALOGUE ch08wedding2
+          YIELD
+
+          macroDialogueWithBG ch08wedding3, 1
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+			
+					HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $0F
+
+          DIALOGUE ch08wedding4
+          YIELD
+
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 64
+          YIELD
+
+          macroASMCLoadUnitGroup eventChapter08Data._ch08Messenger
+          macroASMCDismount LeonsterLanceKnight
+
+          MOVE_CHAR LeonsterLanceKnight, [13, 18], 5, _QuanMovestring2
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE ch08weddingNPC
+          YIELD
+
+          SET_MUSIC $49
+          YIELD
+
+          MOVE_CHAR LeonsterLanceKnight, [13, 12], 5, _QuanMovestring4
+          YIELD_UNK
+          
+          WAIT_MOVE
+          YIELD
+
+          macroASMCRemoveUnit LeonsterLanceKnight
+          
+          MOVE_CHAR Quan, [13, 8], 3, _QuanMovestring3
+          YIELD_UNK
+          
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE ch08weddingEthlyn
+          YIELD
+
+          MOVE_CHAR Finn, [16, 16], 3, _FinnMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          macroDialogueWithBG ch08weddingQuan, 1
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+			
+          MOVE_UNIT Finn, [13, 18], [16, 16], 1, None
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          SET_MUSIC $49
+          YIELD
+
+          macroDialogueWithBG ch08weddingEthlynFinn, 1
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+
+          MOVE_CHAR Quan, [14, 18], 2, _QuanMovestring
+          YIELD_UNK
+
+          WAIT_MOVE
+          YIELD
+
+          DIALOGUE ch08weddingQuanEthlyn
+          YIELD
+
+          SET_MUSIC $26
+          YIELD
+
+          macroDialogueWithBG ch08weddingLastMoments, 2
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+			
+          macroASMCRemoveUnit ThraciaBishop
+          macroASMCRemoveUnit LeonsterArcher
+          macroASMCRemoveUnit LeonsterBrigand
+          macroASMCRemoveUnit LeonsterHero
+          macroASMCRemoveUnit LeonsterMyrmidon
+          macroASMCRemoveUnit Veld          
+          macroASMCRemoveUnit Olwen          
+          macroASMCRemoveUnit LeonsterBowKnight          
+
+          macroASMCRemoveUnit Finn
+          macroASMCRemoveUnit Glade
+          macroASMCRemoveUnit Selphina
+
+          CALL_ASM_LOOP rlASMCChapterEnd
+
         END2
 
         _EndingEvent
@@ -179,35 +330,35 @@ GUARD_FE5_CHAPTER08 :?= false
       eventChapter08Data
 
         _ch08Everyone1
-          UNIT Sigurd, NPC, [11, 12], [11, 12], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Alec, NPC, [10, 12], [10, 12], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Naoise, NPC, [9, 12], [9, 12], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Dryas, NPC, [8, 12], [8, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Sigurd, NPC, [11, 12], [11, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Alec, NPC, [10, 12], [10, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Naoise, NPC, [9, 12], [9, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Dryas, NPC, [8, 12], [8, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
 
-          UNIT Raydrik, NPC, [16, 12], [16, 12], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Xavier, NPC, [17, 12], [17, 12], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Raydrik, NPC, [18, 12], [18, 12], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Xavier, NPC, [19, 12], [19, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT Raydrik, NPC, [16, 12], [16, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [17, 12], [17, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Raydrik, NPC, [18, 12], [18, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Xavier, NPC, [19, 12], [19, 12], Dryas, [], 20, False, [$01, $03, $00, $80]
+
+          UNIT Eldigan, NPC, [8, 14], [8, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Lachesis, NPC, [9, 14], [9, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [10, 14], [10, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [11, 14], [11, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
         UNIT
         
         _ch08Everyone2
-          UNIT ThraciaBishop, NPC, [16, 14], [16, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT LeonsterHero, NPC, [17, 14], [17, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT LeonsterBrigand, NPC, [18, 14], [18, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT LeonsterArcher, NPC, [19, 14], [19, 14], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT ThraciaBishop, Player, [16, 14], [16, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterHero, Player, [17, 14], [17, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterBrigand, Player, [18, 14], [18, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterArcher, Player, [19, 14], [19, 14], Dryas, [], 20, False, [$01, $03, $00, $80]
 
-          UNIT Eldigan, NPC, [8, 14], [8, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Lachesis, NPC, [9, 14], [9, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT LeonsterSoldier, NPC, [10, 14], [10, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT LeonsterSoldier, NPC, [11, 14], [11, 14], Quan, [], 20, False, [$01, $03, $00, $80]
-          
-        UNIT
+          UNIT LeonsterMyrmidon, Player, [11, 16], [11, 16], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Leif, NPC, [10, 16], [10, 16], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Veld, Player, [9, 16], [9, 16], Dryas, [], 20, False, [$01, $03, $00, $80]
+          UNIT Olwen, Player, [8, 16], [8, 16], Dryas, [], 20, False, [$01, $03, $00, $80]
 
-        _ch08Everyone3
-          UNIT LeonsterMyrmidon, NPC, [11, 16], [11, 16], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Leif, NPC, [10, 16], [10, 16], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Veld, NPC, [9, 16], [9, 16], Quan, [], 20, False, [$01, $03, $00, $80]
-          UNIT Olwen, NPC, [8, 16], [8, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+          UNIT LeonsterBowKnight, Player, [19, 16], [19, 16], Dryas, [], 20, False, [$01, $03, $00, $80]
+
         UNIT
 
         _ch08Finn
@@ -218,12 +369,16 @@ GUARD_FE5_CHAPTER08 :?= false
           UNIT Selphina, Player, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT Glade, Player, [14, 18], [14, 18], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
-          
         
         _ch08cute
           UNIT Quan, NPC, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
           UNIT Ethlyn, NPC, [14, 18], [14, 18], Quan, [], 20, False, [$01, $03, $00, $80]
         UNIT
+        
+        _ch08Messenger
+          UNIT LeonsterLanceKnight, NPC, [13, 18], [13, 18], Quan, [], 20, False, [$01, $03, $00, $80]
+        UNIT
+
 
         _StartingPositions
         .char -1
