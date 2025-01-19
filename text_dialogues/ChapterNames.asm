@@ -39,7 +39,7 @@ dialogueChapter08Title
 .byte $01
 
 dialogueChapter08xTitle
-.text "Chapter 8x: Dagdar's Manor"
+.text "???"
 .byte $01
 
 dialogueChapter09Title
