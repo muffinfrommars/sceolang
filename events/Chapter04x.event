@@ -76,6 +76,7 @@ GUARD_FE5_CHAPTER04x :?= false
           EVENT FlagAlwaysZero, _04xGameOverEthlyn
             CHECK_IF_BOSS_DEAD Ethlyn
             CMP_WORD wCurrentPhase, NPC
+            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
           END_DEFINITION
           EVENT FlagAlwaysZero, _EthlynHealRanz
             CMP_WORD wCurrentTurn, 6
@@ -100,7 +101,6 @@ GUARD_FE5_CHAPTER04x :?= false
           END_DEFINITION
           EVENT FlagAlwaysZero, _04xGameOverEthlyn
             CHECK_IF_BOSS_DEAD Ethlyn
-            CMP_WORD_RANGE wCurrentTurn, 1, $FFFF
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -124,6 +124,11 @@ GUARD_FE5_CHAPTER04x :?= false
         END2
 
         _04xGameOverEthlyn
+          macroASMCCheckUnitStateSet Ethlyn, UnitStateCaptured ;so this doesnt actually work bc its accounting for Player Ethlyn which got yeeted already
+					JUMP_TRUE +
+				
+						macroASMCCountAllUnitsAlive Ethlyn
+						JUMP_TRUE +
           PLAY_SOUND_FORCED $00E0
 			
 					STORE_WORD wCurrentMapMusic, $00
@@ -132,7 +137,8 @@ GUARD_FE5_CHAPTER04x :?= false
           YIELD
 
           macroASMCGameOver
-        END2
+          +
+        END1
 
         _DryasBucksScriptedBattle
             .byte $02, $01, $00, $10 ;Left kills right

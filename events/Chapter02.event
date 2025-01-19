@@ -126,25 +126,22 @@ GUARD_FE5_CHAPTER02 :?= false
         END2
       
         _OpeningEvent ; 99/85CA
-          CALL_ASM_SKIPPABLE rlEventEngineCancelFading, $0000
-
           STORE_WORD wCurrentChapter, Chapter24x
 				  CALL_ASM_SKIPPABLE $9A98CF
 
-          macroLoadPlayerUnitsByStartingPositions
+          PAUSE_SKIPPABLE 32
+          YIELD
 
           SET_CAMERA_POSITION [17, 14]
           YIELD
 
-          FADE_IN 1
+          PAUSE_SKIPPABLE 32
           YIELD
 
+          macroLoadPlayerUnitsByStartingPositions
           macroASMCLoadUnitGroup eventChapter02Data._ch02IntroGroup
 
           WARP_UNIT Finn, [0, 0], [20, 20]
-
-          FADE_IN 2
-          YIELD
 
           PAUSE_SKIPPABLE 16
           YIELD
@@ -235,8 +232,6 @@ GUARD_FE5_CHAPTER02 :?= false
 
           STORE_WORD wCurrentChapter, Chapter02
 				  CALL_ASM_SKIPPABLE $9A98CF
-
-          CALL_ASM_SKIPPABLE rlEventEngineCancelFading, $0000
 
           WARP_UNIT Finn, [0, 0], [14, 3]
           WARP_UNIT Ranz, [0, 0], [11, 7]

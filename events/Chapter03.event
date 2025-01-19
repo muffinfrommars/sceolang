@@ -105,7 +105,7 @@ GUARD_FE5_CHAPTER03 :?= false
 					YIELD
 					
 					macroASMCGameOver
-        END2
+        END1
 
         _PrepGroups
         .word 0
@@ -307,12 +307,12 @@ GUARD_FE5_CHAPTER03 :?= false
           UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$01, $03, $00, $80]
           UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $03, $00, $80]
           UNIT LeonsterHero, NPC, [7, 11], [7, 11], Dryas, [IronAxe], 2, False, [$00, $03, $00, $80]
-          UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [SlimSword], 2, False, [$00, $03, $00, 80]
+          UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [IronSword], 2, False, [$00, $03, $00, 80]
           UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $03, $00, $80]
         UNIT
 
         _ch03NPCGroupfinalReinforcement
-          UNIT Ranz, NPC, [14, 5], [14, 2], Dryas, [Rapier], 1, true, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [14, 5], [14, 2], Dryas, [Rapier], 5, true, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [1, 12], [1, 12], Dryas, [IronLance], 2, False, [$00, $03, $00, $80]
           UNIT LeonsterMyrmidon, NPC, [2, 11], [2, 11], Dryas, [IronBlade], 2, False, [$00, $03, $00, $80]
           UNIT LeonsterArcher, NPC, [3, 12], [3, 12], Dryas, [IronBow], 2, False, [$00, $03, $00, $80]

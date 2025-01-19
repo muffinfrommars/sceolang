@@ -35,29 +35,35 @@ GUARD_FE5_CHAPTER02x :?= false
           EVENT FlagAlwaysZero, _PrologueForestReinforcementASpawn
             CMP_WORD_RANGE wCurrentTurn, 1, 1
             CMP_WORD wCurrentPhase, Player
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
+            ROLL_RNG 80
           END_DEFINITION
           EVENT FlagAlwaysZero, _PrologueForestReinforcementBSpawn
-            CMP_WORD_RANGE wCurrentTurn, 3, 3
+            CMP_WORD_RANGE wCurrentTurn, 2, 2
             CMP_WORD wCurrentPhase, Player
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
+            ROLL_RNG 80
           END_DEFINITION
           EVENT FlagAlwaysZero, _PrologueForestReinforcementCSpawn
-            CMP_WORD_RANGE wCurrentTurn, 5, 5
+            CMP_WORD_RANGE wCurrentTurn, 3, 3
             CMP_WORD wCurrentPhase, Player
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
+            ROLL_RNG 80
           END_DEFINITION
           EVENT FlagAlwaysZero, _PrologueForestReinforcementDSpawn
-            CMP_WORD_RANGE wCurrentTurn, 7, 7
+            CMP_WORD_RANGE wCurrentTurn, 4, 4
             CMP_WORD wCurrentPhase, Player
-            ROLL_RNG 60
-            TEST_FLAG_UNSET FlagBossDeath
+            ROLL_RNG 80
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _PrologueForestReinforcementASpawn
+            CMP_WORD_RANGE wCurrentTurn, 5, 5
+            CMP_WORD wCurrentPhase, Player
+            ROLL_RNG 80
+          END_DEFINITION
+          EVENT FlagAlwaysZero, _PrologueForestReinforcementBSpawn
+            CMP_WORD_RANGE wCurrentTurn, 6, 6
+            CMP_WORD wCurrentPhase, Player
+            ROLL_RNG 80
           END_DEFINITION
           EVENT FlagAlwaysZero, _CounterIncrease
-						CMP_WORD_RANGE wCurrentTurn, 1, 11
+						CMP_WORD_RANGE wCurrentTurn, 1, 10
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
           EVENT FlagAlwaysZero, _EndingEvent
@@ -114,6 +120,11 @@ GUARD_FE5_CHAPTER02x :?= false
         END_DEFINITION_ARRAY
 
         _02xGameOverGlade
+          macroASMCCheckUnitStateSet Glade, UnitStateCaptured
+					JUMP_TRUE +
+				
+						macroASMCCountAllUnitsAlive Glade
+						JUMP_TRUE +
           PLAY_SOUND_FORCED $00E0
 			
 					STORE_WORD wCurrentMapMusic, $00
@@ -122,9 +133,17 @@ GUARD_FE5_CHAPTER02x :?= false
           YIELD
 
           macroASMCGameOver
-        END2
+          YIELD
+          +
+        END1
 
         _02xGameOverSelphina
+          macroASMCCheckUnitStateSet Selphina, UnitStateCaptured
+					JUMP_TRUE +
+				
+						macroASMCCountAllUnitsAlive Selphina
+						JUMP_TRUE +
+
           PLAY_SOUND_FORCED $00E0
 			
 					STORE_WORD wCurrentMapMusic, $00
@@ -133,7 +152,9 @@ GUARD_FE5_CHAPTER02x :?= false
           YIELD
 
           macroASMCGameOver
-        END2
+          YIELD
+          +
+        END1
         
         _ForestFinnGladeTalk
           macroDialogue dPrologueForestFinnGlade
