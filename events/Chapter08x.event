@@ -22,10 +22,12 @@ GUARD_FE5_CHAPTER08x :?= false
 
       eventChapter08xEvents
           _DeathQuan              = enum.enum($01)
-          _DeathEthlyn            = enum.enum($02)
+          _DeathEthlyn            = enum.enum($04)
           _DeathAltena            = enum.enum($03)
           _FlagFinnQuan           = enum.enum($09)
           _FlagFinnEthlyn         = enum.enum()
+          _FlagFinnAltena         = enum.enum()
+          _FlagFinnLeif         = enum.enum()
 
         _OpeningEventDefinitions
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -44,8 +46,14 @@ GUARD_FE5_CHAPTER08x :?= false
           EVENT _FlagFinnQuan, _08xQuanFinnTalkEvent
             CHECK_CHARS2 Finn, Quan
           END_DEFINITION
+          EVENT _FlagFinnAltena, _08xAltenaFinnTalkEvent
+            CHECK_CHARS2 Finn, Altena
+          END_DEFINITION
           EVENT _FlagFinnEthlyn, _08xEthlynFinnTalkEvent
             CHECK_CHARS2 Finn, Ethlyn
+          END_DEFINITION
+          EVENT _FlagFinnLeif, _08xLeifFinnTalkEvent
+            CHECK_CHARS2 Finn, Leif
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -96,7 +104,15 @@ GUARD_FE5_CHAPTER08x :?= false
           YIELD
 
           macroASMCSetBitsCharacterDataWord Quan, Skills2, Skill2Anchor
-          macroASMCSetCharacterDataByte Quan, CurrentHP, 01
+          macroASMCSetCharacterDataByte Quan, CurrentHP, 1
+          macroASMCSetCharacterDataByte Quan, MaxHP, 1
+          macroASMCSetCharacterDataByte Quan, Speed, 0
+          macroASMCSetCharacterDataByte Quan, Defense, 0
+          macroASMCSetCharacterDataByte Quan, Magic, 0
+          macroASMCSetCharacterDataByte Quan, Strength, 0
+          macroASMCSetCharacterDataByte Quan, Constitution, 0
+          macroASMCSetCharacterDataByte Quan, Luck, 0
+          macroASMCSetCharacterDataByte Quan, Skill, 0
 
           SET_FLAG _DeathQuan
         END2
@@ -113,10 +129,17 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCDismount Ethlyn
           YIELD
 
-          macroASMCSetBitsCharacterDataWord Ethlyn, Skills2, Skill2Anchor
           SET_FLAG _DeathEthlyn
-          macroASMCSetCharacterDataByte Ethlyn, CurrentHP, 01
-
+          macroASMCSetBitsCharacterDataWord Ethlyn, Skills2, Skill2Anchor
+          macroASMCSetCharacterDataByte Ethlyn, CurrentHP, 1
+          macroASMCSetCharacterDataByte Ethlyn, MaxHP, 1
+          macroASMCSetCharacterDataByte Ethlyn, Speed, 0
+          macroASMCSetCharacterDataByte Ethlyn, Defense, 0
+          macroASMCSetCharacterDataByte Ethlyn, Magic, 0
+          macroASMCSetCharacterDataByte Ethlyn, Strength, 0
+          macroASMCSetCharacterDataByte Ethlyn, Constitution, 0
+          macroASMCSetCharacterDataByte Ethlyn, Luck, 0
+          macroASMCSetCharacterDataByte Ethlyn, Skill, 0
 
         END2
         
@@ -131,10 +154,17 @@ GUARD_FE5_CHAPTER08x :?= false
           LOAD_GROUP eventChapter08xData._08xAltena
           macroASMCDismount Altena
           YIELD
-
           macroASMCSetBitsCharacterDataWord Altena, Skills2, Skill2Anchor
-          macroASMCSetCharacterDataByte Altena, CurrentHP, 01
-  				macroASMCUnsetBitsCharacterDataWord Bharat, Skills3, Skill3Immortal
+          macroASMCSetCharacterDataByte Altena, CurrentHP, 1
+          macroASMCSetCharacterDataByte Altena, MaxHP, 1
+          macroASMCSetCharacterDataByte Altena, Speed, 0
+          macroASMCSetCharacterDataByte Altena, Defense, 0
+          macroASMCSetCharacterDataByte Altena, Magic, 0
+          macroASMCSetCharacterDataByte Altena, Strength, 0
+          macroASMCSetCharacterDataByte Altena, Constitution, 0
+          macroASMCSetCharacterDataByte Altena, Luck, 0
+          macroASMCSetCharacterDataByte Altena, Skill, 0
+  				macroASMCUnsetBitsCharacterDataWord Altena, Skills3, Skill3Immortal
 
 
           SET_FLAG _DeathAltena
@@ -152,6 +182,17 @@ GUARD_FE5_CHAPTER08x :?= false
           LOAD_GROUP eventChapter08xData._08xLeif
           macroASMCDismount Leif
           YIELD
+          macroASMCSetBitsCharacterDataWord Leif, Skills2, Skill2Anchor
+          macroASMCSetCharacterDataByte Leif, CurrentHP, 1
+          macroASMCSetCharacterDataByte Leif, MaxHP, 1
+          macroASMCSetCharacterDataByte Leif, Speed, 0
+          macroASMCSetCharacterDataByte Leif, Defense, 0
+          macroASMCSetCharacterDataByte Leif, Magic, 0
+          macroASMCSetCharacterDataByte Leif, Strength, 0
+          macroASMCSetCharacterDataByte Leif, Constitution, 0
+          macroASMCSetCharacterDataByte Leif, Luck, 0
+          macroASMCSetCharacterDataByte Leif, Skill, 0
+  				macroASMCSetBitsCharacterDataWord Leif, Skills3, Skill3Immortal
         END2        
 
 
@@ -164,6 +205,18 @@ GUARD_FE5_CHAPTER08x :?= false
         
         _08xEthlynFinnTalkEvent
           macroDialogue ch08xEthlynFinnNightmare
+        END2
+
+        _08xAltenaFinnTalkEvent
+          macroDialogue ch08xFinnAltenaNightmare
+        END2
+
+        _08xLeifFinnTalkEvent
+          macroDialogue ch08xFinnLeifNightmare
+          macroASMCRemoveUnit Leif
+          macroASMCRemoveUnit Finn
+          CALL_ASM_LOOP rlASMCFinalChapterMapChange
+					YIELD
         END2
 
         _Everyturn08x

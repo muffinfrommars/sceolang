@@ -763,6 +763,18 @@ dialogueEthlynDeathQuotech04x
     .text "I-Its so c-cold..."
     .byte WaitForA
     .byte EndText
+    
+dialogueEthlynDeathQuotech08x
+    .text "F-Finn?"
+    .byte NewLine
+    .text "Why..."
+    .byte WaitForA
+    .byte EndText
+
+dialogueQuanDeathQuotech08x
+    .text "..."
+    .byte WaitForA
+    .byte EndText
 
 dialogueDryasChapter01DeathQuote
 
