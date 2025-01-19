@@ -53,7 +53,7 @@ dialogueChapterObjektiveChapter08
 
 
 dialogueChapterObjektiveChapter08x
-	.text "Seize the manor's throne."
+	.text "???"
 .byte EndTextNoPortraitFade
 
 

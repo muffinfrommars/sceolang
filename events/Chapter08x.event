@@ -20,10 +20,12 @@ GUARD_FE5_CHAPTER08x :?= false
 
     .section Chapter08xEventsSection
 
-      eventChapter08xEvents ; 97/844D
-
-          _FlagOsianTanyaTalk       = enum.enum($05)
-          _FlagFinnQuan             = enum.enum()
+      eventChapter08xEvents
+          _DeathQuan              = enum.enum($01)
+          _DeathEthlyn            = enum.enum($02)
+          _DeathAltena            = enum.enum($03)
+          _FlagFinnQuan           = enum.enum($09)
+          _FlagFinnEthlyn         = enum.enum()
 
         _OpeningEventDefinitions
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -42,6 +44,9 @@ GUARD_FE5_CHAPTER08x :?= false
           EVENT _FlagFinnQuan, _08xQuanFinnTalkEvent
             CHECK_CHARS2 Finn, Quan
           END_DEFINITION
+          EVENT _FlagFinnEthlyn, _08xEthlynFinnTalkEvent
+            CHECK_CHARS2 Finn, Ethlyn
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions
@@ -51,9 +56,21 @@ GUARD_FE5_CHAPTER08x :?= false
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
-          EVENT $06, _QuanSpawn
-            macroECCheckCoordinateRanges [8, 1], [8, 60]
+          EVENT $05, _QuanSpawn
+            macroECCheckCoordinateRanges [8, 44], [8, 54]
             CMP_WORD wCurrentPhase, Player
+          END_DEFINITION
+          EVENT $06, _EthlynSpawn
+            CHECK_IF_BOSS_DEAD Quan
+            TEST_FLAG_SET _DeathQuan
+          END_DEFINITION
+          EVENT $07, _AltenaSpawn
+            CHECK_IF_BOSS_DEAD Ethlyn
+            TEST_FLAG_SET _DeathEthlyn
+          END_DEFINITION
+          EVENT $08, _LeifSpawn
+            CHECK_IF_BOSS_DEAD Altena
+            TEST_FLAG_SET _DeathAltena
           END_DEFINITION
         END_DEFINITION_ARRAY
 
@@ -77,21 +94,82 @@ GUARD_FE5_CHAPTER08x :?= false
           LOAD_GROUP eventChapter08xData._08xQuan
           macroASMCDismount Quan
           YIELD
+
+          macroASMCSetBitsCharacterDataWord Quan, Skills2, Skill2Anchor
+          macroASMCSetCharacterDataByte Quan, CurrentHP, 01
+
+          SET_FLAG _DeathQuan
         END2
 
+        _EthlynSpawn
+          PLAY_SOUND_FORCED $00E0
+          SET_MUSIC $43
+          YIELD
+
+          SCROLL_CAMERA_COORDS [8, 39], 3
+          YIELD
+
+          LOAD_GROUP eventChapter08xData._08xEthlyn
+          macroASMCDismount Ethlyn
+          YIELD
+
+          macroASMCSetBitsCharacterDataWord Ethlyn, Skills2, Skill2Anchor
+          SET_FLAG _DeathEthlyn
+          macroASMCSetCharacterDataByte Ethlyn, CurrentHP, 01
+
+
+        END2
+        
+        _AltenaSpawn
+          PLAY_SOUND_FORCED $00E0
+          SET_MUSIC $43
+          YIELD
+
+          SCROLL_CAMERA_COORDS [8, 31], 3
+          YIELD
+
+          LOAD_GROUP eventChapter08xData._08xAltena
+          macroASMCDismount Altena
+          YIELD
+
+          macroASMCSetBitsCharacterDataWord Altena, Skills2, Skill2Anchor
+          macroASMCSetCharacterDataByte Altena, CurrentHP, 01
+  				macroASMCUnsetBitsCharacterDataWord Bharat, Skills3, Skill3Immortal
+
+
+          SET_FLAG _DeathAltena
+
+        END2
+
+        _LeifSpawn
+          PLAY_SOUND_FORCED $00E0
+          SET_MUSIC $43
+          YIELD
+
+          SCROLL_CAMERA_COORDS [8, 7], 3
+          YIELD
+
+          LOAD_GROUP eventChapter08xData._08xLeif
+          macroASMCDismount Leif
+          YIELD
+        END2        
+
+
         _08xQuanFinnTalkEvent
-          macroDialogue ch08xQuanFinnTalk
+          macroDialogue ch08xQuanFinnNightmare
           macroASMCActiveUnitSetUnitState UnitStateHidden
 					macroGiveActiveUnitItem BraveLance
 					macroASMCActiveUnitUnsetUnitState UnitStateHidden
-
+        END2
+        
+        _08xEthlynFinnTalkEvent
+          macroDialogue ch08xEthlynFinnNightmare
         END2
 
         _Everyturn08x
           PLAY_SOUND_FORCED $00E0
-
           STORE_WORD wCurrentMapMusic, $43
-	        END2
+	      END2
 
         _OpeningEvent
           SET_CAMERA_POSITION [15, 61]
@@ -107,6 +185,7 @@ GUARD_FE5_CHAPTER08x :?= false
 					SCROLL_CAMERA 4
 					YIELD
 
+          macroDialogue ch08xFinnSpawn
         END2
 
         _EndingEvent
@@ -123,11 +202,22 @@ GUARD_FE5_CHAPTER08x :?= false
 
         _08xFinn
           UNIT Finn, Player, [8, 61], [8, 61], Quan, [], 20, False, [$01, $03, $00, $80]
-        
         UNIT
 
         _08xQuan
           UNIT Quan, NPC, [8, 47], [8, 47], Quan, [], 10, False, [$01, $03, $00, $80]
+        UNIT
+        
+        _08xEthlyn
+          UNIT Ethlyn, NPC, [8, 39], [8, 39], Quan, [], 10, False, [$01, $03, $00, $80]
+        UNIT
+        
+        _08xAltena
+          UNIT Altena, NPC, [8, 31], [8, 31], Quan, [], 10, False, [$01, $03, $00, $80]
+        UNIT
+
+        _08xLeif
+          UNIT Leif, NPC, [8, 7], [8, 7], Quan, [], 10, False, [$01, $03, $00, $80]
         UNIT
 
         _PrepGroup ; B1/D851
