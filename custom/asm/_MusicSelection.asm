@@ -145,7 +145,6 @@ GUARD_FE5_PICK_PHASE_MUSIC :?= false
           rtl
 
           .databank 0
-
     .endsection PickPhaseMusicSection
 
 .endif ; GUARD_FE5_PICK_PHASE_MUSIC
