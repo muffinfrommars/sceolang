@@ -9,7 +9,7 @@ dTimeSkip1
     .byte ScrollText
     .text "Still grieving the loss of his son, King Kalf prepares"
     .byte NewLine
-    .text "to rendezvous with Raydrik of Connaught."
+    .text "to rendezvous with Duke Raydrik."
     .byte WaitForA
     .byte ScrollText
 
@@ -49,6 +49,32 @@ dTimeSkip3
     .text "advance onto Meath, in retaliation over Travant's"
     .byte NewLine
     .text "scheme, resulting in the deaths of Quan and Ethlyn."
+    .byte WaitForA
+    .byte ScrollText
+
+    .byte EndText
+
+.byte EndText
+
+dTimeSkip4
+    .text "The Munster Alliance seeks to meet near Danzig,"
+    .byte NewLine
+    .text "alongside the River Thracia."
+    .byte WaitForA
+    .byte ScrollText
+
+    .byte EndText
+
+.byte EndText
+
+
+dTimeSkip5
+    .text "But before King Kalf begins the long trek,"
+    .byte NewLine
+    .text "he summons Finn and Lachesis for one"
+    .byte WaitForA
+    .byte ScrollText
+    .text "final meeting, to discuss certain matters..."
     .byte WaitForA
     .byte ScrollText
 

@@ -90,38 +90,43 @@ GUARD_FE5_CHAPTER10 :?= false
 				YIELD
 			
 				FADE_IN $01
-				YIELD
-			
-				macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
-			
-				macroWMDrawSpecialMarker [152, 88], WMMarkerTable.Circle, 0
 
 				macroASMCWMDialogue dTimeSkip1
 			
 				HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
 			
-				macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
-				macroWMClearSpecialMarker 0
-			
 				PAUSE_SKIPPABLE 1
 				YIELD
 			
-				SCROLL_CAMERA_COORDS [20, 5], 2
+				SCROLL_CAMERA_COORDS [20, 5], 1
 				SET_CURSOR_POSITION
 				YIELD
-			
-				macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
-			
-				macroWMDrawSpecialMarker [152, 88], WMMarkerTable.Circle, 0
 			
 				macroASMCWMDialogue dTimeSkip2
 			
 				HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
 			
-				macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
-				macroWMClearSpecialMarker 0
+				SCROLL_CAMERA_COORDS [17, 15], 1
+				SET_CURSOR_POSITION
+				YIELD
 
 				macroASMCWMDialogue dTimeSkip3
+			
+				HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+				
+				SCROLL_CAMERA_COORDS [18, 9], 1
+				SET_CURSOR_POSITION
+				YIELD
+
+				macroASMCWMDialogue dTimeSkip4
+			
+				HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+				
+				SCROLL_CAMERA_COORDS [13, 5], 2
+				SET_CURSOR_POSITION
+				YIELD
+
+				macroASMCWMDialogue dTimeSkip5
 			
 				HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
 			
