@@ -87,7 +87,7 @@ GUARD_FE5_PICK_PHASE_MUSIC :?= false
           ;AlliedArmyMusicID   := $007F
           ;NeutralArmyMusicID  := $0080
 
-          php
+          PHP
           phb
 
           sep #$20

@@ -201,7 +201,7 @@ paralogueManfroy
     .byte ScrollText
     .text "The child won't be needed for long..."
     .byte NewLine
-    .text "And with no heir to inherit Connacht's throne,"
+    .text "And with no heir to inherit Connaught's throne,"
     .byte NewLine
     .text "perhaps, military rule becomes necessary?"
     .byte WaitForA
@@ -227,7 +227,7 @@ paralogueManfroy
     .byte NewLine
     .text "If it weren't for Gae Bolg and the Lanzenritter,"
     .byte NewLine
-    .text "Connacht, not Leonster, would be strongest of all."
+    .text "Connaught, not Leonster, would be strongest of all."
     .byte WaitForA
 
     .byte ScrollText
@@ -298,7 +298,7 @@ paralogueManfroyContinuation
     .byte WaitForA
 
     .byte ScrollText
-    .text "Once Connacht falls into disarray, the Loptyrian"
+    .text "Once Connaught falls into disarray, the Loptyrian"
     .byte NewLine
     .text "Empire will have no interest in Thracia."
     .byte WaitForA

@@ -824,7 +824,7 @@ dpreception8
 
     .text "Says here,"
     .byte NewLine
-    .text "'King Auerbach from Connacht & Royal Guard'"
+    .text "'King Auerbach from Connaught & Royal Guard'"
     .byte NewLine
     .text "Ew, why is that old geezer coming over?"
     .byte WaitForA
@@ -953,7 +953,7 @@ dpreception9
 
     .text "..."
     .byte NewLine
-    .text "I think that was Sir Raydrik, of Connacht's"
+    .text "I think that was Sir Raydrik, of Connaught's"
     .byte NewLine
     .text "Royal Guard. But..."
     .byte WaitForA

@@ -158,7 +158,7 @@ ch08xEthlynFinnNightmare
     .word Ethlynportrait
     .text "Finn..."
     .byte NewLine
-    .text "You came too late."
+    .text "You're too late."
     .byte WaitForA
 
     .byte Left_Slot
@@ -310,14 +310,14 @@ ch08xFinnAltenaNightmare
     .byte ScrollText
     .text "I-I was in Leonster."
     .byte NewLine
-    .text "With your brother, Leif."
+    .text "With your brother."
     .byte WaitForA
 
     .byte Right_Slot
     .byte ScrollText
     .text "You weren't there for us."
     .byte NewLine
-    .text "Why didn't you come, Finn?"
+    .text "Why didn't you come, Finn!?"
     .byte WaitForA
 
     .byte Left_Slot
@@ -365,8 +365,6 @@ ch08xFinnAltenaNightmare
     .byte Left_Slot
     .byte ScrollText
     .text "Altena... Don't say that."
-    .byte NewLine
-    .text "Please... don't leave me too."
     .byte WaitForA
 
     .byte Right_Slot
@@ -374,6 +372,12 @@ ch08xFinnAltenaNightmare
     .text "Goodbye, Finn."
     .byte NewLine
     .text "I hope you can live with yourself."
+    .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+    .byte NewLine
+    .text "Please... don't leave me too."
     .byte WaitForA
 
     .byte EndText
@@ -385,7 +389,7 @@ ch08xFinnLeifNightmare
     .byte Left_Slot
     .word LoadPortrait
     .word Finn_portrait
-    .text "Leif...? Is that you?"
+    .text "Little Leif...? Is that you?"
     .byte WaitForA
 
     .byte Right_Slot
@@ -400,7 +404,7 @@ ch08xFinnLeifNightmare
     .byte ScrollText
     .text "Leif, what are you saying?"
     .byte NewLine
-    .text "I'm here, little one."
+    .text "I'm here, milord."
     .byte WaitForA
 
     .byte Right_Slot
@@ -442,16 +446,16 @@ ch08xFinnLeifNightmare
     .byte ScrollText
     .text "What...?"
     .byte NewLine
-    .text "Leif, I'm protecting you now!"
+    .text "What do you mean?"
     .byte NewLine
     .text "I'm keeping you safe—just like I promised!"
     .byte WaitForA
 
     .byte Right_Slot
     .byte ScrollText
-    .text "No safe."
+    .text "No safe. Cold."
     .byte NewLine
-    .text "Cold. Hungry."
+    .text "Always hungry."
     .byte NewLine
     .text "Always scared."
     .byte WaitForA
@@ -476,7 +480,7 @@ ch08xFinnLeifNightmare
     .byte ScrollText
     .text "Leif! Stop this!"
     .byte NewLine
-    .text "You're not alone—I'll never leave you!"
+    .text "You're not alone — I'll never leave you!"
     .byte WaitForA
 
     .byte Right_Slot
@@ -507,7 +511,76 @@ ch08xFinnFinal
 
     .text "*Leif's figure fades into shadow.*"
     .byte NewLine
-    .text "Finn collapses, trembling in despair."
+    .text "*Finn collapses, trembling in despair.*"
     .byte WaitForA
 
+    .byte EndText
+
+ch08xWakeUp
+
+    .byte Left_Slot
+    .word LoadPortrait
+    .word Finn_portrait
+    .text "...Ah!"
+    .byte WaitForA
+
+    .byte Right_Slot
+    .word LoadPortrait
+    .word Lachesisportrait
+    .text "...Finn."
+    .byte NewLine
+    .text "Are you okay?"
+    .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+    .text "Lachesis...?"
+    .byte NewLine
+    .text "I-I'm fine..."
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "Bad dream, again?"
+    .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+    .text "I think so, yeah..."
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "..."
+    .byte NewLine
+    .text "Try and get some rest."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "The King wanted to see us tomorrow, remember?"
+    .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+    .text "His Highness...!"
+    .byte NewLine
+    .text "Thank you for reminding me."
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "Finn?"
+    .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+    .text "Yes, my lady?"
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "*giggles*"
+    .byte NewLine
+    .text "Goodnight."
+    .byte WaitForA
     .byte EndText

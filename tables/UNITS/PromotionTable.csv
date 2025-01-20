@@ -1,6 +1,6 @@
 structPromotion 0,Character,Promotion
 Promotion00,Finn,LanceKnight
-Promotion01,Osian,Hero
+Promotion01,Glade,LanceKnight
 Promotion02,Halvan,Hero
 Promotion03,Ralph,Hero
 Promotion04,Marty,Warrior
@@ -32,4 +32,3 @@ Promotion1D,Mareeta,SwordmasterF
 Promotion1E,Tina,HighPriestess
 Promotion1F,Homer,Sage
 Promotion20,Sara,SageF
-;Promotion21,Glade,LanceKnight

@@ -27,7 +27,7 @@ GUARD_FE5_CHAPTER08x :?= false
           _FlagFinnQuan           = enum.enum($09)
           _FlagFinnEthlyn         = enum.enum()
           _FlagFinnAltena         = enum.enum()
-          _FlagFinnLeif         = enum.enum()
+          _FlagFinnLeif           = enum.enum()
 
         _OpeningEventDefinitions
           EVENT FlagAlwaysZero, _OpeningEvent
@@ -212,23 +212,87 @@ GUARD_FE5_CHAPTER08x :?= false
         END2
 
         _08xLeifFinnTalkEvent
+          SCROLL_CAMERA_COORDS [15, 1], 1
+          YIELD
+
           macroDialogue ch08xFinnLeifNightmare
+
+          macroDialogue ch08xFinnFinal
+
           macroASMCRemoveUnit Leif
-          macroASMCRemoveUnit Finn
           CALL_ASM_LOOP rlASMCFinalChapterMapChange
 					YIELD
+          PLAY_SOUND_FORCED $00E0
+
+          macroDialogueWithBG ch08xWakeUp, 1
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+          YIELD
+
+          PLAY_SOUND_FORCED $00E0
+        END2
+
+        _EveryAction
+          macroASMCSetCharacterDataByte Finn, UnitState1, UnitStateMovementStar
         END2
 
         _Everyturn08x
           PLAY_SOUND_FORCED $00E0
           STORE_WORD wCurrentMapMusic, $43
+          macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant          
+
 	      END2
 
         _OpeningEvent
           SET_CAMERA_POSITION [15, 61]
           YIELD
 
-          LOAD_GROUP eventChapter08xData._08xFinn
+          macroLoadPlayerUnitsByStartingPositions
+
+          LOAD_GROUP eventChapter08xData._08xWyverns1
+          LOAD_GROUP eventChapter08xData._08xWyverns2
+
+          WAIT_MOVE
+          YIELD
+
+          macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant
+
+          macroASMCSetCharacterDataByte Finn, Level, 20
+          macroASMCSetCharacterDataByte Finn, Experience, 0
+          macroASMCSetCharacterDataByte Glade, Level, 20
+          macroASMCSetCharacterDataByte Glade, Experience, 0
+          macroASMCRemoveItemFromUnit Finn, Javelin
+          macroASMCRemoveItemFromUnit Finn, IronLance
+          macroASMCRemoveItemFromUnit Finn, IronLance
+          macroASMCRemoveItemFromUnit Finn, IronLance
+          macroASMCRemoveItemFromUnit Finn, BrokenLance     
+          macroASMCRemoveItemFromUnit Finn, BrokenLance     
+          macroASMCRemoveItemFromUnit Finn, BrokenLance     
+          macroASMCRemoveItemFromUnit Finn, BrokenLance     
+          macroASMCRemoveItemFromUnit Finn, BrokenBow  
+          macroASMCRemoveItemFromUnit Finn, BrokenBow    
+          macroASMCRemoveItemFromUnit Finn, SlimLance
+          macroASMCRemoveItemFromUnit Finn, SlimLance
+          macroASMCRemoveItemFromUnit Finn, Steellance
+          macroASMCRemoveItemFromUnit Finn, ShortBow
+          macroASMCRemoveItemFromUnit Finn, IronBow
+          YIELD
+          macroASMCRemoveItemFromUnit Glade, Javelin
+          macroASMCRemoveItemFromUnit Glade, IronLance
+          macroASMCRemoveItemFromUnit Glade, IronLance
+          macroASMCRemoveItemFromUnit Glade, IronLance
+          macroASMCRemoveItemFromUnit Glade, BrokenLance     
+          macroASMCRemoveItemFromUnit Glade, BrokenLance     
+          macroASMCRemoveItemFromUnit Glade, BrokenLance     
+          macroASMCRemoveItemFromUnit Glade, BrokenLance     
+          macroASMCRemoveItemFromUnit Glade, BrokenBow  
+          macroASMCRemoveItemFromUnit Glade, BrokenBow    
+          macroASMCRemoveItemFromUnit Glade, SlimLance
+          macroASMCRemoveItemFromUnit Glade, SlimLance
+          macroASMCRemoveItemFromUnit Glade, Steellance
+          macroASMCRemoveItemFromUnit Glade, ShortBow
+          macroASMCRemoveItemFromUnit Glade, IronBow
+          macroASMCGiveUnitItemSilent Glade, MasterSeal
+          YIELD
 
           macroSetCursorPosition [8, 61]
 
@@ -242,8 +306,6 @@ GUARD_FE5_CHAPTER08x :?= false
         END2
 
         _EndingEvent
-
-          macroASMCRemoveUnit Finn
           CALL_ASM_LOOP rlASMCChapterEnd
         END1
 
@@ -253,10 +315,41 @@ GUARD_FE5_CHAPTER08x :?= false
 
       eventChapter08xData
 
-        _08xFinn
-          UNIT Finn, Player, [8, 61], [8, 61], Quan, [], 20, False, [$01, $03, $00, $80]
+        _08xWyverns1
+          UNIT ThraciaDracoknight1, Enemy, [8, 5], [8, 5], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 8], [5, 8], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 12], [5, 12], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 16], [5, 16], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 20], [5, 20], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 24], [5, 24], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 28], [5, 28], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 32], [5, 32], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 36], [5, 36], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 40], [5, 40], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 44], [5, 44], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 48], [5, 48], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 52], [5, 52], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 56], [5, 56], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [5, 60], [5, 60], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
         UNIT
-
+        
+        _08xWyverns2
+          UNIT ThraciaDracoknight1, Enemy, [11, 8], [11, 8], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 12], [11, 12], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 16], [11, 16], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 20], [11, 20], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 24], [11, 24], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 28], [11, 28], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 32], [11, 32], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 36], [11, 36], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 40], [11, 40], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 44], [11, 44], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 48], [11, 48], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 52], [11, 52], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 56], [11, 56], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+          UNIT ThraciaDracoknight1, Enemy, [11, 60], [11, 60], Travant, [KillerLance], 1, False, [$01, $03, $00, $00]
+        UNIT
+        
         _08xQuan
           UNIT Quan, NPC, [8, 47], [8, 47], Quan, [], 10, False, [$01, $03, $00, $80]
         UNIT
@@ -279,9 +372,9 @@ GUARD_FE5_CHAPTER08x :?= false
 
         _StartingPositions
           .byte [8, 61]
-          .byte [30, 61]
-          .byte [30, 59]
-          .byte [30, 57]
+          .byte [30, 70]
+          .byte [30, 72]
+          .byte [30, 74]
         .char -1
     .endsection Chapter08xDataSection
 

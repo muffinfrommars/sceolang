@@ -47,7 +47,7 @@ dialogueChapter09Title
 .byte $01
 
 dialogueChapter10Title
-.text "Chapter 10: Nowell Valley"
+.text "Seven Years Later"
 .byte $01
 
 dialogueChapter11Title

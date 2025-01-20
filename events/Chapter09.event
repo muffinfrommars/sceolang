@@ -278,50 +278,7 @@ GUARD_FE5_CHAPTER09 :?= false
 
         END2
 
-        _EndingEvent ; 8C/F56D
-
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 16
-          YIELD
-
-          CALL_ASM_LOOP rlASMCSaveActiveUnitClearHDMA
-
-          PLAY_SOUND_FORCED $00E0
-          PAUSE_SKIPPABLE 32
-          YIELD
-
-          SET_MUSIC $4B ; TODO: music definitions
-          YIELD
-
-          CALL_ASM_LOOP rlASMCSaveChapterTurncount
-
-          macroDialogueWithBG dialogueChapter09Ending1, 1 ; TODO: dialogue BG definitions
-
-          CALL_ASM_LOOP rlASMCDialogueWithBGEnd
-          YIELD
-
-          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(false, 15)
-
-          DIALOGUE dialogueChapter09Ending2
-          YIELD
-
-          LOAD_GROUP eventChapter09Data._AltenaGroup
-          WAIT_MOVE
-          YIELD
-
-          SCROLL_CAMERA_CHAR Altena, 4
-
-          DIALOGUE dialogueChapter09Ending3
-          YIELD
-
-          macroASMCAddCharacterDataByte Leif, LeadershipStars, 1
-
-          PLAY_SOUND_FORCED $00E7
-
-          FADE_OUT 1
-          YIELD
-
-          CALL_ASM_LOOP rlASMCSetUnitsLeftBehindAsCaptured
+        _EndingEvent
 
           FADE_OUT 1
           YIELD

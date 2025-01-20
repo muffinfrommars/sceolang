@@ -1,76 +1,58 @@
-dialogueChapter10WorldMap1
+dTimeSkip1
+    .text "...Five years have passed."
+    .byte WaitForA
+    .byte ScrollText
+    .text "Quan and Ethlyn are buried in the sands of Aed,"
+    .byte Newline
+    .text "and Sigurd's forces have ascended to local legend."
+    .byte WaitForA
+    .byte ScrollText
+    .text "Still grieving the loss of his son, King Kalf prepares"
+    .byte NewLine
+    .text "to rendezvous with Raydrik of Connaught."
+    .byte WaitForA
+    .byte ScrollText
 
-.word LoadPortraitalt_1
-.long LoadPortraitalt_2
-.word $0101 ;leify-left
-.word $0211 ;y then x
-.text "The forces of the Fiana Freeblades, the Magi,"
-.word LoadPortraitalt_1
-.long LoadPortraitalt_2
-.word $033B ;augustus
-.word $0219 ;y then x
-.byte NewLine
-.text "and the remnants of Leonster's nobility,"
-.word LoadPortraitalt_1
-.long LoadPortraitalt_2
-.word $003C ;dorius
-.word $0209 ;y then x
-.byte WaitForA
-.byte ScrollText
-.text "though but strangers to one another,"
-.byte NewLine
-.text "had rallied behind their common cause."
-.byte WaitForA
-.byte ScrollText
-.text "They quickly cohered into a formidable"
-.byte NewLine
-.text "fighting unit, "
-.byte WaitForA
-.word ClearPortraitalt
-.long $82937A
-.word $0000
-.text "and became a new army"
-.word ClearPortraitalt
-.long $82937A
-.word $0003
-.byte NewLine
-.text "all their own: the Liberation Army."
-.byte WaitForA
-.byte ScrollText
-.text "The time was finally right to head for Tahra"
-.byte NewLine
-.text "and break the siege upon the city."
-.byte WaitForA
-.word ClearPortraitalt
-.long $82937A
-.word $0001
-.byte ScrollText
-
-.byte EndText
+    .byte EndText
 
 
-dialogueChapter10WorldMap2
+dTimeSkip2
+    .text "After the mysterious passing of King Auerbrach, a"
+    .byte NewLine
+    .text "power struggle occured in Connaught."
+    .byte WaitForA
+    .byte ScrollText
+    .text "The forces of Prince Carl emerge victorious, largely"
+    .byte NewLine
+    .text "in thanks to the aid of Raydrik's military prowess."
+    .byte WaitForA
+    .byte ScrollText
+    .text "It was not long after Carl's ascension to the crown"
+    .byte NewLine
+    .text "where he is suddenly assassinated."
+    .byte WaitForA
+    .byte ScrollText
+    .text "After yet another power struggle, Raydrik seizes"
+    .byte NewLine
+    .text "the throne, turning Connaught into a military state."
+    .byte WaitForA
+    .byte ScrollText
 
-.word LoadPortraitalt_1
-.long LoadPortraitalt_2
-.word $0101 ;leify-left
-.word $0417 ;y then x
-.text "The Liberation Army made their way to the"
-.byte NewLine
-.text "Imperial-Thracian border, "
-.byte WaitForA
-.text "which they would"
-.byte NewLine
-.text "cross through Nowell Valley, "
-.word LoadPortraitalt_1
-.long LoadPortraitalt_2
-.word largo_portrait
-.word $40B ;y then x
-.byte WaitForA
-.text "a small gap"
-.byte NewLine
-.text "in the otherwise impassable mountain range..."
-.byte WaitForA
+    .byte EndText
+
+dTimeSkip3
+    .text "Now in the Gran year 762, the forces of Leonster,"
+    .byte NewLine
+    .text "Alster, Connaught, and Munster prepare to"
+    .byte WaitForA
+    .byte ScrollText
+    .text "advance onto Meath, in retaliation over Travant's"
+    .byte NewLine
+    .text "scheme, resulting in the deaths of Quan and Ethlyn."
+    .byte WaitForA
+    .byte ScrollText
+
+    .byte EndText
 
 .byte EndText
 
