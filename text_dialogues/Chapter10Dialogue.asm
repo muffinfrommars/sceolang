@@ -188,8 +188,8 @@ d10Finn
 	.byte WaitForA
 
     .byte EndText
-d10Blocked
 
+d10Blocked
     .byte Right_Slot
   	.word LoadPortrait
     .word Finn_portrait
@@ -203,8 +203,120 @@ d10Blocked
     .word Leonster4portrait
 	.byte $09
 
-    .text "The King is in the Prince's room."
+    .text "The King went to the right wing of the castle."
+    .byte NewLine
+    .text "Perhaps he went to visit Prince Leif?"
 	.byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+    .text "I see, thank you."
+    .byte WaitForA
+
+    .byte EndText
+
+d10SoldierA
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Leonster1portrait
+	.byte $09
+
+    .text "Hey Finn! How's it going?"
+	.byte WaitForA
+
+    .byte ScrollText
+
+    .text "I heard His Highness wanted to talk to you?"
+    .byte NewLine
+    .text "He's up in Prince Leif's room, along with the Queen."
+	.byte WaitForA
+
+    .byte ScrollText
+    
+    .text "Probably should've told you that the first time you"
+    .byte NewLine
+    .text "passed by me, sorry..."
+	.byte WaitForA
+
+    .byte EndText
+    
+d10SoldierB
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Leonster2portrait
+	.byte $09
+
+    .text "...Man, it's awfully quiet in the castle today."
+    .byte NewLine
+    .text "Makes the place feel foreboding."
+	.byte WaitForA
+    
+    .byte Left_Slot
+  	.word LoadPortrait
+    .word Finn_portrait
+	.byte $09
+
+    .text "...Yes."
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+
+    .text "I suppose you're used to it, though."
+    .byte NewLine
+    .text "Always watching over Lord Leif..."
+    .byte Newline
+    .text "Must feel isolating."
+	.byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+
+    .text "Isolation is nothing compared to failure."
+    .byte WaitForA
+    
+    .byte Right_Slot
+    .byte ScrollText
+
+    .text "Woah, take it easy, Finn."
+    .byte NewLine
+    .text "You've done nothing wrong."
+    .byte NewLine
+    .text "You're exactly where you need to be."
+    .byte WaitForA
+    
+    .byte Left_Slot
+    .byte ScrollText
+
+    .text "...Perhaps."
+    .byte NewLine
+    .text "But the weight remains."
+    .byte WaitForA
+
+    .byte Right_Slot
+    .byte ScrollText
+
+    .text "It does."
+    .byte NewLine
+    .text "For all of us."
+    .byte WaitForA
+
+    .byte Left_Slot
+    .byte ScrollText
+
+    .text "*slight nod*"
+    .byte WaitForA
+
+    .byte EndText
+    
+d10SoldierDoor
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Leonster3portrait
+	.byte $09
+
+    .text "Hey Finn, His Highness is just down this way."
+    .byte WaitForA
 
     .byte EndText
 

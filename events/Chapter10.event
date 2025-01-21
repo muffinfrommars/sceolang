@@ -21,6 +21,9 @@ GUARD_FE5_CHAPTER10 :?= false
 
 					_FlagLargoBattleQuote   		= enum.enum($05)
 					_FlagLargoDead   		= enum.enum()
+					_FlagFinnLeonsterKnight1 = enum.enum()
+					_FlagFinnLeonsterKnight2 = enum.enum()
+					_FlagFinnLeonsterKnight3 = enum.enum()
 
 				_OpeningEventDefinitions ; 99/C559
 					EVENT FlagAlwaysZero, _OpeningEvent
@@ -29,9 +32,21 @@ GUARD_FE5_CHAPTER10 :?= false
 				END_DEFINITION_ARRAY
 			
 				_TurnEventDefinitions
+				EVENT FlagAlwaysZero, _EveryAction10
+					CMP_WORD wCurrentPhase, Player
+				END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_TalkEventDefinitions
+				EVENT _FlagFinnLeonsterKnight1, _ch10Talk1
+					CHECK_CHARS2 Finn, LeonsterKnight1
+				END_DEFINITION
+				EVENT _FlagFinnLeonsterKnight2, _ch10Talk2
+					CHECK_CHARS2 Finn, LeonsterKnight2
+				END_DEFINITION
+				EVENT _FlagFinnLeonsterKnight3, _ch10Talk3
+					CHECK_CHARS2 Finn, LeonsterKnight3
+				END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_LocationEventDefinitions
@@ -42,6 +57,7 @@ GUARD_FE5_CHAPTER10 :?= false
 			
 				_AfterActionEventDefinitions
 				EVENT FlagAlwaysZero, _EveryAction10
+					CMP_WORD wCurrentPhase, Player
 				END_DEFINITION
 				END_DEFINITION_ARRAY
 			
@@ -73,6 +89,10 @@ GUARD_FE5_CHAPTER10 :?= false
 				_LeonsterString
 					MS_MOVE_UP
 				MS_END
+
+				_LeonsterString2
+					MS_MOVE_RIGHT
+				MS_END
 				
 				_Finn10String
 					MS_MOVE_LEFT
@@ -100,10 +120,26 @@ GUARD_FE5_CHAPTER10 :?= false
 				MS_END
 
 				_EveryAction10
-					macroASMCActiveUnitUnsetUnitState UnitStateMoved
-					macroASMCActiveUnitUnsetUnitState UnitStateGrayed
-				END2
+					macroASMCUnsetUnitState Finn, UnitStateGrayed
+					macroASMCUnsetUnitState Finn, UnitStateMoved
+					macroASMCUnsetUnitState Finn, UnitStateMovementStar
+				END1
 			
+				_ch10Talk1
+					macroDialogue d10SoldierA
+					YIELD
+				END1
+				
+				_ch10Talk2
+					macroDialogue d10SoldierDoor
+				END1
+				
+				_ch10Talk3
+					macroDialogue d10SoldierB
+					YIELD
+				END1
+
+
 				_OpeningEvent
 					STORE_WORD wCurrentChapter, Chapter05
 				  	CALL_ASM_SKIPPABLE $9A98CF
@@ -176,7 +212,7 @@ GUARD_FE5_CHAPTER10 :?= false
 					MOVE_CHAR LeonsterKnight3, [27, 2], 1, _LeonsterString
           			YIELD_UNK
 
-					macroASMCSingleTileChangeByCoords [27, 3], $016E
+					macroASMCSingleTileChangeByCoords [27, 3], $014E
 
 					PLAY_EXTENDED_SOUND $45
 					YIELD
@@ -195,7 +231,18 @@ GUARD_FE5_CHAPTER10 :?= false
 					CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
 					YIELD
 
+					MOVE_CHAR LeonsterKnight2, [36, 16], 1, _LeonsterString2
+          			YIELD_UNK
 
+					MOVE_CHAR LeonsterKnight12, [38, 3], 1, _LeonsterString2
+          			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					macroASMCSingleTileChangeByCoords [36, 15], $014E
+					macroASMCSingleTileChangeByCoords [36, 16], $016E
+					macroASMCSingleTileChangeByCoords [38, 4], $014E
           			
 				END2
 			
@@ -216,8 +263,10 @@ GUARD_FE5_CHAPTER10 :?= false
 
 				_ch10Population
 					UNIT LeonsterKnight1, NPC, [29, 16], [29, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+					; up is treasure knight | down is door guard
 					UNIT LeonsterKnight2, NPC, [36, 16], [36, 16], Quan, [], 20, False, [$01, $03, $00, $80]
 					UNIT LeonsterKnight3, NPC, [27, 2], [27, 2], Quan, [], 20, False, [$01, $03, $00, $80]
+					; up is moved soldier | down is inaccesible
 					UNIT LeonsterKnight4, NPC, [6, 16], [6, 16], Quan, [], 20, False, [$01, $03, $00, $80]
 
 					UNIT LeonsterKnight5, NPC, [8, 1], [8, 1], Quan, [], 20, False, [$01, $03, $00, $80]

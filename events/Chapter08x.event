@@ -36,10 +36,9 @@ GUARD_FE5_CHAPTER08x :?= false
         END_DEFINITION_ARRAY
 
         _TurnEventDefinitions
-          EVENT FlagAlwaysZero, _Everyturn08x
-            CMP_WORD wCurrentPhase, Player
-            CMP_WORD_RANGE wCurrentTurn, 0, $FFFF
-          END_DEFINITION
+          EVENT FlagAlwaysZero, _EveryAction
+					  CMP_WORD wCurrentPhase, Player
+				  END_DEFINITION
         END_DEFINITION_ARRAY
 
         _TalkEventDefinitions
@@ -80,6 +79,9 @@ GUARD_FE5_CHAPTER08x :?= false
             CHECK_IF_BOSS_DEAD Altena
             TEST_FLAG_SET _DeathAltena
           END_DEFINITION
+          EVENT FlagAlwaysZero, _EveryAction
+					  CMP_WORD wCurrentPhase, Player
+				  END_DEFINITION
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions
@@ -160,8 +162,6 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCSetCharacterDataByte Altena, Constitution, 0
           macroASMCSetCharacterDataByte Altena, Luck, 0
           macroASMCSetCharacterDataByte Altena, Skill, 0
-  				macroASMCUnsetBitsCharacterDataWord Altena, Skills3, Skill3Immortal
-
 
           SET_FLAG _DeathAltena
 
@@ -211,6 +211,7 @@ GUARD_FE5_CHAPTER08x :?= false
           SCROLL_CAMERA_COORDS [8, 31], 1
           YIELD
           macroDialogue ch08xFinnAltenaNightmare
+          macroASMCRemoveUnit Altena
         END2
 
         _08xLeifFinnTalkEvent
@@ -246,15 +247,12 @@ GUARD_FE5_CHAPTER08x :?= false
         END2
 
         _EveryAction
-          macroASMCSetCharacterDataByte Finn, UnitState1, UnitStateMovementStar
-        END2
-
-        _Everyturn08x
-          PLAY_SOUND_FORCED $00E0
-          STORE_WORD wCurrentMapMusic, $43
-          macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant          
-
-	      END2
+          macroASMCUnsetUnitState Finn, UnitStateGrayed
+          macroASMCUnsetUnitState Finn, UnitStateMoved
+          macroASMCUnsetUnitState Finn, UnitStateMovementStar
+      		STORE_WORD wCurrentMapMusic, $43
+          macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant        
+        END1
 
         _OpeningEvent
           SET_CAMERA_POSITION [15, 61]

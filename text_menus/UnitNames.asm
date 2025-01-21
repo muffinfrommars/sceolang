@@ -786,7 +786,7 @@
 			.text "Loptrian\n"
 		
 		menutextUnitCivilianName
-			.text "Civilian\n"
+			.text "Leonster\n"
 			
 		; Xavier hostages. Names are a Lil' Manster QoL addition, and act as mini-credits.
 		menutextUnitCivilian1Name
