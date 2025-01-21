@@ -11,7 +11,7 @@ Chapter07ChapterData,ttiles,ttileset,tpalette,debug2,None,None,None,None,None,12
 Chapter08ChapterData,ctiles,ctileset,cpalette,ballroom1,None,None,None,None,None,6,8,$2,$4,$0,$1,$1,$1,$1,None,aTACastle
 Chapter08xChapterData,ttiles,ttileset,tpalette,dream,None,eventChapter08xData._StartingPositions,None,None,None,4,6,$2,$4,$4,%101,$43,$43,$43,None,aTADungeon
 Chapter09ChapterData,ttiles,ttileset,tpalette,empty,None,eventChapter09Data._StartingPositions,None,None,None,6,8,$2,$4,$0,$1,$1,$A,$1,None,aTADungeon
-Chapter10ChapterData,$F6E885,$FAEB21,$F68C00,$FC8627,$FCF027,eventChapter10Data._StartingPositions,None,None,$2,8,14,$2,$4,$0,$1,$2,$A,$2,None,aTAPlains
+Chapter10ChapterData,$F8A3D6,$FB9ABD,$F69900,$FCB942,None,eventChapter10Data._StartingPositions,None,None,None,8,14,$2,$4,$4,%101,$1,$1,$1,None,None
 Chapter11ChapterData,$F7AC25,$FB8059,$F68D00,$FC8A5F,$FCF04D,eventChapter11Data._StartingPositions,None,None,$2,8,14,$2,$4,$4,$3,$2,$A,$2,None,None
 Chapter11xChapterData,$F7AC25,$FB8059,$F68E00,$FC8D38,$FCF0B2,eventChapter11xData._StartingPositions,None,3,$2,6,8,$2,$4,$4,$3,$2,$A,$2,None,None
 Chapter12ChapterData,$F6E885,$FAEB21,$F68F00,$FC8E35,$FCF0F0,eventChapter12Data._StartingPositions,None,3,$2,8,12,$2,$4,$0,$5,$7,$D,$7,$FAB831,aTAPlains

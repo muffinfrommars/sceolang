@@ -119,8 +119,6 @@ GUARD_FE5_CHAPTER08x :?= false
 
         _EthlynSpawn
           PLAY_SOUND_FORCED $00E0
-          SET_MUSIC $43
-          YIELD
 
           SCROLL_CAMERA_COORDS [8, 39], 3
           YIELD
@@ -145,8 +143,6 @@ GUARD_FE5_CHAPTER08x :?= false
         
         _AltenaSpawn
           PLAY_SOUND_FORCED $00E0
-          SET_MUSIC $43
-          YIELD
 
           SCROLL_CAMERA_COORDS [8, 31], 3
           YIELD
@@ -173,8 +169,6 @@ GUARD_FE5_CHAPTER08x :?= false
 
         _LeifSpawn
           PLAY_SOUND_FORCED $00E0
-          SET_MUSIC $43
-          YIELD
 
           SCROLL_CAMERA_COORDS [8, 7], 3
           YIELD
@@ -197,6 +191,10 @@ GUARD_FE5_CHAPTER08x :?= false
 
 
         _08xQuanFinnTalkEvent
+
+          SCROLL_CAMERA_COORDS [8, 47], 1
+          YIELD
+
           macroDialogue ch08xQuanFinnNightmare
           macroASMCActiveUnitSetUnitState UnitStateHidden
 					macroGiveActiveUnitItem BraveLance
@@ -204,10 +202,14 @@ GUARD_FE5_CHAPTER08x :?= false
         END2
         
         _08xEthlynFinnTalkEvent
+          SCROLL_CAMERA_COORDS [8, 39], 1
+          YIELD
           macroDialogue ch08xEthlynFinnNightmare
         END2
 
         _08xAltenaFinnTalkEvent
+          SCROLL_CAMERA_COORDS [8, 31], 1
+          YIELD
           macroDialogue ch08xFinnAltenaNightmare
         END2
 
@@ -225,8 +227,20 @@ GUARD_FE5_CHAPTER08x :?= false
           PLAY_SOUND_FORCED $00E0
 
           macroDialogueWithBG ch08xWakeUp, 1
-          CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
-          YIELD
+          CALL_ASM_LOOP rlASMCDialogueWithBGEnd
+					YIELD
+			
+					HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $0F
+          macroASMCCheckUnitExists Finn
+					macroASMCPromoteUnit Finn, LanceKnight
+          HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $00
+					HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+					HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $00
+					PLAY_SOUND_FORCED $00E0
+					CALL_ASM_LOOP rlASMCSaveActiveUnitData
+						
+					PAUSE_SKIPPABLE 10
+					YIELD
 
           PLAY_SOUND_FORCED $00E0
         END2
@@ -260,6 +274,11 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCSetCharacterDataByte Finn, Experience, 0
           macroASMCSetCharacterDataByte Glade, Level, 20
           macroASMCSetCharacterDataByte Glade, Experience, 0
+          macroASMCSetCharacterDataByte Finn, Fatigue, 99
+          macroASMCSetCharacterDataByte Selphina, Fatigue, 99
+          macroASMCSetCharacterDataByte Glade, Fatigue, 99
+          macroASMCSetCharacterDataByte Ranz, Fatigue, 0
+
           macroASMCRemoveItemFromUnit Finn, Javelin
           macroASMCRemoveItemFromUnit Finn, IronLance
           macroASMCRemoveItemFromUnit Finn, IronLance

@@ -47,7 +47,7 @@ dialogueChapter09Title
 .byte $01
 
 dialogueChapter10Title
-.text "Seven Years Later"
+.text "Six Years Later"
 .byte $01
 
 dialogueChapter11Title

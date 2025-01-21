@@ -176,9 +176,6 @@ GUARD_FE5_CHAPTER24 :?= false
 					macroSetCharacterAI Civilian26, [$02, $00, $0B, $00]
 					macroSetCharacterAI Civilian27, [$02, $00, $0B, $00]
 					macroSetCharacterAI Civilian28, [$02, $00, $0B, $00]
-					macroSetCharacterAI Civilian29, [$02, $00, $0B, $00]
-					macroSetCharacterAI Civilian30, [$02, $00, $0B, $00]
-			
 					CALL_ASM_LOOP _rlNPCRoutine
 				END2
 			
@@ -234,8 +231,6 @@ GUARD_FE5_CHAPTER24 :?= false
 					.word Civilian26
 					.word Civilian27
 					.word Civilian28
-					.word Civilian29
-					.word Civilian30
 				.word 0
 			
 				_Door1 ; B9/B4F6

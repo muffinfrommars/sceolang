@@ -398,6 +398,8 @@ pd04xEnd3
     .text "Urruoagh..."
     .byte NewLine
     .text "Where is that blasted beast of a man?"
+    .byte NewLine
+    .text "Show yourself...!"
     .byte WaitforA
 
     .byte Left_Slot

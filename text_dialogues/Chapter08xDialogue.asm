@@ -557,7 +557,7 @@ ch08xWakeUp
     .byte WaitForA
 
     .byte ScrollText
-    .text "The King wanted to see us tomorrow, remember?"
+    .text "The King wanted to see you tomorrow, remember?"
     .byte WaitForA
 
     .byte Left_Slot

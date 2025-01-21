@@ -51,11 +51,83 @@ GUARD_FE5_CHAPTER10 :?= false
 
 				_PrepGroups
 				.word 0
+
+				_duostring1
+					MS_MOVE_UP
+					MS_MOVE_UP
+					MS_MOVE_UP
+					MS_MOVE_UP
+					MS_MOVE_UP
+				MS_END
+				
+				_duostring2
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+				MS_END
 			
 				_OpeningEvent
+					STORE_WORD wCurrentChapter, Chapter05
+				  	CALL_ASM_SKIPPABLE $9A98CF
+
+					SET_CAMERA_POSITION [6, 15]
+					YIELD
+
+					PLAY_SOUND_FORCED $00E0
+
+					SCROLL_CAMERA_COORDS [6, 29], 2
+					YIELD
+
+					LOAD_GROUP eventChapter10Data._ch10FakeFinn
+
+					WAIT_MOVE
+					YIELD
+
+					MOVE_UNIT LeonsterLanceKnight, [6, 27], [6, 24], 1, None
+          			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					macroASMCSingleTileChangeByCoords [6, 22], $0041
+					macroASMCSingleTileChangeByCoords [6, 23], $00A7
+
+					PLAY_EXTENDED_SOUND $45
+					YIELD
+
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					macroASMCDismount LeonsterLanceKnight
+
+					MOVE_UNIT LeonsterLanceKnight, [6, 24], [6, 19], 1, None
+          			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					macroASMCRemoveUnit LeonsterLanceKnight
+
+					FADE_OUT 2
+					YIELD
+
+					STORE_WORD wCurrentChapter, Chapter10
+				  	CALL_ASM_SKIPPABLE $9A98CF
+
+					SET_CAMERA_POSITION [33, 16]
+					YIELD
+
+					FADE_IN 2
+					YIELD
+
+					macroLoadPlayerUnitsByStartingPositions
+          			
 				END2
 			
 				_EndingEvent
+					macroASMCRemoveUnit Lachesis
 					CALL_ASM_LOOP rlASMCChapterEnd
 				END1
 
@@ -64,12 +136,22 @@ GUARD_FE5_CHAPTER10 :?= false
     .section Chapter10DataSection
 
 			eventChapter10Data
+
+				_ch10FakeFinn
+					UNIT LeonsterLanceKnight, Player, [6, 29], [6, 27], Quan, [], 20, False, [$01, $03, $00, $80]
+				UNIT
+				
+				_ch10Royal
+					UNIT Lachesis, Player, [8, 12], [8, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT Kalf, NPC, [7, 5], [7, 5], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT Alfiona, NPC, [8, 5], [8, 5], Quan, [], 20, False, [$01, $03, $00, $80]
+				UNIT
 			
 				_StartingPositions
-					.byte 29, 13
-					.byte 28, 14
-					.byte 27, 15
-					.byte 27, 16
+					.byte [34, 20]
+					.byte [30, 70]
+					.byte [30, 72]
+					.byte [30, 74]
 				.byte $FF
 
     .endsection Chapter10DataSection
