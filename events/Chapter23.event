@@ -205,10 +205,7 @@ GUARD_FE5_CHAPTER23 :?= false
 					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
-				_BeforeActionEventDefinitions ; FD/F2E5
-					EVENT FlagAlwaysZero, _NPCCounter
-						CMP_WORD wCurrentPhase, NPC
-					END_DEFINITION
+				_BeforeActionEventDefinitions
 				END_DEFINITION_ARRAY
 			
 				_AfterActionEventDefinitions ; FD/F2F2
@@ -681,46 +678,6 @@ GUARD_FE5_CHAPTER23 :?= false
 			
 					CALL_ASM_LOOP rlASMCChapterEnd
 				END1
-			
-				_rlNPCCheck ; FD/FD96
-			
-					.al
-					.xl
-					.autsiz
-					.databank ?
-			
-					lda #(`_NPCTable)<<8
-					sta lEventEngineLongParameter+1,b
-					lda #<>_NPCTable
-					sta lEventEngineLongParameter,b
-					jsl rlASMCCountAllUnitRescuedByPlayerOrNPCByTable
-
-					lda $7E4976
-					and #$00FF
-					clc
-					adc wEventEngineParameter1,b
-					cmp #$0006
-					blt +
-				
-						lda #$0001
-						bra ++
-				
-					+
-					lda #$0000
-				
-					+
-					sta wEventEngineTruthFlag,b
-					clc
-					rtl
-			
-				_NPCTable ; FD/FDC3
-					.word Civilian17
-					.word Civilian18
-					.word Civilian19
-					.word Civilian20
-					.word Civilian21
-					.word Civilian22
-				.word 0
 
     .endsection Chapter23EventsSection
 

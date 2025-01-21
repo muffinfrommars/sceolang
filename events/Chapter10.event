@@ -41,6 +41,8 @@ GUARD_FE5_CHAPTER10 :?= false
 				END_DEFINITION_ARRAY
 			
 				_AfterActionEventDefinitions
+				EVENT FlagAlwaysZero, _EveryAction10
+				END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_BattleEventDefinitions
@@ -67,6 +69,40 @@ GUARD_FE5_CHAPTER10 :?= false
 					MS_MOVE_DOWN
 					MS_MOVE_DOWN
 				MS_END
+				
+				_LeonsterString
+					MS_MOVE_UP
+				MS_END
+				
+				_Finn10String
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_UP
+					MS_MOVE_UP
+					MS_MOVE_UP
+					MS_MOVE_UP
+					MS_MOVE_UP
+				MS_END
+
+				_EveryAction10
+					macroASMCActiveUnitUnsetUnitState UnitStateMoved
+					macroASMCActiveUnitUnsetUnitState UnitStateGrayed
+				END2
 			
 				_OpeningEvent
 					STORE_WORD wCurrentChapter, Chapter05
@@ -113,16 +149,53 @@ GUARD_FE5_CHAPTER10 :?= false
 					FADE_OUT 2
 					YIELD
 
+					SET_CAMERA_POSITION [33, 16]
+					YIELD
+
 					STORE_WORD wCurrentChapter, Chapter10
 				  	CALL_ASM_SKIPPABLE $9A98CF
 
-					SET_CAMERA_POSITION [33, 16]
-					YIELD
+					macroASMCLoadUnitGroup eventChapter10Data._ch10Population
 
 					FADE_IN 2
 					YIELD
 
 					macroLoadPlayerUnitsByStartingPositions
+
+					DIALOGUE d10Finn
+					YIELD
+					
+					MOVE_UNIT Finn, [34, 20], [29, 2], 1, None
+          			YIELD_UNK
+
+					SCROLL_CAMERA_COORDS [29, 2], 1
+
+					WAIT_MOVE
+					YIELD
+
+					MOVE_CHAR LeonsterKnight3, [27, 2], 1, _LeonsterString
+          			YIELD_UNK
+
+					macroASMCSingleTileChangeByCoords [27, 3], $016E
+
+					PLAY_EXTENDED_SOUND $45
+					YIELD
+
+					MOVE_CHAR Finn, [29, 2], 1, _Finn10String
+          			YIELD_UNK
+					
+					SCROLL_CAMERA_COORDS [21, 7], 1
+
+					SCROLL_CAMERA_CHAR Finn, 1
+
+					WAIT_MOVE
+					YIELD
+
+					macroDialogueWithBG d10Blocked, 2
+					CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+					YIELD
+
+
           			
 				END2
 			
@@ -139,6 +212,27 @@ GUARD_FE5_CHAPTER10 :?= false
 
 				_ch10FakeFinn
 					UNIT LeonsterLanceKnight, Player, [6, 29], [6, 27], Quan, [], 20, False, [$01, $03, $00, $80]
+				UNIT
+
+				_ch10Population
+					UNIT LeonsterKnight1, NPC, [29, 16], [29, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight2, NPC, [36, 16], [36, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight3, NPC, [27, 2], [27, 2], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight4, NPC, [6, 16], [6, 16], Quan, [], 20, False, [$01, $03, $00, $80]
+
+					UNIT LeonsterKnight5, NPC, [8, 1], [8, 1], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight6, NPC, [9, 1], [9, 1], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight7, NPC, [32, 0], [32, 0], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight8, NPC, [33, 0], [33, 0], Quan, [], 20, False, [$01, $03, $00, $80]
+
+					UNIT LeonsterKnight9, NPC, [2, 8], [2, 8], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight10, NPC, [8, 19], [8, 19], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight11, NPC, [9, 19], [9, 19], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight12, NPC, [38, 3], [38, 3], Quan, [], 20, False, [$01, $03, $00, $80]
+
+					UNIT LeonsterKnight13, NPC, [20, 5], [20, 5], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight14, NPC, [21, 5], [21, 5], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight15, NPC, [22, 5], [22, 5], Quan, [], 20, False, [$01, $03, $00, $80]
 				UNIT
 				
 				_ch10Royal

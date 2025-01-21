@@ -41,34 +41,7 @@ GUARD_FE5_CHAPTER24 :?= false
 					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
-				_TurnEventDefinitions ; B9/B00D
-					EVENT FlagAlliedDeath, eventMapDeathQuoteDummyEvent
-						TEST_FLAG_SET FlagPlayerDeath
-					END_DEFINITION
-					EVENT _FlagNPCAIChange, _NPCAIChange
-						CMP_WORD wCurrentPhase, NPC
-						CMP_WORD wCurrentTurn, 5
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _OpenedDoorReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						TEST_FLAG_SET _FlagDoor2
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _SoldierReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 2, 5
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _SorcererReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 10, 20
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _UnlockSorcererReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD wCurrentTurn, 8
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _ThiefReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD wCurrentTurn, 20
-					END_DEFINITION
+				_TurnEventDefinitions
 				END_DEFINITION_ARRAY
 			
 				_TalkEventDefinitions ; B9/B07C
@@ -169,16 +142,6 @@ GUARD_FE5_CHAPTER24 :?= false
 					YIELD_UNK
 				END2
 			
-				_NPCAIChange ; B9/B19E
-					macroSetCharacterAI Civilian23, [$02, $00, $0B, $00]
-					macroSetCharacterAI Civilian24, [$02, $00, $0B, $00]
-					macroSetCharacterAI Civilian25, [$02, $00, $0B, $00]
-					macroSetCharacterAI Civilian26, [$02, $00, $0B, $00]
-					macroSetCharacterAI Civilian27, [$02, $00, $0B, $00]
-					macroSetCharacterAI Civilian28, [$02, $00, $0B, $00]
-					CALL_ASM_LOOP _rlNPCRoutine
-				END2
-			
 				_Door2 ; B9/B4A5
 					PLAY_SOUND_FORCED $00F7
 			
@@ -188,50 +151,6 @@ GUARD_FE5_CHAPTER24 :?= false
 					YIELD
 			
 					JUMP _Door2TileChange
-			
-				_rlUnknownNPCCheck ; B9/B4B4
-			
-					.al
-					.xl
-					.autsiz
-					.databank ?
-			
-					lda #(`_UnknownNPCTable)<<8
-					sta lEventEngineLongParameter+1,b
-					lda #<>_UnknownNPCTable
-					sta lEventEngineLongParameter,b
-			
-					jsl rlASMCCountAllUnitRescuedByPlayerOrNPCByTable
-			
-					lda $7E4976
-					and #$00FF
-			
-					clc
-					adc wEventEngineParameter1,b
-			
-					cmp #$0008
-					bne +
-			
-						lda #$0001
-						sec
-						bra ++
-			
-					+
-					lda #$0000
-					clc
-			
-					+
-					sta wEventEngineTruthFlag,b
-					rtl
-			
-				_UnknownNPCTable ; B9/B4E4
-					.word Civilian23
-					.word Civilian24
-					.word Civilian25
-					.word Civilian26
-					.word Civilian27
-					.word Civilian28
-				.word 0
 			
 				_Door1 ; B9/B4F6
 					macroOpenDoorByTileChangeID 0
@@ -293,52 +212,6 @@ GUARD_FE5_CHAPTER24 :?= false
 					YIELD_UNK
 					YIELD_UNK
 				END1
-			
-				_rlNPCRoutine ; B9/B671
-			
-					.al
-					.xl
-					.autsiz
-					.databank ?
-			
-					phx
-					phy
-			
-					lda #100
-					jsl rlGetRandomNumber100
-
-					and #$0003
-					asl a
-					tax
-					lda _RandomNPCTable,x
-					sta wEventEngineCharacterTarget,b
-			
-					lda #structCharacterDataRAM.MovementAI
-					sta wEventEngineParameter1,b
-			
-					lda #$28
-					sta wEventEngineParameter2,b
-			
-					jsl rlASMCSetCharacterDataByte
-			
-					lda #structCharacterDataRAM.MovementAIOffset
-					sta wEventEngineParameter1,b
-			
-					lda #$00
-					sta wEventEngineParameter2,b
-			
-					jsl rlASMCSetCharacterDataByte
-			
-					ply
-					plx
-					clc
-					rtl
-			
-				_RandomNPCTable ; B9/B6AA
-					.word Civilian23
-					.word Civilian24
-					.word Civilian26
-					.word Civilian27
 			
 				_PrepGroups ; B9/B6B2
 					.long eventChapter24Data._PrepGroup

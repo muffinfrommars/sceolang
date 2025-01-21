@@ -12,7 +12,7 @@ aChapterTilesetFadePaletteTable ; 8C/C9F9
 	.long nightpalfade ;chapter 08
 	.long templepalettefade ;chapter 08x
 	.long templepalettefade ;chapter 09
-	.long $EFFAA6 ;chapter 10
+	.long $F0822B ;chapter 10 - KEEP
 	.long $EFFB3B ;chapter 11
 	.long $EFFBDC ;chapter 11x
 	.long $EFFC78 ;chapter 12

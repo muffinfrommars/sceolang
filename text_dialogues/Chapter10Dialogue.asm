@@ -172,3 +172,39 @@ dTimeSkip5
 
 .byte EndText
 
+d10Finn
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Finn_portrait
+	.byte $09
+
+    .text "(His Highness wanted to see me today.)"
+	.byte WaitForA
+    
+    .byte ScrollText
+
+    .text "(He should be on his throne, right?)"
+	.byte WaitForA
+
+    .byte EndText
+d10Blocked
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Finn_portrait
+	.byte $09
+
+    .text "Where is His Highness?"
+	.byte WaitForA
+    
+    .byte Left_Slot
+  	.word LoadPortrait
+    .word Leonster4portrait
+	.byte $09
+
+    .text "The King is in the Prince's room."
+	.byte WaitForA
+
+    .byte EndText
+

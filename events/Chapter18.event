@@ -20,9 +20,6 @@ GUARD_FE5_CHAPTER18 :?= false
 			eventChapter18Events ; E7/8000
 			
 					_FlagGustavBattleQuote 					= enum.enum($05)
-					_FlagXavierBattleQuote 					= enum.enum()
-					_FlagLeifXavierTalk		 					= enum.enum()
-					_FlagXavierAIChange		 					= enum.enum()
 					_FlagLeonsterSoldierKilled			= enum.enum()
 
 					_FlagChest1		 									= enum.enum($22)
@@ -42,49 +39,10 @@ GUARD_FE5_CHAPTER18 :?= false
 					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
-				_TurnEventDefinitions ; E7/800D
-					EVENT FlagAlliedDeath, eventMapDeathQuoteDummyEvent
-						TEST_FLAG_SET FlagPlayerDeath
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _SoldierReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 2, 11
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _RewarpSorcererReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 2, 11
-						ROLL_RNG 50
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _MageArmorReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 12, 21
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _FenrirSorcererReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 19, 20
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _ThiefReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 2, 5
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _MageReinforcements
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_WORD_RANGE wCurrentTurn, 6, 15
-					END_DEFINITION
-					EVENT _FlagXavierAIChange, _XavierAIChange
-						CMP_WORD wCurrentPhase, Enemy
-						CMP_BYTE $7E4976, 8
-					END_DEFINITION
+				_TurnEventDefinitions
 				END_DEFINITION_ARRAY
 			
-				_TalkEventDefinitions ; E7/809A
-					EVENT _FlagLeifXavierTalk, _XavierLeifTalk
-						CHECK_CHARS2 Xavier, Leif
-					END_DEFINITION
-					EVENT _FlagLeifXavierTalk, _LeifXavierTalk
-						CHECK_CHARS2 Leif, Xavier
-						CMP_BYTE $7E4976, 8
-					END_DEFINITION
+				_TalkEventDefinitions
 				END_DEFINITION_ARRAY
 			
 				_LocationEventDefinitions ; E7/8105
@@ -105,39 +63,13 @@ GUARD_FE5_CHAPTER18 :?= false
 					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
-				_BeforeActionEventDefinitions ; E7/81C8
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor1
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor2
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor3
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor4
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor5
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor6
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor7
-					END_DEFINITION
-					EVENT FlagAlwaysZero, _XavierArmorDummyEvent
-						CMP_WORD aSelectedCharacterBuffer.Character, XavierArmor8
-					END_DEFINITION
+				_BeforeActionEventDefinitions
 				END_DEFINITION_ARRAY
 			
 				_AfterActionEventDefinitions ; E7/8222
 				END_DEFINITION_ARRAY
 			
-				_BattleEventDefinitions ; E7/8224
-					macroECBossQuote _FlagGustavBattleQuote, Gustav
-					macroECBossQuote _FlagXavierBattleQuote, Xavier
+				_BattleEventDefinitions
 				END_DEFINITION_ARRAY
 			
 				_ShopEventDefinitions ; E7/8236
@@ -176,161 +108,6 @@ GUARD_FE5_CHAPTER18 :?= false
 				_Door6 ; E7/83CF
 					macroOpenDoorByTileChangeID 5
 				END1
-			
-				_XavierLeifTalk ; E7/83FA
-					PLAY_SOUND_FORCED $00E0
-					PAUSE_SKIPPABLE 32
-					YIELD
-			
-					SET_MUSIC $4A
-					YIELD
-			
-					DIALOGUE dialogueChapter18XavierRecruitment
-					YIELD
-			
-					STORE_BYTE aSelectedCharacterBuffer.LeadershipStars, 1
-			
-					CALL_ASM_SKIPPABLE rlAddSelectedUnitToPlayerPool
-				END2
-			
-				_LeifXavierTalk ; E7/8415
-					PLAY_SOUND_FORCED $00E0
-					PAUSE_SKIPPABLE 32
-					YIELD
-			
-					SET_MUSIC $4A
-					YIELD
-			
-					DIALOGUE dialogueChapter18XavierRecruitment
-					YIELD
-
-					macroASMCChangeAllegianceToPlayer Xavier
-
-					macroASMCSetCharacterDataWord Xavier, Leader, Leif
-
-					macroASMCSetCharacterDataByte Xavier, LeadershipStars, 1
-			
-					SET_FLAG _FlagXavierBattleQuote
-				END2
-			
-				_XavierArmorDialogue1 ; E7/8463
-					macroDialogue dialogueChapter18Villager1
-
-					macroASMCChangeAllegianceToNPC XavierArmor1
-
-					macroASMCUnsetBitsCharacterDataWord XavierArmor1, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-
-					macroSetCharacterAI XavierArmor1, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierArmorDialogue2 ; E7/84F7
-					macroDialogue dialogueChapter18Villager2
-			
-					macroASMCChangeAllegianceToNPC XavierArmor2
-			
-					macroASMCUnsetBitsCharacterDataWord XavierArmor2, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-			
-					macroSetCharacterAI XavierArmor2, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierArmorDialogue3 ; E7/858B
-					macroDialogue dialogueChapter18Villager3
-			
-					macroASMCChangeAllegianceToNPC XavierArmor3
-			
-					macroASMCUnsetBitsCharacterDataWord XavierArmor3, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-			
-					macroSetCharacterAI XavierArmor3, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierArmorDialogue4 ; E7/861F
-					macroDialogue dialogueChapter18Villager4
-			
-					macroASMCChangeAllegianceToNPC XavierArmor4
-			
-					macroASMCUnsetBitsCharacterDataWord XavierArmor4, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-			
-					macroSetCharacterAI XavierArmor4, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierArmorDialogue5 ; E7/86B3
-					macroDialogue dialogueChapter18Villager5
-			
-					macroASMCChangeAllegianceToNPC XavierArmor5
-			
-					macroASMCUnsetBitsCharacterDataWord XavierArmor5, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-			
-					macroSetCharacterAI XavierArmor5, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierArmorDialogue6 ; E7/8747
-					macroDialogue dialogueChapter18Villager6
-			
-					macroASMCChangeAllegianceToNPC XavierArmor6
-			
-					macroASMCUnsetBitsCharacterDataWord XavierArmor6, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-			
-					macroSetCharacterAI XavierArmor6, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierArmorDialogue7 ; E7/87DB
-					macroDialogue dialogueChapter18Villager7
-			
-					macroASMCChangeAllegianceToNPC XavierArmor7
-			
-					macroASMCUnsetBitsCharacterDataWord XavierArmor7, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-			
-					macroSetCharacterAI XavierArmor7, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierArmorDialogue8 ; E7/886F
-					macroDialogue dialogueChapter18Villager8
-			
-					macroASMCChangeAllegianceToNPC XavierArmor8
-			
-					macroASMCUnsetBitsCharacterDataWord XavierArmor8, AIProperties, $80
-			
-					ADD_BYTE $7E4976, 1
-					YIELD_UNK
-					YIELD_UNK
-			
-					macroSetCharacterAI XavierArmor8, [$02, $00, $0B, $00]
-				END2
-			
-				_XavierAIChange ; E7/8903
-					macroSetCharacterAI Xavier, [$0E, $00, $11, $00]
-				END2
-			
-				_XavierArmorDummyEvent ; E7/8964
-				END2
 			
 				_SoldierReinforcements ; E7/8965
 					SCROLL_CAMERA_ADDRESS eventChapter18Data._SoldierReinforcementsCameraCoordinates
@@ -413,21 +190,13 @@ GUARD_FE5_CHAPTER18 :?= false
 					YIELD
 
 					macroChapterTitlePopup dialogueChapter18Title
-			
-					MOVE_CHAR Xavier, [21, 4], 1, None
-			
+						
 					WAIT_MOVE
-					YIELD
-			
-					GET_CHARACTER_COORDS Xavier
-					SCROLL_CAMERA 4
 					YIELD
 			
 					DIALOGUE dialogueChapter18Opening1
 					YIELD
-			
-					MOVE_CHAR Xavier, [21, 6], 1, None
-			
+						
 					WAIT_MOVE
 					YIELD
 			
@@ -585,53 +354,7 @@ GUARD_FE5_CHAPTER18 :?= false
 			
 				_PrepGroup ; B1/9CE8
 					.byte 8, 7
-			
-					UNIT LeonsterSoldier, Enemy, [35, 13], [35, 13], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [37, 13], [37, 13], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [39, 13], [39, 13], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [41, 13], [41, 13], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [20, 15], [20, 15], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [22, 15], [22, 15], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [21, 15], [21, 15], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [29, 6], [29, 6], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [37, 3], [37, 3], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [39, 3], [39, 3], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [33, 5], [33, 5], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [32, 5], [32, 5], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [15, 5], [15, 5], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT ThiefEnemy1, Enemy, [38, 10], [38, 10], Seil, [KillingEdge, Lockpick], 10, False, [$15, $0B, $00, $00]
-					UNIT DancerEnemy, Enemy, [37, 10], [37, 10], Seil, [PureWater], 1, False, [$07, $0B, $00, $00]
-					UNIT DancerEnemy, Enemy, [40, 9], [40, 9], Seil, [PureWater], 1, False, [$07, $0B, $00, $00]
-					UNIT DancerEnemy, Enemy, [39, 10], [39, 10], Seil, [LuckRing], 1, False, [$07, $0B, $00, $00]
-					UNIT DancerEnemy, Enemy, [36, 9], [36, 9], Seil, [Recover], 1, False, [$07, $0B, $00, $00]
-					UNIT ThiefEnemy1, Enemy, [12, 12], [12, 12], Seil, [KillingEdge, ChestKey], 4, False, [$02, $06, $00, $00]
-					UNIT ThiefEnemy1, Enemy, [32, 1], [32, 1], Seil, [KillingEdge, ChestKey], 4, False, [$02, $06, $00, $00]
-					UNIT LeonsterSoldier, Enemy, [16, 5], [16, 5], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [26, 5], [26, 5], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT LeonsterSoldier, Enemy, [27, 5], [27, 5], Xavier, [Javelin], 1, False, [$00, $10, $02, $00]
-					UNIT Gustav, Enemy, [21, 3], [21, 3], Gustav, [MasterLance, Mend, Thoron, Vulnerary, AdeptManual], 17, True, [$01, $03, $00, $80]
-					UNIT FriegeArmoredAxe1, Enemy, [19, 11], [19, 11], Gustav, [Hammer, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT FriegeArmoredAxe1, Enemy, [23, 11], [23, 11], Gustav, [Hammer, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT FriegeArmoredAxe1, Enemy, [5, 13], [5, 13], Gustav, [Hammer, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT FriegeArmoredAxe1, Enemy, [11, 13], [11, 13], Gustav, [Hammer, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT FriegeArmoredLance1, Enemy, [19, 9], [19, 9], Gustav, [KillerLance, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT FriegeArmoredLance1, Enemy, [23, 9], [23, 9], Gustav, [KillerLance, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT FriegeArmoredLance1, Enemy, [2, 8], [2, 8], Gustav, [KillerLance, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT FriegeArmoredLance1, Enemy, [7, 13], [7, 13], Gustav, [KillerLance, Vulnerary], 15, False, [$00, $00, $00, $00]
-					UNIT XavierArmor1, Enemy, [18, 9], [18, 9], Xavier, [KillerLance, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT XavierArmor2, Enemy, [20, 9], [20, 9], Xavier, [KillerLance, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT XavierArmor3, Enemy, [22, 9], [22, 9], Xavier, [KillerLance, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT XavierArmor4, Enemy, [24, 9], [24, 9], Xavier, [KillerLance, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT XavierArmor5, Enemy, [18, 11], [18, 11], Xavier, [Hammer, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT XavierArmor6, Enemy, [20, 11], [20, 11], Xavier, [Hammer, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT XavierArmor7, Enemy, [22, 11], [22, 11], Xavier, [Hammer, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT XavierArmor8, Enemy, [24, 11], [24, 11], Xavier, [Hammer, Vulnerary], 15, False, [$14, $00, $00, $80]
-					UNIT Civilian9, NPC, [6, 6], [6, 6], Ishtar, [], 1, False, [$02, $1A, $00, $00]
-					UNIT Civilian10, NPC, [7, 6], [7, 6], Ishtar, [], 1, False, [$02, $1B, $00, $00]
-					UNIT Civilian11, NPC, [10, 8], [10, 8], Ishtar, [], 1, False, [$02, $1C, $00, $00]
-					UNIT Civilian12, NPC, [9, 8], [9, 8], Ishtar, [], 1, False, [$02, $1D, $00, $00]
-					UNIT Civilian13, NPC, [9, 9], [9, 9], Ishtar, [], 1, False, [$02, $1E, $00, $00]
-					UNIT Xavier, Enemy, [21, 6], [21, 6], Xavier, [MasterAxe, KillerBow], 6, False, [$14, $03, $00, $00]
+		
 				UNIT
 			
 				_SoldierReinforcementsCameraCoordinates ; B1/A0C0
