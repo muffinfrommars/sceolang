@@ -112,6 +112,13 @@ GUARD_FE5_CHAPTER11x :?= false
     .section Chapter11xDataSection
 
 			eventChapter11xData
+
+				_ch04xReinforcementsBucksGroup
+					UNIT Kalf, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
+					UNIT Alface, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
+					UNIT Lurvin, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight1, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
+				UNIT
 			
 				_StartingPositions
 					.byte 3, 22
