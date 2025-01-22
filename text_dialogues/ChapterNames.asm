@@ -47,7 +47,7 @@ dialogueChapter09Title
 .byte $01
 
 dialogueChapter10Title
-.text "Six Years Later"
+.text "The Night Before Sortie"
 .byte $01
 
 dialogueChapter11Title
@@ -55,7 +55,7 @@ dialogueChapter11Title
 .byte $01
 
 dialogueChapter11xTitle
-.text "Chapter 11x: Desperate Ground"
+.text "Chapter 1: Sortie"
 .byte $01
 
 dialogueChapter12Title

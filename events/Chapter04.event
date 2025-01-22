@@ -211,7 +211,7 @@ GUARD_FE5_CHAPTER04 :?= false
           DIALOGUE dpRescueComplete
           YIELD
 
-          macroASMCGiveUnitItemSilent Finn, ParagonSword
+          macroASMCGiveUnitItemSilent Finn, Vulnerary ;paragonsword but issue with later chapters, fix!
         END2
 
         _PlayerRetreat ; 99/8F5B

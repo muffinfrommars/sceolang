@@ -13,8 +13,8 @@ aChapterTilesetFadePaletteTable ; 8C/C9F9
 	.long templepalettefade ;chapter 08x
 	.long templepalettefade ;chapter 09
 	.long $F0822B ;chapter 10 - KEEP
-	.long $EFFB3B ;chapter 11
-	.long $EFFBDC ;chapter 11x
+	.long $F0822B ;chapter 11
+	.long sunsetppalettefade ;chapter 11x
 	.long $EFFC78 ;chapter 12
 	.long $EFFD06 ;12x
 	.long $EFFD93 ;13
@@ -29,7 +29,7 @@ aChapterTilesetFadePaletteTable ; 8C/C9F9
 	.long $F082C9 ;19
 	.long $F0835A ;20
 	.long $F083FB ;21
-	.long $F08491 ;21x
+	.long sunsetppalettefade ;21x
 	.long templepalettefade ;22
 	.long $F08659 ;23
 	.long ppalettedark ;24

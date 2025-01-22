@@ -24,6 +24,8 @@ GUARD_FE5_CHAPTER10 :?= false
 					_FlagFinnLeonsterKnight1 = enum.enum()
 					_FlagFinnLeonsterKnight2 = enum.enum()
 					_FlagFinnLeonsterKnight3 = enum.enum()
+					_FlagFinnLeonsterKnight4 = enum.enum()
+					_FlagFinnLeonsterKnight5 = enum.enum()
 
 				_OpeningEventDefinitions ; 99/C559
 					EVENT FlagAlwaysZero, _OpeningEvent
@@ -32,21 +34,30 @@ GUARD_FE5_CHAPTER10 :?= false
 				END_DEFINITION_ARRAY
 			
 				_TurnEventDefinitions
-				EVENT FlagAlwaysZero, _EveryAction10
-					CMP_WORD wCurrentPhase, Player
-				END_DEFINITION
+					EVENT FlagAlwaysZero, _EveryAction10
+						CMP_WORD wCurrentPhase, Player
+					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_TalkEventDefinitions
-				EVENT _FlagFinnLeonsterKnight1, _ch10Talk1
-					CHECK_CHARS2 Finn, LeonsterKnight1
-				END_DEFINITION
-				EVENT _FlagFinnLeonsterKnight2, _ch10Talk2
-					CHECK_CHARS2 Finn, LeonsterKnight2
-				END_DEFINITION
-				EVENT _FlagFinnLeonsterKnight3, _ch10Talk3
-					CHECK_CHARS2 Finn, LeonsterKnight3
-				END_DEFINITION
+					EVENT _FlagFinnLeonsterKnight1, _ch10Talk1
+						CHECK_CHARS2 Finn, LeonsterKnight1
+					END_DEFINITION
+					EVENT _FlagFinnLeonsterKnight2, _ch10Talk2
+						CHECK_CHARS2 Finn, LeonsterKnight2
+					END_DEFINITION
+					EVENT _FlagFinnLeonsterKnight3, _ch10Talk3
+						CHECK_CHARS2 Finn, LeonsterKnight3
+					END_DEFINITION
+					EVENT _FlagFinnLeonsterKnight4, _ch10Talk4
+						CHECK_CHARS2 Finn, LeonsterKnight12
+					END_DEFINITION
+					EVENT _FlagFinnLeonsterKnight5, _ch10Talk5
+						CHECK_CHARS2 Finn, LeonsterKnight7
+					END_DEFINITION
+					EVENT _FlagFinnLeonsterKnight5, _ch10Talk5
+						CHECK_CHARS2 Finn, LeonsterKnight8
+					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_LocationEventDefinitions
@@ -118,6 +129,49 @@ GUARD_FE5_CHAPTER10 :?= false
 					MS_MOVE_UP
 					MS_MOVE_UP
 				MS_END
+				
+				_Finn10String2
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+					MS_MOVE_RIGHT
+				MS_END
+				
+				_RoyalMovestring
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+				MS_END
+				
+				_RoyalMovestring2
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+				MS_END
+				
+				_GladeString
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+				MS_END
 
 				_EveryAction10
 					macroASMCUnsetUnitState Finn, UnitStateGrayed
@@ -136,8 +190,118 @@ GUARD_FE5_CHAPTER10 :?= false
 				
 				_ch10Talk3
 					macroDialogue d10SoldierB
-					YIELD
 				END1
+				
+				_ch10Talk4
+					macroDialogue d10SoldierC
+				END1
+				
+				_ch10Talk5
+					macroDialogueWithBG d10SoldierRoom, 1
+					CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+					YIELD
+
+    		        PLAY_SOUND_FORCED $00E0
+
+
+					macroASMCRemoveUnit LeonsterKnight1
+					macroASMCRemoveUnit LeonsterKnight2
+					macroASMCRemoveUnit LeonsterKnight3
+					macroASMCRemoveUnit LeonsterKnight4
+					macroASMCRemoveUnit LeonsterKnight5
+					macroASMCRemoveUnit LeonsterKnight6
+					macroASMCRemoveUnit LeonsterKnight7
+					macroASMCRemoveUnit LeonsterKnight8
+					macroASMCRemoveUnit LeonsterKnight9
+					macroASMCRemoveUnit LeonsterKnight10
+					macroASMCRemoveUnit LeonsterKnight11
+					macroASMCRemoveUnit LeonsterKnight12
+					macroASMCRemoveUnit LeonsterKnight13
+					macroASMCRemoveUnit LeonsterKnight14
+					macroASMCRemoveUnit LeonsterKnight15
+					macroASMCRemoveUnit LeonsterKnight16
+
+					STORE_WORD wCurrentChapter, Chapter11
+				  	CALL_ASM_SKIPPABLE $9A98CF
+
+					macroASMCLoadUnitGroup eventChapter10Data._ch10Population2
+
+					SET_CAMERA_POSITION [1, 1]
+
+					SET_CURSOR_POSITION [1, 9]
+
+					WARP_UNIT Finn, [33, 1], [1, 9]
+					YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					LOAD_GROUP eventChapter10Data._ch10Royal
+
+					WAIT_MOVE
+					YIELD
+
+					macroASMCDismount Alfiona
+
+					MOVE_CHAR Kalf, [10, 1], 1, _RoyalMovestring
+          			YIELD_UNK
+
+					MOVE_CHAR Alfiona, [12, 1], 1, _RoyalMovestring
+          			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+					
+					MOVE_CHAR Finn, [1, 9], 1, _Finn10String2
+          			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					macroDialogueWithBG d10Royal, 1
+					CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+					YIELD
+
+					MOVE_CHAR Kalf, [10, 1], 1, _RoyalMovestring2
+          			YIELD_UNK
+
+					MOVE_CHAR Alfiona, [12, 1], 1, _RoyalMovestring2
+          			YIELD_UNK
+
+					macroASMCRemoveUnit Kalf
+					macroASMCRemoveUnit Alfiona
+
+					WAIT_MOVE
+					YIELD
+
+					DIALOGUE d10FinnShocked
+					YIELD
+
+					PAUSE_SKIPPABLE 120
+					YIELD
+
+  					LOAD_GROUP eventChapter10Data._ch10FakeGlade
+
+					WAIT_MOVE
+					YIELD
+
+					macroASMCDismount FakeGlade
+
+					MOVE_CHAR FakeGlade, [15, 9], 1, _GladeString
+          			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					macroDialogueWithBG d10FinnGlade, 1
+					CALL_ASM_LOOP rlASMCDialogueWithBGEnd, $0000
+					YIELD
+
+					macroASMCRemoveUnit FakeGlade
+
+					CALL_ASM_LOOP rlASMCChapterEnd
+
+				END2
 
 
 				_OpeningEvent
@@ -243,6 +407,7 @@ GUARD_FE5_CHAPTER10 :?= false
 					macroASMCSingleTileChangeByCoords [36, 15], $014E
 					macroASMCSingleTileChangeByCoords [36, 16], $016E
 					macroASMCSingleTileChangeByCoords [38, 4], $014E
+					macroASMCSingleTileChangeByCoords [38, 5], $0010
           			
 				END2
 			
@@ -271,23 +436,43 @@ GUARD_FE5_CHAPTER10 :?= false
 
 					UNIT LeonsterKnight5, NPC, [8, 1], [8, 1], Quan, [], 20, False, [$01, $03, $00, $80]
 					UNIT LeonsterKnight6, NPC, [9, 1], [9, 1], Quan, [], 20, False, [$01, $03, $00, $80]
+					; bottom two block the way to Leifs room
 					UNIT LeonsterKnight7, NPC, [32, 0], [32, 0], Quan, [], 20, False, [$01, $03, $00, $80]
 					UNIT LeonsterKnight8, NPC, [33, 0], [33, 0], Quan, [], 20, False, [$01, $03, $00, $80]
 
 					UNIT LeonsterKnight9, NPC, [2, 8], [2, 8], Quan, [], 20, False, [$01, $03, $00, $80]
 					UNIT LeonsterKnight10, NPC, [8, 19], [8, 19], Quan, [], 20, False, [$01, $03, $00, $80]
 					UNIT LeonsterKnight11, NPC, [9, 19], [9, 19], Quan, [], 20, False, [$01, $03, $00, $80]
+					;up is inaccessible | down is top right door npc
 					UNIT LeonsterKnight12, NPC, [38, 3], [38, 3], Quan, [], 20, False, [$01, $03, $00, $80]
 
 					UNIT LeonsterKnight13, NPC, [20, 5], [20, 5], Quan, [], 20, False, [$01, $03, $00, $80]
 					UNIT LeonsterKnight14, NPC, [21, 5], [21, 5], Quan, [], 20, False, [$01, $03, $00, $80]
 					UNIT LeonsterKnight15, NPC, [22, 5], [22, 5], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight16, NPC, [15, 2], [15, 2], Quan, [], 20, False, [$01, $03, $00, $80]
+				UNIT
+
+				_ch10Population2
+					UNIT LeonsterKnight4, NPC, [3, 7], [3, 7], Quan, [], 20, False, [$01, $03, $00, $80]
+
+					UNIT LeonsterKnight5, NPC, [3, 11], [3, 11], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight6, NPC, [7, 7], [7, 7], Quan, [], 20, False, [$01, $03, $00, $80]                                                                  
+
+					UNIT LeonsterKnight9, NPC, [7, 11], [7, 11], Quan, [], 20, False, [$01, $03, $00, $80]
+
+					UNIT LeonsterKnight10, NPC, [11, 11], [11, 11], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT LeonsterKnight11, NPC, [15, 7], [15, 7], Quan, [], 20, False, [$01, $03, $00, $80]                                                                                                                                                                                                                                   
+
+					UNIT LeonsterKnight16, NPC, [15, 11], [15, 11], Quan, [], 20, False, [$01, $03, $00, $80]
 				UNIT
 				
 				_ch10Royal
-					UNIT Lachesis, Player, [8, 12], [8, 12], Quan, [], 20, False, [$01, $03, $00, $80]
-					UNIT Kalf, NPC, [7, 5], [7, 5], Quan, [], 20, False, [$01, $03, $00, $80]
-					UNIT Alfiona, NPC, [8, 5], [8, 5], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT Kalf, NPC, [10, 1], [10, 1], Quan, [], 20, False, [$01, $03, $00, $80]
+					UNIT Alfiona, NPC, [12, 1], [12, 1], Quan, [], 20, False, [$01, $03, $00, $80]
+				UNIT
+				
+				_ch10FakeGlade
+					UNIT FakeGlade, Player, [15, 9], [15, 9], Quan, [], 20, False, [$01, $03, $00, $80]
 				UNIT
 			
 				_StartingPositions

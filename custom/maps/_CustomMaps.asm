@@ -29,7 +29,9 @@
     ballroom1        .binary "ballroom.bin.fe4"
     dream            .binary "dream.bin.fe4"
     empty            .binary "empty.bin.fe4"
-    throne           .binary "throne.bin.fe4"
+    hallway          .binary "hallway.bin.fe4"
+    riverprelude     .binary "riverprelude.bin.fe4"
+    riverthraciapartb    .binary "riverthraciapartb.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"
     ;mapleif          .binary "leif.bin.fe4"
 .here
