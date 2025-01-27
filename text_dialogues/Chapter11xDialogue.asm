@@ -150,3 +150,145 @@ d11xKalfRally
     .byte WaitForA
 
     .byte EndText
+
+d11xRaydrik
+    .byte Right_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "Tomorrow's battle will put Kalf out of his misery."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "He's desperate to avenge Quan, throwing himself"
+    .byte NewLine
+    .text "and his forces into the jaws of Thracia."
+    .byte WaitForA
+    .byte ScrollText
+    .text "It's almost pitiful to watch."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "The fool thinks himself a lion, but all"
+    .byte NewLine
+    .text "I see is a lamb to the slaughter."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "And when the dust settles, I'll be the one"
+    .byte NewLine
+    .text "left standing. Munster secure, Thracia cowed,"
+    .byte NewLine
+    .text "and Leonster a memory."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "The Empire will see my worth then-when I"
+    .byte NewLine
+    .text "deliver them a victory they didn't even have to"
+    .byte NewLine
+    .text "fight for..."
+    .byte WaitForA
+
+    .word PlayMusic
+	.byte $3E 
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Veld_Portrait
+    .text "Do not get too ahead of yourself, Raydrik..."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "Tomorrow's battle will be just the beginning."
+    .byte NewLine
+    .text "Your future depends on the results..."
+    .byte WaitForA
+
+    .byte EndText
+
+
+
+d11xRaydrik2
+    .byte Right_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "You think I need reminding of that, Veld?"
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "I'm not some petty fool who needs constant"
+    .byte Newline
+    .text "prodding. I know the stakes."
+    .byte Newline
+    .text "I've already set the pieces in motion."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "Tomorrow, I end this charade. Kalf's death will"
+    .byte NewLine
+    .text "secure my place, and the Empire will recognize"
+    .byte NewLine
+    .text "my strength."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "When Kalf falls, there will be no doubt as to"
+    .byte newline
+    .text "who is the true leader here."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "And you'll see it too, whether you like it or not."
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Veld_Portrait
+    .text "Such grand declarations, Raydrik."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "Kalf's death is a necessary step. But it is just"
+    .byte Newline
+    .text "one step. The rest is up to you."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "The Empire will demand results, nothing more. If"
+    .byte newline
+    .text "you succeed, your position will be assured."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "If not... you may find yourself forgotten."
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "I will not falter. Tomorrow, Kalf falls."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "His death is my first victory. And with it, I"
+    .byte NewLine
+    .text "will secure my future. You will see, Veld."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "And when the Empire comes calling, they will"
+    .byte NewLine
+    .text "know that I am the one who stands at the top."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "We shall see, Raydrik. We shall see."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "Do not disappoint me. The Empire's future depends"
+    .byte NewLine
+    .text "on the choices you make."
+    .byte WaitForA
+
+    .byte EndText

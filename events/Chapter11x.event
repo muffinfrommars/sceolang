@@ -71,7 +71,7 @@ GUARD_FE5_CHAPTER11x :?= false
 					STORE_WORD wCurrentChapter, Chapter21x
 				  	CALL_ASM_SKIPPABLE $9A98CF
 
-					SET_CAMERA_POSITION [19, 20]
+					SET_CAMERA_POSITION [19, 19]
 					YIELD
 
  					macroChapterTitlePopup dialogueChapter11xTitle
@@ -98,7 +98,7 @@ GUARD_FE5_CHAPTER11x :?= false
 					SCROLL_CAMERA_COORDS [1, 1], 1
 					YIELD
 
-					LOAD_GROUP eventChapter11xData._11xarmy
+					LOAD_GROUP eventChapter11xData._11xarmy1
 					WAIT_MOVE
 					YIELD
 
@@ -108,8 +108,67 @@ GUARD_FE5_CHAPTER11x :?= false
 					DIALOGUE d11xKalfRally
 					YIELD
 
+		            PLAY_SOUND_FORCED $00E0
+
+					FADE_OUT 2
+					YIELD
+
+					macroASMCRemoveUnit Kalf
+					macroASMCRemoveUnit Lurvin
+					macroASMCRemoveUnit Alface
 					macroASMCRemoveUnit Ranz
-					CALL_ASM_LOOP rlASMCChapterEnd
+					macroASMCRemoveUnit LeonsterKnight1
+					macroASMCRemoveUnit LeonsterKnight2
+					macroASMCRemoveUnit LeonsterKnight3
+					macroASMCRemoveUnit LeonsterKnight4
+					macroASMCRemoveUnit LeonsterKnight5
+					macroASMCRemoveUnit LeonsterKnight6
+					macroASMCRemoveUnit LeonsterKnight7
+					macroASMCRemoveUnit LeonsterKnight8
+					macroASMCRemoveUnit LeonsterKnight9
+					macroASMCRemoveUnit LeonsterKnight10
+					macroASMCRemoveUnit LeonsterKnight11
+					macroASMCRemoveUnit LeonsterKnight12
+					macroASMCRemoveUnit LeonsterKnight13
+					macroASMCRemoveUnit LeonsterKnight14
+					macroASMCRemoveUnit LeonsterKnight15
+
+					STORE_WORD wCurrentChapter, Chapter07
+				  	CALL_ASM_SKIPPABLE $9A98CF
+
+					SET_CAMERA_POSITION [1, 1]
+					YIELD
+
+					FADE_IN 2
+					YIELD
+
+			        macroChapterTitlePopup dialogueChapter06Title
+
+				    LOAD_GROUP eventChapter11xData._11xRaydrik
+
+					WAIT_MOVE
+        			YIELD
+
+					MOVE_UNIT Raydrik, [7, 1], [6, 6], 1, None
+        			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					DIALOGUE d11xRaydrik
+					PAUSE_SKIPPABLE 8
+					macroASMCLoadUnitGroup eventChapter06Data._ch06Veld
+					YIELD
+
+					MOVE_UNIT Veld, [7, 12], [9, 6], 1, None
+        			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					DIALOGUE d11xRaydrik2
+					YIELD
+
 
 
 				END2
@@ -125,7 +184,11 @@ GUARD_FE5_CHAPTER11x :?= false
 
 			eventChapter11xData
 
-				_11xarmy
+				_11xRaydrik
+					UNIT Raydrik, Enemy, [7, 1], [7, 1], Quan, [], 5, false, [$01, $03, $00, $80]
+				UNIT
+
+				_11xarmy1
 					UNIT Kalf, Player, [3, 1], [26, 6], Quan, [Kingmaker, Vulnerary], 5, false, [$01, $03, $00, $80]
 					UNIT Lurvin, Player, [3, 1], [24, 6], Quan, [], 5, false, [$01, $03, $00, $80]
 					UNIT Alface, Player, [3, 1], [24, 5], Quan, [], 5, false, [$01, $03, $00, $80]
@@ -142,9 +205,9 @@ GUARD_FE5_CHAPTER11x :?= false
 					UNIT LeonsterKnight10, Player, [3, 1], [20, 5], Quan, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight11, Player, [3, 1], [20, 6], Quan, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight12, Player, [3, 1], [20, 7], Quan, [], 5, false, [$01, $03, $00, $80]
- 					UNIT LeonsterKnight10, Player, [3, 1], [19, 5], Quan, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight11, Player, [3, 1], [19, 6], Quan, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight12, Player, [3, 1], [19, 7], Quan, [], 5, false, [$01, $03, $00, $80]
+ 					UNIT LeonsterKnight13, Player, [3, 1], [19, 5], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight14, Player, [3, 1], [19, 6], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight15, Player, [3, 1], [19, 7], Quan, [], 5, false, [$01, $03, $00, $80]
 				UNIT
 			
 				_StartingPositions
