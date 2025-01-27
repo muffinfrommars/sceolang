@@ -1,4 +1,4 @@
-.include "asm/_CustomASMInstaller.asm"
+;.include "asm/_CustomASMInstaller.asm"
 .include "graphics/_CustomGraphics.asm"
 .include "maps/_CustomMaps.asm"
 .include "tilesets/_CustomTilesets.asm"

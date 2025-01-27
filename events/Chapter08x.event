@@ -292,6 +292,8 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCRemoveItemFromUnit Finn, Steellance
           macroASMCRemoveItemFromUnit Finn, ShortBow
           macroASMCRemoveItemFromUnit Finn, IronBow
+  				macroASMCSetBitsCharacterDataWord Finn, Skills2, Skill2Miracle
+
           YIELD
           macroASMCRemoveItemFromUnit Glade, Javelin
           macroASMCRemoveItemFromUnit Glade, IronLance

@@ -98,6 +98,18 @@ GUARD_FE5_CHAPTER11x :?= false
 					SCROLL_CAMERA_COORDS [1, 1], 1
 					YIELD
 
+					LOAD_GROUP eventChapter11xData._11xarmy
+					WAIT_MOVE
+					YIELD
+
+					SCROLL_CAMERA_COORDS [26, 6], 2
+					YIELD
+
+					DIALOGUE d11xKalfRally
+					YIELD
+
+					macroASMCRemoveUnit Ranz
+					CALL_ASM_LOOP rlASMCChapterEnd
 
 
 				END2
@@ -113,11 +125,26 @@ GUARD_FE5_CHAPTER11x :?= false
 
 			eventChapter11xData
 
-				_ch04xReinforcementsBucksGroup
-					UNIT Kalf, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
-					UNIT Alface, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
-					UNIT Lurvin, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight1, Player, [5, 17], [9, 17], Quan, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
+				_11xarmy
+					UNIT Kalf, Player, [3, 1], [26, 6], Quan, [Kingmaker, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT Lurvin, Player, [3, 1], [24, 6], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT Alface, Player, [3, 1], [24, 5], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT Ranz, Player, [3, 1], [24, 7], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight1, Player, [3, 1], [23, 5], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight2, Player, [3, 1], [23, 6], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight3, Player, [3, 1], [23, 7], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight4, Player, [3, 1], [22, 5], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight5, Player, [3, 1], [22, 6], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight6, Player, [3, 1], [22, 7], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight7, Player, [3, 1], [21, 5], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight8, Player, [3, 1], [21, 6], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight9, Player, [3, 1], [21, 7], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight10, Player, [3, 1], [20, 5], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight11, Player, [3, 1], [20, 6], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight12, Player, [3, 1], [20, 7], Quan, [], 5, false, [$01, $03, $00, $80]
+ 					UNIT LeonsterKnight10, Player, [3, 1], [19, 5], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight11, Player, [3, 1], [19, 6], Quan, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight12, Player, [3, 1], [19, 7], Quan, [], 5, false, [$01, $03, $00, $80]
 				UNIT
 			
 				_StartingPositions
