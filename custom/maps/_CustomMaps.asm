@@ -4,6 +4,7 @@
 .logical lorom($476760, 1)
     startEventScenes
       .dsection Chapter02xEventsSection
+      .dsection Chapter08xEventsSection
     endEventScenes
 .here
 
