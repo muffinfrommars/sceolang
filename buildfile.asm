@@ -920,12 +920,13 @@ DSizeEnds		     := []
     startEventScenes
 
       ;.dsection Chapter02xEventsSection ch02x got too big! need to move elsewhere
-      .dsection Chapter08xEventsSection
+      ;.dsection Chapter08xEventsSection
       .dsection Chapter24xEventsSection
 
     endEventScenes
 
     ; 978EC5
+    .checkfit $978EC5 ; checks if above chapters overwrite
 
   .endlogical
 

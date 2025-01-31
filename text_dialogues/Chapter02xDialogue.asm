@@ -42,7 +42,7 @@ dPrologue3s2
   	.word LoadPortrait
  	.word Finn_portrait
 	.byte $09 ; font 9(always use font 9)
-	.text "Glade, Selfina! Are you two all right?!"
+	.text "Glade, Selphina! Are you two all right?!"
 	.byte WaitForA
 	
 	.byte Left_slot
@@ -73,7 +73,7 @@ dPrologueForestFinnGlade
   	.word LoadPortrait
  	.word Finn_portrait
 	.byte $09 ; font 9(always use font 9)
-	.text "Glade, What is going on here?"
+	.text "Glade, what is going on here?"
 	.byte WaitForA
 	
 	.byte Left_slot

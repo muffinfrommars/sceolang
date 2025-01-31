@@ -169,6 +169,19 @@ GUARD_FE5_CHAPTER11x :?= false
 					DIALOGUE d11xRaydrik2
 					YIELD
 
+					macroScriptedRewarpStaff Veld
+
+					macroASMCRemoveUnit Veld
+
+					DIALOGUE d11xRaydrik3
+					YIELD
+
+					STORE_WORD wCurrentChapter, Chapter11x
+				  	CALL_ASM_SKIPPABLE $9A98CF
+
+					CALL_ASM_LOOP rlASMCChapterEnd
+
+
 
 
 				END2

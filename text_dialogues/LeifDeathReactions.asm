@@ -45,7 +45,7 @@ dialogueLeifDeathDoriasReaction
 dialogueLeifDeathAugustReaction
 .byte Right_slot
 .word LoadPortrait
-.word augustus_portrait
-.text "Prince Leif...is dead...?"
+.word glade_portrait
+.text "Finn! Don't give up...!"
 .byte WaitForA
 .byte EndText

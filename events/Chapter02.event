@@ -25,39 +25,26 @@ GUARD_FE5_CHAPTER02 :?= false
 
           _FlagBucksBattleQuote = enum.enum($05)
 
-          _FlagVillageAttacked = enum.enum($0A)
-
-          _FlagOpeningHouseDestroy   = enum.enum($21)
-          _FlagRonanHouseDestroy     = enum.enum()
-          _FlagSpeedRingHouseDestroy = enum.enum()
-          _FlagVulneraryHouseDestroy = enum.enum()
-          _FlagRonanHouseVisit       = enum.enum()
-          _FlagSpeedRingHouseVisit   = enum.enum()
-          _FlagVulneraryHouseVisit   = enum.enum()
-
-        _OpeningEventDefinitions ; 99/81B4
+        _OpeningEventDefinitions
           EVENT FlagAlwaysZero, _OpeningEvent
             CMP_WORD wCurrentTurn, 0
           END_DEFINITION
         END_DEFINITION_ARRAY
 
-        _TurnEventDefinitions ; 99/81C1
-          EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
-            CHECK_IF_BOSS_DEAD Bucks
-            CMP_WORD wCurrentPhase, Enemy
+        _TurnEventDefinitions
           END_DEFINITION
         END_DEFINITION_ARRAY
 
-        _TalkEventDefinitions ; 99/820A
+        _TalkEventDefinitions
         END_DEFINITION_ARRAY
 
-        _LocationEventDefinitions ; 99/820C
+        _LocationEventDefinitions
         END_DEFINITION_ARRAY
 
-        _BeforeActionEventDefinitions ; 99/8301
+        _BeforeActionEventDefinitions
         END_DEFINITION_ARRAY
 
-        _AfterActionEventDefinitions ; 99/8303
+        _AfterActionEventDefinitions
           EVENT FlagAlwaysZero, _FinnAdvances
             macroECCheckCoordinateRanges [3, 6], [7, 11]
             CMP_WORD wCurrentPhase, Player
@@ -68,12 +55,10 @@ GUARD_FE5_CHAPTER02 :?= false
 		      END_DEFINITION
         END_DEFINITION_ARRAY
 
-        _BattleEventDefinitions ; 99/8305
-          macroECBossQuote _FlagBucksBattleQuote, Bucks
+        _BattleEventDefinitions
         END_DEFINITION_ARRAY
 
-        _ShopEventDefinitions ; 99/830F
-          macroECShop eventChapter02Data._Vendor
+        _ShopEventDefinitions
         END_DEFINITION_ARRAY
 
        _NorthernCave ; 99/8324
@@ -102,7 +87,13 @@ GUARD_FE5_CHAPTER02 :?= false
           MOVE_CHAR Finn, [1, 12], 4
           YIELD_UNK
 
+          WAIT_MOVE
+          YIELD
+
           WARP_UNIT Finn, [1, 12], [20, 20]
+
+          WAIT_MOVE
+          YIELD
 
           PLAY_SOUND_FORCED $00E0
           PAUSE_SKIPPABLE 16
@@ -244,7 +235,7 @@ GUARD_FE5_CHAPTER02 :?= false
 
           macroASMCSetBitsCharacterDataWord Ranz, Skills2, Skill2Anchor
 					macroASMCSetCharacterDataWord Finn, Leader, Dryas
-          macroASMCSetCharacterDataByte Finn, Fatigue, 1
+          macroASMCSetCharacterDataByte Finn, Fatigue, 0
 
           macroASMCDismount LeonsterBowKnight
           macroASMCDismount LeonsterLanceKnight
@@ -253,12 +244,9 @@ GUARD_FE5_CHAPTER02 :?= false
           YIELD
 
           SET_CAMERA_POSITION [1, 1]
-
-          CALL_ASM_SKIPPABLE rlUpdateVisibilityMap, $0000
-          CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog, $0000
           YIELD
 
-          FADE_IN $01
+          FADE_IN 2
           YIELD
 
           DIALOGUE dPrologue2P3 ;CH02DIALOGUE3
@@ -307,6 +295,7 @@ GUARD_FE5_CHAPTER02 :?= false
         _ch02MainGroup1
           UNIT Dryas, NPC, [15, 5], [15, 7], Quan, [], 3, True, [$02, $08, $00, $00]
           UNIT Xavier, NPC, [15, 6], [15, 6], Quan, [], 2, False, [$02, $08, $00, $00]
+          ;TODO: Put cosmetic units in this group
         UNIT
 
         _ch02MainGroup2
@@ -324,9 +313,6 @@ GUARD_FE5_CHAPTER02 :?= false
         _StartingPositions
           .byte 14, 3
         .byte $FF
-
-        _Vendor ; B1/FB25
-          SHOP [3, 6], [Vulnerary]
 
     .endsection Chapter02DataSection
 

@@ -71,9 +71,9 @@ paralogueManfroy
     .word LoadPortrait
     .word Travant_portrait
     .byte ScrollText
-    .text "Remind me why I came all this way in"
+    .text "Remind me why I came all this way in the middle"
     .byte NewLine
-    .text "the middle the night?"
+    .text "of the night?"
     .byte WaitForA
 
     .byte Left_Slot

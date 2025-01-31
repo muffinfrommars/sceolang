@@ -132,9 +132,9 @@ d11xKalfRally
     .byte WaitForA
     
     .byte ScrollText
-    .text "Let Thracia learn fear. Let them see that Leonster"
+    .text "Let Thracia learn fear. Let them see that"
     .byte NewLine
-    .text "does not forget, and we do not forgive!"
+    .text "Leonster does not forget, and we do not forgive!"
     .byte WaitForA
 
     .byte ScrollText
@@ -168,9 +168,9 @@ d11xRaydrik
     .byte WaitForA
 
     .byte ScrollText
-    .text "The fool thinks himself a lion, but all"
+    .text "The lion he fancies himself is but a lamb to"
     .byte NewLine
-    .text "I see is a lamb to the slaughter."
+    .text "slaughter."
     .byte WaitForA
 
     .byte ScrollText
@@ -182,7 +182,7 @@ d11xRaydrik
     .byte WaitForA
 
     .byte ScrollText
-    .text "The Empire will see my worth then-when I"
+    .text "The Empire will see my worth then - when I"
     .byte NewLine
     .text "deliver them a victory they didn't even have to"
     .byte NewLine
@@ -212,7 +212,7 @@ d11xRaydrik2
     .byte Right_slot
     .word LoadPortrait
     .word Raydrik_Portrait
-    .text "You think I need reminding of that, Veld?"
+    .text "I need no reminders, Veld."
     .byte WaitForA
 
     .byte ScrollText
@@ -224,21 +224,13 @@ d11xRaydrik2
     .byte WaitForA
 
     .byte ScrollText
-    .text "Tomorrow, I end this charade. Kalf's death will"
+    .text "Tomorrow, Kalf falls, and with him, any doubts"
     .byte NewLine
-    .text "secure my place, and the Empire will recognize"
-    .byte NewLine
-    .text "my strength."
+    .text "about my strength."
     .byte WaitForA
 
     .byte ScrollText
-    .text "When Kalf falls, there will be no doubt as to"
-    .byte newline
-    .text "who is the true leader here."
-    .byte WaitForA
-
-    .byte ScrollText
-    .text "And you'll see it too, whether you like it or not."
+    .text "Let them watch - I will be the last one standing."
     .byte WaitForA
 
     .byte Left_slot
@@ -248,15 +240,15 @@ d11xRaydrik2
     .byte WaitForA
 
     .byte ScrollText
-    .text "Kalf's death is a necessary step. But it is just"
+    .text "Kalf's death is a step forward, nothing more."
     .byte Newline
-    .text "one step. The rest is up to you."
+    .text "The rest is up to you."
     .byte WaitForA
 
     .byte ScrollText
-    .text "The Empire will demand results, nothing more. If"
+    .text "The Empire rewards results, not ambition."
     .byte newline
-    .text "you succeed, your position will be assured."
+    .text "If you succeed, your position will be assured."
     .byte WaitForA
 
     .byte ScrollText
@@ -265,19 +257,19 @@ d11xRaydrik2
 
     .byte right_slot
     .byte ScrollText
-    .text "I will not falter. Tomorrow, Kalf falls."
+    .text "I will not falter. Tomorrow, my first victory."
+    .byte NewLine
+    .text "And from there, I carve my future."
+    .byte NewLine
+    .text "You will see, Veld."
     .byte WaitForA
 
     .byte ScrollText
-    .text "His death is my first victory. And with it, I"
+    .text "And when the Empire comes calling, they will have"
     .byte NewLine
-    .text "will secure my future. You will see, Veld."
-    .byte WaitForA
-
-    .byte ScrollText
-    .text "And when the Empire comes calling, they will"
-    .byte NewLine
-    .text "know that I am the one who stands at the top."
+    .text "no choice but to acknowledge the one who stands"
+    .byte newline
+    .text "at the top."
     .byte WaitForA
 
     .byte Left_slot
@@ -286,9 +278,18 @@ d11xRaydrik2
     .byte WaitForA
 
     .byte ScrollText
-    .text "Do not disappoint me. The Empire's future depends"
+    .text "Do not disappoint me."
     .byte NewLine
-    .text "on the choices you make."
+    .text "Your future is in your hands."
     .byte WaitForA
 
     .byte EndText
+
+d11xRaydrik3
+    .byte Right_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "Tch. Always watching, always judging... Let them."
+    .byte newline
+    .text "Tomorrow, they'll have no choice but to kneel."
+    .byte WaitForA
