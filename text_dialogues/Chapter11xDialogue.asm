@@ -293,3 +293,5 @@ d11xRaydrik3
     .byte newline
     .text "Tomorrow, they'll have no choice but to kneel."
     .byte WaitForA
+
+    .byte EndText

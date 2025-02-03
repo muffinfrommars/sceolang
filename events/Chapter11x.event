@@ -68,7 +68,7 @@ GUARD_FE5_CHAPTER11x :?= false
 				.word 0
 			
 				_OpeningEvent
-					STORE_WORD wCurrentChapter, Chapter21x
+					STORE_WORD wCurrentChapter, Chapter12
 				  	CALL_ASM_SKIPPABLE $9A98CF
 
 					SET_CAMERA_POSITION [19, 19]
