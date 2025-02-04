@@ -113,7 +113,7 @@ GUARD_FE5_CHAPTER02x :?= false
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions
-          macroECBossQuote _FlagBucksBattleQuote, Bucks
+          macroECBossQuote _FlagBucksBattleQuote, BucksSr
         END_DEFINITION_ARRAY
 
         _ShopEventDefinitions
@@ -235,7 +235,7 @@ GUARD_FE5_CHAPTER02x :?= false
           macroASMCLoadUnitGroup eventChapter02xData._GladeSelphina
           macroASMCLoadUnitGroup eventChapter02xData._PrologueForestStationary
 
-          macroASMCSetBitsCharacterDataWord Bucks, Skills3, Skill3Immortal
+          macroASMCSetBitsCharacterDataWord BucksSr, Skills3, Skill3Immortal
 
           macroLoadPlayerUnitsByStartingPositions
 
@@ -350,13 +350,13 @@ GUARD_FE5_CHAPTER02x :?= false
           DIALOGUE dPrologueForestEnding4
           YIELD
 
-          MOVE_UNIT Bucks, [11, 10], [7, 14], 3, None
+          MOVE_UNIT BucksSr, [11, 10], [7, 14], 3, None
           YIELD_UNK
 
           WAIT_MOVE
           YIELD
 
-          macroASMCRemoveUnit Bucks
+          macroASMCRemoveUnit BucksSr
 
           WAIT_MOVE
           YIELD
@@ -512,7 +512,7 @@ GUARD_FE5_CHAPTER02x :?= false
           UNIT BanditBrigand1, Enemy, [15, 9], [15, 9], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
           UNIT BanditBrigand1, Enemy, [2, 2], [2, 2], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
           UNIT BanditBrigand1, Enemy, [1, 11], [1, 11], Seil, [IronAxe], 5, false, [$01, $03, $00, $80]
-          UNIT Bucks, Enemy, [11, 10], [11, 10], Bucks, [IronAxe, IronBow, Vulnerary], 4, true, [$01, $03, $00, $80]
+          UNIT BucksSr, Enemy, [11, 10], [11, 10], BucksSr, [IronAxe, IronBow, Vulnerary], 4, true, [$01, $03, $00, $80]
         UNIT
 
         _PrologueForestReinforcementA

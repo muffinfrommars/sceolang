@@ -1,5 +1,5 @@
 structBattleBannerTableEntry 0,Character,Index
-LeifBattleBanner,Leif,$00
+FinnBattleBanner,Finn,$00
 XavierBattleBanner,Xavier,$00
 GladeBattleBanner,Glade,$00
 RaydrikBattleBanner,Raydrik,$08
@@ -47,7 +47,7 @@ ReinkochBattleBanner,Reinkoch,$08
 AlphandBattleBanner,Alphand,$08
 LoptrianDarkBishopBattleBanner,LoptrianDarkBishop,$08
 LifisBattleBanner,Lifis,$08
-BucksBattleBanner,Bucks,$08
+BucksBattleBanner,BucksSr,$08
 QuanBattleBanner,Quan,$08
 CedChp23BattleBanner,CedChp23,$08
 CedChp4xBattleBanner,CedChp4x,$08

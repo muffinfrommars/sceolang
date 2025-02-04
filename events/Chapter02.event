@@ -17,13 +17,7 @@ GUARD_FE5_CHAPTER02 :?= false
 
     .section Chapter02EventsSection
 
-      eventChapter02Events ; 99/81B4
-
-        ; Flag definitions
-
-          ; TODO: map installer definitions
-
-          _FlagBucksBattleQuote = enum.enum($05)
+      eventChapter02Events
 
         _OpeningEventDefinitions
           EVENT FlagAlwaysZero, _OpeningEvent

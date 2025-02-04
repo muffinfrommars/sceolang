@@ -6347,7 +6347,7 @@ rlCheckIfGameOverDeath ; 83/A238
 	cmp wCurrentChapter,b
 	bne +
 
-	cpx #CedChp23
+	cpx #Kalf
 	beq ++
 	
 	+

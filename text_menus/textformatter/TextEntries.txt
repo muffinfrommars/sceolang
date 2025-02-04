@@ -121,7 +121,7 @@ Ced
 Galzus
 
 )Weis[mann
-Bucks
+Bucks Sr.
 Lobos
 Bandole
 Tol[man
@@ -187,8 +187,8 @@ Peter
 (Mia
 Frieda
 Chris
-Daphnée
-Stella
+Alface
+Lurvin
 Ultima
 Mia
 Zane
@@ -246,6 +246,18 @@ Rilke
 Schuper
 Travant
 
+// Custom NAMES
+
++Niezna
+Xylo
+Glaceo
+Louie
+Dood
+Jones
+Opus
+Pobble
+Johan
+Ellie
 
 //FACTIONS-------------------------------------------------
 

@@ -260,6 +260,7 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCUnsetUnitState Finn, UnitStateGrayed
           macroASMCUnsetUnitState Finn, UnitStateMoved
           macroASMCUnsetUnitState Finn, UnitStateMovementStar
+          macroASMCSetCharacterDataByte Finn, Fatigue, 0
       		;STORE_WORD wCurrentMapMusic, $43
           macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant        
         END1
@@ -268,7 +269,9 @@ GUARD_FE5_CHAPTER08x :?= false
           SET_CAMERA_POSITION [15, 61]
           YIELD
 
-          macroLoadPlayerUnitsByStartingPositions
+          macroASMCUnsetUnitState Finn, (UnitStateUnknown1 | UnitStateDisabled)
+          macroASMCSetUnitPosition Finn, [8, 61]
+          macroASMCSetCharacterDataByte Finn, Fatigue, 0
 
           LOAD_GROUP eventChapter08xData._08xWyverns1
           LOAD_GROUP eventChapter08xData._08xWyverns2

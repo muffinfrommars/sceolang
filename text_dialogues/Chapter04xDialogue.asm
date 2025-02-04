@@ -181,7 +181,7 @@ pd04xIntro4
 pd04xIntro5
     .byte Right_Slot
   	.word LoadPortrait
-    .word Bucksportrait
+    .word BucksSrportrait
 	.byte $09
 
     .text "I told you to keep yer mouth shut, you ol' coot!"
@@ -203,7 +203,7 @@ pd04xIntro6
 pd04xIntro7
     .byte Right_Slot
   	.word LoadPortrait
-    .word Bucksportrait
+    .word BucksSrportrait
 	.byte $09
 
     .text "You think you can get away with disrespectin'"

@@ -55,15 +55,15 @@ dialogueChapter11Title
 .byte $01
 
 dialogueChapter11xTitle
-.text "Chapter 1: Sortie"
+.text "Sortie"
 .byte $01
 
 dialogueChapter12Title
-.text "Chapter 12: The Bandits of Dacia"
+.text "The Battle for River Thracia"
 .byte $01
 
 dialogueChapter12xTitle
-.text "Chapter 12x: The Dandelion"
+.text "Leonster's Fall"
 .byte $01
 
 dialogueChapter13Title

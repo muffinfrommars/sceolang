@@ -19,7 +19,7 @@ aBattleAnimationsOnMusicTable .block	; 96/846C
 .word	Ilios
 .word	Xavier
 .word	Weissmann
-.word	Bucks
+.word	BucksSr
 .word	Lobos
 .word	Lemay	;used to be Ishtar
 .word	Eisenhau

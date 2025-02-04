@@ -79,7 +79,7 @@ SaiasDeathQuote,Saias,AnyChapter,FlagPlayerDeath,dialogueSaiasDeathQuote
 GalzusDeathQuote,Galzus,AnyChapter,FlagPlayerDeath,dialogueGalzusDeathQuote
 ShivaDeathQuote,Shiva,AnyChapter,FlagPlayerDeath,dialogueShivaDeathQuote
 WeissmannDeathQuote,Weissmann,AnyChapter,None,dialogueWeismannDeathQuote
-BucksDeathQuote,Bucks,AnyChapter,None,dialogueBucksDeathQuote
+BucksDeathQuote,BucksSr,AnyChapter,None,dialogueBucksDeathQuote
 LifisDeathQuote2,Lifis,AnyChapter,None,dialogueLifisDeathQuote
 LobosDeathQuote,Lobos,AnyChapter,None,dialogueLobosDeathQuote
 EisenhauDeathQuote,Eisenhau,AnyChapter,None,dialogueEisenhauDeathQuote

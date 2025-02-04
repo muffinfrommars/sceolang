@@ -383,20 +383,20 @@
 	
 		.word	<>menutextUnitThraciaName
 	
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
-		.word	<>menutextUnitCivilianName
+		.word	<>menutextUnitDoodName ;LeonsterKnight12
+		.word	<>menutextUnitEllieName ;LeonsterKnight11
+		.word	<>menutextUnitJohanName ;LeonsterKnight10
+		.word	<>menutextUnitPobbleName ;LeonsterKnight9
+		.word	<>menutextUnitJonesName ;LeonsterKnight8
+		.word	<>menutextUnitXyloName ;LeonsterKnight7
+		.word	<>menutextUnitOpusName ;LeonsterKnight6
+		.word	<>menutextUnitFlasubanName ;LeonsterKnight5
+		.word	<>menutextUnitGlaceoName ;LeonsterKnight4
+		.word	<>menutextUnitNieznaName ;LeonsterKnight3
+		.word	<>menutextUnitLouieName ;LeonsterKnight2
+		.word	<>menutextUnitCedricName ;LeonsterKnight1
+		.word	<>menutextUnitAlfionaName
+		.word	<>menutextUnitKalfName
 	
 		.word	<>menutextUnitHiredSwordName
 		.word	<>menutextUnitHiredSwordName
@@ -632,7 +632,7 @@
 			.text "(Munster\n"
 		
 		menutextUnitBucksName
-			.text "Bucks \n"
+			.text "Bucks Sr. \n"
 		
 		menutextUnitQuanName
 			.text "Quan\n"
@@ -748,7 +748,7 @@
 		menutextUnitLeonsterName
 			.text "Trainee \n"
 		
-		; Xavier's adjutants. Names are a Lil' Manster QoL addition, and act as mini-credits.
+		; Xavier's adjutants.
 		menutextUnitLeonsterite1Name
 			.text "(Marlon \n"
 			
@@ -762,16 +762,16 @@
 			.text "Dirk\n"
 			
 		menutextUnitLeonsterite5Name
-			.text "Sean\n"
+			.text "Casey \n"
 			
 		menutextUnitLeonsterite6Name
-			.text "Ed]ward \n"
+			.text "(Mega \n"
 			
-		menutextUnitLeonsterite7Name
-			.text "Andre]w \n"
+		menutextUnitLeonsterite7Name ; me :)
+			.text "David \n"
 			
 		menutextUnitLeonsterite8Name
-			.text "+Nicholas \n"
+			.text "Robert\n"
 		
 		menutextUnitArionName
 			.text "Arion \n"
@@ -799,13 +799,13 @@
 			.text "Chris \n"
 			
 		menutextUnitCivilian4Name
-			.text "Daphnée \n"
+			.text "Lurvin\n"
 			
 		menutextUnitCivilian5Name
-			.text "Stella\n"
+			.text "Alface\n"
 			
 		menutextUnitCivilian6Name ;ch04 npc
-			.text "Ulti[ma \n"
+			.text "Ulti[mage \n"
 			
 		menutextUnitCivilian7Name ;ch04 npc
 			.text "Zane\n"
@@ -992,5 +992,53 @@
 		
 		menutextUnitColhoName
 			.text "Colho \n"
+
+		;custom unit names
+
+		menutextUnitAlfionaName
+			.text "Alfiona \n"
+			
+		menutextUnitKalfName
+			.text "Kalf\n"
+
+		;LeonsterKnight names - Thank you if you're on this list!~	
+				
+		menutextUnitCedricName ;LeonsterKnight1
+			.text "Cedric\n"
+			
+		menutextUnitLouieName ;LeonsterKnight2
+			.text "Louie \n"
+
+		menutextUnitNieznaName ;LeonsterKnight3
+			.text "+Niezna \n"
+
+		menutextUnitGlaceoName ;LeonsterKnight4
+			.text "Glaceo\n"
+			
+		menutextUnitFlasubanName ;LeonsterKnight5
+			.text "Flasuban\n"
+
+		menutextUnitOpusName ;LeonsterKnight6
+			.text "Opus\n"
+			
+		menutextUnitXyloName ;LeonsterKnight7
+			.text "Xylo\n"
+		
+		menutextUnitJonesName ;LeonsterKnight8
+			.text "Jones \n"
+		
+		menutextUnitPobbleName ;LeonsterKnight9
+			.text "Pobble\n"
+		
+		menutextUnitJohanName ;LeonsterKnight10
+			.text "Johan \n"
+		
+		menutextUnitEllieName ;LeonsterKnight11
+			.text "Ellie \n"
+
+		menutextUnitDoodName ;LeonsterKnight12
+			.text "Dood\n"
+
+		
 		
 	.endsection UnitNameTextSection

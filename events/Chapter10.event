@@ -177,6 +177,8 @@ GUARD_FE5_CHAPTER10 :?= false
 					macroASMCUnsetUnitState Finn, UnitStateGrayed
 					macroASMCUnsetUnitState Finn, UnitStateMoved
 					macroASMCUnsetUnitState Finn, UnitStateMovementStar
+			          macroASMCSetCharacterDataByte Finn, Fatigue, 0
+
 				END1
 			
 				_ch10Talk1
@@ -361,7 +363,9 @@ GUARD_FE5_CHAPTER10 :?= false
 					FADE_IN 2
 					YIELD
 
-					macroLoadPlayerUnitsByStartingPositions
+					macroASMCUnsetUnitState Finn, (UnitStateUnknown1 | UnitStateDisabled)
+					macroASMCSetUnitPosition Finn, [34, 20]
+					macroASMCSetCharacterDataByte Finn, Fatigue, 0
 
 					DIALOGUE d10Finn
 					YIELD

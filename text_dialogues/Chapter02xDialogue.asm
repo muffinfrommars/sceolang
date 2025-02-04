@@ -1,7 +1,7 @@
 dPrologue3s1
 	.byte Left_slot ; Left slot
 	.word LoadPortrait    ; load portrait
-	.word bucksportrait
+	.word buckssrportrait
 
 	.byte Right_Slot ; Right slot
 	.word LoadPortrait    ; load portrait
@@ -183,7 +183,7 @@ dPrologueForestEnding3
 	.byte Right_Slot
 	.byte ScrollText
 	.word LoadPortrait
-	.word bucksportrait
+	.word buckssrportrait
 	.text "H-Hey, who do you think yer messin' with?!"
 	.byte WaitForA
 
@@ -194,7 +194,7 @@ dPrologueForestEnding4
 	.byte Right_Slot
 	.byte ScrollText
 	.word LoadPortrait
-	.word bucksportrait
+	.word buckssrportrait
 	.text "Aiiiieeeeee!!"
 	.byte WaitForA
 

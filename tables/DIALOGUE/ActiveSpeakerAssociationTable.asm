@@ -184,8 +184,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word WeissmannPortrait
 	.word Weissmann
 
-	.word BucksPortrait
-	.word Bucks
+	.word BucksSrPortrait
+	.word BucksSr
 
 	.word QuanPortrait
 	.word Quan

@@ -78,6 +78,14 @@ GUARD_FE5_CHAPTER12 :?= false
 				.word 0
 			
 				_OpeningEvent
+					macroASMCLoadUnitGroup eventChapter12Data._RTLeonster
+
+					SET_CAMERA_POSITION [9,5]
+					YIELD
+
+					macroASMCLoadUnitGroup eventChapter12Data._RTThraciaSquadA
+					macroASMCLoadUnitGroup eventChapter12Data._RTThraciaSquadB
+					macroASMCLoadUnitGroup eventChapter12Data._RTBallistaPlacements
 				END2
 			
 				_EndingEvent 
@@ -89,6 +97,28 @@ GUARD_FE5_CHAPTER12 :?= false
     .section Chapter12DataSection
 
 			eventChapter12Data
+
+				_RTLeonster
+					UNIT Kalf, Player, [9, 5], [9, 5], Kalf, [Kingmaker, Vulnerary], 19, false, [$01, $03, $00, $80]
+					UNIT Lurvin, Player, [7, 5], [7, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT Alface, Player, [8, 4], [8, 4], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT Ranz, Player, [10, 4], [10, 4], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight1, Player, [7, 3], [7, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight2, Player, [9, 3], [9, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight3, Player, [11, 3], [11, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight4, Player, [8, 2], [8, 2], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight5, Player, [10, 2], [10, 2], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight6, Player, [9, 1], [9, 1], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight7, Player, [11, 1], [11, 1], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight8, Player, [3, 1], [21, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight9, Player, [3, 1], [21, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight10, Player, [3, 1], [20, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight11, Player, [3, 1], [20, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight12, Player, [3, 1], [20, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
+ 					UNIT LeonsterKnight13, Player, [3, 1], [19, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight14, Player, [3, 1], [19, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight15, Player, [3, 1], [19, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
+				UNIT
 
 				_RTThraciaSquadA ; START: No Action, No Movement
 					UNIT ThraciaDracoknight1, Enemy, [11, 33], [11, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
@@ -107,11 +137,11 @@ GUARD_FE5_CHAPTER12 :?= false
 				UNIT
 
 				_RTBallistaPlacements
-					UNIT BallistaEnemy, Enemy, [9, 31], [9, 31], Travant, [Ballista], 5, False, [$00, $03, $00, $80]
-					UNIT BallistaEnemy, Enemy, [10, 30], [10, 30], Travant, [Ballista], 5, False, [$00, $03, $00, $80]
-					UNIT BallistaEnemy, Enemy, [34, 14], [34, 14], Travant, [Ballista], 5, False, [$00, $03, $00, $80]
-					UNIT BallistaEnemy, Enemy, [35, 26], [35, 26], Travant, [Ballista], 5, False, [$00, $03, $00, $80]
-					UNIT BallistaEnemy, Enemy, [4, 25], [4, 25], Travant, [Ballista], 5, False, [$00, $03, $00, $80]
+					UNIT BallistaEnemy, Enemy, [9, 31], [9, 31], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
+					UNIT BallistaEnemy, Enemy, [10, 30], [10, 30], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
+					UNIT BallistaEnemy, Enemy, [34, 14], [34, 14], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
+					UNIT BallistaEnemy, Enemy, [35, 26], [35, 26], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
+					UNIT BallistaEnemy, Enemy, [4, 25], [4, 25], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
 				UNIT
 
 

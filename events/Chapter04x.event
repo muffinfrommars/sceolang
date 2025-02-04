@@ -36,7 +36,7 @@ GUARD_FE5_CHAPTER04x :?= false
 
         _TurnEventDefinitions
           EVENT FlagBossDeath, eventMapDeathQuoteDummyEvent
-						CHECK_IF_BOSS_DEAD Bucks
+						CHECK_IF_BOSS_DEAD BucksSr
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
           EVENT FlagAlwaysZero, _EndingEvent
@@ -105,7 +105,7 @@ GUARD_FE5_CHAPTER04x :?= false
         END_DEFINITION_ARRAY
 
         _BattleEventDefinitions
-          macroECBossQuote _FlagBucksBattleQuote, Bucks
+          macroECBossQuote _FlagBucksBattleQuote, BucksSr
         END_DEFINITION_ARRAY
 
         _ShopEventDefinitions
@@ -303,7 +303,7 @@ GUARD_FE5_CHAPTER04x :?= false
           DIALOGUE pd04xIntro5
           YIELD
 
-          SCROLL_CAMERA_CHAR Bucks, 8
+          SCROLL_CAMERA_CHAR BucksSr, 8
           YIELD
 
           CALL_ASM_SKIPPABLE rlUnknown8C9E22
@@ -331,7 +331,7 @@ GUARD_FE5_CHAPTER04x :?= false
           PAUSE_SKIPPABLE 2
           YIELD
 
-          SCROLL_CAMERA_CHAR Bucks, 1
+          SCROLL_CAMERA_CHAR BucksSr, 1
           YIELD
 
           DIALOGUE pd04xIntro6
@@ -349,7 +349,7 @@ GUARD_FE5_CHAPTER04x :?= false
           DIALOGUE pd04xIntro7
           YIELD
 
-          MOVE_UNIT Bucks, [9, 17], [7, 17], 3, None
+          MOVE_UNIT BucksSr, [9, 17], [7, 17], 3, None
           YIELD_UNK
 
           LOAD_GROUP eventChapter04xData._ch04xStartingGroupBrigands
@@ -486,7 +486,7 @@ GUARD_FE5_CHAPTER04x :?= false
         UNIT
 
         _ch04xReinforcementsBucksGroup
-          UNIT Bucks, Enemy, [5, 17], [9, 17], Seil, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
+          UNIT BucksSr, Enemy, [5, 17], [9, 17], Seil, [SteelBow, SteelAxe], 5, false, [$01, $03, $00, $80]
         UNIT
 
         _ch04xStartingGroupBrigands

@@ -67,7 +67,7 @@ dialogueChapterObjektiveChapter09Line2
 
 
 dialogueChapterObjektiveChapter10
-	.text "Seize Fort Nowell's gate."
+	.text "Find King Kalf."
 .byte EndTextNoPortraitFade
 
 
@@ -82,7 +82,7 @@ dialogueChapterObjektiveChapter11x
 
 
 dialogueChapterObjektiveChapter12
-	.text "Seize the manor's gate."
+	.text "Seize control of River Thracia."
 .byte EndTextNoPortraitFade
 
 

@@ -2,8 +2,8 @@
 
 	.section FactionLeaderPointersSection
 		
-		.word Leif
-		.word <>menutextLeifLeader
+		.word Finn
+		.word <>menutextFinnLeader
 		
 		.word Xavier
 		.word <>menutextLeonsterLeader
@@ -38,7 +38,7 @@
 		.word RaydrikChp24
 		.word <>menutextMansterLeader
 		
-		.word Hannibal
+		.word Travant ; Formerly Hannibal
 		.word <>menutextThraciaLeader
 		
 		.word Merloch
@@ -143,10 +143,10 @@
 		.word LoptrianDarkBishop
 		.word <>menutextWelkenrosenLeader
 		
-		.word Lifis
+		.word Kalf
 		.word <>menutextLifisCrewLeader
 		
-		.word Bucks
+		.word BucksSr
 		.word <>menutextLifisCrewLeader
 		
 		.word Quan
@@ -194,8 +194,8 @@
 
 	.section FactionLeaderTextSection
 
-		menutextLeifLeader
-			.text "Leif's Ar[my\n"
+		menutextFinnLeader
+			.text "Finn's Unit \n"
 		
 		menutextNoneLeader
 			.text "{-}{-}{-}{-}{-}{-}\n"
