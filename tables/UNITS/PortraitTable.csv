@@ -117,7 +117,7 @@ JabalPortrait,g4bppcPortraitSigurd,$60 ; g4bppcPortraitEE84E4
 SeilPortrait,g4bppcPortraitEE89F5,$61
 ColhoPortrait,g4bppcPortraitEE8ED4,$62
 GomezPortrait,g4bppcPortraitEE9378,$63
-BucksSrPortrait,g4bppcPortraitBrigand,$64 ;formerly BucksPortrait 64
+BucksSrPortrait,g4bppcPortraitBrigand,$64 ;formerly BucksPortrait 64 - NEED TO FIX TODO TODO
 ShivaPortrait,g4bppcPortraitEE9D0E,$65
 RaydrikPortrait,g4bppcPortraitEEA236,$66
 LargoPortrait,g4bppcPortraitAlec,$67 ;formerly Largo Baldach Largo

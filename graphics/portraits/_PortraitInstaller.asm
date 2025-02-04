@@ -38,7 +38,7 @@
 	aPortraitPalette20 .binary "sprites/PortraitPalette20.bin"
 	aPortraitPalette21 .binary "sprites/PortraitPalette21.bin"
 	aPortraitPalette22 .binary "sprites/PortraitPalette22.bin"
-	aPortraitPalette23 .binary "../../custom/graphics/portraits/PortraitYLewyn.pal" ;Seemingly Unused Before
+	aPortraitPalette23 .binary "../../custom/graphics/portraits/newportraits/PortraitBrigand.pal" ;Seemingly Unused Before
 	aPortraitPalette24 .binary "sprites/PortraitPalette24.bin"
 	aPortraitPalette25 .binary "sprites/PortraitPalette25.bin"
 	aPortraitPalette26 .binary "sprites/PortraitPalette26.bin"
@@ -72,7 +72,7 @@
 	aPortraitPalette42 .binary "sprites/PortraitPalette42.bin"
 	aPortraitPalette43 .binary "sprites/PortraitPalette43.bin"
 	aPortraitPalette44 .binary "sprites/PortraitPalette44.bin"
-	aPortraitPalette45 .binary "../../custom/graphics/portraits/newportraits/PortraitBrigand.pal" ;Seemingly Unused Before
+	aPortraitPalette45 .binary "../../custom/graphics/portraits/PortraitBrigid.pal" ;Seemingly Unused Before
 	aPortraitPalette46 .binary "../../custom/graphics/portraits/PortraitEdain.pal" ;Seemingly Unused Before
 	aPortraitPalette47 .binary "../../custom/graphics/portraits/PortraitDew.pal" ;Seemingly Unused Before
 	aPortraitPalette48 .binary "../../custom/graphics/portraits/PortraitAlec.pal" ;Seemingly Unused Before
@@ -442,8 +442,7 @@
 	g4bppcPortraitEFE801 .binary "sprites/PortraitEFE801.4bpp.comp"
 	g4bppcPortraitKalf .binary "../../custom/graphics/portraits/PortraitKalf.4bpp.fe4" ; formerly g4bppcEFEBDE - Unused HighPriest from FE4
 	g4bppcPortraitEFEF61 .binary "sprites/PortraitEFEF61.4bpp.comp"
-	g4bppcPortraitFE5Travant .binary "../../custom/graphics/portraits/PortraitFE5Travant.comp"
-	g4bppcPortraitBrigand .binary "../../custom/graphics/portraits/newportraits/PortraitBrigand.4bpp.fe4" ;new might cause errors
-
+	g4bppcPortraitFE5Travant .binary "../../custom/graphics/portraits/PortraitFE5Travant.comp" 
+	g4bppcPortraitBrigand .binary "../../custom/graphics/portraits/newportraits/PortraitBrigand.4bpp.fe4" ;new might break game
 
 	.here
