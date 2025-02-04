@@ -610,6 +610,7 @@ dpreception6
     .text "Yay! Let's see who's next."
     .byte NewLine
     .text "..."
+	.byte WaitForA
     
     .byte Left_Slot
     .word LoadPortrait
@@ -657,7 +658,7 @@ dpreception6
     .word LoadPortrait
     .word Eldigan_portrait
     .byte ScrollText
-    .text "...my thanks."
+    .text "...My thanks."
     .byte WaitForA
 
     .byte Left_Slot
@@ -834,11 +835,11 @@ dpreception8
     .word Glade_portrait
     .byte ScrollText
 
-    .text "Ever heard of 'diplomatic relations,'"
+    .text "Ever heard of 'diplomatic relations,' Selphina?"
     .byte NewLine
-    .text "Selphina? Of course you haven't, that's not"
+    .text "Of course you haven't, that's not covered"
     .byte NewLine
-    .text "covered until the fifth grade."
+    .text "until the fifth grade."
     .byte WaitForA
     
     .byte Right_Slot
@@ -887,7 +888,7 @@ dpreception8
     .byte Right_Slot
     .byte ScrollText
 
-    .text "...yes, quite."
+    .text "...Yes, quite."
     .byte NewLine
     .text "You there!"
     .byte WaitForA

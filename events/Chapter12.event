@@ -72,6 +72,8 @@ GUARD_FE5_CHAPTER12 :?= false
 				END2
 			
 				_PrepGroups
+					.long eventChapter12Data._RTThraciaSquadA
+					.long eventChapter12Data._RTThraciaSquadB
 				.word 0
 			
 				_OpeningEvent
@@ -86,6 +88,22 @@ GUARD_FE5_CHAPTER12 :?= false
     .section Chapter12DataSection
 
 			eventChapter12Data
+
+				_RTThraciaSquadA ; START: No Action, No Movement
+					UNIT ThraciaDracoknight1, Enemy, [11, 33], [11, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight1, Enemy, [13, 33], [13, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight1, Enemy, [11, 35], [11, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight1, Enemy, [13, 33], [13, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracorider, Enemy, [12, 34], [12, 34], Travant, [SilverLance], 15, False, [$03, $03, $00, $80]
+				UNIT
+				
+				_RTThraciaSquadB ; START: No Action, No Movement
+					UNIT ThraciaDracoknight1, Enemy, [26, 35], [26, 35], Travant, [Javelin], 10, False, [$00, $00, $00, $80]
+					UNIT ThraciaDracoknight1, Enemy, [24, 35], [24, 35], Travant, [Javelin], 10, False, [$00, $00, $00, $80]
+					UNIT ThraciaDracoknight1, Enemy, [24, 33], [24, 33], Travant, [Javelin], 10, False, [$00, $00, $00, $80]
+					UNIT ThraciaDracoknight1, Enemy, [26, 33], [26, 33], Travant, [Javelin], 10, False, [$00, $00, $00, $80]
+					UNIT ThraciaDracorider, Enemy, [25, 34], [25, 34], Travant, [SilverLance], 15, False, [$00, $00, $00, $80]
+				UNIT
 			
 				_PrepGroup
 					.byte 8, 9

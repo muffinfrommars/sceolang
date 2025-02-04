@@ -241,6 +241,7 @@ GUARD_FE5_CHAPTER10 :?= false
 					WAIT_MOVE
 					YIELD
 
+					macroASMCDismount Kalf
 					macroASMCDismount Alfiona
 
 					MOVE_CHAR Kalf, [10, 1], 1, _RoyalMovestring

@@ -140,6 +140,8 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCSetCharacterDataByte Ethlyn, Constitution, 0
           macroASMCSetCharacterDataByte Ethlyn, Luck, 0
           macroASMCSetCharacterDataByte Ethlyn, Skill, 0
+  				macroASMCSetBitsCharacterDataWord Ethlyn, Skills3, Skill3Immortal
+
 
         END2
         
@@ -199,12 +201,17 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCActiveUnitSetUnitState UnitStateHidden
 					macroGiveActiveUnitItem BraveLance
 					macroASMCActiveUnitUnsetUnitState UnitStateHidden
+
+          macroASMCRemoveUnit Quan
+
         END2
         
         _08xEthlynFinnTalkEvent
           SCROLL_CAMERA_COORDS [8, 39], 1
           YIELD
           macroDialogue ch08xEthlynFinnNightmare
+
+          macroASMCRemoveUnit Ethlyn
         END2
 
         _08xAltenaFinnTalkEvent
@@ -244,13 +251,16 @@ GUARD_FE5_CHAPTER08x :?= false
 					YIELD
 
           PLAY_SOUND_FORCED $00E0
+
+          CALL_ASM_LOOP rlASMCChapterEnd
+
         END2
 
         _EveryAction
           macroASMCUnsetUnitState Finn, UnitStateGrayed
           macroASMCUnsetUnitState Finn, UnitStateMoved
           macroASMCUnsetUnitState Finn, UnitStateMovementStar
-      		STORE_WORD wCurrentMapMusic, $43
+      		;STORE_WORD wCurrentMapMusic, $43
           macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant        
         END1
 

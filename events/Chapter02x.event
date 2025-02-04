@@ -516,8 +516,8 @@ GUARD_FE5_CHAPTER02x :?= false
         UNIT
 
         _PrologueForestReinforcementA
-          UNIT BanditBrigand1, Enemy, [1, 6], [1, 6], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
-          UNIT BanditBrigand1, Enemy, [13, 13], [13, 13], Seil, [IronAxe], 5, false, [$00, $02, $00, $00]
+          UNIT BanditBrigand1, Enemy, [1, 6], [1, 6], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
+          UNIT BanditBrigand1, Enemy, [13, 13], [13, 13], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
           UNIT BanditBrigand1, Enemy, [1, 9], [1, 9], Seil, [IronAxe], 5, false, [$00, $02, $00, $80]
         UNIT
 
@@ -538,12 +538,12 @@ GUARD_FE5_CHAPTER02x :?= false
         UNIT
 
         _PrologueForestSigurd
-          UNIT Sigurd, NPC, [1, 7], [1, 7], Quan, [IronSword], 5, false, [$00, $02, $00, $00]
+          UNIT Sigurd, NPC, [1, 7], [1, 7], Quan, [IronSword], 5, false, [$00, $00, $00, $00]
         UNIT
 
         _PrologueForestAlecNaoise
-          UNIT Alec, NPC, [1, 6], [1, 6], Quan, [IronSword], 5, false, [$00, $02, $00, $00]
-          UNIT Naoise, NPC, [1, 9], [1, 8], Quan, [IronSword], 5, false, [$00, $02, $00, $00]         
+          UNIT Alec, NPC, [1, 6], [1, 6], Quan, [IronSword], 5, false, [$00, $00, $00, $00]
+          UNIT Naoise, NPC, [1, 9], [1, 8], Quan, [IronSword], 5, false, [$00, $00, $00, $00]         
         UNIT
 
         _PrologueForestAfterwards; B1/F69B

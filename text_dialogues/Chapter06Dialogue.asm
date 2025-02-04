@@ -227,7 +227,7 @@ paralogueManfroy
     .byte NewLine
     .text "If it weren't for Gae Bolg and the Lanzenritter,"
     .byte NewLine
-    .text "Connaught, not Leonster, would be strongest of all."
+    .text "Connaught, not Leonster, would be the strongest."
     .byte WaitForA
 
     .byte ScrollText
@@ -244,7 +244,7 @@ paralogueManfroy
     
     .byte Left_Slot
     .byte ScrollText
-    .text "I understand now."
+    .text "...I see."
     .byte NewLine
     .text "I have waited many years for the day my people"
     .byte NewLine
@@ -272,7 +272,7 @@ paralogueManfroyContinuation
     .byte Right_slot
     .word LoadPortrait
     .word Travant_portrait
-    .text "...Why are you telling me all this?"
+    .text "...Why are you telling me all of this?"
     .byte WaitForA
 
     .byte Left_slot
@@ -359,7 +359,9 @@ paralogueManfroyContinuation
     .byte ScrollText
     .text "No. All you ask is that I play pawn to your"
     .byte NewLine
-    .text "schemes. But a pawn that survives becomes a king."
+    .text "schemes. But a pawn that survives becomes"
+    .byte NewLine
+    .text "a king."
     .byte WaitForA
 
     .byte ScrollText

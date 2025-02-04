@@ -20,7 +20,7 @@ ch08Wedding3
     .word Selphina_portrait
 	.text "You know, Glade, walking down that carpet with"
     .byte NewLine
-    .text "you just now made it almost feel like it was-"
+    .text "you just now made it almost feel like it was -"
     .byte WaitForA
 
     .byte Left_Slot
@@ -35,9 +35,9 @@ ch08Wedding3
     .byte ScrollText
 	.text "*screams silently while vibrating violently*"
     .byte NewLine
-    .text "Look at Lady Ethlyn...!"
+    .text "Wow, look at Lady Ethlyn...!"
     .byte NewLine
-    .text "Her hair... her dress...!"
+    .text "Oh, her hair... her dress...!"
     .byte WaitForA
 
     .byte Left_Slot
@@ -539,9 +539,9 @@ ch08WeddingQuanEthlyn
     .byte ScrollText
     .text "How can I not be? There's so much riding on us."
     .byte NewLine
-    .text "Thracia's border, the alliance,"
+    .text "Thracia's border, the alliance, our people's"
     .byte NewLine
-    .text "our people's safety..."
+    .text "safety..."
     .byte WaitForA
 
     .byte EndText
@@ -566,12 +566,16 @@ ch08WeddingLastMoments
     .byte ScrollText
     .text "You're not alone in this. You never have been."
     .byte NewLine
-    .text "Let me carry some of that weight with you. Please."
+    .text "Let me carry some of that weight with you."
+    .byte NewLine
+    .text "Please."
     .byte WaitForA
 
     .byte Right_Slot
     .byte ScrollText
-    .text "*soft smile* You already do, Ethlyn."
+    .text "*soft smile*"
+    .byte NewLine
+    .text "You already do, Ethlyn."
     .byte NewLine
     .text "More than you know."
     .byte WaitForA
@@ -587,7 +591,9 @@ ch08WeddingLastMoments
 
     .byte Right_Slot
     .byte ScrollText
-    .text "*soft laugh* You make it sound so easy."
+    .text "*soft laugh*"
+    .byte newline
+    .text "You make it sound so easy."
     .byte WaitForA
 
     .byte Left_Slot
