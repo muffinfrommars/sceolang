@@ -50,6 +50,7 @@ aMjolnirWeaponLock ; B0/9A0A
 	.word 0
 
 aBallistaWeaponLock ; B0/9A0E
+	.word BallistaEnemy
 	.word MunsterBallista
 	.word FriegeBallista1
 	.word FriegeBallista2
