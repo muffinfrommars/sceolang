@@ -1,0 +1,230 @@
+SNES Palette Editor, v0.3
+by Yousei
+<http://yousei.lfx.org>
+
+--------------------------------------------------------------------------------
+
+Contents
+
+Disclaimer
+1 History and What's New
+2 Introduction
+3 Requirements
+4 How to use
+5 Future Plans
+6 Acknowledgements
+
+
+Disclaimer
+
+This software is to be used at your own risk. Yousei will not be responsible for
+any harm caused to your system or data resulting from use of this software.
+
+1 History and What's New
+
+0.3 (3/20/2000) Rearranged the interface somewhat.  Also added a feature to show
+                the eight colors before and after the current color, similar to
+                various ideas several people suggested.
+
+0.2 (3/5/2000)  Maintenance release.  Blocked the Enter key from closing the
+                window when accidently pressed inside an edit control.
+
+0.1 (3/3/2000)  Initial release. 
+
+2 Introduction
+
+The SNES Palette Editor is a small utility that makes it easy to quickly search
+for and edit colors used in a SNES ROM.  First, I'll explain how they're stored:
+
+SNES colors are stored as 16-bit words.  There are 5 bits each for the red,
+green, and blue components, in that order, from low to high.  This means that
+appropriate values fall between 0 and 2^5 - 1, or 31, inclusive. The most
+significant bit is usually cleared (this may not always be the case--there may
+be situations where the most significant bit is set, so I don't want to rule it
+out, but I've never encountered them.  In my experience, the MSB is usually
+ignored).
+
+Considering all this, the color orange, which would be represented as
+RGB(31, 16, 0) in a 555 scheme, would be represented as the following in
+binary:
+
+                         0 00000 10000 11111
+         (MSB, blue component, green component, red component)
+
+Combining all the above into one 16-bit word and converting it to hexadecimal
+would yield the value $021F.  Now, if you were intending to use this value in a
+SNES ROM, since the 65816 is little-endian (meaning it access words from low to
+high), you would need to flip the bytes, resulting in a final value of $1F02.
+(This final flip operation is only for the purposes of inserting the value in
+the ROM--the actual value is still $021F.)  I don't plan to go into a more
+detailed explanation of little-endian vs. big-endian processors or why the SNES
+operates this way--such a discussion would be beyond the scope of the palette
+editor.  For more information, find a document on processors and how they use
+byte order.
+
+In a nutshell, this program does all that conversion, which would otherwise
+have to be done by hand, automatically.  It also provides an intuitive
+interface for searching for colors in the ROM, and narrowing down possible
+candidates to find the color you want.
+
+3 Requirements
+
+Recent copies of the Microsoft MFC Libraries are necessary.  Since people
+have had problems running it dealing with MFC, I've posted the copies of two
+libraries, MFC42.DLL and MSVCRT.DLL, that I use.  It is suggested that you
+backup your copies of these files first, then copy the files from MFC.zip
+to your C:\Windows\System directory.  You can download them from
+<http://yousei.lfx.org/snespal/MFC.zip>.
+
+Also, a small feature in this utility requires the newest version of the
+Common Controls library from Microsoft.  (If not installed, the program will
+still work.  No important functionality is lost.)  This file comes with
+Internet Explorer 5.0, but if you aren't running IE5.0, it's still a good
+idea to have the most recent version of the Common Controls, which you can
+download from <www.microsoft.com/downloads/release.asp?ReleaseID=11916>.
+
+4 How to use
+
+(This tutorial makes a lot more sense when viewed along with the screenshots
+that accompany it.  If possible, view the HTML version on the website.)
+
+This example uses FF4 hard-type.  Say, for instance, you want to change Dark
+Knight Cecil's armor (in battle) from shades of blue to ugly shades of
+chartreuse and green.  First, get a screenshot that uses the colors in question.
+Important!  Make sure you switch to a 256 (8-bit) screenmode before you take
+the screenshot!  This is required so the screenshot has an actual indexed
+palette, which is necessary if you want to narrow down search candidates (below).
+In ZSNES, the screenshot has the individual palettes arranged exactly as they are
+in memory, which is usually the same order they are stored in the ROM.  I'm not
+sure whether the other emulators do the same, but I would hope so.  
+
+Now view the palette in any decent paint program (I used Paint Shop Pro for this
+purpose).  Use the eyedropper to find the colors you want to modify.  The battle
+sprites in FF4 are 4 bitplanes deep, meaning they use 2^4, or 16, colors.  This
+also means that, in Paint Shop Pro, all the colors for this sprite should appear
+on the same row.
+
+Choose a color you wish to edit.  In my example, I'll start with color index 6,
+RGB(80, 80, 168).  Remember when I said that SNES colors could only be between 0
+and 31, inclusive?  Since the screenshot uses 8 bits instead of 5 bits to store
+the colors, the screenshot has "adjusted" color values.  The difference between
+8 bits and 5 bits is 3 bits, meaning that each color in the screenshot is 2^3,
+or 8, times the actual SNES color value.  To get the actual value, you would
+have to divide each of the RGB values by 8, to get RGB(10, 10, 21).  Of course,
+dividing all these numbers is a chore, so I've created the "Autoconvert from
+0-248 to 0-31" option that lets you input the 8-bit RGB values directly, and
+the program will divide them before searching.  So in my example, I've
+entered RGB(80, 80, 168) and clicked "Find Matches."  The program returns with
+twenty candidates, showing the address where that color could be, and the
+corresponding hex value at that address.  
+
+Twenty values is a lot when you consider that you would have to edit each of
+those, save it, then load the game back in the emulator to see if the change
+took effect.  (You can usually ignore values with the MSB set [i.e., values
+greater than or equal to $8000], but again, there may be situations.)  For this
+reason, we can try to narrow down the value with the "Limit" controls.  Since
+I'm working with a 16-color palette, I clicked the "Limit to 16 color index:"
+button, then entered "6" in the control to the right, because the color I'm
+finding is the 6th color in the palette.  (Certain conditions must exist within
+the ROM for this to work, which I will describe below.)  I clicked "Find
+Matches" again, and this time it gave me three instead of the previous twenty.  
+
+Three matches is a nice reduction from twenty, but wouldn't it be nice if we
+could get it down to one possible match?  If so, chances are that 99% of the
+time, that will be the color you're looking for (if it's not, the colors are
+likely stored in some other fashion that would make the SNES Palette Editor
+useless for that ROM anyways). 
+
+For this to work, another assumption must be made about the ROM--the assumption
+is that colors are stored in the same relative order in the ROM as they are in
+the palette from the screenshot.  In most cases I've worked with, this has been
+the case, but I have seen exceptions (in one case, palette data was compressed
+along with some other graphics data, so it would have to have been decompressed
+before using the palette editor).  Using this assumption, we can say that color
+5 should fall exactly 2 bytes before color 6 in the ROM (remember, colors are
+16-bit words, which means they are 2 bytes long).  I enter RGB(96, 96, 216) in
+the search fields, limit it to index 5 of a 16 color palette search, and then
+click "Find Matches."  This brings up one result, $0E7F0A, which falls right
+before $0E7F0C, one of the results for color 6.  It looks like we may have
+found our palette.
+
+If you have the newest version of the Common Controls library installed
+(see Requirements, above), you can hold the mouse over a color in the display
+list to see an informative tool tip about it.  It will show the address of the
+color in the ROM, its RGB555 value, and the indices of the color in an aligned
+16-color and 8-color palette.  If you don't have the newest version of the
+library installed, you'll get a boring standard tool tip that shows the address
+and RGB555 value, but nothing else.
+
+If you click on a result in the search results list, it will automatically
+bring that color up in the editor section above.  The color you selected is
+highlighted in red in the middle--the display also shows the eight colors that
+fall before and after the chosen color.  I clicked on the sole result I found
+from the last step and it shows RGB(12, 12, 27), which is what you get if you
+divide RGB(96, 96, 216) by 8.
+
+It's now possible to find the address of the entire palette.  Since color 5
+is found at $0E7F0A and each color is 2 bytes long, $0E7F0A - (5 * 2) results
+in $0E7F00, the beginning address of the palette for Dark Knight Cecil's battle
+graphics.  Additionally, since the palette is 16 colors long, $0E7F00 + (16 * 2)
+results in $0E7F20, the beginning of the next palette.  Therefore, the palette
+exists between $0E7F00 and $0E7F1F, inclusive.  Also notice the use of tick
+marks in the display.  The long, thick tick marks indicate a color that falls on
+a 16-color boundary.  The thick, shorter tick marks indicate a color that falls
+on an 8-color boundary.  And lastly, the thin, smallest ticks are used for every
+other color.
+
+Another way to find the palette would have been to inspect each result and
+scroll over so that index 0 of the palette that was found is the first one in
+the display window at the top.  Then just compare the rest of the colors in
+the display with the ones from the screenshot you took in the emulator.  If all
+the colors match up, 99.99% of the time, that means that's the palette you're
+looking for.  The other 0.01% occurs when there is more than one palette with
+the same colors in it, but that's easy enough to find--just redo the same
+process.
+
+Once all the searching and guesswork is done, the rest is easy--just drag the
+sliders or enter the values manually to change the color.  The changes I made
+are as follows: 
+
+    * Color 5, RGB(24, 27, 12) 
+    * Color 6, RGB(18, 22, 10) 
+    * Color 9, RGB(27, 31, 18) 
+    * Color 14, RGB(15, 17, 8) 
+    * Color 15, RGB(11, 13, 4) 
+  
+After making your changes, click "Save" and test it out.  If the colors you
+found and edited were the right colors, your modification should show up
+correctly.  That's all there is to it!  
+
+As I mentioned above, the "Limit to x color index" feature relies on certain
+conditions in the ROM.  For the limit feature to work, the palette must be
+aligned on a 16-byte boundary in the ROM, meaning that it must start at an
+address ending in zero, such as $0E7F00.  More specifically, a 16 color
+limited search must be aligned with a 32-byte even boundary (meaning the
+address ends in $00, $20, $40, etc.), and an 8 color limited search must be
+aligned with a 16-byte boundary (ending in $00, $10, $20, etc., in other words,
+ending in zero).  If you have a 16-color palette that you're searching for,
+first try limiting to 16-colors.  If this doesn't work, limit to 8, and if that
+doesn't work, turn off the limit entirely.  If you still can't find the value,
+you'll have to try other methods, such as tracing the code.
+
+Also keep in mind that the spin control beside the control that shows the
+current address automatically increments and decrements by two instead of one.
+This is to make navigation between colors easier, in that one click will
+advance it by one color, instead of one byte, which would put you in the middle
+of two colors.  If for some reason you need to enter an odd address, you can do
+so manually, and the control will continue to move plus or minus two from that
+value.
+
+5 Future Plans
+
+Maybe an Undo feature.  Other than that, I could use suggestions from people
+who use the program for ideas!
+
+6 Acknowledgements
+
+DocEvil -- For doin' stuff.
+Ballz -- For having me explain to him how to SNES palette hack, making me
+  realize the fact that a program written specifically for this would be so
+  much better than doing the binary conversions by hand.

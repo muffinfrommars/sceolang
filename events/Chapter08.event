@@ -154,6 +154,7 @@ GUARD_FE5_CHAPTER08 :?= false
           macroASMCDismount Sigurd
           macroASMCDismount Alec
           macroASMCDismount Naoise
+          macroASMCDismount Lachesis
           macroASMCDismount Dryas
           macroASMCDismount Eldigan
           macroASMCDismount Olwen

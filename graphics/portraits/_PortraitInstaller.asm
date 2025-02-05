@@ -3,8 +3,8 @@
 
 	segmentStart
 
-	aPortraitPalette00 .binary "sprites/PortraitPalette00.bin"
-	aPortraitPalette01 .binary "sprites/PortraitPalette01.bin"
+	aPortraitPalette00 .binary "../../custom/graphics/portraits/newportraits/leif.pal" ; previously FE5 Leif
+	aPortraitPalette01 .binary "../../custom/graphics/portraits/newportraits/finn.pal" ; previously FE5 Finn
 	aPortraitPalette02 .binary "sprites/PortraitPalette02.bin"
 	aPortraitPalette03 .binary "sprites/PortraitPalette03.bin"
 	aPortraitPalette04 .binary "sprites/PortraitPalette04.bin"
@@ -31,7 +31,7 @@
 	aPortraitPalette19 .binary "sprites/PortraitPalette19.bin"
 	aPortraitPalette1A .binary "sprites/PortraitPalette1A.bin"
 	aPortraitPalette1B .binary "sprites/PortraitPalette1B.bin"
-	aPortraitPalette1C .binary "sprites/PortraitPalette1C.bin"
+	aPortraitPalette1C .binary "../../custom/graphics/portraits/newportraits/selphina.pal"
 	aPortraitPalette1D .binary "sprites/PortraitPalette1D.bin"
 	aPortraitPalette1E .binary "sprites/PortraitPalette1E.bin"
 	aPortraitPalette1F .binary "sprites/PortraitPalette1F.bin"
@@ -88,7 +88,7 @@
 	aPortraitPalette52 .binary "sprites/PortraitPalette52.bin"
 	aPortraitPalette53 .binary "sprites/PortraitPalette53.bin"
 	aPortraitPalette54 .binary "sprites/PortraitPalette54.bin"
-	aPortraitPalette55 .binary "sprites/PortraitPalette55.bin"
+	aPortraitPalette55 .binary "../../custom/graphics/portraits/newportraits/glade.pal"
 	aPortraitPalette56 .binary "sprites/PortraitPalette56.bin"
 	aPortraitPalette57 .binary "sprites/PortraitPalette57.bin"
 	aPortraitPalette58 .binary "sprites/PortraitPalette58.bin"
@@ -249,8 +249,8 @@
 	aPortraitPaletteF3 .binary "sprites/PortraitPaletteF3.bin"
 	aPortraitPaletteF4 .binary "../../custom/graphics/portraits/PortraitPaletteFE5Travant.bin" 
 
-	g4bppcPortraitEADE80 .binary "sprites/PortraitEADE80.4bpp.comp"
-	g4bppcPortraitEAE3B9 .binary "sprites/PortraitEAE3B9.4bpp.comp"
+	g4bppcPortraitEADE80 .binary "../../custom/graphics/portraits/newportraits/leif.bin.fe4" ;previously fe5 Leif
+	g4bppcPortraitEAE3B9 .binary "../../custom/graphics/portraits/newportraits/finn.bin.fe4" ;previously fe5 Finn
 	g4bppcPortraitEAE8B7 .binary "sprites/PortraitEAE8B7.4bpp.comp"
 	g4bppcPortraitEAEE23 .binary "sprites/PortraitEAEE23.4bpp.comp"
 	g4bppcPortraitEAF322 .binary "sprites/PortraitEAF322.4bpp.comp"
@@ -287,7 +287,7 @@
 	g4bppcPortraitEBDE20 .binary "sprites/PortraitEBDE20.4bpp.comp"
 	g4bppcPortraitEBE3F9 .binary "sprites/PortraitEBE3F9.4bpp.comp"
 	g4bppcPortraitEBE928 .binary "sprites/PortraitEBE928.4bpp.comp"
-	g4bppcPortraitEBEE1D .binary "sprites/PortraitEBEE1D.4bpp.comp"
+	g4bppcPortraitEBEE1D .binary "../../custom/graphics/portraits/newportraits/selphina.bin.fe4" ;previously FE5 Selphina
 	g4bppcPortraitEBF2FF .binary "sprites/PortraitEBF2FF.4bpp.comp"
 	g4bppcPortraitEBF862 .binary "sprites/PortraitEBF862.4bpp.comp"
 	g4bppcPortraitEBFD2F .binary "sprites/PortraitEBFD2F.4bpp.comp"
@@ -353,7 +353,7 @@
 	g4bppcPortraitEDC56B .binary "sprites/PortraitEDC56B.4bpp.comp"
 	g4bppcPortraitEDC9FC .binary "sprites/PortraitEDC9FC.4bpp.comp"
 	g4bppcPortraitEDCEA0 .binary "sprites/PortraitEDCEA0.4bpp.comp"
-	g4bppcPortraitEDD314 .binary "sprites/PortraitEDD314.4bpp.comp"
+	g4bppcPortraitEDD314 .binary "../../custom/graphics/portraits/newportraits/glade.bin.fe4" ;previously FE5 Glade
 	g4bppcPortraitEDD7B0 .binary "sprites/PortraitEDD7B0.4bpp.comp"
 	g4bppcPortraitEDDC05 .binary "sprites/PortraitEDDC05.4bpp.comp"
 	g4bppcPortraitEDE09F .binary "sprites/PortraitEDE09F.4bpp.comp"
