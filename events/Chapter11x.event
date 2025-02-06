@@ -68,23 +68,6 @@ GUARD_FE5_CHAPTER11x :?= false
 				.word 0
 			
 				_OpeningEvent
-					STORE_WORD wCurrentChapter, Chapter12
-				  	CALL_ASM_SKIPPABLE $9A98CF
-
-					SET_CAMERA_POSITION [19, 19]
-					YIELD
-
- 					macroChapterTitlePopup dialogueChapter11xTitle
-					YIELD
-
-					SCROLL_CAMERA_COORDS [1, 1], 2
-					YIELD
-
-					FADE_OUT 1
-					YIELD
-
-					STORE_WORD wCurrentChapter, Chapter11x
-				  	CALL_ASM_SKIPPABLE $9A98CF
 
 					SET_CAMERA_POSITION [24, 1]
 					YIELD

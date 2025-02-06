@@ -59,7 +59,7 @@ dialogueChapter11xTitle
 .byte $01
 
 dialogueChapter12Title
-.text "The Battle for River Thracia"
+.text "The Battle of River Thracia"
 .byte $01
 
 dialogueChapter12xTitle

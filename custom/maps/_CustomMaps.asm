@@ -33,9 +33,17 @@
     hallway          .binary "hallway.bin.fe4"
     riverprelude     .binary "riverprelude.bin.fe4"
     riverthraciapartb    .binary "riverthraciapartb.bin.fe4"
+    
+.here
+
+* = $481100
+.logical lorom($481100, 1)
+    riverthraciaparta    .binary "riverthraciaparta.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"
     ;mapleif          .binary "leif.bin.fe4"
+
 .here
+
 
 
 * = $5FFE78 ; - veeerryy end of the rom. nothing can go past this

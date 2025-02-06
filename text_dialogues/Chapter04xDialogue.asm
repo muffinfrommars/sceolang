@@ -1,12 +1,12 @@
 pd04xIntro1
 
     .word PlayMusic
-	.byte $00
+	  .byte $00
 
     .byte Right_Slot
   	.word LoadPortrait
     .word Glade_portrait
-	.byte $09
+	  .byte $09
 
     .text "Lieutenant Ranz, what is this place?"
     .byte WaitForA
@@ -20,7 +20,7 @@ pd04xIntro1
     .text "This little outpost was once the"
     .byte NewLine
     .text "original campsite for Leonster's military."
-	.byte WaitForA
+	  .byte WaitForA
 
     .byte ScrollText
 
@@ -29,7 +29,7 @@ pd04xIntro1
     .text "place wouldn't fit the rapidly growing population,"
     .byte NewLine
     .text "they moved to our current location."
-	.byte WaitForA
+	  .byte WaitForA
     
     .byte ScrollText
 
@@ -43,10 +43,10 @@ pd04xIntro1
     .byte ScrollText
 
     .text "'Upkept' is a bit generous..."
-	.byte WaitForA
+	  .byte WaitForA
 
     .word PlayMusic
-	.byte $32
+	  .byte $32
     
     .byte Left_Slot
   	.word LoadPortrait
@@ -156,10 +156,10 @@ pd04xIntro4
     .byte Right_Slot
   	.word LoadPortrait
     .word Finn_portrait
-	.byte $09
+	  .byte $09
 
     .text "Why isn't the General moving?"
-	.byte WaitForA
+	  .byte WaitForA
     
     .byte Left_Slot
   	.word LoadPortrait
@@ -182,10 +182,10 @@ pd04xIntro5
     .byte Right_Slot
   	.word LoadPortrait
     .word BucksSrportrait
-	.byte $09
+	  .byte $09
 
     .text "I told you to keep yer mouth shut, you ol' coot!"
-	.byte WaitForA
+	  .byte WaitForA
 	
     .byte EndText
 
@@ -571,10 +571,10 @@ pd04xFinal2
     .byte Right_Slot
   	.word LoadPortrait
     .word Finn_portrait
-	.byte $09
+	  .byte $09
 
     .text "...Finally!"
-	.byte WaitForA
+	  .byte WaitForA
 	
     .byte EndText
 

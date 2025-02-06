@@ -117,16 +117,6 @@ dTimeSkip2
     .text "in thanks to the aid of Raydrik's military prowess."
     .byte WaitForA
     .byte ScrollText
-    .text "It was not long after Carl's ascension to the crown"
-    .byte NewLine
-    .text "where he is suddenly assassinated."
-    .byte WaitForA
-    .byte ScrollText
-    .text "After yet another power struggle, Raydrik seizes"
-    .byte NewLine
-    .text "the throne, turning Connaught into a military state."
-    .byte WaitForA
-    .byte ScrollText
 
     .byte EndText
 

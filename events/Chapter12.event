@@ -19,6 +19,10 @@ GUARD_FE5_CHAPTER12 :?= false
 
 			eventChapter12Events
 
+				;Flag Definitions
+
+				_FlagEasterEgg      = enum.enum($07)
+
 				_OpeningEventDefinitions 
 					EVENT FlagAlwaysZero, _OpeningEvent
 						CMP_WORD wCurrentTurn, 0
@@ -38,6 +42,11 @@ GUARD_FE5_CHAPTER12 :?= false
 				END_DEFINITION_ARRAY
 			
 				_AfterActionEventDefinitions
+				EVENT _FlagEasterEgg, _QuanEasterEgg
+            			macroECCheckCoordinateRanges [7, 32], [8, 32]
+            			CMP_WORD wCurrentPhase, Player
+						CMP_WORD aSelectedCharacterBuffer.Character, Kalf
+          			END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_BattleEventDefinitions
@@ -45,13 +54,50 @@ GUARD_FE5_CHAPTER12 :?= false
 			
 				_ShopEventDefinitions
 				END_DEFINITION_ARRAY
+
+				_QuanEasterEgg
+		            PLAY_SOUND_FORCED $00E0
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					SCROLL_CAMERA_COORDS [1, 35], 1
+					YIELD
+
+					SET_MUSIC $27
+					YIELD
+
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					LOAD_GROUP eventChapter12Data._EEKalfQuan
+					WAIT_MOVE
+					YIELD
+
+					macroASMCDismount Sigurd
+
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					DIALOGUE ch12QuanEasterEgg1
+					YIELD
+
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					DIALOGUE ch12QuanEasterEgg2
+					YIELD
+
+					macroASMCActiveUnitSetUnitState UnitStateHidden
+					macroGiveActiveUnitItem LuckRing
+					macroASMCActiveUnitUnsetUnitState UnitStateHidden
+
+					macroASMCRemoveUnit Sigurd
+					macroASMCRemoveUnit Leif
+				END2
 			
 				_GaidenFail
 					SET_FLAG FlagAlliedDeath
-			
-					DIALOGUE dialogueChapter12DawnGaidenFail
-					YIELD
-			
+	
 					FADE_OUT 2
 			
 					HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, INIDISP_Setting(True, 0)
@@ -72,15 +118,38 @@ GUARD_FE5_CHAPTER12 :?= false
 				END2
 			
 				_PrepGroups
-					.long eventChapter12Data._RTThraciaSquadA
-					.long eventChapter12Data._RTThraciaSquadB
-					.long eventChapter12Data._RTBallistaPlacements
 				.word 0
 			
 				_OpeningEvent
+
+					SET_CAMERA_POSITION [18, 25]
+					YIELD
+
+			        macroChapterTitlePopup dialogueChapter12Title
+
+		            PLAY_SOUND_FORCED $00E0
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					macroASMCLoadUnitGroup eventChapter12Data._RTCLeonsterGroupA
 					macroASMCLoadUnitGroup eventChapter12Data._RTLeonster
 
-					SET_CAMERA_POSITION [9,5]
+					MOVE_UNIT LeonsterKnight10, [6, 12], [18, 20], 1, None
+          			YIELD_UNK
+
+					MOVE_UNIT LeonsterKnight11, [8, 12], [19, 21], 1, None
+          			YIELD_UNK
+
+					MOVE_UNIT LeonsterKnight12, [7, 13], [18, 22], 1, None
+          			YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
+
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					SCROLL_CAMERA_COORDS [1,1], 2
 					YIELD
 
 					macroASMCLoadUnitGroup eventChapter12Data._RTThraciaSquadA
@@ -98,6 +167,12 @@ GUARD_FE5_CHAPTER12 :?= false
 
 			eventChapter12Data
 
+				_RTCLeonsterGroupA
+					UNIT LeonsterKnight10, Player, [6, 12], [6, 12], Kalf, [], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight11, Player, [8, 12], [8, 12], Kalf, [], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight12, Player, [7, 13], [7, 13], Kalf, [], 20, false, [$01, $03, $00, $80]
+				UNIT
+
 				_RTLeonster
 					UNIT Kalf, Player, [9, 5], [9, 5], Kalf, [Kingmaker, Vulnerary], 19, false, [$01, $03, $00, $80]
 					UNIT Lurvin, Player, [7, 5], [7, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
@@ -112,9 +187,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT LeonsterKnight7, Player, [11, 1], [11, 1], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight8, Player, [3, 1], [21, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight9, Player, [3, 1], [21, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight10, Player, [3, 1], [20, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight11, Player, [3, 1], [20, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight12, Player, [3, 1], [20, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
+
  					UNIT LeonsterKnight13, Player, [3, 1], [19, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight14, Player, [3, 1], [19, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight15, Player, [3, 1], [19, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
@@ -142,6 +215,11 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT BallistaEnemy, Enemy, [34, 14], [34, 14], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
 					UNIT BallistaEnemy, Enemy, [35, 26], [35, 26], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
 					UNIT BallistaEnemy, Enemy, [4, 25], [4, 25], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
+				UNIT
+
+				_EEKalfQuan
+					UNIT Sigurd, NPC, [1, 35], [2, 34], Kalf, [], 1, false, [$01, $03, $00, $80]
+					UNIT Leif, NPC, [1, 35], [3, 35], Kalf, [], 1, false, [$01, $03, $00, $80]
 				UNIT
 
 
