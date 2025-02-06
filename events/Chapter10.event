@@ -367,6 +367,8 @@ GUARD_FE5_CHAPTER10 :?= false
 					macroASMCSetUnitPosition Finn, [34, 20]
 					macroASMCSetCharacterDataByte Finn, Fatigue, 0
 
+					macroASMCDismount LeonsterKnight3
+
 					DIALOGUE d10Finn
 					YIELD
 					

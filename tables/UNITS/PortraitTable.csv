@@ -241,7 +241,7 @@ Myrmidon7Portrait,g4bppcPortraitEFBB1D,$9B
 Archer4Portrait,g4bppcPortraitEFB75D,$9A
 Archer5Portrait,g4bppcPortraitEFB75D,$9B
 Thief2Portrait,g4bppcPortraitEFE801,$B6
-Myrmidon8Portrait,g4bppcPortraitEFBB1D,$9D
+NieznaPortrait,g4bppcPortraitNiezna,$45 ;formerly Myrmidon8Portrait 9D g4bppcPortraitEFBB1D
 Myrmidon9Portrait,g4bppcPortraitEFBB1D,$9B
 Thief3Portrait,g4bppcPortraitEFE801,$B6
 PegasusKnight2Portrait,g4bppcPortraitEFAEBF,$B4
