@@ -233,7 +233,7 @@ d10SoldierA
 d10SoldierB
     .byte Right_Slot
   	.word LoadPortrait
-    .word Leonster2portrait
+    .word Nieznaportrait
 	.byte $09
 
     .text "...Man, it's awfully quiet in the castle today."
@@ -604,11 +604,11 @@ d10Royal
 
     .byte ScrollText
 
-    .text "Yes - Lady Lachesis, Quan's friend and Eldigan's sister."
+    .text "Yes - Lady Lachesis, Quan's friend and Eldigan's"
     .byte NewLine
-    .text "I-I've heard she's carrying a child, as well..."
+    .text "sister. I've heard she has a child, as well..."
     .byte NewLine
-    .text "Lord Leif wouldn't be lonely, if they became friends."
+    .text "Lord Leif wouldn't be lonely...!"
     .byte WaitForA
 
     .byte ScrollText
@@ -665,7 +665,9 @@ d10Royal
     .byte ScrollText
 
     .text "..."
-    .byte NewLine
+    .byte WaitForA
+
+    .byte scrolltext
     .text "Then, tomorrow..."
     .byte WaitForA
 
@@ -753,7 +755,7 @@ d10FinnGlade
     .byte ScrollText
     .text "Finn... don't dwell on it."
     .byte NewLine
-    .text "The king and Lord Quan both entrusted you with."
+    .text "The king and Lord Quan both entrusted you with"
     .byte NewLine
     .text "this mission."
     .byte WaitForA

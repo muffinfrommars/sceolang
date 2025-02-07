@@ -61,8 +61,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word SelphinaPortrait
 	.word Selphina
 
-	.word DalsinPortrait
-	.word Dalsin
+	.word ElliePortrait
+	.word LeonsterKnight11
 
 	.word CallionPortrait
 	.word Callion

@@ -3,7 +3,7 @@
 
 	segmentStart
 
-	aPortraitPalette00 .binary "../../custom/graphics/portraits/newportraits/leif.pal" ; previously FE5 Leif
+	aPortraitPalette00 .binary "../../custom/graphics/portraits/newportraits/leif.mw3" ; previously FE5 Leif
 	aPortraitPalette01 .binary "../../custom/graphics/portraits/newportraits/finn.pal" ; previously FE5 Finn
 	aPortraitPalette02 .binary "sprites/PortraitPalette02.bin"
 	aPortraitPalette03 .binary "sprites/PortraitPalette03.bin"
@@ -33,7 +33,7 @@
 	aPortraitPalette1B .binary "sprites/PortraitPalette1B.bin"
 	aPortraitPalette1C .binary "../../custom/graphics/portraits/newportraits/selphina.pal"
 	aPortraitPalette1D .binary "sprites/PortraitPalette1D.bin"
-	aPortraitPalette1E .binary "sprites/PortraitPalette1E.bin"
+	aPortraitPalette1E .binary "sprites/PortraitPalette1E.bin" ;previously dalsin now unused
 	aPortraitPalette1F .binary "sprites/PortraitPalette1F.bin"
 	aPortraitPalette20 .binary "sprites/PortraitPalette20.bin"
 	aPortraitPalette21 .binary "sprites/PortraitPalette21.bin"
@@ -150,7 +150,7 @@
 	aPortraitPalette90 .binary "sprites/PortraitPalette90.bin"
 	aPortraitPalette91 .binary "sprites/PortraitPalette91.bin"
 	aPortraitPalette92 .binary "sprites/PortraitPalette92.bin"
-	aPortraitPalette93 .binary "sprites/PortraitPalette93.bin"
+	aPortraitPalette93 .binary "sprites/PortraitPalette93.bin" ;Seemingly Unused Before
 	aPortraitPalette94 .binary "sprites/PortraitPalette94.bin"
 	aPortraitPalette95 .binary "sprites/PortraitPalette95.bin"
 	aPortraitPalette96 .binary "sprites/PortraitPalette96.bin"
@@ -170,7 +170,7 @@
 	aPortraitPaletteA4 .binary "sprites/PortraitPaletteA4.bin" ;Seemingly Unused Before
 	aPortraitPaletteA5 .binary "sprites/PortraitPaletteA5.bin"
 	aPortraitPaletteA6 .binary "sprites/PortraitPaletteA6.bin"
-	aPortraitPaletteA7 .binary "../../custom/graphics/portraits/PortraitTailtiu.pal" ;Seemingly Unused Before
+	aPortraitPaletteA7 .binary "../../custom/graphics/portraits/newportraits/knight_ellie.mw3" ;Seemingly Unused Before
 	aPortraitPaletteA8 .binary "sprites/PortraitPaletteA8.bin"
 	aPortraitPaletteA9 .binary "sprites/PortraitPaletteA9.bin"
 	aPortraitPaletteAA .binary "sprites/PortraitPaletteAA.bin"
@@ -373,7 +373,7 @@
 	segmentStart
 
 	g4bppcPortraitEE8071 .binary "sprites/PortraitEE8071.4bpp.comp"
-	g4bppcPortraitArden .binary "../../custom/graphics/portraits/PortraitArden.4bpp.fe4" ; formerly g4bppcPortraitEE84E4 - Jabal
+	g4bppcPortraitEllie .binary "../../custom/graphics/portraits/newportraits/knight_ellie.bin.fe4" ; formerly g4bppcPortraitEE84E4 - Jabal
 	g4bppcPortraitEE89F5 .binary "sprites/PortraitEE89F5.4bpp.comp"
 	g4bppcPortraitEE8ED4 .binary "sprites/PortraitEE8ED4.4bpp.comp"
 	g4bppcPortraitEE9378 .binary "sprites/PortraitEE9378.4bpp.comp"

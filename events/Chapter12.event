@@ -39,6 +39,11 @@ GUARD_FE5_CHAPTER12 :?= false
 				END_DEFINITION_ARRAY
 			
 				_BeforeActionEventDefinitions
+					EVENT FlagAlwaysZero, _PlayerLoss
+						CMP_BYTE wCursorXCoord, 20
+						CMP_BYTE wCursorYCoord, 18
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_AfterActionEventDefinitions
@@ -134,6 +139,9 @@ GUARD_FE5_CHAPTER12 :?= false
 					macroASMCLoadUnitGroup eventChapter12Data._RTCLeonsterGroupA
 					macroASMCLoadUnitGroup eventChapter12Data._RTLeonster
 
+					WAIT_MOVE
+					YIELD
+
 					MOVE_UNIT LeonsterKnight10, [6, 12], [18, 20], 1, None
           			YIELD_UNK
 
@@ -180,16 +188,15 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT Ranz, Player, [10, 4], [10, 4], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight1, Player, [7, 3], [7, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight2, Player, [9, 3], [9, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight3, Player, [11, 3], [11, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight3, Player, [6, 4], [6, 4], Kalf, [Physic, Mend, SlimSword], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight4, Player, [8, 2], [8, 2], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight5, Player, [10, 2], [10, 2], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight6, Player, [9, 1], [9, 1], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight7, Player, [11, 1], [11, 1], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight8, Player, [3, 1], [21, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight9, Player, [3, 1], [21, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight9, Player, [11, 3], [11, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
 
- 					UNIT LeonsterKnight13, Player, [3, 1], [19, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight14, Player, [3, 1], [19, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
+ 					;UNIT LeonsterKnight13, Player, [3, 1], [19, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
+					;UNIT LeonsterKnight14, Player, [3, 1], [19, 6], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight15, Player, [3, 1], [19, 7], Kalf, [], 5, false, [$01, $03, $00, $80]
 				UNIT
 
@@ -247,8 +254,53 @@ GUARD_FE5_CHAPTER12 :?= false
     .section Chapter12WorldMapEventsSection
 
 			eventChapter12WorldMapEvents
+				SCROLL_CAMERA_COORDS [13, 5], 4
+				SET_CURSOR_POSITION
+				YIELD
+			
+				PLAY_SOUND_FORCED $00E0
+				PAUSE_SKIPPABLE 32
+				YIELD
+			
+				SET_MUSIC $29
+				YIELD
+			
+				FADE_IN 1
+				YIELD
+			
+				macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
+			
+				macroWMDrawSpecialMarker [96, 120], WMMarkerTable.Circle, 0
+
+				macroASMCWMDialogue dialogueChapter12WorldMap1
+			
+				HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+			
+				macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
+				macroWMClearSpecialMarker 0
+			
+				PAUSE_SKIPPABLE 1
+				YIELD
+			
+				PAUSE_SKIPPABLE 32
+			
+				macroWMSetCyclePalette 0, aBGPaletteBuffer.aPalette6
+			
+				macroWMDrawSpecialMarker [112, 128], WMMarkerTable.Circle, 0
+
+				macroASMCWMDialogue dialogueChapter12WorldMap2
+			
+				HALT_UNTIL_WORD_SKIPPABLE wDialogueEngineStatus, $0000
+			
+				macroWMClearCyclePalette aBGPaletteBuffer.aPalette6
+				macroWMClearSpecialMarker 0
+			
+				PAUSE_SKIPPABLE 1
+			 	 YIELD
+			
 				FADE_OUT 2
 				YIELD
+			
 				CALL_ASM_LOOP rlASMCEndWMEvents
 				YIELD
 			END1

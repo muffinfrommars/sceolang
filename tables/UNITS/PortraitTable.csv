@@ -20,7 +20,7 @@ MachaPortrait,g4bppcPortraitEC9AB8,$25
 HicksPortrait,g4bppcPortraitEBF2FF,$1D
 NannaPortrait,g4bppcPortraitEAE8B7,$02
 SelphinaPortrait,g4bppcPortraitEBEE1D,$1C
-DalsinPortrait,g4bppcPortraitEBF862,$1E
+ElliePortrait,g4bppcPortraitEllie,$A7
 CallionPortrait,g4bppcPortraitEC8729,$21
 GalzusPortrait,g4bppcPortraitEBDE20,$19
 PernePortrait,g4bppcPortraitEC8209,$20
@@ -177,7 +177,7 @@ BowKnight2Portrait,g4bppcPortraitEFA1F5,$94
 MagicKnight3Portrait,g4bppcPortraitEFAA5D,$90
 MagicKnight4Portrait,g4bppcPortraitEFAA5D,$95
 AxeKnight2Portrait,g4bppcPortraitEFA64C,$B0
-PegasusKnight1Portrait,g4bppcPortraitEFAEBF,$93
+PegasusKnight1Portrait,g4bppcPortraitEFAEBF,$93 ;unused PegasusKnight1Portrait g4bppcPortraitEFAEBF
 Knight8Portrait,g4bppcPortraitEF9DCD,$92
 Dracoknight1Portrait,g4bppcPortraitEFB317,$98
 Dracoknight2Portrait,g4bppcPortraitEFB317,$99

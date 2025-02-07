@@ -62,7 +62,7 @@ dialogueAedTravant1
 
 	.byte Left_slot
     .word LoadPortrait
-    .word RonanPortrait
+    .word guard_Portrait
 	.text "Yes, milord?"
 	.byte WaitForA
 
