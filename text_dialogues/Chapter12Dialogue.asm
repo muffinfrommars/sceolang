@@ -7,7 +7,7 @@ dialogueChapter12WorldMap1
 .byte ScrollText
 .text "and together, they reach the River Thracia, a"
 .byte NewLine
-.text "serene location untouched by the horrors of war."
+.text "tranquil location untouched by the horrors of war."
 .byte WaitForA
 .byte ScrollText
 
@@ -16,80 +16,33 @@ dialogueChapter12WorldMap1
 
 dialogueChapter12WorldMap2
 
-.text "the walled city of Tahra, its shape tall and"
-.byte NewLine
-.text "imposing, stood before them on the horizon."
-.byte WaitForA
-.byte ScrollText
+    .text "Finally, the peaks of Munster revealed itself"
+    .byte NewLine
+    .text "in the horizon, looming ever closer."
+    .byte WaitForA
+    .byte ScrollText
 
-.text "Under the leadership of Duchess Linoan,"
-.word LoadPortraitalt_1
-.long LoadPortraitalt_2
-.word $0126 ;linoan
-.word $0311 ;y then x
-.byte NewLine
-.text "daughter of the late Duke of Tahra,"
-.byte WaitForA
-.byte NewLine
-.text "the free city had rebelled against the Empire,"
-.byte NewLine
-.text "refusing to be complicit in their many crimes."
-.byte WaitForA
-.byte ScrollText
+    .text "A tense quiet hung over the troops, their eyes"
+    .byte NewLine
+    .text "scanning the ridgelines."
+    .byte WaitForA
+    .byte NewLine
+    .text "Then, movement - shadows against the mountains,"
+    .byte NewLine
+    .text "a distant roar growing louder."
+    .byte WaitForA
+    .byte ScrollText
 
-.text "This rebellion had not gone unpunished:"
-.byte NewLine
-.text "the city had already been under siege"
-.byte WaitForA
-.byte NewLine
-.text "by the Imperial Army,"
-.word LoadPortraitalt_1
-.long LoadPortraitalt_2
-.word paulus_portrait
-.word $0B0A ;y then x
-.text " led by Colonel Paulus,"
-.byte NewLine
-.text "for some time."
-.byte WaitForA
-.byte ScrollText
+    .text "The sky darkened with wings as enemy troops"
+    .byte NewLine
+    .text "emerged from the forests."
+    .byte WaitForA
+    .byte ScrollText
+    .text "The trap was sprung, and the battle had begun..."
+    .byte WaitForA
 
-.text "Already in dire straits before the Empire's"
-.byte NewLine
-.text "attack had even begun,"
-.byte WaitForA
-.text " Tahra would now"
-.byte NewLine
-.text "find it exceptionally difficult to recover."
-.byte WaitForA
-.word ClearPortraitalt
-.long $82937A
-.word $0000
-.byte ScrollText
-.word ClearPortraitalt
-.long $82937A
-.word $0001
-.byte ScrollText
 
-.text "Initially, the city-state had brokered its freedom"
-.byte WaitForA
-.byte NewLine
-.text "by agreeing to not interfere with the"
-.byte NewLine
-.text "Grannvale Empire's conquest of North Thracia."
-.byte WaitForA
-.byte ScrollText
-
-.text "In exchange, Tahra had been allowed to keep"
-.byte NewLine
-.text "its autonomy, but even at the time,"
-.byte WaitForA
-.byte NewLine
-.text "the city's freedom was thought to be as precarious"
-.byte NewLine
-.text "and fleeting as a candle flickering in the wind..."
-.byte WaitForA
-
-.byte EndText
+    .byte EndText
 
 ch12QuanEasterEgg1
 
@@ -208,3 +161,129 @@ dchapter12GameOverFortress
 	.byte WaitForA
 	
 	.byte EndText
+
+ch12GameOverKalf
+
+    .byte Right_Slot
+  	.word LoadPortrait
+    .word Osian_portrait ;Lurvin goes here
+	.byte $09
+
+    .text "Our king... has fallen..."
+    .byte newline
+    .text "Leonster is lost."
+    .byte waitfora
+
+    .byte scrolltext
+    .text "We must retreat - "
+    .byte newline
+    .text "there is nothing left for us here..."
+    .byte waitfora
+
+    .byte EndText
+
+ch12Intro
+
+    .word PlayMusic
+	.byte $33
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;kalf replacement
+    .text "I once took Quan fishing here, you know."
+    .byte newline
+    .text "Hard to believe this quiet river will soon"
+    .byte newline
+    .text "run red with blood..."
+    .byte waitforA
+
+    .byte scrolltext
+    .text "*sigh*"
+    .byte newline
+    .text "Three days, and not a single sign of resistance..."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "Either Thracia is blind... or they're waiting."
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Osian_Portrait
+    .text "Waiting, no doubt. This silence unsettles me."
+    .byte newline
+    .text "Your Majesty, I fear we are already walking into"
+    .byte newline
+    .text "their hands..."
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "Perhaps."
+    .byte NewLine
+    .text "But we've come too far to hesitate now."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Caution is not hesitation. We still have time to"
+    .byte NewLine
+    .text "reconsider our approach."
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "And do what? Turn back? Munster needs us."
+    .byte NewLine
+    .text "We cross, we press on."
+    .byte WaitForA 
+    
+    .byte ScrollText
+    .text "Still..."
+    .byte NewLine
+    .text "Where in damnation is Raydrik? He should've joined"
+    .byte NewLine
+    .text "us by now."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Strange, indeed."
+    .byte NewLine
+    .text "In a moment like this, his absence is -"
+
+    .word PlayMusic
+	.byte $00
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word ElliePortrait
+    .byte ScrollText
+    .text "In the skies - Thracians inbound!!"
+    .byte WaitForA
+
+    .byte EndText
+
+ch12Intro2
+
+    .byte right_slot
+    .word LoadPortrait
+    .word Osian_Portrait
+    .byte ScrollText
+    .text "Damn it... So it begins."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "Archers! Protect the bridge's fortress!"
+    .byte newline
+    .text "Everyone else! Protect the King!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait
+    .byte ScrollText
+    .text "We must protect the bridge until Raydrik arrives!"
+    .byte WaitForA
+
+    .byte EndText
