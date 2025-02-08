@@ -31,6 +31,26 @@ GUARD_FE5_CHAPTER12 :?= false
 				END_DEFINITION_ARRAY
 			
 				_TurnEventDefinitions
+					EVENT FlagAlwaysZero, _CounterIncrease
+						CMP_WORD_RANGE wCurrentTurn, 1, 15
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+					EVENT FlagAlwaysZero, _AIChangeThraciaA
+						CMP_BYTE $7E4976, 2
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+					EVENT FlagAlwaysZero, _AIChangeThraciaB
+						CMP_BYTE $7E4976, 4
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+					EVENT FlagAlwaysZero, _RaydrikAppears
+						CMP_BYTE $7E4976, 6
+						CMP_WORD wCurrentPhase, NPC
+					END_DEFINITION
+					EVENT FlagAlwaysZero, _RaydrikBetrayal
+						CMP_BYTE $7E4976, 13
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
 					EVENT _FlagKalfDeath, _12GameOverKalf
 						CHECK_IF_BOSS_DEAD Kalf
 						CMP_WORD wCurrentPhase, Player
@@ -74,6 +94,44 @@ GUARD_FE5_CHAPTER12 :?= false
 			
 				_ShopEventDefinitions
 				END_DEFINITION_ARRAY
+
+				_AIChangeThraciaA
+					macroASMCSetCharacterDataByte ThraciaDracorider, ActionAI, $04
+					macroASMCSetCharacterDataByte ThraciaDracorider, MovementAI, $0F
+					macroASMCSetCharacterDataByte ThraciaDracorider, MovementAIOffset, $00
+
+					macroASMCSetCharacterDataByte ThraciaDracoknight1, ActionAI, $04
+					macroASMCSetCharacterDataByte ThraciaDracoknight1, MovementAI, $0F
+					macroASMCSetCharacterDataByte ThraciaDracoknight1, MovementAIOffset, $00
+				END2
+				
+				_AIChangeThraciaB
+					macroASMCSetCharacterDataByte ThraciaDracoknight3, ActionAI, $04
+					macroASMCSetCharacterDataByte ThraciaDracoknight3, MovementAI, $0F
+					macroASMCSetCharacterDataByte ThraciaDracoknight3, MovementAIOffset, $00
+
+					macroASMCSetCharacterDataByte ThraciaDracoknight2, ActionAI, $04
+					macroASMCSetCharacterDataByte ThraciaDracoknight2, MovementAI, $0F
+					macroASMCSetCharacterDataByte ThraciaDracoknight2, MovementAIOffset, $00
+				END2
+
+				_RaydrikAppears
+					PLAY_SOUND_FORCED $00E0
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					SET_MUSIC $39
+					YIELD
+				END2
+
+				_RaydrikBetrayal
+					PLAY_SOUND_FORCED $00E0
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					SET_MUSIC $3B
+					YIELD
+				END2
 
 				_QuanEasterEgg
 		            PLAY_SOUND_FORCED $00E0
@@ -146,7 +204,13 @@ GUARD_FE5_CHAPTER12 :?= false
 					macroASMCGameOver
 					YIELD
 					+
-					END1
+				END1
+
+				_CounterIncrease ; counter used from vanilla ch14
+					ADD_BYTE $7E4976, 1
+					YIELD_UNK
+					YIELD_UNK
+				END1
 			
 				_GaidenFail
 					SET_FLAG FlagAlliedDeath
@@ -291,25 +355,25 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT ThraciaDracoknight1, Enemy, [11, 33], [11, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
 					UNIT ThraciaDracoknight1, Enemy, [13, 33], [13, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
 					UNIT ThraciaDracoknight1, Enemy, [11, 35], [11, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
-					UNIT ThraciaDracoknight1, Enemy, [13, 33], [13, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight1, Enemy, [13, 35], [13, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
 					UNIT ThraciaDracorider, Enemy, [12, 34], [12, 34], Travant, [SilverLance], 15, False, [$03, $03, $00, $80]
 				UNIT
 				
 				_RTThraciaSquadB ; START: No Action, No Movement
-					UNIT ThraciaDracoknight1, Enemy, [26, 35], [26, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
-					UNIT ThraciaDracoknight1, Enemy, [24, 35], [24, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
-					UNIT ThraciaDracoknight1, Enemy, [24, 33], [24, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
-					UNIT ThraciaDracoknight1, Enemy, [26, 33], [26, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
-					UNIT ThraciaDracorider, Enemy, [25, 34], [25, 34], Travant, [SilverLance], 15, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight2, Enemy, [26, 35], [26, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight2, Enemy, [24, 35], [24, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight2, Enemy, [24, 33], [24, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight2, Enemy, [26, 33], [26, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [25, 34], [25, 34], Travant, [SilverLance], 15, False, [$03, $03, $00, $80]
 				UNIT
 				
 				_RTThraciaSquadC ;
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [30, 22], Travant, [SteelLance], 10, False, [$00, $00, $00, $80]
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [31, 22], Travant, [SteelLance], 10, False, [$00, $00, $00, $80]
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [30, 23], Travant, [SteelLance], 10, False, [$00, $00, $00, $80]
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [31, 23], Travant, [SteelLance], 10, False, [$00, $00, $00, $80]
-					UNIT ThraciaArmoredSword, Enemy, [37, 24], [29, 22], Travant, [SteelSword], 15, False, [$00, $00, $00, $80]
-					UNIT ThraciaArmoredSword, Enemy, [37, 24], [29, 23], Travant, [SteelSword], 15, False, [$00, $00, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [37, 24], [30, 22], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [37, 24], [31, 22], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [37, 24], [30, 23], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [37, 24], [31, 23], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredSword, Enemy, [37, 24], [29, 22], Travant, [SteelSword], 15, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredSword, Enemy, [37, 24], [29, 23], Travant, [SteelSword], 15, False, [$00, $0F, $00, $80]
 				UNIT
 				
 				_RTThraciaSquadD ;
