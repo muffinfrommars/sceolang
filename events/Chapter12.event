@@ -53,8 +53,7 @@ GUARD_FE5_CHAPTER12 :?= false
 			
 				_BeforeActionEventDefinitions
 					EVENT FlagAlwaysZero, _PlayerLoss
-						CMP_BYTE wCursorXCoord, 20
-						CMP_BYTE wCursorYCoord, 18
+						macroECCheckCoordinates [20, 18]
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 				END_DEFINITION_ARRAY
@@ -118,8 +117,11 @@ GUARD_FE5_CHAPTER12 :?= false
 
 				_PlayerLoss
           			PLAY_SOUND_FORCED $00E0
+					PAUSE_SKIPPABLE 32
+					YIELD
 			
-					STORE_WORD wCurrentMapMusic, $00
+					SET_MUSIC $28
+					YIELD
 			
 					DIALOGUE dchapter12GameOverFortress
 					YIELD
