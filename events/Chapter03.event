@@ -25,6 +25,7 @@ GUARD_FE5_CHAPTER03 :?= false
 
           _FlagRanzBattleQuote     = enum.enum($06)
           _CaveLeverFlag           = enum.enum()
+          
 
           ; TODO: map installer definitions
 
@@ -49,18 +50,17 @@ GUARD_FE5_CHAPTER03 :?= false
           END_DEFINITION
         END_DEFINITION_ARRAY
 
-        _LocationEventDefinitions ; 8C/E4B0
+        _LocationEventDefinitions
         END_DEFINITION_ARRAY
 
-        _BeforeActionEventDefinitions ; 8C/E68A
-        EVENT FlagAlwaysZero, _PlayerLoss
-						CMP_BYTE wCursorXCoord, 1
-						CMP_BYTE wCursorYCoord, 1
+        _BeforeActionEventDefinitions
+          EVENT FlagAlwaysZero, _PlayerLossch03
+						macroECCheckCoordinates [1, 1]
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
-          EVENT $00, eventChapter16BEvents._WarpTile
-            RUN_ASM rlGetWarpTileTargetCoords
-          END_DEFINITION
+         ;EVENT $00, eventChapter16BEvents._WarpTile ;debug only
+            ;RUN_ASM rlGetWarpTileTargetCoords
+          ;END_DEFINITION
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
@@ -96,7 +96,7 @@ GUARD_FE5_CHAPTER03 :?= false
 					macroASMCActiveUnitUnsetUnitState UnitStateHidden
         END2
 
-        _PlayerLoss
+        _PlayerLossch03
           PLAY_SOUND_FORCED $00E0
 			
 					STORE_WORD wCurrentMapMusic, $00
@@ -300,23 +300,23 @@ GUARD_FE5_CHAPTER03 :?= false
       eventChapter03Data ; B1/F318
 
         _ch03NPCGroupfinal
-          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [Javelin], 1, true, [$01, $03, $00, $80]
-          UNIT Ranz, NPC, [8, 1], [8, 1], Dryas, [Rapier], 1, true, [$01, $03, $00, $80]
+          UNIT Dryas, NPC, [7, 1], [7, 1], Dryas, [SteelLance], 1, true, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [8, 1], [8, 1], Dryas, [IronLance], 1, true, [$01, $03, $00, $80]
           UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$01, $03, $00, $80]
           UNIT LeonsterMyrmidon, NPC, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$01, $03, $00, $80]
-          UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$01, $03, $00, $80]
-          UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $03, $00, $80]
-          UNIT LeonsterHero, NPC, [7, 11], [7, 11], Dryas, [IronAxe], 2, False, [$00, $03, $00, $80]
-          UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [IronSword], 2, False, [$00, $03, $00, 80]
-          UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $03, $00, $80]
+          UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$01, $01, $00, $80]
+          UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $0F, $00, $80]
+          UNIT LeonsterHero, NPC, [7, 11], [7, 11], Dryas, [IronAxe], 2, False, [$00, $0F, $00, $80]
+          UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [IronSword], 2, False, [$00, $0F, $00, 80]
+          UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $0F, $00, $80]
         UNIT
 
         _ch03NPCGroupfinalReinforcement
           UNIT Ranz, NPC, [14, 5], [14, 2], Dryas, [Rapier], 5, true, [$01, $03, $00, $80]
-          UNIT LeonsterSoldier, NPC, [1, 12], [1, 12], Dryas, [IronLance], 2, False, [$00, $03, $00, $80]
-          UNIT LeonsterMyrmidon, NPC, [2, 11], [2, 11], Dryas, [IronBlade], 2, False, [$00, $03, $00, $80]
-          UNIT LeonsterArcher, NPC, [3, 12], [3, 12], Dryas, [IronBow], 2, False, [$00, $03, $00, $80]
-          UNIT LeonsterHero, NPC, [13, 7], [13, 7], Dryas, [IronAxe], 2, False, [$00, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [1, 12], [1, 12], Dryas, [IronLance], 2, False, [$00, $0F, $00, $80]
+          UNIT LeonsterMyrmidon, NPC, [2, 11], [2, 11], Dryas, [IronBlade], 2, False, [$00, $0F, $00, $80]
+          UNIT LeonsterArcher, NPC, [3, 12], [3, 12], Dryas, [IronBow], 2, False, [$00, $0F, $00, $80]
+          UNIT LeonsterHero, NPC, [13, 7], [13, 7], Dryas, [IronAxe], 2, False, [$00, $0F, $00, $80]
         UNIT
 
         _ch03cutsceneGroupA
