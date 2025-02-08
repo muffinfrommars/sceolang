@@ -36,11 +36,11 @@ GUARD_FE5_CHAPTER12 :?= false
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _AIChangeThraciaA
-						CMP_BYTE $7E4976, 2
+						CMP_WORD wCurrentTurn, 2
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _AIChangeThraciaB
-						CMP_BYTE $7E4976, 4
+						CMP_WORD wCurrentTurn, 4
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _RaydrikAppears
