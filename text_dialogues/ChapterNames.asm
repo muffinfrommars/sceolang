@@ -149,3 +149,7 @@ dialogueTheNextDay
 dialogueAnHourLater
 .text "One Hour Later..."
 .byte $01
+
+dialogueObjektive
+.text "Confront Raydrik with Kalf."
+.byte $01

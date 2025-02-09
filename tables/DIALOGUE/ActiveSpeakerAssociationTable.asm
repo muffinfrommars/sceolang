@@ -64,8 +64,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word ElliePortrait
 	.word LeonsterKnight11
 
-	.word CallionPortrait
-	.word Callion
+	.word NieznaPortrait
+	.word LeonsterKnight3
 
 	.word GalzusPortrait
 	.word Galzus

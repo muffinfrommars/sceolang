@@ -1,12 +1,12 @@
 
-aScriptedBattleTable ; 9A/E802
-	.addr OsianHalvanScriptedBattle
-	.addr MareetaShannamScriptedBattle
-	.addr NannaLoptrianScriptedBattle
-	.addr CedAlphandScriptedBattle
-	.addr FinnGladeScriptedBattle
-	.addr EthlynDeathScriptedBattle
-	.addr OsianHalvanScriptedBattle
+aScriptedBattleTable
+	.addr OsianHalvanScriptedBattle ;0
+	.addr MareetaShannamScriptedBattle ;1
+	.addr NannaLoptrianScriptedBattle ;2
+	.addr CedAlphandScriptedBattle ;3
+	.addr FinnGladeScriptedBattle ;4
+	.addr EthlynDeathScriptedBattle ;5
+	.addr RaydrikKalfScriptedBattle ;6
 	.addr OsianHalvanScriptedBattle
 	.addr OsianHalvanScriptedBattle
 	.addr OsianHalvanScriptedBattle
@@ -92,6 +92,17 @@ EthlynDeathScriptedBattle .dstruct structScriptedBattleSetup, $00, [Ethlyn, Play
 	; Rounds
 					   ; Dmg
 	.byte $02, $11, $00, $38	;crit + astra + hit
+.word $FFFF, $FFFF
+
+RaydrikKalfScriptedBattle .dstruct structScriptedBattleSetup, $00, [Kalf, Player, KnightLord, Kingmaker, TerrainBridge, [22, 22], 1, 81, 13, 2, 0], [Raydrik, Enemy, Baron, ShadowSpear, TerrainBridge, [24, 24], 1, 89, 15, 3, 0], $09, Raydrik, dialogueDemoOsian, Kalf, dialogueDemoHalvan, Chapter12, None
+
+	; Rounds
+					   ; Dmg
+	.byte $80, $02, $00, $0C	;First80+Right0;Miss2;0;
+	.byte $00, $02, $00, $0C	;Right0;Miss2;0;
+	.byte $02, $02, $00, $02	;Left2;Miss2;0;
+	.byte $02, $03, $00, $02	;Left2;Crit1+Miss2;0;
+	.byte $00, $03, $00, $0C	;Right0;Crit1+Miss2;0;
 .word $FFFF, $FFFF
 
 .here

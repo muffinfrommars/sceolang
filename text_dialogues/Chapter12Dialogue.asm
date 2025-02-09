@@ -287,3 +287,205 @@ ch12Intro2
     .byte WaitForA
 
     .byte EndText
+
+ch12RaydrikAppears
+
+    .byte right_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "Sorry I'm late, gentlemen!"
+    .byte WaitForA
+
+    .byte EndText
+
+ch12RaydrikAppears1
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;kalf portrait
+    .text "Raydrik! You damned fool, where have you been?"
+    .byte newline
+    .text "We're being torn apart out here!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "Oh, believe me, Your Majesty, I came as fast as"
+    .byte newline
+    .text "I could. The roads were... troublesome."
+    .byte WaitForA
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Osian_Portrait ;Lurvin Portrait
+    .byte ScrollText
+    .text "Troublesome?!"
+    .byte newline
+    .text "We're on the brink of collapse, and you waltz in"
+    .byte newline
+    .text "now with excuses?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Come now, I bring reinforcements."
+    .byte newline
+    .text "Surely that warrants some gratitude?"
+    .byte WaitForA
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .byte ScrollText
+    .text "Reinforcements or not, you've cost us dearly."
+    .byte newline
+    .text "If you have any honor left, prove it - get your"
+    .byte newline
+    .text "men in formation and help secure the bridge!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Oh, but of course, Your Majesty."
+    .byte newline
+    .text "Anything for the glory of Leonster..."
+    .byte WaitForA
+
+
+    .byte EndText
+
+ch12RaydrikBetrayal1
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait ;kalf portrait
+    .text "Heh... I must say, Your Majesty, you put up"
+    .byte newline
+    .text "quite the fight."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "But I'm afraid this battle ends here."
+    .byte WaitForA
+
+    .byte EndText
+
+ch12RaydrikBetrayal2
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .text "Raydrik... what is the meaning of this?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait ;Kalf Portrait
+    .text "Oh, Your Majesty..."
+    .byte newline
+    .text "You truly thought I'd bleed for you?"
+    .byte newline
+    .text "For a lost cause?"
+    .byte WaitForA
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Osian_Portrait ;Lurvin Portrait
+    .byte ScrollText
+    .text "You snake!"
+    .byte newline
+    .text "You had this planned all along!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Planned? No, no, Lurvin."
+    .byte newline
+    .text "I merely had the foresight to align myself"
+    .byte newline
+    .text "with the winning side."
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "And look at you now - tired, wounded, on"
+    .byte newline
+    .text "your last legs. I'd say I chose wisely."
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .byte ScrollText
+    .text "You wretched coward...!"
+    .byte newline
+    .text "You call yourself a nobleman of Connaught, yet"
+    .byte newline
+    .text "you sell your own countrymen to Thracia?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Call it pragmatism."
+    .byte newline
+    .text "King Travant rewards loyalty while you... well,"
+    .byte newline
+    .text "will soon be too dead to reward anyone."
+    .byte WaitForA
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Osian_Portrait ;Lurvin Portrait
+    .byte ScrollText
+    .text "You'll pay for this, Raydrik!"
+    .byte newline
+    .text "Thracia won't honor a worm like you!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Perhaps."
+    .byte newline
+    .text "But I'll be alive, unlike both of you."
+    .byte newline
+    .text "Men! Kill them all - King Kalf first!"
+    .byte WaitForA
+
+    .byte EndText
+    
+ch12RaydrikKalf
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .text "So this is what it comes to, Raydrik."
+    .byte Newline
+    .text "Treachery and bloodshed... "
+    .byte newline
+    .text "Was there ever a shred of honor in you?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait ;Kalf Portrait
+    .text "*scoffs* Honor?"
+    .byte newline
+    .text "Honor won't save a dying kingdom."
+    .byte newline
+    .text "You should have seen this coming, Kalf."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "I see it clearly now - you were never my ally."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "*grins* And you were never my king."
+    .byte newline
+    .text "Draw your weapon, Kalf."
+    .byte newline
+    .text "Let's end this farce."
+    .byte WaitForA
+
+    .byte EndText

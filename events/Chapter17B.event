@@ -551,17 +551,6 @@ GUARD_FE5_CHAPTER17B :?= false
 					.byte 9, 19
 			
 				_NPCGroup ; B1/A543
-					UNIT ResistanceFighter, NPC, [9, 16], [9, 16], Emily, [HandAxe], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceMyrmidon1, NPC, [4, 24], [4, 24], Emily, [IronSword], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceMyrmidon1, NPC, [10, 15], [10, 15], Emily, [IronSword], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceMyrmidon1, NPC, [14, 13], [14, 13], Emily, [IronSword], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceFighter, NPC, [9, 18], [9, 18], Emily, [IronAxe], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceFighter, NPC, [15, 14], [15, 14], Emily, [IronAxe], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceArcher1, NPC, [3, 22], [3, 22], Emily, [IronBow], 1, False, [$00, $19, $00, $00]
-					UNIT ResistancePriest, NPC, [4, 20], [4, 20], Emily, [Heal], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceArcher2, NPC, [10, 19], [10, 19], Emily, [IronBow], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceMyrmidon2, NPC, [13, 18], [13, 18], Emily, [IronSword], 1, False, [$00, $19, $00, $00]
-					UNIT ResistanceMage, NPC, [12, 15], [12, 15], Emily, [Fire], 1, False, [$00, $19, $00, $00]
 				UNIT
 			
 				_UnusedCoordinates1 ; B1/A621

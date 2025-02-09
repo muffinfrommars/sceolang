@@ -23,6 +23,7 @@ GUARD_FE5_CHAPTER12 :?= false
 
 				_FlagEasterEgg      = enum.enum($07)
 				_FlagKalfDeath		= enum.enum()
+				_FlagKalfRaydrikTalk = enum.enum()
 
 				_OpeningEventDefinitions 
 					EVENT FlagAlwaysZero, _OpeningEvent
@@ -32,7 +33,7 @@ GUARD_FE5_CHAPTER12 :?= false
 			
 				_TurnEventDefinitions
 					EVENT FlagAlwaysZero, _CounterIncrease
-						CMP_WORD_RANGE wCurrentTurn, 1, 15
+						CMP_WORD_RANGE wCurrentTurn, 1, 10
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _AIChangeThraciaA
@@ -44,11 +45,23 @@ GUARD_FE5_CHAPTER12 :?= false
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _RaydrikAppears
-						CMP_BYTE $7E4976, 6
-						CMP_WORD wCurrentPhase, NPC
+						CMP_WORD wCurrentTurn, 6
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+					EVENT FlagAlwaysZero, _RaydrikWaltzA
+						CMP_WORD_RANGE wCurrentTurn, 7, 8
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+					EVENT FlagAlwaysZero, _RaydrikWaltzB
+						CMP_WORD wCurrentTurn, 9
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+					EVENT FlagAlwaysZero, _RaydrikWaltzC
+						CMP_WORD wCurrentTurn, 10
+						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _RaydrikBetrayal
-						CMP_BYTE $7E4976, 13
+						CMP_WORD wCurrentTurn, 11
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT _FlagKalfDeath, _12GameOverKalf
@@ -66,6 +79,10 @@ GUARD_FE5_CHAPTER12 :?= false
 				END_DEFINITION_ARRAY
 			
 				_TalkEventDefinitions
+					EVENT FlagAlwaysZero, _EndingEvent
+						CHECK_CHARS2 Kalf, Raydrik
+						;CMP_BYTE $7E4976, 5
+					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_LocationEventDefinitions
@@ -74,6 +91,10 @@ GUARD_FE5_CHAPTER12 :?= false
 				_BeforeActionEventDefinitions
 					EVENT FlagAlwaysZero, _PlayerLoss
 						macroECCheckCoordinates [20, 18]
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
+					EVENT _FlagKalfDeath, _12GameOverKalf
+						CHECK_IF_BOSS_DEAD Kalf
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 				END_DEFINITION_ARRAY
@@ -116,8 +137,163 @@ GUARD_FE5_CHAPTER12 :?= false
 					PAUSE_SKIPPABLE 32
 					YIELD
 
+					SCROLL_CAMERA_COORDS [32, 3], 4
+					YIELD
+
+					LOAD_GROUP eventChapter12Data._RTRaydrik
+					WAIT_MOVE
+					YIELD
+
+  					macroASMCSetBitsCharacterDataWord Raydrik, Skills3, Skill3Immortal
+
 					SET_MUSIC $39
 					YIELD
+
+					DIALOGUE ch12RaydrikAppears
+					YIELD
+
+					SCROLL_CAMERA_CHAR Lurvin, 5
+          			YIELD
+
+					DIALOGUE ch12RaydrikAppears1
+					YIELD
+				END2
+
+				_ConnaughtMovestringA
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+				MS_END
+
+				_RaydrikWaltzA
+					SCROLL_CAMERA_CHAR Raydrik, 4
+          			YIELD
+
+					MOVE_CHAR Raydrik, [13, 18], 1, _ConnaughtMovestringA
+					YIELD_UNK
+					MOVE_CHAR ConnaughtGeneral, [14, 18], 1, _ConnaughtMovestringA
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					SCROLL_CAMERA_CHAR Raydrik, 4
+          			YIELD
+					
+					MOVE_CHAR ConnaughtMyrmidon2, [13, 18], 1, _ConnaughtMovestringA
+					YIELD_UNK
+					MOVE_CHAR ConnaughtFighter, [14, 18], 1, _ConnaughtMovestringA
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+					
+					MOVE_CHAR ConnaughtArcher1, [13, 18], 1, _ConnaughtMovestringA
+					YIELD_UNK
+					MOVE_CHAR ConnaughtPriest, [14, 18], 1, _ConnaughtMovestringA
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					JUMP _CounterIncrease
+				END2
+
+				_ConnaughtMovestringB
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_LEFT
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+				MS_END
+				
+				_RaydrikWaltzB
+					SCROLL_CAMERA_CHAR Raydrik, 4
+          			YIELD
+
+					MOVE_CHAR Raydrik, [13, 18], 1, _ConnaughtMovestringB
+					YIELD_UNK
+					MOVE_CHAR ConnaughtGeneral, [14, 18], 1, _ConnaughtMovestringB
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					SCROLL_CAMERA_CHAR Raydrik, 4
+          			YIELD
+					
+					MOVE_CHAR ConnaughtMyrmidon2, [13, 18], 1, _ConnaughtMovestringB
+					YIELD_UNK
+					MOVE_CHAR ConnaughtFighter, [14, 18], 1, _ConnaughtMovestringB
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+					
+					MOVE_CHAR ConnaughtArcher1, [13, 18], 1, _ConnaughtMovestringB
+					YIELD_UNK
+					MOVE_CHAR ConnaughtPriest, [14, 18], 1, _ConnaughtMovestringB
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					JUMP _CounterIncrease
+				END2
+				
+				_ConnaughtMovestringC
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+					MS_MOVE_DOWN
+				MS_END
+				
+				_RaydrikWaltzC
+					SCROLL_CAMERA_CHAR Raydrik, 4
+          			YIELD
+
+					MOVE_CHAR Raydrik, [13, 18], 1, _ConnaughtMovestringC
+					YIELD_UNK
+					MOVE_CHAR ConnaughtGeneral, [14, 18], 1, _ConnaughtMovestringC
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					SCROLL_CAMERA_CHAR Raydrik, 4
+          			YIELD
+					
+					MOVE_CHAR ConnaughtMyrmidon2, [13, 18], 1, _ConnaughtMovestringC
+					YIELD_UNK
+					MOVE_CHAR ConnaughtFighter, [14, 18], 1, _ConnaughtMovestringC
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+					
+					MOVE_CHAR ConnaughtArcher1, [13, 18], 1, _ConnaughtMovestringC
+					YIELD_UNK
+					MOVE_CHAR ConnaughtPriest, [14, 18], 1, _ConnaughtMovestringC
+					YIELD_UNK
+					WAIT_MOVE
+					YIELD
+					PAUSE_SKIPPABLE 16
+					YIELD
+
+					JUMP _CounterIncrease
 				END2
 
 				_RaydrikBetrayal
@@ -125,8 +301,30 @@ GUARD_FE5_CHAPTER12 :?= false
 					PAUSE_SKIPPABLE 32
 					YIELD
 
+					DIALOGUE ch12RaydrikBetrayal1
+					YIELD
+
 					SET_MUSIC $3B
 					YIELD
+
+					SCROLL_CAMERA_CHAR Raydrik, 6
+          			YIELD
+
+					macroASMCChangeAllegianceToEnemy Raydrik
+					macroASMCChangeAllegianceToEnemy ConnaughtGeneral
+					macroASMCChangeAllegianceToEnemy ConnaughtMyrmidon2
+					macroASMCChangeAllegianceToEnemy ConnaughtFighter
+					macroASMCChangeAllegianceToEnemy ConnaughtArcher1
+					macroASMCChangeAllegianceToEnemy ConnaughtPriest
+
+					DIALOGUE ch12RaydrikBetrayal2
+					YIELD
+
+					macroChapterTitlePopup dialogueObjektive
+
+					macroSetCharacterAI Raydrik, [$04, $0F, $00, $80]
+
+					JUMP _CounterIncrease
 				END2
 
 				_QuanEasterEgg
@@ -234,7 +432,6 @@ GUARD_FE5_CHAPTER12 :?= false
 				.word 0
 			
 				_OpeningEvent
-
 					SET_CAMERA_POSITION [18, 22]
 					YIELD
 
@@ -248,6 +445,13 @@ GUARD_FE5_CHAPTER12 :?= false
 					YIELD
 					macroASMCLoadUnitGroup eventChapter12Data._RTCLeonsterGroupA
 					YIELD_UNK
+
+					macroASMCUnsetUnitState Finn, (UnitStateUnknown1 | UnitStateDisabled)
+					macroASMCSetUnitPosition Ranz, [10, 4]
+					macroASMCSetCharacterDataByte Ranz, Fatigue, 0
+					macroASMCMount Ranz
+					macroASMCGiveUnitItemSilent Ranz, SteelLance
+					YIELD
 
 					WAIT_MOVE
 					YIELD
@@ -313,6 +517,29 @@ GUARD_FE5_CHAPTER12 :?= false
 				END2
 			
 				_EndingEvent 
+					PLAY_SOUND_FORCED $00E0
+					PAUSE_SKIPPABLE 32
+					YIELD
+
+					SCROLL_CAMERA_CHAR Raydrik, 4
+					YIELD
+
+					DIALOGUE ch12RaydrikKalf
+					YIELD
+
+					SET_MUSIC $1F
+					YIELD
+			
+					STORE_WORD_FROM wEventEngineParameter1, wCurrentChapter
+					STORE_WORD wEventEngineParameter2, 3 ;TODO Battle of Kalf Raydrik
+					CALL_ASM_SKIPPABLE $9A98E6, $0000
+					STORE_BYTE $7E41AC, $00
+					HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+					STORE_WORD_FROM wCurrentChapter, wEventEngineParameter1
+					HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $0F
+
+					macroASMCRemoveUnit Kalf
+
 					CALL_ASM_LOOP rlASMCChapterEnd
 				END1
 
@@ -328,11 +555,22 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT LeonsterKnight12, Player, [7, 13], [7, 13], Kalf, [IronBow], 20, false, [$01, $03, $00, $80]
 				UNIT
 
+				_RTConnaught
+				UNIT
+
+				_RTRaydrik ; START : "Manually Controlled", No movement Later
+					UNIT Raydrik, NPC, [31, 1], [31, 3], Raydrik, [ShadowSpear], 20, true, [$00, $0F, $00, $80]
+					UNIT ConnaughtGeneral, NPC, [32, 1], [32, 3], Raydrik, [], 5, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtMyrmidon2, NPC, [32, 1], [32, 2], Raydrik, [], 5, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtFighter, NPC, [31, 1], [31, 2], Raydrik, [], 5, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtArcher1, NPC, [32, 1], [32, 1], Raydrik, [], 5, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtPriest, NPC, [31, 1], [31, 1], Raydrik, [], 5, false, [$00, $0F, $00, $80]
+				UNIT
+
 				_RTLeonster
 					UNIT Kalf, Player, [9, 5], [9, 5], Kalf, [Kingmaker, Vulnerary], 19, false, [$01, $03, $00, $80]
 					UNIT Lurvin, Player, [7, 5], [7, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT Alface, Player, [8, 4], [8, 4], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT Ranz, Player, [10, 4], [10, 4], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight1, Player, [7, 3], [7, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight2, Player, [9, 3], [9, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight3, Player, [6, 4], [6, 4], Kalf, [Physic, Mend, IronSword], 5, false, [$01, $03, $00, $80]
@@ -394,8 +632,6 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT Leif, NPC, [1, 35], [3, 35], Kalf, [], 1, false, [$01, $03, $00, $80]
 				UNIT
 
-
-			
 				_PrepGroup
 					.byte 8, 9
 				UNIT

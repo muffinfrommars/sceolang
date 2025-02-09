@@ -657,28 +657,24 @@ GUARD_FE5_CHAPTER16A :?= false
 					.byte 42, 14
 			
 				_BottomPirateReinforcements1Group ; B1/B31C
-					UNIT PirateEnemy, Enemy, [42, 20], [42, 20], Seil, [IronAxe], 3, False, [$02, $09, $00, $00]
 				UNIT
 			
 				_TopPirateReinforcements1CameraCoordinates ; B1/B332
 					.byte 18, 8
 			
 				_TopPirateReinforcements1Group ; B1/B334
-					UNIT PirateEnemy, Enemy, [18, 1], [18, 1], Seil, [IronAxe], 3, False, [$02, $09, $00, $00]
 				UNIT
 			
 				_BottomPirateReinforcements2CameraCoordinates ; B1/B34A
 					.byte 51, 14
 			
 				_BottomPirateReinforcements2Group ; B1/B34C
-					UNIT PirateEnemy, Enemy, [55, 20], [55, 20], Seil, [IronAxe], 3, False, [$02, $09, $00, $00]
 				UNIT
 			
 				_TopPirateReinforcements2CameraCoordinates ; B1/B362
 					.byte 45, 8
 			
 				_TopPirateReinforcements2Group ; B1/B364
-					UNIT PirateEnemy, Enemy, [45, 1], [45, 1], Seil, [IronAxe], 3, False, [$02, $09, $00, $00]
 				UNIT
 			
 				_PrepGroup2 ; B1/B37A

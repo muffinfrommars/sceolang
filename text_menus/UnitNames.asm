@@ -946,7 +946,7 @@
 			.text "Xavier\n"
 		
 		menutextUnitResistanceName
-			.text "Resistance\n"
+			.text "Connaught \n"
 		
 		menutextUnitBharatName
 			.text "Bharat\n"
@@ -979,7 +979,7 @@
 			.text "Dracorider\n"
 		
 		menutextUnitPirateName
-			.text "Pirate\n"
+			.text "Connaught \n"
 		
 		menutextUnitWolfeName
 			.text ")Wolfe\n"

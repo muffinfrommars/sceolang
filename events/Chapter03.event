@@ -57,7 +57,7 @@ GUARD_FE5_CHAPTER03 :?= false
           EVENT FlagAlwaysZero, eventChapter03Events._PlayerLoss
 						CMP_BYTE wCursorXCoord, 1
 						CMP_BYTE wCursorYCoord, 1
-						CMP_WORD wCurrentPhase, Enemy
+						CMP_WORD wCurrentPhase, NPC
 					END_DEFINITION
          ;EVENT $00, eventChapter16BEvents._WarpTile ;debug only
             ;RUN_ASM rlGetWarpTileTargetCoords
@@ -65,6 +65,11 @@ GUARD_FE5_CHAPTER03 :?= false
         END_DEFINITION_ARRAY
 
         _AfterActionEventDefinitions
+          EVENT FlagAlwaysZero, eventChapter03Events._PlayerLoss
+						CMP_BYTE wCursorXCoord, 1
+						CMP_BYTE wCursorYCoord, 1
+						CMP_WORD wCurrentPhase, NPC
+					END_DEFINITION
           EVENT _CaveLeverFlag, _CaveLeverEvent
             macroECCheckCoordinates [13, 10]
             CMP_WORD wCurrentPhase, Player
@@ -306,7 +311,7 @@ GUARD_FE5_CHAPTER03 :?= false
           UNIT Xavier, NPC, [9, 1], [9, 1], Dryas, [GreatLance], 1, true, [$01, $03, $00, $80]
           UNIT LeonsterMyrmidon, NPC, [13, 10], [13, 10], Dryas, [IronBlade], 2, False, [$01, $03, $00, $80]
           UNIT LeonsterBowKnight, NPC, [12, 5], [12, 5], Dryas, [ShortBow], 2, False, [$01, $01, $00, $80]
-          UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [], 2, False, [$00, $0F, $00, $80]
+          UNIT LeonsterArcher, NPC, [6, 5], [6, 5], Dryas, [IronBow], 2, False, [$00, $0F, $00, $80]
           UNIT LeonsterHero, NPC, [7, 11], [7, 11], Dryas, [IronAxe], 2, False, [$00, $0F, $00, $80]
           UNIT LeonsterLanceKnight, NPC, [2, 11], [2, 11], Dryas, [IronSword], 2, False, [$00, $0F, $00, 80]
           UNIT LeonsterSoldier, NPC, [10, 5], [10, 5], Dryas, [IronLance], 2, False, [$00, $0F, $00, $80]

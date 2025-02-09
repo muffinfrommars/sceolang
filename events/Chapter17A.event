@@ -648,7 +648,6 @@ GUARD_FE5_CHAPTER17A :?= false
 					.byte 8, 8
 			
 				_PirateReinforcementsGroup ; B1/AD8B
-					UNIT PirateEnemy, NPC, [1, 0], [1, 1], Seil, [IronAxe], 4, False, [$02, $09, $00, $00]
 				UNIT
 			
 				_SorcererReinforcementsCameraCoordinates ; B1/ADA1
