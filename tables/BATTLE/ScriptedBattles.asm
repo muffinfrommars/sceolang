@@ -94,7 +94,7 @@ EthlynDeathScriptedBattle .dstruct structScriptedBattleSetup, $00, [Ethlyn, Play
 	.byte $02, $11, $00, $38	;crit + astra + hit
 .word $FFFF, $FFFF
 
-RaydrikKalfScriptedBattle .dstruct structScriptedBattleSetup, $00, [Kalf, Player, KnightLord, Kingmaker, TerrainBridge, [22, 22], 1, 81, 13, 2, 0], [Raydrik, Enemy, Baron, ShadowSpear, TerrainBridge, [24, 24], 1, 89, 15, 3, 0], $09, Raydrik, dialogueDemoOsian, Kalf, dialogueDemoHalvan, Chapter12, None
+RaydrikKalfScriptedBattle .dstruct structScriptedBattleSetup, $00, [Kalf, Player, KnightLord, Kingmaker, TerrainBridge, [22, 22], 1, 81, 13, 2, 0], [Raydrik, Enemy, Baron, ShadowSpear, TerrainBridge, [24, 24], 1, 89, 15, 3, 0], $09, Raydrik, ch12BattleRK1, Kalf, ch12BattleRK2, Chapter12, None
 
 	; Rounds
 					   ; Dmg

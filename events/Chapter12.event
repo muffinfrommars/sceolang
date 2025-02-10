@@ -152,7 +152,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					DIALOGUE ch12RaydrikAppears
 					YIELD
 
-					SCROLL_CAMERA_CHAR Lurvin, 5
+					SCROLL_CAMERA_CHAR Kalf, 5
           			YIELD
 
 					DIALOGUE ch12RaydrikAppears1
@@ -531,7 +531,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					YIELD
 			
 					STORE_WORD_FROM wEventEngineParameter1, wCurrentChapter
-					STORE_WORD wEventEngineParameter2, 3 ;TODO Battle of Kalf Raydrik
+					STORE_WORD wEventEngineParameter2, 6 
 					CALL_ASM_SKIPPABLE $9A98E6, $0000
 					STORE_BYTE $7E41AC, $00
 					HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
@@ -569,16 +569,16 @@ GUARD_FE5_CHAPTER12 :?= false
 
 				_RTLeonster
 					UNIT Kalf, Player, [9, 5], [9, 5], Kalf, [Kingmaker, Vulnerary], 19, false, [$01, $03, $00, $80]
-					UNIT Lurvin, Player, [7, 5], [7, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT Alface, Player, [8, 4], [8, 4], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight1, Player, [7, 3], [7, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight2, Player, [9, 3], [9, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT Lurvin, Player, [7, 5], [7, 5], Kalf, [BraveSword, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT Alface, Player, [8, 4], [8, 4], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight1, Player, [7, 3], [7, 3], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight2, Player, [9, 3], [9, 3], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight3, Player, [6, 4], [6, 4], Kalf, [Physic, Mend, IronSword], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight4, Player, [8, 2], [8, 2], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight5, Player, [10, 2], [10, 2], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight6, Player, [9, 1], [9, 1], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight7, Player, [11, 1], [11, 1], Kalf, [], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight9, Player, [11, 3], [11, 3], Kalf, [], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight4, Player, [8, 2], [8, 2], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight5, Player, [10, 2], [10, 2], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight6, Player, [9, 1], [9, 1], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight7, Player, [11, 1], [11, 1], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight9, Player, [11, 3], [11, 3], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
 
  					;UNIT LeonsterKnight13, Player, [3, 1], [19, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
 					;UNIT LeonsterKnight14, Player, [3, 1], [19, 6], Kalf, [], 5, false, [$01, $03, $00, $80]

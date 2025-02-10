@@ -1131,7 +1131,7 @@ dpreceptionC
 
     .byte Left_Slot
     .word LoadPortrait
-    .word EthlynPortrait
+    .word WEthlynPortrait
     .byte ScrollText
     
     .text "Not as good as that outfit you're wearing, hon."

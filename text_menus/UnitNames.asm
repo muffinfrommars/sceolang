@@ -61,7 +61,7 @@
 		.word	<>menutextUnitBucksName
 		.word	<>menutextUnitQuanName		; Unused
 	
-		.word	<>menutextUnitLifisCrewName
+		.word	<>menutextUnitKalfName
 		.word	<>menutextUnitLifisCrewName
 		.word	<>menutextUnitLifisCrewName
 	
@@ -396,7 +396,7 @@
 		.word	<>menutextUnitLouieName ;LeonsterKnight2
 		.word	<>menutextUnitCedricName ;LeonsterKnight1
 		.word	<>menutextUnitAlfionaName
-		.word	<>menutextUnitKalfName
+		.word	<>menutextUnitLifisCrewName
 	
 		.word	<>menutextUnitHiredSwordName
 		.word	<>menutextUnitHiredSwordName
@@ -638,7 +638,7 @@
 			.text "Quan\n"
 		
 		menutextUnitLifisCrewName
-			.text "Lifis Pirates \n"
+			.text "Kalf\n"
 		
 		menutextUnitLobosName
 			.text "Lobos \n"
@@ -1013,7 +1013,7 @@
 			.text "+Niezna \n"
 
 		menutextUnitGlaceoName ;LeonsterKnight4
-			.text "Glaceo\n"
+			.text "[muddak \n"
 			
 		menutextUnitFlasubanName ;LeonsterKnight5
 			.text "Flasuban\n"
@@ -1037,7 +1037,7 @@
 			.text "Ellie \n"
 
 		menutextUnitDoodName ;LeonsterKnight12
-			.text "Dood\n"
+			.text "dood\n"
 
 		
 		

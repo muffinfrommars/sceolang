@@ -236,7 +236,7 @@
 	aPortraitPaletteE6 .binary "sprites/PortraitPaletteE6.bin"
 	aPortraitPaletteE7 .binary "sprites/PortraitPaletteE7.bin"
 	aPortraitPaletteE8 .binary "sprites/PortraitPaletteE8.bin"
-	aPortraitPaletteE9 .binary "../../custom/graphics/portraits/PortraitOOifey.pal" ;Seemingly Unused Before
+	aPortraitPaletteE9 .binary "../../custom/graphics/portraits/newportraits/weddingethlyn.mw3" ;Seemingly Unused Before
 	aPortraitPaletteEA .binary "../../custom/graphics/portraits/PortraitYOifey.pal" ;Seemingly Unused Before
 	aPortraitPaletteEB .binary "../../custom/graphics/portraits/PortraitHilda.pal" ;Seemingly Unused Before
 	aPortraitPaletteEC .binary "../../custom/graphics/portraits/PortraitArvis.pal" ;Seemingly Unused Before
@@ -303,7 +303,7 @@
 	g4bppcPortraitEC8209 .binary "sprites/PortraitEC8209.4bpp.comp"
 	g4bppcPortraitEC8729 .binary "sprites/PortraitEC8729.4bpp.comp"
 	g4bppcPortraitEC8C0D .binary "sprites/PortraitEC8C0D.4bpp.comp"
-	g4bppcPortraitBeowolf .binary "../../custom/graphics/portraits/PortraitBeowolf.4bpp.fe4" ; formerly g4bppcEC9117 - Hermina
+	g4bppcPortraitWEthlyn .binary "../../custom/graphics/portraits/newportraits/weddingethlyn.bin.fe4" ; formerly g4bppcEC9117 - Hermina
 	g4bppcPortraitEC95D7 .binary "sprites/PortraitEC95D7.4bpp.comp"
 	g4bppcPortraitEC9AB8 .binary "sprites/PortraitEC9AB8.4bpp.comp"
 	g4bppcPortraitEC9F78 .binary "sprites/PortraitEC9F78.4bpp.comp"

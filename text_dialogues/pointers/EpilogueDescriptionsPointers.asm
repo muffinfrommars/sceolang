@@ -59,7 +59,7 @@ aEpilogueEndingTable ; 8F/E28C
 	.long $000000 ; MansterArcher
 	.long $000000 ; Bakst
 	.long $000000 ; Quan
-	.long $000000 ; LifisCrewPirate
+	.long $000000 ; LifisCrewPirate -> Kalf
 	.long $000000 ; LifisCrewHunter
 	.long $000000 ; LifisCrewWarrior
 	.long $000000 ; Lobos

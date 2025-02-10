@@ -76,7 +76,7 @@ ch08Wedding3
 ch08Wedding4
     .byte Right_Slot
     .word LoadPortrait
-    .word Ethlynportrait
+    .word WEthlynPortrait
     .text "...Ladies and gentlemen, thank you for joining us"
     .byte NewLine
     .text "tonight. Your presence makes this day even"
@@ -120,7 +120,7 @@ ch08WeddingNPC
 ch08WeddingEthlyn
     .byte Right_Slot
     .word LoadPortrait
-    .word Ethlynportrait
+    .word WEthlynPortrait
     .byte ScrollText
     .text "*fake smiles*"
     .byte NewLine
@@ -329,7 +329,7 @@ ch08WeddingQuan
 ch08WeddingEthlynFinn
     .byte Right_Slot
     .word LoadPortrait
-    .word Ethlynportrait
+    .word WEthlynPortrait
     .text "Everything okay, Finn?"
     .byte WaitForA
 
@@ -451,7 +451,7 @@ ch08WeddingQuanEthlyn
 
     .byte Left_Slot
     .word LoadPortrait
-    .word Ethlynportrait
+    .word WEthlynPortrait
     .text "*soft laugh* Am I that predictable?"
     .byte NewLine
     .text "I was just... watching you."
@@ -553,7 +553,7 @@ ch08WeddingLastMoments
 
     .byte Left_Slot
     .word LoadPortrait
-    .word Ethlynportrait
+    .word WEthlynPortrait
     .byte ScrollText
     .text "Quan. Look at me."
     .byte WaitForA

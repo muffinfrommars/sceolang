@@ -489,3 +489,28 @@ ch12RaydrikKalf
     .byte WaitForA
 
     .byte EndText
+    
+ch12BattleRK1
+    .word $1400
+    .byte $00
+    .text "Your reign ends here Kalf -!"
+    .byte NewLine
+    .text "die with whatever dignity you"
+    .byte NewLine
+    .text "have left!"
+    .word PauseDialogue
+    .byte $5A
+
+    .byte EndText
+
+
+ch12BattleRK2
+    .text "Damn you, Raydrik..."
+    .byte NewLine
+    .text "Even if I fall, Leonster lives on..."
+    .byte NewLine
+    .text "Someone will rise to stop you..."
+    .word PauseDialogue
+    .byte $5A
+
+    .byte EndText
