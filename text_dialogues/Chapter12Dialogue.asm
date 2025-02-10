@@ -1,3 +1,28 @@
+ch12BattleRK1
+    .word $1400
+    .byte $00
+    .text "Your reign ends here Kalf!"
+    .byte NewLine
+    .text "Die with whatever dignity you"
+    .byte NewLine
+    .text "have left!"
+    .word PauseDialogue
+    .byte $5A
+
+    .byte EndText
+
+
+ch12BattleRK2
+    .text "Damn you, Raydrik..."
+    .byte NewLine
+    .text "Even if I fall, Leonster lives on..."
+    .byte NewLine
+    .text "Someone will rise to stop you..."
+    .word PauseDialogue
+    .byte $5A
+
+    .byte EndText
+
 dialogueChapter12WorldMap1
 
 .text "Having been three days since the trek began, Kalf"
@@ -490,27 +515,15 @@ ch12RaydrikKalf
 
     .byte EndText
     
-ch12BattleRK1
-    .word $1400
-    .byte $00
-    .text "Your reign ends here Kalf -!"
-    .byte NewLine
-    .text "die with whatever dignity you"
-    .byte NewLine
-    .text "have left!"
-    .word PauseDialogue
-    .byte $5A
+ch12Reinforcements
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .text "Reinforcements, yet no sign of Raydrik..."
+    .byte Newline
+    .text "What is he planning...? "
+    .byte WaitForA
 
     .byte EndText
-
-
-ch12BattleRK2
-    .text "Damn you, Raydrik..."
-    .byte NewLine
-    .text "Even if I fall, Leonster lives on..."
-    .byte NewLine
-    .text "Someone will rise to stop you..."
-    .word PauseDialogue
-    .byte $5A
-
-    .byte EndText
+    

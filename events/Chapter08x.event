@@ -285,9 +285,11 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCSetCharacterDataByte Finn, Experience, 0
           macroASMCSetCharacterDataByte Glade, Level, 20
           macroASMCSetCharacterDataByte Glade, Experience, 0
+  				;macroASMCSetBitsCharacterDataWord Glade, Class, LanceKnight
+  				;macroASMCSetBitsCharacterDataWord Glade, MapSprite, LanceKnightMapSprite
           macroASMCSetCharacterDataByte Finn, Fatigue, 99
-          macroASMCSetCharacterDataByte Selphina, Fatigue, 99
-          macroASMCSetCharacterDataByte Glade, Fatigue, 99
+          macroASMCSetCharacterDataByte Selphina, Fatigue, 0
+          macroASMCSetCharacterDataByte Glade, Fatigue, 0
           macroASMCSetCharacterDataByte Ranz, Fatigue, 0
 
           macroASMCRemoveItemFromUnit Finn, Javelin
