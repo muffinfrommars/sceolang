@@ -281,13 +281,7 @@ GUARD_FE5_CHAPTER08x :?= false
 
           macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant
 
-          macroASMCSetCharacterDataByte Finn, Level, 20
-          macroASMCSetCharacterDataByte Finn, Experience, 0
-          macroASMCSetCharacterDataByte Glade, Level, 20
-          macroASMCSetCharacterDataByte Glade, Experience, 0
-  				;macroASMCSetBitsCharacterDataWord Glade, Class, LanceKnight
-  				;macroASMCSetBitsCharacterDataWord Glade, MapSprite, LanceKnightMapSprite
-          macroASMCSetCharacterDataByte Finn, Fatigue, 99
+          macroASMCSetCharacterDataByte Finn, Fatigue, 0
           macroASMCSetCharacterDataByte Selphina, Fatigue, 0
           macroASMCSetCharacterDataByte Glade, Fatigue, 0
           macroASMCSetCharacterDataByte Ranz, Fatigue, 0
@@ -325,7 +319,6 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCRemoveItemFromUnit Glade, Steellance
           macroASMCRemoveItemFromUnit Glade, ShortBow
           macroASMCRemoveItemFromUnit Glade, IronBow
-          macroASMCGiveUnitItemSilent Glade, MasterSeal
           YIELD
 
           macroSetCursorPosition [8, 61]
@@ -337,6 +330,9 @@ GUARD_FE5_CHAPTER08x :?= false
 					YIELD
 
           macroDialogue ch08xFinnSpawn
+
+          macroASMCCheckUnitExists Glade
+          macroASMCPromoteUnitSilent Glade, LanceKnight
         END2
 
         _EndingEvent

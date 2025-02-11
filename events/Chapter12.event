@@ -52,6 +52,10 @@ GUARD_FE5_CHAPTER12 :?= false
 						CMP_WORD wCurrentTurn, 6
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
+					EVENT FlagAlwaysZero, _TravantAppears
+						CMP_WORD wCurrentTurn, 8
+						CMP_WORD wCurrentPhase, Enemy
+					END_DEFINITION
 					EVENT FlagAlwaysZero, _RaydrikBetrayal
 						CMP_WORD wCurrentTurn, 11
 						CMP_WORD wCurrentPhase, Enemy
@@ -108,6 +112,23 @@ GUARD_FE5_CHAPTER12 :?= false
 				_ShopEventDefinitions
 				END_DEFINITION_ARRAY
 
+				_TravantAppears
+
+					DIALOGUE ch12TravantAppears
+					YIELD
+
+					SCROLL_CAMERA_COORDS [17, 35], 5
+					YIELD
+
+					LOAD_GROUP eventChapter12Data._RTTravant
+					WAIT_MOVE
+					YIELD
+
+					DIALOGUE ch12TravantAppears1
+					YIELD
+
+				END2
+
 				_AIChangeThraciaA
 					macroSetCharacterAI ThraciaDracorider, [$04, $0F, $00, $80]
 					macroSetCharacterAI ThraciaDracoknight1, [$04, $0F, $00, $80]
@@ -117,23 +138,20 @@ GUARD_FE5_CHAPTER12 :?= false
 				END2
 				
 				_AIChangeThraciaB
-					macroSetCharacterAI ThraciaDracoknight3, [$04, $0F, $00, $80]
+					macroSetCharacterAI ThraciaDracoknight2, [$04, $0F, $00, $80]
 					macroSetCharacterAI ThraciaDracoknight2, [$04, $0F, $00, $80]
 					macroSetCharacterAI ThraciaDracoknight2, [$04, $0F, $00, $80]
 					macroSetCharacterAI ThraciaDracoknight2, [$04, $0F, $00, $80]
 					macroSetCharacterAI ThraciaDracoknight2, [$04, $0F, $00, $80]
 				END2
 				
-				_AIChangeGreen
-					STORE_BYTE $7E528C, $06
-					YIELD_UNK
-					YIELD_UNK
-					STORE_BYTE $7E528D, $01
-					YIELD_UNK
-					YIELD_UNK
-					STORE_BYTE $7E528E, $01
-					YIELD_UNK
-					YIELD_UNK
+				_AIChangeAll
+					; Change it so that factions can only target members
+					; of their own faction.
+
+					STORE_BYTE aAllegianceInfo.bAlliedAllegiance, %001
+					STORE_BYTE aAllegianceInfo.bEnemyAllegiance,  %000
+					STORE_BYTE aAllegianceInfo.bNPCAllegiance,    %100
 				END2
 
 				_RaydrikAppears
@@ -141,7 +159,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					PAUSE_SKIPPABLE 32
 					YIELD
 
-					SCROLL_CAMERA_COORDS [32, 3], 4
+					SCROLL_CAMERA_COORDS [32, 3], 5
 					YIELD
 
 					LOAD_GROUP eventChapter12Data._RTRaydrik
@@ -190,6 +208,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					macroChapterTitlePopup dialogueObjektive
 
 					macroSetCharacterAI Raydrik, [$04, $0F, $00, $80]
+
 				END2
 
 				_QuanEasterEgg
@@ -426,6 +445,18 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT LeonsterKnight11, Player, [8, 12], [8, 12], Kalf, [IronBow, Vulnerary], 20, false, [$01, $03, $00, $80]
 					UNIT LeonsterKnight12, Player, [7, 13], [7, 13], Kalf, [IronBow, Vulnerary], 20, false, [$01, $03, $00, $80]
 				UNIT
+				
+				_RTTravant
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [17, 34], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [16, 34], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [18, 34], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [17, 33], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [15, 35], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [16, 35], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [17, 35], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT ThraciaDracoknight3, Enemy, [17, 35], [18, 35], Travant, [Ridersbane, Vulnerary], 15, false, [$00, $0F, $00, $80]
+					UNIT Travant, Enemy, [17, 35], [17, 35], Travant, [Gungnir], 20, false, [$03, $03, $00, $80]
+				UNIT
 
 				_RTConnaughtA
 					UNIT ConnaughtSoldier, NPC, [32, 14], [26, 12], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
@@ -437,7 +468,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT ConnaughtSoldier, NPC, [33, 23], [27, 23], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
 				UNIT
 
-				_RTRaydrik ; START : "Manually Controlled", No movement Later
+				_RTRaydrik ;
 					UNIT Raydrik, NPC, [31, 1], [31, 3], Raydrik, [ShadowSpear], 20, true, [$00, $0F, $00, $80]
 					UNIT ConnaughtGeneral, NPC, [32, 1], [32, 3], Raydrik, [], 5, false, [$00, $0F, $00, $80]
 					UNIT ConnaughtMyrmidon2, NPC, [32, 1], [32, 2], Raydrik, [], 5, false, [$00, $0F, $00, $80]
@@ -477,7 +508,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					UNIT ThraciaDracoknight2, Enemy, [24, 35], [24, 35], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
 					UNIT ThraciaDracoknight2, Enemy, [24, 33], [24, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
 					UNIT ThraciaDracoknight2, Enemy, [26, 33], [26, 33], Travant, [Javelin], 10, False, [$03, $03, $00, $80]
-					UNIT ThraciaDracoknight3, Enemy, [25, 34], [25, 34], Travant, [SilverLance], 15, False, [$03, $03, $00, $80]
+					UNIT ThraciaDracoknight2, Enemy, [25, 34], [25, 34], Travant, [SilverLance], 15, False, [$03, $03, $00, $80]
 				UNIT
 				
 				_RTThraciaSquadC ;

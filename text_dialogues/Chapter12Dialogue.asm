@@ -526,4 +526,29 @@ ch12Reinforcements
     .byte WaitForA
 
     .byte EndText
+
+ch12TravantAppears
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word NieznaPortrait
+    .byte ScrollText
+    .text "Up there!"
+    .byte newline
+    .text "What in Njorun's name is THAT?!"
+    .byte WaitForA
+
+    .byte EndText
+
     
+ch12TravantAppears1
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Travant_Portrait
+    .text "All troops, face Leonster and commence"
+    .byte newline
+    .text "the attack!"
+    .byte WaitForA
+
+    .byte EndText
