@@ -431,6 +431,25 @@ GUARD_FE5_CHAPTER12 :?= false
 
 					macroASMCRemoveUnit Kalf
 
+					macroASMCRemoveUnit Lurvin
+					macroASMCRemoveUnit Alface
+					;macroASMCRemoveUnit Ranz
+					macroASMCRemoveUnit LeonsterKnight1
+					macroASMCRemoveUnit LeonsterKnight2
+					macroASMCRemoveUnit LeonsterKnight3
+					macroASMCRemoveUnit LeonsterKnight4
+					macroASMCRemoveUnit LeonsterKnight5
+					macroASMCRemoveUnit LeonsterKnight6
+					macroASMCRemoveUnit LeonsterKnight7
+					macroASMCRemoveUnit LeonsterKnight8
+					macroASMCRemoveUnit LeonsterKnight9
+					macroASMCRemoveUnit LeonsterKnight10
+					macroASMCRemoveUnit LeonsterKnight11
+					macroASMCRemoveUnit LeonsterKnight12
+					macroASMCRemoveUnit LeonsterKnight13
+					macroASMCRemoveUnit LeonsterKnight14
+					macroASMCRemoveUnit LeonsterKnight15
+
 					CALL_ASM_LOOP rlASMCChapterEnd
 				END1
 
