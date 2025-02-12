@@ -164,6 +164,10 @@ GUARD_FE5_CHAPTER04 :?= false
 
         macroASMCSingleTileChangeByCoords [14, 27], $0021
 
+        macroASMCActiveUnitSetUnitState UnitStateHidden
+        macroGiveActiveUnitItem IronBow
+        macroASMCActiveUnitUnsetUnitState UnitStateHidden
+
         END2
 
          _FlagEventMia

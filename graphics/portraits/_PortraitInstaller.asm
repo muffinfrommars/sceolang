@@ -86,7 +86,7 @@
 	aPortraitPalette50 .binary "sprites/PortraitPalette50.bin"
 	aPortraitPalette51 .binary "sprites/PortraitPalette51.bin"
 	aPortraitPalette52 .binary "sprites/PortraitPalette52.bin"
-	aPortraitPalette53 .binary "sprites/PortraitPalette53.bin"
+	aPortraitPalette53 .binary "../../custom/graphics/portraits/newportraits/youngdryas2.mw3"
 	aPortraitPalette54 .binary "sprites/PortraitPalette54.bin"
 	aPortraitPalette55 .binary "../../custom/graphics/portraits/newportraits/glade.pal"
 	aPortraitPalette56 .binary "sprites/PortraitPalette56.bin"
@@ -350,7 +350,7 @@
 	g4bppcPortraitEDBBDE .binary "sprites/PortraitEDBBDE.4bpp.comp"
 	g4bppcPortraitEDC098 .binary "sprites/PortraitEDC098.4bpp.comp"
 	g4bppcPortraitEDC56B .binary "sprites/PortraitEDC56B.4bpp.comp"
-	g4bppcPortraitEDC9FC .binary "sprites/PortraitEDC9FC.4bpp.comp"
+	g4bppcPortraitDryas .binary "../../custom/graphics/portraits/newportraits/youngdryas2.bin.fe4"
 	g4bppcPortraitEDCEA0 .binary "sprites/PortraitEDCEA0.4bpp.comp"
 	g4bppcPortraitEDD314 .binary "../../custom/graphics/portraits/newportraits/glade.bin.fe4" ;previously FE5 Glade
 	g4bppcPortraitEDD7B0 .binary "sprites/PortraitEDD7B0.4bpp.comp"

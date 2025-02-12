@@ -90,6 +90,10 @@ GUARD_FE5_CHAPTER05 :?= false
 
           macroChapterTitlePopup dialogueLaterThatDay
 
+          PLAY_SOUND_FORCED $00E0
+          PAUSE_SKIPPABLE 32
+          YIELD
+
           LOAD_GROUP eventChapter05Data._ch05StartingFinn
           WAIT_MOVE
           YIELD

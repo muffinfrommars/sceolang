@@ -623,6 +623,15 @@ dp4BlueHouseVisit
     .byte NewLine
     .text "taking part of right now, hmm?"
 	.byte WaitForA
+
+    .byte ScrollText
+
+    .text "..."
+    .byte NewLine
+    .text "While we're here..."
+    .byte NewLine
+    .text "See that my daughter gets handed this."
+	.byte WaitForA
 	
 	.byte EndText
 

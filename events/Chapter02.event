@@ -278,7 +278,7 @@ GUARD_FE5_CHAPTER02 :?= false
         _ch02IntroGroup
           UNIT Dryas, NPC, [16, 24], [16, 24], Quan, [Javelin], 3, True, [$02, $08, $00, $00]
           UNIT Xavier, NPC, [18, 24], [18, 24], Quan, [ShortLance], 2, False, [$02, $08, $00, $00]
-          UNIT Ranz, NPC, [17, 24], [17, 24], Quan, [Rapier], 5, False, [$02, $08, $00, $00]
+          UNIT Ranz, NPC, [17, 24], [17, 24], Quan, [Rapier], 5, False, [$02, $08, $00, $80]
           UNIT LeonsterSoldier, NPC, [15, 26], [15, 26], Dryas, [IronLance], 2, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [16, 26], [16, 26], Dryas, [IronLance], 2, False, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [17, 26], [17, 26], Dryas, [IronLance], 2, False, [$01, $03, $00, $80]
@@ -287,18 +287,22 @@ GUARD_FE5_CHAPTER02 :?= false
         UNIT
 
         _ch02MainGroup1
-          UNIT Dryas, NPC, [15, 5], [15, 7], Quan, [], 3, True, [$02, $08, $00, $00]
-          UNIT Xavier, NPC, [15, 6], [15, 6], Quan, [], 2, False, [$02, $08, $00, $00]
-          ;TODO: Put cosmetic units in this group
+          UNIT Dryas, NPC, [15, 5], [15, 7], Quan, [], 3, True, [$02, $08, $00, $80]
+          UNIT Xavier, NPC, [15, 6], [15, 6], Quan, [], 2, False, [$02, $08, $00, $80]
+          UNIT LeonsterSoldier, NPC, [10, 8], [10, 8], Dryas, [IronLance], 2, False, [$03, $03, $00, $80]
+          UNIT LeonsterSoldier, NPC, [12, 8], [12, 8], Dryas, [IronLance], 2, False, [$03, $03, $00, $80]
+          UNIT LeonsterMyrmidon, NPC, [12, 12], [12, 12], Dryas, [IronBlade], 2, False, [$03, $03, $00, $80]
+          UNIT LeonsterArcher, NPC, [14, 9], [14, 9], Dryas, [IronBow], 2, False, [$03, $03, $00, $80]
+          UNIT LeonsterHero, NPC, [5, 11], [5, 11], Dryas, [IronAxe], 2, False, [$03, $03, $00, $80]
         UNIT
 
         _ch02MainGroup2
-          UNIT LeonsterSoldier, NPC, [4, 4], [4, 4], Dryas, [IronLance], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterMyrmidon, NPC, [7, 5], [7, 5], Dryas, [IronBlade], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterArcher, NPC, [9, 7], [9, 7], Dryas, [IronBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterHero, NPC, [3, 12], [3, 12], Dryas, [IronAxe], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterBowKnight, NPC, [1, 8], [1, 8], Dryas, [ShortBow], 2, False, [$00, $01, $00, $00]
-          UNIT LeonsterLanceKnight, NPC, [7, 11], [7, 11], Dryas, [SlimSword], 2, False, [$00, $01, $00, $00]
+          UNIT LeonsterSoldier, NPC, [4, 4], [4, 4], Dryas, [IronLance], 2, False, [$00, $01, $00, $80]
+          UNIT LeonsterMyrmidon, NPC, [7, 5], [7, 5], Dryas, [IronBlade], 2, False, [$00, $01, $00, $80]
+          UNIT LeonsterArcher, NPC, [9, 7], [9, 7], Dryas, [IronBow], 2, False, [$00, $01, $00, $80]
+          UNIT LeonsterHero, NPC, [3, 12], [3, 12], Dryas, [IronAxe], 2, False, [$00, $01, $00, $80]
+          UNIT LeonsterBowKnight, NPC, [1, 8], [1, 8], Dryas, [ShortBow], 2, False, [$00, $01, $00, $80]
+          UNIT LeonsterLanceKnight, NPC, [7, 11], [7, 11], Dryas, [SlimSword], 2, False, [$00, $01, $00, $80]
         UNIT
 
         _PrepGroups
