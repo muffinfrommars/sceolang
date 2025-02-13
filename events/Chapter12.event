@@ -22,6 +22,7 @@ GUARD_FE5_CHAPTER12 :?= false
 				;Flag Definitions
 
 				_FlagEasterEgg      	= enum.enum($07)
+				_FlagBridge  		    = enum.enum()
 				_FlagAmbushA   		    = enum.enum()
 				_FlagKalfDeath			= enum.enum()
 				_FlagKalfRaydrikTalk	= enum.enum()
@@ -118,6 +119,11 @@ GUARD_FE5_CHAPTER12 :?= false
             			macroECCheckCoordinateRanges [1, 11], [15, 23]
             			CMP_WORD wCurrentPhase, Player
           			END_DEFINITION
+					EVENT _FlagBridge, _BridgeCollapse
+            			macroECCheckCoordinateRanges [17, 1], [37, 33]
+            			CMP_WORD wCurrentPhase, Player
+						CMP_WORD aSelectedCharacterBuffer.Character, Kalf
+          			END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_BattleEventDefinitions
@@ -125,6 +131,81 @@ GUARD_FE5_CHAPTER12 :?= false
 			
 				_ShopEventDefinitions
 				END_DEFINITION_ARRAY
+
+				_BridgeCollapse			
+					SET_MUSIC $58
+					YIELD
+
+					SCROLL_CAMERA_COORDS [14, 21], 5
+					YIELD
+
+					STORE_WORD wEventEngineXCoordinate, 13
+					STORE_WORD wEventEngineYCoordinate, 19
+					STORE_WORD wEventEngineParameter1, $11D
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 13
+					STORE_WORD wEventEngineYCoordinate, 20
+					STORE_WORD wEventEngineParameter1, $013D
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 13
+					STORE_WORD wEventEngineYCoordinate, 21
+					STORE_WORD wEventEngineParameter1, $015D
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 13
+					STORE_WORD wEventEngineYCoordinate, 22
+					STORE_WORD wEventEngineParameter1, $017D
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 13
+					STORE_WORD wEventEngineYCoordinate, 23
+					STORE_WORD wEventEngineParameter1, $D9
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					
+					STORE_WORD wEventEngineXCoordinate, 14
+					STORE_WORD wEventEngineYCoordinate, 19
+					STORE_WORD wEventEngineParameter1, $D1
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 14
+					STORE_WORD wEventEngineYCoordinate, 20
+					STORE_WORD wEventEngineParameter1, $D1
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 14
+					STORE_WORD wEventEngineYCoordinate, 21
+					STORE_WORD wEventEngineParameter1, $D1
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 14
+					STORE_WORD wEventEngineYCoordinate, 22
+					STORE_WORD wEventEngineParameter1, $D1
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 14
+					STORE_WORD wEventEngineYCoordinate, 23
+					STORE_WORD wEventEngineParameter1, $D1
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					
+					STORE_WORD wEventEngineXCoordinate, 15
+					STORE_WORD wEventEngineYCoordinate, 20
+					STORE_WORD wEventEngineParameter1, $11E
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 15
+					STORE_WORD wEventEngineYCoordinate, 21
+					STORE_WORD wEventEngineParameter1, $135
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 15
+					STORE_WORD wEventEngineYCoordinate, 22
+					STORE_WORD wEventEngineParameter1, $13E
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+
+					;macroASMCSingleTileChangeByCoords [15, 19], $011D
+					;macroASMCSingleTileChangeByCoords [15, 23], $011D
+					PLAY_EXTENDED_SOUND $6D
+
+					macroDialogue ch12BridgeFall
+
+					SET_MUSIC $03
+					YIELD
+
+					PAUSE_SKIPPABLE 16
+					YIELD
+				END1
 
 				_AmbushA
 					SCROLL_CAMERA_COORDS [9, 26], 4
@@ -458,7 +539,51 @@ GUARD_FE5_CHAPTER12 :?= false
 					STORE_WORD_FROM wCurrentChapter, wEventEngineParameter1
 					HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $0F
 
+					SET_MUSIC $3B
+					YIELD
+
+					macroDialogue ch12KalfFight
+
+					STORE_WORD_FROM wEventEngineParameter1, wCurrentChapter
+					STORE_WORD wEventEngineParameter2, 7 
+					CALL_ASM_SKIPPABLE $9A98E6, $0000
+					STORE_BYTE $7E41AC, $00
+					HALT_UNTIL_WORD_SKIPPABLE wMapBattleFlag, $0000
+					STORE_WORD_FROM wCurrentChapter, wEventEngineParameter1
+					HALT_UNTIL_BYTE_SKIPPABLE bBufferINIDISP, $0F
+
 					macroASMCRemoveUnit Kalf
+
+					SET_MUSIC $58
+					YIELD
+
+					SCROLL_CAMERA_CHAR Raydrik, 6
+					YIELD
+
+					macroDialogue ch12KalfDeath1
+
+					SET_MUSIC $44
+					YIELD
+
+					SCROLL_CAMERA_CHAR Lurvin, 4
+					YIELD
+
+					macroDialogue ch12KalfDeathLurvin
+
+					SCROLL_CAMERA_CHAR Raydrik, 6
+					YIELD
+
+					macroDialogue ch12KalfDeath2
+
+					MOVE_UNIT Travant, [13, 55], [13, 6], 1, None
+					YIELD_UNK
+
+					SCROLL_CAMERA_COORDS [13, 6], 1
+
+					WAIT_MOVE
+					YIELD
+
+					SCROLL_CAMERA_CHAR Travant, 1
 
 					macroASMCRemoveUnit Lurvin
 					macroASMCRemoveUnit Alface

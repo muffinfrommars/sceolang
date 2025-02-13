@@ -349,11 +349,23 @@ GUARD_FE5_CHAPTER01 :?= false
           macroASMCLoadUnitGroup eventChapter01Data._RanzGroup
           WAIT_MOVE
           YIELD
-
-          macroASMCSingleTileChangeByCoords [19, 17], $0041
-          macroASMCSingleTileChangeByCoords [20, 17], $0041
-          macroASMCSingleTileChangeByCoords [19, 18], $0041
-          macroASMCSingleTileChangeByCoords [20, 18], $0041
+          
+					STORE_WORD wEventEngineXCoordinate, 19
+					STORE_WORD wEventEngineYCoordinate, 17
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 20
+					STORE_WORD wEventEngineYCoordinate, 17
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 19
+					STORE_WORD wEventEngineYCoordinate, 18
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 20
+					STORE_WORD wEventEngineYCoordinate, 18
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
           
           CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog, $0000
           YIELD
@@ -765,10 +777,22 @@ GUARD_FE5_CHAPTER01 :?= false
           SET_MUSIC $4B
           YIELD
 
-          macroASMCSingleTileChangeByCoords [9, 10], $0041
-          macroASMCSingleTileChangeByCoords [10, 10], $0041
-          macroASMCSingleTileChangeByCoords [9, 11], $0041
-          macroASMCSingleTileChangeByCoords [10, 11], $0041
+          STORE_WORD wEventEngineXCoordinate, 9
+					STORE_WORD wEventEngineYCoordinate, 10
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 10
+					STORE_WORD wEventEngineYCoordinate, 10
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 9
+					STORE_WORD wEventEngineYCoordinate, 11
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 10
+					STORE_WORD wEventEngineYCoordinate, 11
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
 
           WARP_UNIT Finn, [0, 0], [7, 7]
           WARP_UNIT Xavier, [10, 12], [8, 7]

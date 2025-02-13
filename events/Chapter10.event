@@ -333,6 +333,15 @@ GUARD_FE5_CHAPTER10 :?= false
 					macroASMCSingleTileChangeByCoords [6, 22], $0041
 					macroASMCSingleTileChangeByCoords [6, 23], $00A7
 
+					STORE_WORD wEventEngineXCoordinate, 6
+					STORE_WORD wEventEngineYCoordinate, 22
+					STORE_WORD wEventEngineParameter1, $41
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+					STORE_WORD wEventEngineXCoordinate, 6
+					STORE_WORD wEventEngineYCoordinate, 23
+					STORE_WORD wEventEngineParameter1, $A7
+					CALL_ASM_LOOP rlASMCSingleTileChangeByCoords
+
 					PLAY_EXTENDED_SOUND $45
 					YIELD
 

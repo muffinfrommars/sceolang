@@ -38,6 +38,7 @@
 
 * = $481100
 .logical lorom($481100, 1)
+    riverthraciapartbmapchanges    .binary "riverthraciapartbmapchanges.asm"
     riverthraciaparta    .binary "riverthraciaparta.bin.fe4"
     ;nightroad        .binary "nightroad.bin.fe4"
     ;mapleif          .binary "leif.bin.fe4"

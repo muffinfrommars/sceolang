@@ -94,7 +94,7 @@ EthlynDeathScriptedBattle .dstruct structScriptedBattleSetup, $00, [Ethlyn, Play
 	.byte $02, $11, $00, $38	;crit + astra + hit
 .word $FFFF, $FFFF
 
-RaydrikKalfScriptedBattle .dstruct structScriptedBattleSetup, $00, [Kalf, Player, KnightLord, Kingmaker, TerrainBridge, [22, 22], 1, 81, 13, 2, 0], [Raydrik, Enemy, Baron, ShadowSpear, TerrainBridge, [24, 24], 1, 89, 15, 3, 0], $09, Raydrik, ch12BattleRK1, Kalf, ch12BattleRK2, Chapter12, None
+RaydrikKalfScriptedBattle .dstruct structScriptedBattleSetup, $00, [Kalf, Player, KnightLord, Kingmaker, TerrainBridge, [22, 22], 1, 81, 13, 2, 0], [Raydrik, Enemy, Baron, ShadowSpear, TerrainBridge, [24, 24], 1, 89, 15, 3, 0], $09, Raydrik_Portrait, ch12BattleRK1, Kalf, None, Chapter12, None
 
 	; Rounds
 					   ; Dmg
@@ -105,15 +105,11 @@ RaydrikKalfScriptedBattle .dstruct structScriptedBattleSetup, $00, [Kalf, Player
 	.byte $00, $03, $00, $0C	;Right0;Crit1+Miss2;0;
 .word $FFFF, $FFFF
 
-RaydrikKalfScriptedBattle2 .dstruct structScriptedBattleSetup, $00, [Kalf, Player, KnightLord, Kingmaker, TerrainBridge, [22, 22], 1, 81, 13, 2, 0], [Raydrik, Enemy, Baron, ShadowSpear, TerrainBridge, [24, 24], 1, 89, 15, 3, 0], $09, Raydrik, ch12BattleRK1, Kalf, ch12BattleRK2, Chapter12, None
+RaydrikKalfScriptedBattle2 .dstruct structScriptedBattleSetup, $00, [Kalf, Player, KnightLord, Kingmaker, TerrainBridge, [22, 22], 1, 81, 13, 2, 0], [Raydrik, Enemy, Baron, ShadowSpear, TerrainBridge, [24, 24], 1, 89, 15, 3, 0], $09, Halvan, None, Halvan, None, $FFFF, None
 
 	; Rounds
 					   ; Dmg
-	.byte $80, $02, $00, $0C	;First80+Right0;Miss2;0;
-	.byte $00, $02, $00, $0C	;Right0;Miss2;0;
-	.byte $02, $02, $00, $02	;Left2;Miss2;0;
-	.byte $02, $03, $00, $02	;Left2;Crit1+Miss2;0;
-	.byte $00, $03, $00, $0C	;Right0;Crit1+Miss2;0;
+	.byte $82, $11, $00, $38	;crit + astra + hit
 .word $FFFF, $FFFF
 
 .here

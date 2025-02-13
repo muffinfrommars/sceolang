@@ -25,18 +25,18 @@ ch12BattleRK2
 
 dialogueChapter12WorldMap1
 
-.text "Having been three days since the trek began, Kalf"
-.byte NewLine
-.text "finally reaches the Connaught forces, "
-.byte WaitForA
-.byte ScrollText
-.text "and together, they reach the River Thracia, a"
-.byte NewLine
-.text "tranquil location untouched by the horrors of war."
-.byte WaitForA
-.byte ScrollText
+    .text "Having been three days since the trek began, Kalf"
+    .byte NewLine
+    .text "finally reaches the Connaught forces, "
+    .byte WaitForA
+    .byte ScrollText
+    .text "and together, they reach the River Thracia, a"
+    .byte NewLine
+    .text "tranquil location untouched by the horrors of war."
+    .byte WaitForA
+    .byte ScrollText
 
-.byte EndText
+    .byte EndText
 
 
 dialogueChapter12WorldMap2
@@ -671,6 +671,163 @@ CH12SoldierKalfPrebetrayal
     .text "of Leonster and Connaught!"
     .byte WaitForA
     
+
+    .byte EndText
+    
+CH12KalfFight
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "As expected from the military hero and"
+    .byte Newline
+    .text "heaven-sentchild of Njorun, King Kalf."
+    .byte Newline
+    .text "Why dont you die already?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .text "I won't be able to face Quan if I'm killed by a"
+    .byte newline
+    .text "cursed betrayer like you!"
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "Hah."
+    .byte WaitForA
+    .byte newline
+    .text "So, since I'm a betrayer, I've joined forces"
+    .byte newline
+    .text "with Thracia for the continuity of Connaught."
+    .byte WaitForA
+
+    .byte left_slot
+    .byte ScrollText
+    .text "Guuh... y... y-you d-damn coward...!!"
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "I have no fear of being called a coward or anything"
+    .byte newline
+    .text "similar. However, king, I shall finish you with my"
+    .byte newline
+    .text "own hands."
+    .byte WaitForA
+
+    .byte EndText
+    
+ch12BridgeFall
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Osian_Portrait
+    .text "Your Majesty, the bridge...!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .text "What in the - !?"
+    .byte newline
+    .text "No!"
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "Sire! We're cut off!"
+    .byte WaitForA
+
+    .byte left_slot
+    .byte ScrollText
+    .text "Damn it all...! This was no accident!"
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "Sire, what do we do?"
+    .byte newline
+    .text "We're outnumbered, and Thracia won't hesitate"
+    .byte newline
+    .text "to strike while we're stranded!"
+    .byte WaitForA
+
+    .byte left_slot
+    .byte ScrollText
+    .text "We fight, Lurvin."
+    .byte newline
+    .text "We hold out for however long we can."
+    .byte newline
+    .text "We make them bleed for every inch."
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "Aye..."
+    .byte newline
+    .text "If this is our last stand, let's make it one"
+    .byte newline
+    .text "they'll remember!"
+    .byte WaitForA
+
+    .byte EndText
+    
+ch12KalfDeathLurvin
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Osian_Portrait
+    .text "Y-Your Majesty...!"
+    .byte WaitForA
+
+    .byte EndText
+
+ch12KalfDeath
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait ;Kalf Portrait
+    .text "Look, soldiers of Thracia, King Travant!"
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "I, Raydrik, have killed King Kalf of Leonster!!"
+    .byte WaitForA
+
+    .byte left_slot
+    .byte ScrollText
+    .text "Damn it all...! This was no accident!"
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "Sire, what do we do?"
+    .byte newline
+    .text "We're outnumbered, and Thracia won't hesitate"
+    .byte newline
+    .text "to strike while we're stranded!"
+    .byte WaitForA
+
+    .byte left_slot
+    .byte ScrollText
+    .text "We fight, Lurvin."
+    .byte newline
+    .text "We hold out for however long we can."
+    .byte newline
+    .text "We make them bleed for every inch."
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "Aye..."
+    .byte newline
+    .text "If this is our last stand, let's make it one"
+    .byte newline
+    .text ""
+    .byte WaitForA
 
     .byte EndText
 
