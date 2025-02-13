@@ -103,8 +103,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word ShannamPortrait
 	.word Shannam
 
-	.word TrudePortrait
-	.word Trude
+	.word FlasubanPortrait
+	.word LeonsterKnight5
 
 	.word TanyaPortrait
 	.word Tanya

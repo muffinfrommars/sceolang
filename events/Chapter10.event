@@ -330,9 +330,6 @@ GUARD_FE5_CHAPTER10 :?= false
 					WAIT_MOVE
 					YIELD
 
-					macroASMCSingleTileChangeByCoords [6, 22], $0041
-					macroASMCSingleTileChangeByCoords [6, 23], $00A7
-
 					STORE_WORD wEventEngineXCoordinate, 6
 					STORE_WORD wEventEngineYCoordinate, 22
 					STORE_WORD wEventEngineParameter1, $41
@@ -365,7 +362,7 @@ GUARD_FE5_CHAPTER10 :?= false
 					YIELD
 
 					STORE_WORD wCurrentChapter, Chapter10
-				  	CALL_ASM_SKIPPABLE $9A98CF
+				  	CALL_ASM_LOOP $9A98CF
 
 					macroASMCLoadUnitGroup eventChapter10Data._ch10Population
 

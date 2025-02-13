@@ -681,7 +681,7 @@ CH12KalfFight
     .word Raydrik_Portrait
     .text "As expected from the military hero and"
     .byte Newline
-    .text "heaven-sentchild of Njorun, King Kalf."
+    .text "heaven-sent child of Njorun, King Kalf."
     .byte Newline
     .text "Why dont you die already?"
     .byte WaitForA
@@ -711,11 +711,11 @@ CH12KalfFight
 
     .byte right_slot
     .byte ScrollText
-    .text "I have no fear of being called a coward or anything"
+    .text "I have no fear of being called a coward or"
     .byte newline
-    .text "similar. However, king, I shall finish you with my"
+    .text "anything similar. However, king, I shall finish you"
     .byte newline
-    .text "own hands."
+    .text "with my own hands."
     .byte WaitForA
 
     .byte EndText
@@ -780,16 +780,16 @@ ch12KalfDeathLurvin
     .byte Right_slot
     .word LoadPortrait
     .word Osian_Portrait
-    .text "Y-Your Majesty...!"
+    .text "Y-Your Majesty...!!!"
     .byte WaitForA
 
     .byte EndText
 
 ch12KalfDeath1
 
-    .byte Left_slot
+    .byte Right_slot
     .word LoadPortrait
-    .word Raydrik_Portrait ;Kalf Portrait
+    .word Raydrik_Portrait
     .text "Look, soldiers of Thracia, King Travant!"
     .byte WaitForA
 
@@ -801,16 +801,103 @@ ch12KalfDeath1
 
 ch12KalfDeath2
 
-    .byte Left_slot
+    .byte Right_slot
     .word LoadPortrait
-    .word Raydrik_Portrait ;Kalf Portrait
-    .text "Soldiers of Leonster and Connaught, if you beg for"
+    .word Raydrik_Portrait
+    .text "Soldiers of Leonster and Connaught, if you beg"
     .byte newline
-    .text "your lives and serve me, I'll let you live."
+    .text "for your lives and serve me, I'll let you live."
     .byte WaitForA
 
     .byte ScrollText
     .text "Those who don't will be killed, without exception."
+    .byte WaitForA
+
+    .byte EndText
+    
+ch12TravantRaydrik
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Travant_Portrait
+    .text "Hah... a fine mess you've made, Raydrik."
+    .byte newline
+    .text "Leonster's so-called hero, bleeding out in the dirt"
+    .byte newline
+    .text "like a common soldier... I expect no less."
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "It was hardly a challenge, Your Majesty."
+    .byte newline
+    .text "Kalf was already spent - he just needed a little..."
+    .byte newline
+    .text "encouragement to fall."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte scrolltext
+    .text "And fall he did. Leonster is finished, and"
+    .byte newline
+    .text "Connaught belongs to you. A fitting reward"
+    .byte newline
+    .text "for a man with such... flexible loyalties."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte scrolltext
+    .text "I am but a humble servant to power, King Travant."
+    .byte newline
+    .text "And power favors to those who sieze opportunity."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte scrolltext
+    .text "Well said. Just remember - power shifts like the"
+    .byte newline
+    .text "wind."
+    .byte WaitForA
+
+    .byte scrolltext
+    .text "Betray me, and you'll find yourself beneath"
+    .byte newline
+    .text "my dragon's claws before you can draw that"
+    .byte newline
+    .text "fancy spear of yours."
+    .byte waitfora
+
+    .byte Left_slot
+    .byte scrolltext
+    .text "*chuckles*"
+    .byte newline
+    .text "Perish the thought, Your Majesty."
+    .byte newline
+    .text "Our interests are aligned... for now."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte scrolltext
+    .text "*hearty laugh*"
+    .byte newline
+    .text "Enjoy your spoils, Lord of Connaught."
+    .byte newline
+    .text "I have a kingdom to crush."
+    .byte WaitForA
+
+    .byte EndText
+    
+ch12RaydrikSelf
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait
+    .text "Hmph... A kingdom to crush, indeed."
+    .byte newline
+    .text "But dragons must land eventually..."
+    .byte newline
+    .text "and when they do, the real game begins."
     .byte WaitForA
 
     .byte EndText

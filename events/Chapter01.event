@@ -244,7 +244,7 @@ GUARD_FE5_CHAPTER01 :?= false
           ;
 
           STORE_WORD wCurrentChapter, Chapter24
-          CALL_ASM_LOOP rlCustomMapChange
+          CALL_ASM_SKIPPABLE $9A98B8 ;loads map placement data!
           
           SCROLL_CAMERA_COORDS [7, 10], 8
             
@@ -738,7 +738,7 @@ GUARD_FE5_CHAPTER01 :?= false
           macroASMCRemoveUnit LeonsterSoldier
 
           STORE_WORD wCurrentChapter, Chapter01
-          CALL_ASM_SKIPPABLE $9A98B8
+          CALL_ASM_LOOP $9A98B8
 
           macroASMCLoadUnitGroup eventChapter01Data._ch1FinalGroup
           WAIT_MOVE

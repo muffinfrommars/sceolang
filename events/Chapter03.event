@@ -48,6 +48,9 @@ GUARD_FE5_CHAPTER03 :?= false
           EVENT _FlagThreeGladeSelphinaTalk, _ThreeGladeSelphinaTalk
             CHECK_CHARS2 Glade, Selphina
           END_DEFINITION
+          EVENT _FlagThreeGladeSelphinaTalk, _ThreeGladeSelphinaTalk2
+            CHECK_CHARS2 Selphina, Glade
+          END_DEFINITION
         END_DEFINITION_ARRAY
 
         _LocationEventDefinitions
@@ -94,12 +97,14 @@ GUARD_FE5_CHAPTER03 :?= false
 
         _ThreeGladeSelphinaTalk
           macroDialogue pThreeGladeSelphinaTalk
-
           macroASMCActiveUnitSetUnitState UnitStateHidden
-			
 					macroGiveActiveUnitItem IronLance
-			
 					macroASMCActiveUnitUnsetUnitState UnitStateHidden
+        END2 
+        
+        _ThreeGladeSelphinaTalk2
+          macroDialogue pThreeGladeSelphinaTalk
+          macroASMCGiveUnitItemSilent Glade, IronLance
         END2
 
         _PlayerLoss
@@ -257,7 +262,7 @@ GUARD_FE5_CHAPTER03 :?= false
           YIELD
 
           STORE_WORD wCurrentChapter, Chapter03
-          CALL_ASM_SKIPPABLE $9A98B8
+          CALL_ASM_LOOP $9A98B8
 
           macroLoadPlayerUnitsByStartingPositions
 
@@ -318,7 +323,7 @@ GUARD_FE5_CHAPTER03 :?= false
         UNIT
 
         _ch03NPCGroupfinalReinforcement
-          UNIT Ranz, NPC, [14, 5], [14, 2], Dryas, [Rapier], 5, true, [$01, $03, $00, $80]
+          UNIT Ranz, NPC, [14, 5], [14, 2], Dryas, [IronBlade], 5, true, [$01, $03, $00, $80]
           UNIT LeonsterSoldier, NPC, [1, 12], [1, 12], Dryas, [IronLance], 2, False, [$00, $0F, $00, $80]
           UNIT LeonsterMyrmidon, NPC, [2, 11], [2, 11], Dryas, [IronBlade], 2, False, [$00, $0F, $00, $80]
           UNIT LeonsterArcher, NPC, [3, 12], [3, 12], Dryas, [IronBow], 2, False, [$00, $0F, $00, $80]

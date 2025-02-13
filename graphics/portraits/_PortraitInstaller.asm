@@ -73,7 +73,7 @@
 	aPortraitPalette43 .binary "sprites/PortraitPalette43.bin"
 	aPortraitPalette44 .binary "sprites/PortraitPalette44.bin"
 	aPortraitPalette45 .binary "../../custom/graphics/portraits/newportraits/knight_niezna.mw3" ;Seemingly Unused Before
-	aPortraitPalette46 .binary "../../custom/graphics/portraits/PortraitEdain.pal" ;Seemingly Unused Before
+	aPortraitPalette46 .binary "../../custom/graphics/portraits/newportraits/flasuban_pal.bin" ;Seemingly Unused Before
 	aPortraitPalette47 .binary "../../custom/graphics/portraits/PortraitDew.pal" ;Seemingly Unused Before
 	aPortraitPalette48 .binary "../../custom/graphics/portraits/PortraitAlec.pal" ;Seemingly Unused Before
 	aPortraitPalette49 .binary "../../custom/graphics/portraits/PortraitNaoise.pal" ;Seemingly Unused Before
@@ -439,7 +439,7 @@
 	g4bppcPortraitYTravant .binary "../../custom/graphics/portraits/PortraitYTravant.4bpp.fe4"
 	g4bppcPortraitEFE47D .binary "sprites/PortraitEFE47D.4bpp.comp"
 	g4bppcPortraitEFE801 .binary "sprites/PortraitEFE801.4bpp.comp"
-	g4bppcPortraitKalf .binary "../../custom/graphics/portraits/PortraitKalf.4bpp.fe4" ; formerly g4bppcEFEBDE - Unused HighPriest from FE4
+	g4bppcPortraitFlasuban .binary "../../custom/graphics/portraits/newportraits/flasuban_portrait.fe4" ; formerly g4bppcEFEBDE - Unused HighPriest from FE4
 	g4bppcPortraitEFEF61 .binary "sprites/PortraitEFEF61.4bpp.comp"
 	g4bppcPortraitBrigand .binary "../../custom/graphics/portraits/newportraits/PortraitBrigand.4bpp.fe4" ;new might break game
 	g4bppcPortraitNiezna .binary "../../custom/graphics/portraits/newportraits/knight_niezna.bin.fe4" ;new might break game
