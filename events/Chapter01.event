@@ -244,7 +244,7 @@ GUARD_FE5_CHAPTER01 :?= false
           ;
 
           STORE_WORD wCurrentChapter, Chapter24
-          CALL_ASM_SKIPPABLE rlCustomMapChange
+          CALL_ASM_LOOP rlCustomMapChange
           
           SCROLL_CAMERA_COORDS [7, 10], 8
             
