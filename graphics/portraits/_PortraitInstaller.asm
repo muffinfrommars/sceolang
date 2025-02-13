@@ -83,7 +83,7 @@
 	aPortraitPalette4D .binary "sprites/PortraitPalette4D.bin" ;Seemingly Unused Before
 	aPortraitPalette4E .binary "../../custom/graphics/portraits/PortraitYFinn.pal" ;Seemingly Unused Before
 	aPortraitPalette4F .binary "../../custom/graphics/portraits/PortraitBeowolf.pal" ;Seemingly Unused Before
-	aPortraitPalette50 .binary "sprites/PortraitPalette50.bin"
+	aPortraitPalette50 .binary "../../custom/graphics/portraits/newportraits/youngxavier.mw3"
 	aPortraitPalette51 .binary "sprites/PortraitPalette51.bin"
 	aPortraitPalette52 .binary "sprites/PortraitPalette52.bin"
 	aPortraitPalette53 .binary "../../custom/graphics/portraits/newportraits/youngdryas2.mw3"
@@ -347,7 +347,7 @@
 	g4bppcPortraitEDAD56 .binary "sprites/PortraitEDAD56.4bpp.comp"
 	g4bppcPortraitEDB266 .binary "sprites/PortraitEDB266.4bpp.comp"
 	g4bppcPortraitEDB735 .binary "sprites/PortraitEDB735.4bpp.comp"
-	g4bppcPortraitEDBBDE .binary "sprites/PortraitEDBBDE.4bpp.comp"
+	g4bppcPortraitXavier .binary "../../custom/graphics/portraits/newportraits/youngxavier.bin.fe4" ;g4bppcPortraitEDBBDE
 	g4bppcPortraitEDC098 .binary "sprites/PortraitEDC098.4bpp.comp"
 	g4bppcPortraitEDC56B .binary "sprites/PortraitEDC56B.4bpp.comp"
 	g4bppcPortraitDryas .binary "../../custom/graphics/portraits/newportraits/youngdryas2.bin.fe4"

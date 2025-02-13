@@ -151,5 +151,11 @@ dialogueAnHourLater
 .byte $01
 
 dialogueObjektive
-.text "Confront Raydrik with Kalf."
+.text "[Objective] Confront Raydrik with Kalf."
 .byte $01
+
+dialogueObjektive1
+.text "[Objective] Protect the river's fortress."
+.byte $01
+
+

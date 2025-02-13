@@ -21,9 +21,10 @@ GUARD_FE5_CHAPTER12 :?= false
 
 				;Flag Definitions
 
-				_FlagEasterEgg      = enum.enum($07)
-				_FlagKalfDeath		= enum.enum()
-				_FlagKalfRaydrikTalk = enum.enum()
+				_FlagEasterEgg      	= enum.enum($07)
+				_FlagAmbushA   		    = enum.enum()
+				_FlagKalfDeath			= enum.enum()
+				_FlagKalfRaydrikTalk	= enum.enum()
 
 				_OpeningEventDefinitions 
 					EVENT FlagAlwaysZero, _OpeningEvent
@@ -53,7 +54,7 @@ GUARD_FE5_CHAPTER12 :?= false
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _TravantAppears
-						CMP_WORD wCurrentTurn, 8
+						CMP_WORD wCurrentTurn, 5
 						CMP_WORD wCurrentPhase, Enemy
 					END_DEFINITION
 					EVENT FlagAlwaysZero, _RaydrikBetrayal
@@ -78,6 +79,10 @@ GUARD_FE5_CHAPTER12 :?= false
 					EVENT FlagAlwaysZero, _EndingEvent
 						CHECK_CHARS2 Kalf, Raydrik
 						CMP_BYTE $7E4976, 1
+					END_DEFINITION
+					EVENT _FlagKalfRaydrikTalk, _BeforeBetrayal
+						CHECK_CHARS2 Kalf, Raydrik
+						CMP_BYTE $7E4976, 0
 					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
@@ -104,6 +109,10 @@ GUARD_FE5_CHAPTER12 :?= false
             			CMP_WORD wCurrentPhase, Player
 						CMP_WORD aSelectedCharacterBuffer.Character, Kalf
           			END_DEFINITION
+					EVENT _FlagAmbushA, _AmbushA
+            			macroECCheckCoordinateRanges [1, 11], [15, 23]
+            			CMP_WORD wCurrentPhase, Player
+          			END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_BattleEventDefinitions
@@ -112,21 +121,29 @@ GUARD_FE5_CHAPTER12 :?= false
 				_ShopEventDefinitions
 				END_DEFINITION_ARRAY
 
-				_TravantAppears
+				_AmbushA
+					SCROLL_CAMERA_COORDS [9, 26], 4
+					YIELD
+					LOAD_GROUP eventChapter12Data._RTBallistaAmbushA
+					WAIT_MOVE
+					YIELD
+				END1
 
+				_BeforeBetrayal
+					DIALOGUE CH12RaydrikKalfPrebetrayal
+					YIELD
+				END2
+
+				_TravantAppears
 					DIALOGUE ch12TravantAppears
 					YIELD
-
 					SCROLL_CAMERA_COORDS [17, 35], 5
 					YIELD
-
 					LOAD_GROUP eventChapter12Data._RTTravant
 					WAIT_MOVE
 					YIELD
-
 					DIALOGUE ch12TravantAppears1
 					YIELD
-
 				END2
 
 				_AIChangeThraciaA
@@ -302,8 +319,8 @@ GUARD_FE5_CHAPTER12 :?= false
 					WAIT_MOVE
 					YIELD
 
-					macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([26, 12])
-					macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([26, 13])
+					;macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([26, 12])
+					;macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([26, 13])
 
 					SCROLL_CAMERA_COORDS [27, 23], 3
 					YIELD
@@ -312,10 +329,10 @@ GUARD_FE5_CHAPTER12 :?= false
 					WAIT_MOVE
 					YIELD
 
-					macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([27, 22])
-					macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([27, 23])
+					;macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([27, 22])
+					;macroASMCSetCharacterDataWordBitsIfCharacterDataWord Skills3, Skill3Immortal, Coordinates, pack([27, 23])
 
-					DIALOGUE ch12Reinforcements
+					DIALOGUE ch12ReinforcementsC
 					YIELD
 				END2
 			
@@ -403,6 +420,8 @@ GUARD_FE5_CHAPTER12 :?= false
 
 					DIALOGUE ch12Intro2
 					YIELD
+
+					macroChapterTitlePopup dialogueObjektive1
 
 					macroASMCLoadUnitGroup eventChapter12Data._RTBallistaPlacements
 				END2
@@ -549,10 +568,13 @@ GUARD_FE5_CHAPTER12 :?= false
 				UNIT
 
 				_RTBallistaPlacements
-					UNIT BallistaEnemy, Enemy, [9, 31], [9, 31], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
-					UNIT BallistaEnemy, Enemy, [10, 30], [10, 30], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
 					UNIT BallistaEnemy, Enemy, [34, 14], [34, 14], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
 					UNIT BallistaEnemy, Enemy, [35, 26], [35, 26], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
+				UNIT
+
+				_RTBallistaAmbushA
+					UNIT BallistaEnemy, Enemy, [9, 31], [9, 31], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
+					UNIT BallistaEnemy, Enemy, [10, 30], [10, 30], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
 					UNIT BallistaEnemy, Enemy, [4, 25], [4, 25], Travant, [IronBallista], 5, False, [$00, $03, $00, $80]
 				UNIT
 

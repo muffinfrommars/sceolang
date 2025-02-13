@@ -282,6 +282,9 @@ GUARD_FE5_CHAPTER08x :?= false
           macroASMCSetCharacterDataByteIfCharacterDataWord UnitState1, UnitStateGrayed, Leader, Travant
 
           macroASMCSetCharacterDataByte Finn, Fatigue, 0
+          macroASMCSetCharacterDataByte Finn, Level, 20
+          macroASMCSetCharacterDataByte Finn, Experience, 0
+
           macroASMCSetCharacterDataByte Selphina, Fatigue, 0
           macroASMCSetCharacterDataByte Glade, Fatigue, 0
           macroASMCSetCharacterDataByte Ranz, Fatigue, 0

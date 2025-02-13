@@ -1,8 +1,11 @@
 paralogueTravant1
     .byte Right_slot
-    .text "In entrusting this spear to you, the keys to"
+
+    .text "Arion,"
+    .byte newline
+    .text "In entrusting this holy spear to you, the key to"
     .byte NewLine
-    .text "Thracia's future lay in your hands, Arion."
+    .text "Thracia's future lay in your hands."
 
     .byte ScrollText
     .text "What happens next is at your discretion."

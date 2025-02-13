@@ -215,14 +215,35 @@ ch12Intro
     .byte Right_slot
     .word LoadPortrait
     .word Dagdar_Portrait ;kalf replacement
-    .text "I once took Quan fishing here, you know."
+    .text "This river..."
     .byte newline
-    .text "Hard to believe this quiet river will soon"
+    .text "I once fished here with Quan, you know."
     .byte newline
-    .text "run red with blood..."
+    .text "Long before war consumed our lives."
     .byte waitforA
 
     .byte scrolltext
+    .text "Hard to believe this land now divides the"
+    .byte newline
+    .text "living from the dead..."
+    .byte waitforA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Osian_Portrait
+    .text "And yet, we must cross it if we are to"
+    .byte newline
+    .text "reach Munster."
+    .byte waitfora
+
+    .byte scrolltext
+    .text "Our scouts report Thracia's forces ahead,"
+    .byte newline
+    .text " but no signs of immediate engagement."
+    .byte waitfora
+
+    .byte right_slot
+    .byte ScrollText
     .text "*sigh*"
     .byte newline
     .text "Three days, and not a single sign of resistance..."
@@ -232,9 +253,8 @@ ch12Intro
     .text "Either Thracia is blind... or they're waiting."
     .byte WaitForA
 
-    .byte Left_slot
-    .word LoadPortrait
-    .word Osian_Portrait
+    .byte left_slot
+    .byte ScrollText
     .text "Waiting, no doubt. This silence unsettles me."
     .byte newline
     .text "Your Majesty, I fear we are already walking into"
@@ -295,7 +315,9 @@ ch12Intro2
     .word LoadPortrait
     .word Osian_Portrait
     .byte ScrollText
-    .text "Damn it... So it begins."
+    .text "They were waiting for us...!"
+    .byte newline
+    .text "This is no mere skirmish - it's a full ambush!"
     .byte WaitForA
 
     .byte ScrollText
@@ -307,8 +329,9 @@ ch12Intro2
     .byte Left_slot
     .word LoadPortrait
     .word Dagdar_Portrait
-    .byte ScrollText
-    .text "We must protect the bridge until Raydrik arrives!"
+    .text "...Then we fight!"
+    .byte newline
+    .text "Hold the bridge - do not let them scatter us!"
     .byte WaitForA
 
     .byte EndText
@@ -385,13 +408,13 @@ ch12RaydrikBetrayal1
     .byte Right_slot
     .word LoadPortrait
     .word Raydrik_Portrait ;kalf portrait
-    .text "Heh... I must say, Your Majesty, you put up"
+    .text "Heh... I must say, Son of Njorun, you put up"
     .byte newline
     .text "quite the fight."
     .byte WaitForA
 
     .byte ScrollText
-    .text "But I'm afraid this battle ends here."
+    .text "But I'm afraid this charade ends here."
     .byte WaitForA
 
     .byte EndText
@@ -515,14 +538,14 @@ ch12RaydrikKalf
 
     .byte EndText
     
-ch12Reinforcements
+ch12ReinforcementsC
 
     .byte Right_slot
     .word LoadPortrait
     .word Dagdar_Portrait ;Kalf Portrait
     .text "Reinforcements, yet no sign of Raydrik..."
     .byte Newline
-    .text "What is he planning...? "
+    .text "What in the blazes is he planning...? "
     .byte WaitForA
 
     .byte EndText
@@ -552,3 +575,42 @@ ch12TravantAppears1
     .byte WaitForA
 
     .byte EndText
+
+CH12RaydrikKalfPrebetrayal
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .text "So this is what it comes to, Raydrik."
+    .byte Newline
+    .text "Treachery and bloodshed... "
+    .byte newline
+    .text "Was there ever a shred of honor in you?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait ;Kalf Portrait
+    .text "*scoffs* Honor?"
+    .byte newline
+    .text "Honor won't save a dying kingdom."
+    .byte newline
+    .text "You should have seen this coming, Kalf."
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "I see it clearly now - you were never my ally."
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "*grins* And you were never my king."
+    .byte newline
+    .text "Draw your weapon, Kalf."
+    .byte newline
+    .text "Let's end this farce."
+    .byte WaitForA
+
+    .byte EndText
+
