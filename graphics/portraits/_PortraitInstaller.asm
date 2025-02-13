@@ -11,7 +11,7 @@
 	aPortraitPalette05 .binary "sprites/PortraitPalette05.bin"
 	aPortraitPalette06 .binary "sprites/PortraitPalette06.bin"
 	aPortraitPalette07 .binary "../../custom/graphics/portraits/PortraitYTravant.pal" ; previously Thracia 776 Travant
-	aPortraitPalette08 .binary "sprites/PortraitPalette08.bin" ; previously Cairpre's Palette
+	aPortraitPalette08 .binary "sprites/PortraitPalette08.bin" ; previously Cairpre's Palette UNUSED
 	aPortraitPalette09 .binary "sprites/PortraitPalette09.bin"
 	aPortraitPalette0A .binary "sprites/PortraitPalette0A.bin"
 	aPortraitPalette0B .binary "sprites/PortraitPalette0B.bin"
@@ -82,7 +82,7 @@
 	aPortraitPalette4C .binary "sprites/PortraitPalette4C.bin" ;Seemingly Unused Before
 	aPortraitPalette4D .binary "sprites/PortraitPalette4D.bin" ;Seemingly Unused Before
 	aPortraitPalette4E .binary "../../custom/graphics/portraits/PortraitYFinn.pal" ;Seemingly Unused Before
-	aPortraitPalette4F .binary "../../custom/graphics/portraits/PortraitBeowolf.pal" ;Seemingly Unused Before
+	aPortraitPalette4F .binary "../../custom/graphics/portraits/newportraits/soldierformatted.pal" ;Seemingly Unused Before
 	aPortraitPalette50 .binary "../../custom/graphics/portraits/newportraits/youngxavier.mw3"
 	aPortraitPalette51 .binary "sprites/PortraitPalette51.bin"
 	aPortraitPalette52 .binary "sprites/PortraitPalette52.bin"
@@ -266,7 +266,7 @@
 	segmentStart
 
 	g4bppcPortraitTravant .binary "../../custom/graphics/portraits/PortraitYTravant.4bpp.fe4" ; formerly Thracia 776 travant EB8318
-	g4bppcPortraitTailtiu .binary "../../custom/graphics/portraits/PortraitTailtiu.4bpp.fe4" ;formerly EB8851 Cairpre
+	g4bppcPortraitSoldier .binary "../../custom/graphics/portraits/newportraits/soldierformatted.4bpp.comp" ;formerly EB8851 Cairpre
 	g4bppcPortraitEB8C84 .binary "sprites/PortraitEB8C84.4bpp.comp"
 	g4bppcPortraitEB91DE .binary "sprites/PortraitEB91DE.4bpp.comp"
 	g4bppcPortraitEB9717 .binary "sprites/PortraitEB9717.4bpp.comp"

@@ -60,7 +60,7 @@ HannibalPortrait,g4bppcPortraitEAEE23,$03
 ReinhardtPortrait,g4bppcPortraitECEB79,$35
 AugustPortrait,g4bppcPortraitEDE4DA,$59
 DoriasPortrait,g4bppcPortraitDryas,$53
-TailtiuPortrait,g4bppcPortraitTailtiu,$08
+GenericSoldierPortrait,g4bppcPortraitSoldier,$4F ; 08 UNUSED
 SeliphPortrait,g4bppcPortraitEB8C84,$09
 Leif2Portrait,g4bppcPortraitEB91DE,$0A
 LachesisPortrait,g4bppcPortraitLachesis,$0C

@@ -169,8 +169,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word ReinhardtPortrait
 	.word ReinhardtDialogue
 
-	.word TailtiuPortrait
-	.word Tailtiu
+	.word DagdarPortrait
+	.word Kalf
 
 	.word RaydrikPortrait
 	.word Raydrik

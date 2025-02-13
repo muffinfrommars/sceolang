@@ -25,6 +25,7 @@ GUARD_FE5_CHAPTER12 :?= false
 				_FlagAmbushA   		    = enum.enum()
 				_FlagKalfDeath			= enum.enum()
 				_FlagKalfRaydrikTalk	= enum.enum()
+				_FlagKalfSoldierTalk	= enum.enum()
 
 				_OpeningEventDefinitions 
 					EVENT FlagAlwaysZero, _OpeningEvent
@@ -84,6 +85,10 @@ GUARD_FE5_CHAPTER12 :?= false
 						CHECK_CHARS2 Kalf, Raydrik
 						CMP_BYTE $7E4976, 0
 					END_DEFINITION
+					EVENT _FlagKalfSoldierTalk, _BeforeBetrayalDialogue
+						CHECK_CHARS2 Kalf, ConnaughtSoldier
+						CMP_BYTE $7E4976, 0
+					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_LocationEventDefinitions
@@ -128,6 +133,11 @@ GUARD_FE5_CHAPTER12 :?= false
 					WAIT_MOVE
 					YIELD
 				END1
+
+				_BeforeBetrayalDialogue
+					DIALOGUE CH12SoldierKalfPrebetrayal
+					YIELD
+				END2
 
 				_BeforeBetrayal
 					DIALOGUE CH12RaydrikKalfPrebetrayal
@@ -499,34 +509,38 @@ GUARD_FE5_CHAPTER12 :?= false
 				_RTConnaughtA
 					UNIT ConnaughtSoldier, NPC, [32, 14], [26, 12], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
 					UNIT ConnaughtSoldier, NPC, [32, 14], [26, 13], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
+					UNIT ConnaughtSoldier, NPC, [32, 14], [27, 13], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
+					UNIT ConnaughtSoldier, NPC, [32, 14], [27, 12], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
 				UNIT
 				
 				_RTConnaughtB
 					UNIT ConnaughtSoldier, NPC, [33, 23], [27, 22], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
 					UNIT ConnaughtSoldier, NPC, [33, 23], [27, 23], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
+					UNIT ConnaughtSoldier, NPC, [33, 23], [28, 23], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
+					UNIT ConnaughtSoldier, NPC, [33, 23], [28, 22], Raydrik, [IronLance], 5, false, [$00, $03, $00, $80]
 				UNIT
 
 				_RTRaydrik ;
-					UNIT Raydrik, NPC, [31, 1], [31, 3], Raydrik, [ShadowSpear], 20, true, [$00, $0F, $00, $80]
-					UNIT ConnaughtGeneral, NPC, [32, 1], [32, 3], Raydrik, [], 5, false, [$00, $0F, $00, $80]
-					UNIT ConnaughtMyrmidon2, NPC, [32, 1], [32, 2], Raydrik, [], 5, false, [$00, $0F, $00, $80]
-					UNIT ConnaughtFighter, NPC, [31, 1], [31, 2], Raydrik, [], 5, false, [$00, $0F, $00, $80]
-					UNIT ConnaughtArcher1, NPC, [32, 1], [32, 1], Raydrik, [], 5, false, [$00, $0F, $00, $80]
-					UNIT ConnaughtPriest, NPC, [31, 1], [31, 1], Raydrik, [], 5, false, [$00, $0F, $00, $80]
+					UNIT Raydrik, NPC, [31, 1], [31, 3], Raydrik, [ShadowSpear, Vulnerary], 20, true, [$00, $0F, $00, $80]
+					UNIT ConnaughtGeneral, NPC, [32, 1], [32, 3], Raydrik, [IronLance, SteelLance, GreatLance, SilverLance, Ridersbane], 15, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtMyrmidon2, NPC, [32, 1], [32, 2], Raydrik, [IronBlade], 15, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtFighter, NPC, [31, 1], [31, 2], Raydrik, [SteelAxe], 15, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtArcher1, NPC, [32, 1], [32, 1], Raydrik, [SteelBow], 15, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtPriest, NPC, [31, 1], [31, 1], Raydrik, [Recover], 10, false, [$00, $0F, $00, $80]
 				UNIT
 
 				_RTLeonster
 					UNIT Kalf, Player, [9, 5], [9, 5], Kalf, [Kingmaker, Vulnerary], 19, false, [$01, $03, $00, $80]
-					UNIT Lurvin, Player, [7, 5], [7, 5], Kalf, [BraveSword, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT Alface, Player, [8, 4], [8, 4], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight1, Player, [7, 3], [7, 3], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight2, Player, [9, 3], [9, 3], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight3, Player, [6, 4], [6, 4], Kalf, [Physic, Mend, IronSword], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight4, Player, [8, 2], [8, 2], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight5, Player, [10, 2], [10, 2], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight6, Player, [9, 1], [9, 1], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight7, Player, [11, 1], [11, 1], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
-					UNIT LeonsterKnight9, Player, [11, 3], [11, 3], Kalf, [IronLance, Vulnerary], 5, false, [$01, $03, $00, $80]
+					UNIT Lurvin, Player, [7, 5], [7, 5], Kalf, [BraveSword, Vulnerary], 18, false, [$01, $03, $00, $80]
+					UNIT Alface, Player, [8, 4], [8, 4], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight1, Player, [7, 3], [7, 3], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight2, Player, [9, 3], [9, 3], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight3, Player, [6, 4], [6, 4], Kalf, [Physic, Mend, IronSword, Warp], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight4, Player, [8, 2], [8, 2], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight5, Player, [10, 2], [10, 2], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight6, Player, [9, 1], [9, 1], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight7, Player, [11, 1], [11, 1], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
+					UNIT LeonsterKnight9, Player, [11, 3], [11, 3], Kalf, [IronLance, Vulnerary], 20, false, [$01, $03, $00, $80]
 
  					;UNIT LeonsterKnight13, Player, [3, 1], [19, 5], Kalf, [], 5, false, [$01, $03, $00, $80]
 					;UNIT LeonsterKnight14, Player, [3, 1], [19, 6], Kalf, [], 5, false, [$01, $03, $00, $80]

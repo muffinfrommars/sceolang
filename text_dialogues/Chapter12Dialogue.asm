@@ -581,36 +581,96 @@ CH12RaydrikKalfPrebetrayal
     .byte Right_slot
     .word LoadPortrait
     .word Dagdar_Portrait ;Kalf Portrait
-    .text "So this is what it comes to, Raydrik."
+    .text "Took you long enough, Raydrik."
     .byte Newline
-    .text "Treachery and bloodshed... "
-    .byte newline
-    .text "Was there ever a shred of honor in you?"
+    .text "We needed you hours ago."
     .byte WaitForA
 
     .byte Left_slot
     .word LoadPortrait
     .word Raydrik_Portrait ;Kalf Portrait
-    .text "*scoffs* Honor?"
+    .text "A battle this dire demands careful timing,"
     .byte newline
-    .text "Honor won't save a dying kingdom."
-    .byte newline
-    .text "You should have seen this coming, Kalf."
+    .text "Your Majesty. I trust you've held firm?"
     .byte WaitForA
 
     .byte Right_slot
     .byte ScrollText
-    .text "I see it clearly now - you were never my ally."
+    .text "Barely. Travant himself circles above like a"
+    .byte newline
+    .text "vulture. His knights cut us down, and we've"
+    .byte newline
+    .text "lost too many already."
     .byte WaitForA
 
     .byte Left_slot
     .byte ScrollText
-    .text "*grins* And you were never my king."
+    .text "Travant... I see. If the king of Thracia is here in"
     .byte newline
-    .text "Draw your weapon, Kalf."
-    .byte newline
-    .text "Let's end this farce."
+    .text "person, then this battle is worse than I thought."
     .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "Spare me the commentary."
+    .byte newline
+    .text "We need to push back before nightfall."
+    .byte newline
+    .text "Are your men ready?"
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "Of course. Just say the word."
+    .byte WaitForA
+    
+
+    .byte EndText
+    
+CH12SoldierKalfPrebetrayal
+
+    .byte Right_slot
+    .word LoadPortrait
+    .word GenericSoldierPortrait
+    .text "Your Majesty, I-I don't know how much longer"
+    .byte Newline
+    .text "we can hold... Our lines are breaking, and the"
+    .byte Newline
+    .text "men are losing heart!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Dagdar_Portrait ;Kalf Portrait
+    .text "Steady yourself, soldier!"
+    .byte newline
+    .text "I know the battle is dire, but we cannot aford"
+    .byte newline
+    .text "to falter now!"
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte ScrollText
+    .text "But... but the Thracians knew we were coming!"
+    .byte newline
+    .text "They were waiting for us!"
+    .byte newline
+    .text "Someone must have betrayed us!"
+    .byte WaitForA
+
+    .byte Left_slot
+    .byte ScrollText
+    .text "I have my suspicions, but now is not the time for"
+    .byte newline
+    .text "doubt. We fight with what strength we have left!"
+    .byte WaitForA
+
+    .byte ScrollText
+    .text "If we must die, we die fighting like true men"
+    .byte newline
+    .text "of Leonster and Connaught!"
+    .byte WaitForA
+    
 
     .byte EndText
 
