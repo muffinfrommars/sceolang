@@ -785,7 +785,7 @@ ch12KalfDeathLurvin
 
     .byte EndText
 
-ch12KalfDeath
+ch12KalfDeath1
 
     .byte Left_slot
     .word LoadPortrait
@@ -797,36 +797,20 @@ ch12KalfDeath
     .text "I, Raydrik, have killed King Kalf of Leonster!!"
     .byte WaitForA
 
-    .byte left_slot
-    .byte ScrollText
-    .text "Damn it all...! This was no accident!"
+    .byte EndText
+
+ch12KalfDeath2
+
+    .byte Left_slot
+    .word LoadPortrait
+    .word Raydrik_Portrait ;Kalf Portrait
+    .text "Soldiers of Leonster and Connaught, if you beg for"
+    .byte newline
+    .text "your lives and serve me, I'll let you live."
     .byte WaitForA
 
-    .byte right_slot
     .byte ScrollText
-    .text "Sire, what do we do?"
-    .byte newline
-    .text "We're outnumbered, and Thracia won't hesitate"
-    .byte newline
-    .text "to strike while we're stranded!"
-    .byte WaitForA
-
-    .byte left_slot
-    .byte ScrollText
-    .text "We fight, Lurvin."
-    .byte newline
-    .text "We hold out for however long we can."
-    .byte newline
-    .text "We make them bleed for every inch."
-    .byte WaitForA
-
-    .byte right_slot
-    .byte ScrollText
-    .text "Aye..."
-    .byte newline
-    .text "If this is our last stand, let's make it one"
-    .byte newline
-    .text ""
+    .text "Those who don't will be killed, without exception."
     .byte WaitForA
 
     .byte EndText
