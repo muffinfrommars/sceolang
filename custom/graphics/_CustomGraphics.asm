@@ -13,49 +13,59 @@
 
 * = $26C67
 .logical lorom($26C67, 1)
-    .long KnightLordFightDown
+    .long aKnightLordFightDown
 .here
 
 * = $26C64
 .logical lorom($26C64, 1)
-    .long KnightLordFightDownRight
+    .long aKnightLordFightDownRight
 .here
 
 * = $26C6A
 .logical lorom($26C6A, 1)
-    .long KnightLordFightLeftDownLeft
+    .long aKnightLordFightLeftDownLeft
+.here
+
+* = $26C5E
+.logical lorom($26C5E, 1)
+    .long aKnightLordFightRightUpRight
 .here
 
 * = $26C55
 .logical lorom($26C55, 1)
-    .long KnightLordFightRightUpRight
+    .long aKnightLordFightLeftDownLeft
+.here
+
+* = $26C61
+.logical lorom($26C61, 1)
+    .long aKnightLordFightRightUpRight
 .here
 
 * = $26C58
 .logical lorom($26C58, 1)
-    .long KnightLordFightUp
+    .long aKnightLordFightUp
 .here
 
 * = $26C5B
 .logical lorom($26C5B, 1)
-    .long KnightLordFightDownUpLeft
+    .long aKnightLordFightDownUpLeft
 .here
 
 * = $51E21
 .logical lorom($51E21, 1)
-    .long KnightLordFightMove
+    .long aKnightLordFightMove
 .here
 
-* = $6B29
-.logical lorom($6B29, 1)
+* = $5FBA00
+.logical lorom($5FBA00, 1)
 
-    KnightLordFightDown    .binary "MapSprites/KnightLord/KnightLordFightDown.fe4"
-    KnightLordFightDownRight    .binary "MapSprites/KnightLord/KnightLordFightDownRight.fe4"
-    KnightLordFightLeftDownLeft    .binary "MapSprites/KnightLord/KnightLordFightLeftDownLeft.fe4"
-    KnightLordFightRightUpRight   .binary "MapSprites/KnightLord/KnightLordFightRightUpRight.fe4"
-    KnightLordFightUp    .binary "MapSprites/KnightLord/KnightLordFightUp.fe4"
-    KnightLordFightDownUpLeft    .binary "MapSprites/KnightLord/KnightLordFightUpLeft.fe4"
-    KnightLordFightMove    .binary "MapSprites/KnightLord/KnightLordMove.fe4"
+    aKnightLordFightDown    .binary "MapSprites/KnightLord/KnightLordFightDown.fe4"
+    aKnightLordFightDownRight    .binary "MapSprites/KnightLord/KnightLordFightDownRight.fe4"
+    aKnightLordFightLeftDownLeft    .binary "MapSprites/KnightLord/KnightLordFightLeftDownLeft.fe4"
+    aKnightLordFightRightUpRight   .binary "MapSprites/KnightLord/KnightLordFightRightUpRight.fe4"
+    aKnightLordFightUp    .binary "MapSprites/KnightLord/KnightLordFightUp.fe4"
+    aKnightLordFightDownUpLeft    .binary "MapSprites/KnightLord/KnightLordFightUpLeft.fe4"
+    aKnightLordFightMove    .binary "MapSprites/KnightLord/KnightLordMove.fe4"
     
     .here
 

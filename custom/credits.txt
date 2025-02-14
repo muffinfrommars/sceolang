@@ -2,6 +2,8 @@ ZaneAvernathy, Miacis, Ultimage, CedAodh - Basically teaching me everything I ne
 
 Flasuban - Major assistance in learning how to create and implement custom tilesets, palettes
 Creator of various tilesets used in this hack.
+Provided fix for Lord Knight map sprites
+Provided self-portrait
 
 Min - creator of the FE4 music patch, made it compatible with buildfiles simply out of request. (rip compatibility)
 
@@ -33,6 +35,6 @@ Young Finn, Glade, Selphina, Leif (infant) portraits by @Glacoe776
 
 Wedding Ethlyn, Groom Quan, Niezna portraits by Niezna
 
-Young Dryas, Xavier portraits by muddak
+Young Dryas, Xavier, Raydrik portraits by muddak
 
 Muffin from Mars - Me :) Director, developer, writer of this project
