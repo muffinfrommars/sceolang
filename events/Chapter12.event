@@ -613,7 +613,7 @@ GUARD_FE5_CHAPTER12 :?= false
 					macroASMCRemoveUnit LeonsterKnight14
 					macroASMCRemoveUnit LeonsterKnight15
 
-					FADE OUT 2
+					FADE_OUT 2
 					YIELD
 
 					CALL_ASM_LOOP rlASMCChapterEnd
