@@ -14,8 +14,8 @@ Chapter09ChapterData,ttiles,ttileset,tpalette,empty,None,eventChapter09Data._Sta
 Chapter10ChapterData,$F8A3D6,$FB9ABD,$F69900,$FCB942,None,eventChapter10Data._StartingPositions,None,None,None,8,14,$2,$4,$4,%101,$1,$1,$1,None,None
 Chapter11ChapterData,ctiles,ctileset,cpalette,hallway,None,eventChapter11Data._StartingPositions,None,None,$2,8,14,$2,$4,$4,$3,$2,$A,$2,None,None
 Chapter11xChapterData,suntiles,suntileset,sunpalette,riverprelude,None,eventChapter11xData._StartingPositions,None,None,None,6,8,$2,$4,$4,$3,$2,$A,$2,None,aTAPlains
-Chapter12ChapterData,suntiles,suntileset,sunpalette,riverthraciapartb,riverthraciapartbmapchanges,eventChapter12Data._StartingPositions,None,None,None,12,12,$2,$4,$4,$3,$3,$A,$3,None,aTAPlains
-Chapter12xChapterData,$F8A3D6,$FB9ABD,$F69000,$FC9211,$FCF11A,eventChapter12xData._StartingPositions,None,3,$2,4,6,$2,$4,$0,$1,$1,$9,$1,None,None
+Chapter12ChapterData,suntiles,suntileset,sunpalette,riverthraciapartb,riverthraciapartbmapchanges,None,None,None,None,12,12,$2,$4,$4,$3,$3,$A,$3,None,aTAPlains
+Chapter12xChapterData,$F8A3D6,$FB9ABD,$F69000,$FC9211,$FCF11A,None,None,None,None,4,6,$2,$4,$0,$1,$1,$9,$1,None,None
 Chapter13ChapterData,$F6E885,$FAEB21,$F69100,$FC938D,$FCF158,eventChapter13Data._StartingPositions,$978027,None,$2,6,8,$2,$4,$0,$1,$2,$B,$2,$FAC28D,aTAPlains
 Chapter14ChapterData,$F8E7D0,$FBA9BA,$F69200,$FC995D,$FCF166,eventChapter14Data._StartingPositions,$97802C,None,$2,6,14,$2,$4,$4,$5,$3,$B,$3,None,aTAPlains
 Chapter14xChapterData,$F6E885,$FAEB21,$F69300,$FC9DE6,None,eventChapter14xData._StartingPositions,$97802E,3,$2,6,10,$2,$4,$4,$3,$1,$9,$1,None,aTAPlains

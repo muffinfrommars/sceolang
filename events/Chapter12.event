@@ -662,7 +662,7 @@ GUARD_FE5_CHAPTER12 :?= false
 
 				_RTRaydrik ;
 					UNIT Raydrik, NPC, [31, 1], [31, 3], Raydrik, [ShadowSpear, Vulnerary], 20, true, [$00, $0F, $00, $80]
-					UNIT ConnaughtGeneral, NPC, [32, 1], [32, 3], Raydrik, [IronLance, SteelLance, GreatLance, SilverLance, Ridersbane], 15, false, [$00, $0F, $00, $80]
+					UNIT ConnaughtGeneral, NPC, [32, 1], [32, 3], Raydrik, [IronLance, SteelLance, GreatLance, SilverLance, MasterLance], 15, false, [$00, $0F, $00, $80]
 					UNIT ConnaughtMyrmidon2, NPC, [32, 1], [32, 2], Raydrik, [IronBlade], 15, false, [$00, $0F, $00, $80]
 					UNIT ConnaughtFighter, NPC, [31, 1], [31, 2], Raydrik, [SteelAxe], 15, false, [$00, $0F, $00, $80]
 					UNIT ConnaughtArcher1, NPC, [32, 1], [32, 1], Raydrik, [SteelBow], 15, false, [$00, $0F, $00, $80]

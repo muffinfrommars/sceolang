@@ -43,7 +43,7 @@ dialogueChapter08xTitle
 .byte $01
 
 dialogueChapter09Title
-.text "Chapter 9: The Banner of Njörun"
+.text "Empty Map"
 .byte $01
 
 dialogueChapter10Title
@@ -51,7 +51,7 @@ dialogueChapter10Title
 .byte $01
 
 dialogueChapter11Title
-.text "Chapter 11: Fort Dundrum"
+.text "Cutscene Only"
 .byte $01
 
 dialogueChapter11xTitle
@@ -63,7 +63,7 @@ dialogueChapter12Title
 .byte $01
 
 dialogueChapter12xTitle
-.text "Leonster's Fall"
+.text "Tragic News"
 .byte $01
 
 dialogueChapter13Title

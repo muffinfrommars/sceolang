@@ -848,9 +848,11 @@ ch12TravantRaydrik
 
     .byte Left_slot
     .byte scrolltext
-    .text "I am but a humble servant to power, King Travant."
+    .text "I am but a humble servant to power,"
     .byte newline
-    .text "And power favors to those who sieze opportunity."
+    .text "King Travant. And power favors to those"
+    .byte newline
+    .text "who sieze opportunity."
     .byte WaitForA
 
     .byte Right_slot

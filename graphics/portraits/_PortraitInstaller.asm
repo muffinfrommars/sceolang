@@ -105,7 +105,7 @@
 	aPortraitPalette63 .binary "sprites/PortraitPalette63.bin"
 	aPortraitPalette64 .binary "sprites/PortraitPalette64.bin"
 	aPortraitPalette65 .binary "sprites/PortraitPalette65.bin"
-	aPortraitPalette66 .binary "sprites/PortraitPalette66.bin"
+	aPortraitPalette66 .binary "../../custom/graphics/portraits/newportraits/youngraydrik.mw3"
 	aPortraitPalette67 .binary "sprites/PortraitPalette67.bin"
 	aPortraitPalette68 .binary "sprites/PortraitPalette68.bin"
 	aPortraitPalette69 .binary "sprites/PortraitPalette69.bin"
@@ -379,7 +379,7 @@
 	g4bppcPortraitEE9378 .binary "sprites/PortraitEE9378.4bpp.comp"
 	g4bppcPortraitEE9840 .binary "sprites/PortraitEE9840.4bpp.comp"
 	g4bppcPortraitEE9D0E .binary "sprites/PortraitEE9D0E.4bpp.comp"
-	g4bppcPortraitEEA236 .binary "sprites/PortraitEEA236.4bpp.comp"
+	g4bppcPortraitRaydrik .binary "../../custom/graphics/portraits/newportraits/youngraydrik.bin.fe4"
 	g4bppcPortraitAlec .binary "../../custom/graphics/portraits/PortraitAlec.4bpp.fe4" ; formerly g4bppcPortraitEEA74E - Brook and Baldach
 	g4bppcPortraitNaoise .binary "../../custom/graphics/portraits/PortraitNaoise.4bpp.fe4" ; formerly g4bppcPortraitEEAC11 - Thracia 776 Blume
 	g4bppcPortraitEEB0AB .binary "sprites/PortraitEEB0AB.4bpp.comp"

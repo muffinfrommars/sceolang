@@ -22,6 +22,9 @@ GUARD_FE5_CHAPTER12x :?= false
           _FlagPerneRecruited  		 	= enum.enum($05)
 
 				_OpeningEventDefinitions
+					EVENT FlagAlwaysZero, _OpeningEvent
+						CMP_WORD wCurrentTurn, 0
+					END_DEFINITION
 				END_DEFINITION_ARRAY
 			
 				_TurnEventDefinitions
@@ -49,6 +52,35 @@ GUARD_FE5_CHAPTER12x :?= false
 				.word 0
 			
 				_OpeningEvent
+					STORE_WORD wCurrentChapter, Chapter11x
+				  	CALL_ASM_SKIPPABLE $9A98CF
+
+					PAUSE_SKIPPABLE 32
+          			YIELD
+
+					SET_CAMERA_POSITION [30, 12]
+					YIELD
+
+					PAUSE_SKIPPABLE 32
+          			YIELD
+
+					LOAD_GROUP eventChapter12xData._RTHorse
+					WAIT_MOVE
+					YIELD
+
+					MOVE_UNIT KalfHorse, [29, 11], [1, 5], 2, None
+					YIELD_UNK
+
+					SCROLL_CAMERA_COORDS [1, 1], 1
+					YIELD
+
+					WAIT_MOVE
+        			YIELD
+
+					macroASMCRemoveUnit KalfHorse
+
+					STORE_WORD wCurrentChapter, Chapter24x
+				  	CALL_ASM_SKIPPABLE $9A98CF
 				END2
 			
 				_EndingEvent
@@ -65,6 +97,10 @@ GUARD_FE5_CHAPTER12x :?= false
     .section Chapter12xDataSection
 
 			eventChapter12xData ; B1/C3F7
+
+				_RTHorse
+					UNIT KalfHorse, Player, [29, 11], [29, 11], Kalf, [], 20, false, [$01, $03, $00, $80]
+				UNIT
 			
 				_PrepEnemies ; B1/C3F7
 					.byte 9, 9
@@ -75,8 +111,6 @@ GUARD_FE5_CHAPTER12x :?= false
 					.byte 13, 12
 					.byte 15, 12
 					.byte 14, 13
-					.byte 13, 14
-					.byte 15, 14
 				.byte $FF
 
     .endsection Chapter12xDataSection

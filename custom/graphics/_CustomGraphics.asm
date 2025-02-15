@@ -59,15 +59,30 @@
 * = $5FBA00
 .logical lorom($5FBA00, 1)
 
-    aKnightLordFightDown    .binary "MapSprites/KnightLord/KnightLordFightDown.fe4"
-    aKnightLordFightDownRight    .binary "MapSprites/KnightLord/KnightLordFightDownRight.fe4"
-    aKnightLordFightLeftDownLeft    .binary "MapSprites/KnightLord/KnightLordFightLeftDownLeft.fe4"
-    aKnightLordFightRightUpRight   .binary "MapSprites/KnightLord/KnightLordFightRightUpRight.fe4"
-    aKnightLordFightUp    .binary "MapSprites/KnightLord/KnightLordFightUp.fe4"
-    aKnightLordFightDownUpLeft    .binary "MapSprites/KnightLord/KnightLordFightUpLeft.fe4"
-    aKnightLordFightMove    .binary "MapSprites/KnightLord/KnightLordMove.fe4"
+    aKnightLordFightDown             .binary "MapSprites/KnightLord/KnightLordFightDown.fe4"
+    aKnightLordFightDownRight        .binary "MapSprites/KnightLord/KnightLordFightDownRight.fe4"
+    aKnightLordFightLeftDownLeft     .binary "MapSprites/KnightLord/KnightLordFightLeftDownLeft.fe4"
+    aKnightLordFightRightUpRight     .binary "MapSprites/KnightLord/KnightLordFightRightUpRight.fe4"
+    aKnightLordFightUp               .binary "MapSprites/KnightLord/KnightLordFightUp.fe4"
+    aKnightLordFightDownUpLeft       .binary "MapSprites/KnightLord/KnightLordFightUpLeft.fe4"
+    aKnightLordFightMove             .binary "MapSprites/KnightLord/KnightLordMove.fe4"
+
+    aKnightLordHorseMove             .binary "MapSprites/KnightLordHorse/KnightLordHorseMove.fe4"
     
     .here
+
+;KnightLordHorse - Writes over Unused Emperor Graphics
+
+* = $38B300
+.logical lorom($38B300, 1)
+    aKnightLordHorseStand    .binary "MapSprites/KnightLordHorse/KnightLordHorseStand"
+
+.here
+
+* = $51EEC
+.logical lorom($51EEC, 1)
+    .long aKnightLordHorseMove
+.here
 
 
 
