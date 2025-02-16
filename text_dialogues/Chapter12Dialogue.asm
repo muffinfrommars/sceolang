@@ -901,6 +901,33 @@ ch12RaydrikSelf
     .byte newline
     .text "and when they do, the real game begins."
     .byte WaitForA
+    
+	.word PlayMusic
+	.byte $58
+
+    .byte left_slot
+    .word LoadPortrait
+    .word genericsoldierPortrait
+    .text "Lord Raydrik, King Kalf's horse..."
+    .byte newline
+    .text "it's nowhere to be found. What should we do?"
+    .byte WaitForA
+
+    .byte Right_slot
+    .byte scrolltext
+    .text "Leave it. A dead man has no need for a steed."
+    .byte WaitForA
+
+    .byte left_slot
+    .byte scrolltext
+    .text "But my lord-"
+
+    .byte Right_slot
+    .byte scrolltext
+    .text "Do I need to repeat myself? If it ran, let it run."
+    .byte newline
+    .text "We have more pressing matters to attend to."
+    .byte WaitForA
 
     .byte EndText
 

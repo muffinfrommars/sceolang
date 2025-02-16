@@ -433,8 +433,14 @@ GUARD_FE5_CHAPTER12 :?= false
 				.word 0
 			
 				_OpeningEvent
+
 					SET_CAMERA_POSITION [18, 22]
 					YIELD
+
+		            CALL_ASM_SKIPPABLE rlUpdateUnitMapsAndFog, $0000
+
+					FADE_IN 2
+					YIELD 
 
 			        macroChapterTitlePopup dialogueChapter12Title
 
@@ -587,7 +593,7 @@ GUARD_FE5_CHAPTER12 :?= false
 
 					macroDialogue ch12TravantRaydrik
 
-					MOVE_UNIT Travant, [18, 16], [1, 16], 2, None
+					MOVE_UNIT Travant, [18, 16], [1, 16], 3, None
 					YIELD_UNK
 
 					WAIT_MOVE
@@ -596,6 +602,12 @@ GUARD_FE5_CHAPTER12 :?= false
 					SCROLL_CAMERA_CHAR Raydrik, 1
 
 					macroDialogue ch12RaydrikSelf
+
+					MOVE_UNIT Raydrik, [18, 16], [32, 1], 2, None
+					YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
 
 					macroASMCRemoveUnit Lurvin
 					macroASMCRemoveUnit Alface

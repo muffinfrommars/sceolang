@@ -59,10 +59,11 @@ dialogueAedTravant1
 
 	.byte ScrollText
 	.text "You there!"
+	.byte WaitForA
 
 	.byte Left_slot
     .word LoadPortrait
-    .word guard_Portrait
+    .word genericsoldierPortrait
 	.text "Yes, milord?"
 	.byte WaitForA
 
@@ -148,6 +149,8 @@ introFinnGlade1
     .word LoadPortrait
     .word GladePortrait
 	.text "...Gotcha!"
+	.byte WaitForA
+
 
 	.byte Right_slot
 	.byte ScrollText

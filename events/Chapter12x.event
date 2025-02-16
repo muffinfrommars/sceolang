@@ -77,10 +77,46 @@ GUARD_FE5_CHAPTER12x :?= false
 					WAIT_MOVE
         			YIELD
 
+					WARP_UNIT KalfHorse, [1, 5], [39, 5]
+
+					STORE_WORD wCurrentChapter, Chapter05
+				  	CALL_ASM_SKIPPABLE $9A98CF
+
+					PAUSE_SKIPPABLE 16
+          			YIELD
+					
+					SET_CAMERA_POSITION [6, 12]
+					YIELD
+
+					PAUSE_SKIPPABLE 64
+          			YIELD
+
 					macroASMCRemoveUnit KalfHorse
 
-					STORE_WORD wCurrentChapter, Chapter24x
-				  	CALL_ASM_SKIPPABLE $9A98CF
+					LOAD_GROUP  eventChapter12xData._ch12xAlfiona
+					WAIT_MOVE
+					YIELD
+
+					macroASMCDismount Alfiona
+
+					MOVE_UNIT Alfiona, [6, 12], [20, 22], 1, None
+					YIELD_UNK
+
+					SCROLL_CAMERA_COORDS [20, 22], 1
+					YIELD
+
+					WAIT_MOVE
+					YIELD
+
+					macroDialogue ch12xAlfiona1
+
+					LOAD_GROUP  eventChapter12xData._ch12xMaid
+					WAIT_MOVE
+					YIELD
+
+					macroDialogue ch12xAlfiona2
+
+
 				END2
 			
 				_EndingEvent
@@ -100,6 +136,14 @@ GUARD_FE5_CHAPTER12x :?= false
 
 				_RTHorse
 					UNIT KalfHorse, Player, [29, 11], [29, 11], Kalf, [], 20, false, [$01, $03, $00, $80]
+				UNIT
+
+				_ch12xAlfiona
+					UNIT Alfiona, NPC, [6, 12], [6, 12], Quan, [], 20, False, [$01, $03, $00, $80]
+				UNIT
+
+				_ch12xMaid
+					UNIT LeonsterMaid, NPC, [18, 11], [18, 21], Quan, [], 20, False, [$01, $03, $00, $80]
 				UNIT
 			
 				_PrepEnemies ; B1/C3F7
