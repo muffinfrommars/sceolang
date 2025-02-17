@@ -127,7 +127,6 @@ GUARD_FE5_CHAPTER12x :?= false
 					WAIT_MOVE
 					YIELD
 
-
 				END2
 			
 				_EndingEvent

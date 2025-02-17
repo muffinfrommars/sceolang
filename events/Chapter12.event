@@ -120,7 +120,7 @@ GUARD_FE5_CHAPTER12 :?= false
             			CMP_WORD wCurrentPhase, Player
           			END_DEFINITION
 					EVENT _FlagBridge, _BridgeCollapse
-            			macroECCheckCoordinateRanges [17, 1], [37, 33]
+            			macroECCheckCoordinateRanges [17, 1], [35, 33]
             			CMP_WORD wCurrentPhase, Player
 						CMP_WORD aSelectedCharacterBuffer.Character, Kalf
           			END_DEFINITION
@@ -716,12 +716,12 @@ GUARD_FE5_CHAPTER12 :?= false
 				UNIT
 				
 				_RTThraciaSquadC ;
-					UNIT ThraciaArmoredSword, Enemy, [37, 24], [28, 23], Travant, [SteelSword], 15, False, [$00, $0F, $00, $80]
-					UNIT ThraciaArmoredSword, Enemy, [37, 24], [28, 22], Travant, [SteelSword], 15, False, [$00, $0F, $00, $80]
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [29, 22], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [29, 23], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [30, 22], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
-					UNIT ThraciaArmoredLance, Enemy, [37, 24], [30, 23], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredSword, Enemy, [35, 24], [28, 23], Travant, [SteelSword], 15, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredSword, Enemy, [35, 24], [28, 22], Travant, [SteelSword], 15, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [35, 24], [29, 22], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [35, 24], [29, 23], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [35, 24], [30, 22], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
+					UNIT ThraciaArmoredLance, Enemy, [35, 24], [30, 23], Travant, [SteelLance], 10, False, [$00, $0F, $00, $80]
 				UNIT
 				
 				_RTThraciaSquadD ;
