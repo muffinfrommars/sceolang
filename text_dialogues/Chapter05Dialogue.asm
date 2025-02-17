@@ -1053,7 +1053,7 @@ dpreceptionB
     
     .byte Right_Slot
     .word LoadPortrait
-    .word Eyvel_portrait ;Represents Queen Alfiona
+    .word AlfionaPortrait ;Represents Queen Alfiona
     .byte ScrollText
 
     .text "You know, seeing such fresh faces wearing these"

@@ -93,7 +93,7 @@ GUARD_FE5_CHAPTER12x :?= false
 
 					macroASMCRemoveUnit KalfHorse
 
-					LOAD_GROUP  eventChapter12xData._ch12xAlfiona
+					macroASMCLoadUnitGroup  eventChapter12xData._ch12xAlfiona
 					WAIT_MOVE
 					YIELD
 
@@ -115,6 +115,17 @@ GUARD_FE5_CHAPTER12x :?= false
 					YIELD
 
 					macroDialogue ch12xAlfiona2
+
+					MOVE_UNIT Alfiona, [20, 22], [18, 11], 1, None
+					YIELD_UNK
+
+					PAUSE_SKIPPABLE 64
+
+					MOVE_UNIT LeonsterMaid, [18, 21], [18, 12], 1, None
+					YIELD_UNK
+
+					WAIT_MOVE
+					YIELD
 
 
 				END2

@@ -490,7 +490,7 @@ d10Royal
 
     .byte Left_Slot
   	.word LoadPortrait
-    .word Eyvel_Portrait ;represents queen alfiona
+    .word AlfionaPortrait ;represents queen alfiona
 	.byte $09
     .byte ScrollText
 
@@ -541,7 +541,7 @@ d10Royal
 
     .byte Right_Slot
   	.word LoadPortrait
-    .word Eyvel_Portrait ;represents queen alfiona
+    .word AlfionaPortrait ;represents queen alfiona
     .byte ScrollText
 
     .text "Nonsense, Finn. You have served us faithfully."
@@ -575,7 +575,7 @@ d10Royal
     
     .byte Left_Slot
   	.word LoadPortrait
-    .word Eyvel_Portrait ;Queen Alfiona
+    .word AlfionaPortrait ;Queen Alfiona
     .byte ScrollText
 
     .text "Rise, Finn..."
@@ -632,7 +632,7 @@ d10Royal
     
     .byte Left_Slot
     .word LoadPortrait
-    .word Eyvel_Portrait ;queen alfiona
+    .word AlfionaPortrait ;queen alfiona
     .byte ScrollText
 
     .byte Right_Slot

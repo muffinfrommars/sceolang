@@ -76,7 +76,6 @@
 * = $38B300
 .logical lorom($38B300, 1)
     aKnightLordHorseStand    .binary "MapSprites/KnightLordHorse/KnightLordHorseStand"
-
 .here
 
 * = $51EEC

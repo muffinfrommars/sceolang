@@ -52,8 +52,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word MachaPortrait
 	.word Macha
 
-	.word HicksPortrait
-	.word Hicks
+	.word AlfionaPortrait
+	.word Alfiona
 
 	.word NannaPortrait
 	.word Nanna

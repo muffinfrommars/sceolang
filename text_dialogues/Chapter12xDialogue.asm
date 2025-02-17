@@ -5,7 +5,7 @@ ch12xAlfiona1
 
     .byte Right_slot
     .word LoadPortrait
-    .word Eyvel_portrait
+    .word AlfionaPortrait
     .text "The wind carries no word, and yet..."
     .byte newline
     .text "my heart already knows."
@@ -47,7 +47,7 @@ ch12xAlfiona2
 
     .byte left_slot
     .word LoadPortrait
-    .word Eyvel_Portrait
+    .word AlfionaPortrait
     .text "The wind has been cold for days now..."
     .byte NewLine
     .text "I do not think I shall feel warmth again until"
@@ -84,6 +84,24 @@ ch12xAlfiona2
     .text "*faint laugh*"
     .byte NewLine
     .text "That is not an answer."
+    .byte WaitForA
+    
+    .byte ScrollText
+    .text "But it is late, and I have kept you standing in"
+    .byte NewLine
+    .text "the cold long enough."
+    .byte NewLine
+    .text "Come, let us return inside."
+    .byte WaitForA
+
+    .byte right_slot
+    .byte ScrollText
+    .text "Shall I prepare some tea for you, Your Highness?"
+    .byte WaitForA
+
+    .byte left_slot
+    .byte ScrollText
+    .text "No,.. just a quiet room will do."
     .byte WaitForA
 
     .byte EndText

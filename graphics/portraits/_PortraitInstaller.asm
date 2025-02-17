@@ -239,7 +239,7 @@
 	aPortraitPaletteE9 .binary "../../custom/graphics/portraits/newportraits/weddingethlyn.mw3" ;Seemingly Unused Before
 	aPortraitPaletteEA .binary "../../custom/graphics/portraits/PortraitYOifey.pal" ;Seemingly Unused Before
 	aPortraitPaletteEB .binary "../../custom/graphics/portraits/PortraitHilda.pal" ;Seemingly Unused Before
-	aPortraitPaletteEC .binary "../../custom/graphics/portraits/PortraitArvis.pal" ;Seemingly Unused Before
+	aPortraitPaletteEC .binary "../../custom/graphics/portraits/newportraits/alfiona.mw3" ;Seemingly Unused Before
 	aPortraitPaletteED .binary "sprites/PortraitPaletteED.bin"
 	aPortraitPaletteEE .binary "sprites/PortraitPaletteEE.bin"
 	aPortraitPaletteEF .binary "sprites/PortraitPaletteEF.bin"
@@ -287,7 +287,7 @@
 	g4bppcPortraitEBE3F9 .binary "sprites/PortraitEBE3F9.4bpp.comp"
 	g4bppcPortraitEBE928 .binary "sprites/PortraitEBE928.4bpp.comp"
 	g4bppcPortraitEBEE1D .binary "../../custom/graphics/portraits/newportraits/selphina.bin.fe4" ;previously FE5 Selphina
-	g4bppcPortraitEBF2FF .binary "sprites/PortraitEBF2FF.4bpp.comp"
+	g4bppcPortraitAlfiona .binary "../../custom/graphics/portraits/newportraits/alfiona.bin.fe4"
 	g4bppcPortraitEBF862 .binary "sprites/PortraitEBF862.4bpp.comp"
 	g4bppcPortraitEBFD2F .binary "sprites/PortraitEBFD2F.4bpp.comp"
 

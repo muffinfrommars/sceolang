@@ -28,7 +28,7 @@ Chapter18ChapterData,$F8A3D6,$FB9ABD,$F69900,$FCB942,$FCF2A2,eventChapter18Data.
 Chapter19ChapterData,$F6E885,$FAEB21,$F69A00,$FCBCB0,$FCF2DD,eventChapter19Data._StartingPositions,$978040,None,$2,16,20,$2,$4,$4,$3,$4,$B,$4,$FAAE20,aTAPlains
 Chapter20ChapterData,$F7AC25,$FB8059,$F69B00,$FCC52D,$FCF31A,eventChapter20Data._StartingPositions,$978045,None,$2,12,16,$2,$4,$0,$3,$8,$B,$8,None,None
 Chapter21ChapterData,$F6E885,$FAEB21,$F69C00,$FCC8E6,$FCF497,eventChapter21Data._StartingPositions,None,None,$2,8,16,$2,$4,$0,$1,$1,$A,$1,None,aTAPlains
-Chapter21xChapterData,suntiles,suntileset,sunpalette,riverthraciaparta,None,eventChapter21xData._StartingPositions,None,None,None,8,8,$2,$4,$0,$1,$1,$A,$1,None,aTAPlains
+Chapter21xChapterData,suntiles,suntileset,sunpalette,riverthraciapartb,None,eventChapter21xData._StartingPositions,None,None,None,8,8,$2,$4,$0,$1,$1,$A,$1,None,aTAPlains
 Chapter22ChapterData,ttiles,ttileset,tpalette,leonstercastle,None,eventChapter22Data._StartingPositions,None,None,$2,8,16,$2,$4,$0,$1,$3,$B,$3,None,aTADungeon
 Chapter23ChapterData,ptiles,ptileset,ppalette,aedcutscene,$FCEBF5,None,None,None,None,10,20,$2,$4,$0,$1,$3D,$9,$1,None,aTAPlains
 Chapter24ChapterData,ctiles,ctileset,cpalette,village,$FCF570,eventChapter24Data._StartingPositions,None,None,$2,10,18,$2,$4,$4,%101,$5F,$9,$1,None,aTACastle
