@@ -34,6 +34,7 @@
     riverprelude     .binary "riverprelude.bin.fe4"
     riverthraciapartb    .binary "riverthraciapartb.bin.fe4"
     riverthraciapartbmapchanges    .binary "riverthraciapartbmapchanges.asm"
+    riverthraciapartbmapchangesbin    .binary "riverthraciapartbmapchanges.bin.fe4"
 
 .here
 
