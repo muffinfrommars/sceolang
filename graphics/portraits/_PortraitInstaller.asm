@@ -74,7 +74,7 @@
 	aPortraitPalette44 .binary "sprites/PortraitPalette44.bin"
 	aPortraitPalette45 .binary "../../custom/graphics/portraits/newportraits/knight_niezna.mw3" ;Seemingly Unused Before
 	aPortraitPalette46 .binary "../../custom/graphics/portraits/newportraits/flasuban_pal.bin" ;Seemingly Unused Before
-	aPortraitPalette47 .binary "../../custom/graphics/portraits/PortraitDew.pal" ;Seemingly Unused Before
+	aPortraitPalette47 .binary "../../custom/graphics/portraits/newportraits/knight_johan.mw3" ;Seemingly Unused Before
 	aPortraitPalette48 .binary "../../custom/graphics/portraits/PortraitAlec.pal" ;Seemingly Unused Before
 	aPortraitPalette49 .binary "../../custom/graphics/portraits/PortraitNaoise.pal" ;Seemingly Unused Before
 	aPortraitPalette4A .binary "../../custom/graphics/portraits/PortraitAyra.pal" ;Seemingly Unused Before
@@ -100,7 +100,7 @@
 	aPortraitPalette5E .binary "sprites/PortraitPalette5E.bin"
 	aPortraitPalette5F .binary "sprites/PortraitPalette5F.bin"
 	aPortraitPalette60 .binary "../../custom/graphics/portraits/PortraitArden.pal"
-	aPortraitPalette61 .binary "sprites/PortraitPalette61.bin"
+	aPortraitPalette61 .binary "sprites/PortraitPalette61.bin" ; previously Seil now unused
 	aPortraitPalette62 .binary "sprites/PortraitPalette62.bin"
 	aPortraitPalette63 .binary "sprites/PortraitPalette63.bin"
 	aPortraitPalette64 .binary "sprites/PortraitPalette64.bin"
@@ -374,11 +374,11 @@
 
 	g4bppcPortraitEE8071 .binary "sprites/PortraitEE8071.4bpp.comp"
 	g4bppcPortraitEllie .binary "../../custom/graphics/portraits/newportraits/knight_ellie.bin.fe4" ; formerly g4bppcPortraitEE84E4 - Jabal
-	g4bppcPortraitEE89F5 .binary "sprites/PortraitEE89F5.4bpp.comp"
+	g4bppcPortraitJohan .binary "../../custom/graphics/portraits/newportraits/knight_johan.bin.fe4" ; g4bppcPortraitEE89F5 Seil
 	g4bppcPortraitEE8ED4 .binary "sprites/PortraitEE8ED4.4bpp.comp"
 	g4bppcPortraitEE9378 .binary "sprites/PortraitEE9378.4bpp.comp"
 	g4bppcPortraitEE9840 .binary "sprites/PortraitEE9840.4bpp.comp"
-	g4bppcPortraitEE9D0E .binary "sprites/PortraitEE9D0E.4bpp.comp"
+	g4bppcPortraitEE9D0E .binary "sprites/PortraitEE9D0E.4bpp.comp"; 
 	g4bppcPortraitRaydrik .binary "../../custom/graphics/portraits/newportraits/youngraydrik.bin.fe4"
 	g4bppcPortraitAlec .binary "../../custom/graphics/portraits/PortraitAlec.4bpp.fe4" ; formerly g4bppcPortraitEEA74E - Brook and Baldach
 	g4bppcPortraitNaoise .binary "../../custom/graphics/portraits/PortraitNaoise.4bpp.fe4" ; formerly g4bppcPortraitEEAC11 - Thracia 776 Blume

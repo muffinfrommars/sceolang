@@ -114,7 +114,7 @@ PaulusPortrait,g4bppcPortraitEE8071,$D2
 PalmanPortrait,g4bppcPortraitEE8071,$D3
 FrankPortrait,g4bppcPortraitEE8071,$D4
 JabalPortrait,g4bppcPortraitSigurd,$60 ; g4bppcPortraitEE84E4
-SeilPortrait,g4bppcPortraitEE89F5,$61
+JohanPortrait,g4bppcPortraitJohan,$47 ; g4bppcPortraitEE89F5 61
 ColhoPortrait,g4bppcPortraitEE8ED4,$62
 GomezPortrait,g4bppcPortraitEE9378,$63
 BucksSrPortrait,g4bppcPortraitBrigand,$23 ;formerly BucksPortrait 64 - NEED TO FIX TODO TODO

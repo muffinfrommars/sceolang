@@ -235,8 +235,8 @@ aActiveSpeakerAssociationTable ; 8C/C842
 	.word CodhaPortrait
 	.word Codha
 
-	.word SeilPortrait
-	.word Seil
+	.word JohanPortrait ;formerly SeilPortrait
+	.word LeonsterKnight10
 
 	.word SchuperMarlonPortrait		;<<
 	.word Schuper
